@@ -22,3 +22,15 @@ yarn dev
 ## How to use
 
 [NextJS with Styletron](https://www.styletron.org/getting-started/#with-nextjs)
+
+## Build for production
+
+I'm deploying to Apache, so it's a static site:
+
+```bash
+npm run build
+npm run export
+```
+
+this compiles the static files to `/out` directory
+publish the contents to your webserver
