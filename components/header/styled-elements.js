@@ -1,34 +1,67 @@
-import { styled } from "styletron-react";
-import Link from "next/link";
+import { styled, withStyle } from 'styletron-react';
+import { THEME, A } from '../../styles/theme';
 
-// statically styled component
-// export const StyledLink = styled("a", {
-//   cursor: "pointer",
-//   marginRight: "15px"
-// });
+const { fonts, colors } = THEME;
 
-export const Heading = styled("header", {
-  background: "url(/static/images/txture.png) #222",
-  background: "url(/static/images/dark_stripes.png) #222",
-  position: "relative",
-  padding: "2em",
-  width: "100%",
-  minHeight: "100px",
-  color: "#ddd",
-  borderBottom: "1px solid #ccc"
-  // @include boxshadow(0 4px 8px rgba(0,0,0,0.3));
+export const Heading = styled('header', {
+  background: 'url(/static/images/txture.png) #222',
+  background: 'url(/static/images/dark_stripes.png) #222',
+  position: 'relative',
+  padding: '2.125em 0',
+  width: '100%',
+  minHeight: '100px',
+  color: '#ddd',
+  borderBottom: '1px solid #ccc',
+  boxShadow: '0 4px 8px rgba(0,0,0,0.3)'
 });
 
-export const Group = styled("hgroup", {
-  textShadow: "1px 1px 0 #000",
-  // @include transition(all, 0.5s);
-  ":hover": {
-    textShadow: "0 0 4px #555"
+export const Group = styled('hgroup', {
+  textShadow: '1px 1px 0 #000',
+  transition: 'all, 0.5s',
+  ':hover': {
+    textShadow: '0 0 4px #555'
   }
 });
 
-export const StyledLink = styled("span", {
-  padding: "0 25px 0 0",
-  marginRight: "25px",
-  color: "red"
+export const Title = styled('h1', {
+  ...fonts.heading,
+  fontSize: THEME.fontSize.display
+});
+
+export const StyledLink = withStyle(A, {
+  ':hover': {
+    textDecoration: 'none'
+  },
+  ':focus': {
+    textDecoration: 'none'
+  }
+});
+
+export const LinkSpan = styled('span', {
+  padding: '0',
+  marginRight: '25px',
+  position: 'relative',
+  textDecoration: 'none',
+  ':hover': {
+    textDecoration: 'none'
+  },
+  ':focus': {
+    textDecoration: 'none'
+  },
+  ':after': {
+    content: '""',
+    position: 'absolute',
+    width: '100%',
+    height: '1px',
+    bottom: '0',
+    left: '0',
+    backgroundColor: 'currentColor',
+    visibility: 'hidden',
+    transform: 'scaleX(0)',
+    transition: 'all 0.25s ease-in-out'
+  },
+  ':hover:after': {
+    visibility: 'visible',
+    transform: 'scaleX(1)'
+  }
 });

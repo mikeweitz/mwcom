@@ -1,13 +1,8 @@
-import { styled } from "styletron-react";
+import { styled } from 'styletron-react';
+import { THEME } from '../../styles/theme';
 
-// statically styled component
-export const Title = styled("h1", {
-  color: "red",
-  fontSize: "82px"
+const { fonts, colors } = THEME;
+
+export const Main = styled('main', {
+  ...fonts.body
 });
-
-// dynamically styled component
-export const SubTitle = styled("h2", ({ $size }) => ({
-  color: "blue",
-  fontSize: `${$size}px`
-}));

@@ -1,29 +1,25 @@
-import * as S from "./styled-elements";
-import Link from "next/link";
+import * as S from './styled-elements';
+import { Container } from '../../styles/grid';
 
 const Header = () => (
   <S.Heading id="header">
-    <S.Group>
-      <h1>Michael Weitzman</h1>
-    </S.Group>
+    <Container>
+      <S.Group>
+        <S.Title>Michael Weitzman</S.Title>
+      </S.Group>
 
-    <address>
-      <Link href="#">
-        <a>
-          <S.StyledLink>weitzly@gmail.com</S.StyledLink>
-        </a>
-      </Link>
-      <Link href="https://github.com/mikeweitz">
-        <a>
-          <S.StyledLink>github</S.StyledLink>
-        </a>
-      </Link>
-      <Link href="http://www.linkedin.com/in/mikeweitzman/">
-        <a>
-          <S.StyledLink>Linkedin</S.StyledLink>
-        </a>
-      </Link>
-    </address>
+      <address>
+        <S.StyledLink href="#">
+          <S.LinkSpan>weitzly@gmail.com</S.LinkSpan>
+        </S.StyledLink>
+        <S.StyledLink href="https://github.com/mikeweitz">
+          <S.LinkSpan>github</S.LinkSpan>
+        </S.StyledLink>
+        <S.StyledLink href="http://www.linkedin.com/in/mikeweitzman/">
+          <S.LinkSpan>Linkedin</S.LinkSpan>
+        </S.StyledLink>
+      </address>
+    </Container>
   </S.Heading>
 );
 

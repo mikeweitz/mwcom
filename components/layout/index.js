@@ -1,14 +1,14 @@
-import Header from "../header";
+import Header from '../header';
+import Footer from '../footer';
 
-import * as S from "./styled-elements";
+import * as S from './styled-elements';
 
 const Layout = props => (
-  <div>
+  <S.Main>
     <Header />
-    <S.Title>Title</S.Title>
-    <S.SubTitle>Title</S.SubTitle>
     {props.children}
-  </div>
+    <Footer />
+  </S.Main>
 );
 
 export default Layout;

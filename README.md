@@ -1,27 +1,15 @@
-# Example app with styletron
+# Weitzly.com
 
-## How to use
+Simple resume site for me.
 
-### Using `create-next-app`
+## Dependencies
 
-Execute [`create-next-app`](https://github.com/segmentio/create-next-app) with [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) or [npx](https://github.com/zkat/npx#readme) to bootstrap the example:
+[NextJS](https://nextjs.org/)
+[Styletron](https://github.com/rtsao/styletron).
 
-```bash
-npx create-next-app --example with-styletron with-styletron-app
-# or
-yarn create next-app --example with-styletron with-styletron-app
-```
+## Install
 
-### Download manually
-
-Download the example:
-
-```bash
-curl https://codeload.github.com/zeit/next.js/tar.gz/canary | tar -xz --strip=2 next.js-canary/examples/with-styletron
-cd with-styletron
-```
-
-Install it and run:
+clone the repo and run
 
 ```bash
 npm install
@@ -31,14 +19,6 @@ yarn
 yarn dev
 ```
 
-Deploy it to the cloud with [now](https://zeit.co/now) ([download](https://zeit.co/download))
+## How to use
 
-```bash
-now
-```
-
-## The idea behind the example
-
-This example features how yo use a different styling solution than [styled-jsx](https://github.com/zeit/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [styletron](https://github.com/rtsao/styletron).
-
-For this purpose we are extending the `<Document />` and injecting the server side rendered styles into the `<head>`.
+[NextJS with Styletron](https://www.styletron.org/getting-started/#with-nextjs)
