@@ -16,7 +16,10 @@ export const Footer = styled('footer', {
   minHeight: '80px',
   color: '#ddd',
   boxShadow: '0 -4px 8px rgba(0,0,0,0.3)',
-  borderTop: '1px solid #ccc'
+  borderTop: '1px solid #ccc',
+  [print]: {
+    display: 'none'
+  }
 });
 
 export const ButtonPrint = styled('button', {

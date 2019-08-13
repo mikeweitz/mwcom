@@ -1,26 +1,36 @@
 import * as S from './styled-elements';
 import { Container } from '../../styles/grid';
 
-const Header = () => (
-  <S.Heading id="header">
-    <Container>
-      <S.Group>
-        <S.Title>Michael Weitzman</S.Title>
-      </S.Group>
+import { copy } from '../../data';
 
-      <address>
-        <S.StyledLink href="#">
-          <S.LinkSpan>weitzly@gmail.com</S.LinkSpan>
-        </S.StyledLink>
-        <S.StyledLink href="https://github.com/mikeweitz">
-          <S.LinkSpan>github</S.LinkSpan>
-        </S.StyledLink>
-        <S.StyledLink href="http://www.linkedin.com/in/mikeweitzman/">
-          <S.LinkSpan>Linkedin</S.LinkSpan>
-        </S.StyledLink>
-      </address>
-    </Container>
-  </S.Heading>
-);
+const Header = () => {
+  const {
+    header: { title, email, github, linkedin }
+  } = copy;
+  return (
+    <S.Heading id="header">
+      <Container>
+        <S.Group>
+          <S.Title>{title}</S.Title>
+        </S.Group>
+
+        <address>
+          <S.StyledLink href="#">
+            <S.LinkSpan>
+              {email.address}
+              {email.domain}
+            </S.LinkSpan>
+          </S.StyledLink>
+          <S.StyledLink href={github.url}>
+            <S.LinkSpan>{github.text}</S.LinkSpan>
+          </S.StyledLink>
+          <S.StyledLink href={linkedin.url}>
+            <S.LinkSpan>{linkedin.text}</S.LinkSpan>
+          </S.StyledLink>
+        </address>
+      </Container>
+    </S.Heading>
+  );
+};
 
 export default Header;

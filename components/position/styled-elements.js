@@ -20,17 +20,6 @@ export const Position = styled('article', {
       marginTop: '4em'
     }
   },
-  [print]: {
-    display: 'inline-block',
-    width: '50%',
-    verticalAlign: 'top',
-    paddingRight: '4em',
-    marginTop: '0',
-    marginBottom: '4em',
-    ':first-of-type': {
-      marginTop: '0'
-    }
-  },
   ':after': {
     position: 'absolute',
     content: '""',
@@ -39,6 +28,21 @@ export const Position = styled('article', {
     backgroundColor: '#ccc',
     left: '0',
     bottom: '0'
+  },
+  [print]: {
+    display: 'inline-block',
+    width: '50%',
+    verticalAlign: 'top',
+    paddingRight: '4em',
+    paddingTop: '0',
+    marginTop: '0',
+    marginBottom: '4em',
+    ':first-of-type': {
+      marginTop: '0'
+    },
+    ':after': {
+      width: '80%'
+    }
   }
 });
 
@@ -93,6 +97,6 @@ export const Subhead = styled('strong', {
 
 export const List = styled('ul', {
   [print]: {
-    width: '66.667%'
+    width: '75%'
   }
 });

@@ -18,6 +18,7 @@ export const SkillHeading = styled('header', {
   textTransform: 'uppercase',
   fontWeight: '700'
 });
+
 export const SkillList = styled('ul', {
   margin: '0 0',
   padding: '0 0'

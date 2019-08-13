@@ -21,7 +21,7 @@ export const Article = withStyle(A, ({ $hasLink }) => ({
   [print]: {
     display: 'inline-block',
     border: 'none',
-    padding: '0 3em 0 0',
+    padding: '0 96px 24px 0',
     width: '50%',
     verticalAlign: 'top'
   }
