@@ -119,7 +119,7 @@ body {
   font-family: 'Metrophobic', sans-serif;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-
+  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
 }

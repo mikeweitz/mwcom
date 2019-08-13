@@ -32,6 +32,7 @@ const THEME = {
   },
   fontSize: {
     body: '16px',
+    position: '17.5px',
     display: '38.5px'
   },
   sizing: ['2px', '6px', '10px', '16px', '24px']

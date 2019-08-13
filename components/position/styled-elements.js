@@ -1,4 +1,6 @@
 import { styled } from 'styletron-react';
+import { THEME } from '../../styles/theme';
+const { fontSize } = THEME;
 
 // statically styled component
 export const Position = styled('article', {
@@ -11,12 +13,17 @@ export const Position = styled('article', {
 export const Role = styled('header', ({ $hover }) => ({
   textTransform: 'uppercase',
   fontSize: '1.25em',
+  lineHeight: '1em',
   fontWeight: '700',
   position: 'relative',
   overflow: 'hidden',
   display: 'inline-block',
   textShadow: '1px 1px 4px #fff',
   transition: 'all 0.25s',
+  paddingTop: '0.25em',
+  paddingBottom: '0.25em',
+  paddingLeft: '0',
+  paddingRight: '0.5em',
   ':after': {
     content: '""',
     width: '100%',
@@ -29,12 +36,17 @@ export const Role = styled('header', ({ $hover }) => ({
   },
   ...($hover
     ? {
-        padding: '0 0.5em'
+        paddingLeft: '1em',
+        paddingRight: '1em'
       }
     : {})
 }));
 
-export const Organization = styled('h4', {});
+export const Organization = styled('h4', {
+  fontSize: fontSize.position,
+  margin: '0.5em 0 0.75em',
+  lineHeight: '20px'
+});
 
 export const Dates = styled('div', {
   fontStyle: 'oblique'
@@ -42,6 +54,7 @@ export const Dates = styled('div', {
 
 export const Subhead = styled('strong', {
   display: 'block',
-  margin: '1em 0 0',
+  lineHeight: '1.5em',
+  margin: '1.5em 0 0.25em',
   fontSize: '0.8em'
 });

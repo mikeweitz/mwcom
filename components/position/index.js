@@ -23,9 +23,11 @@ class Position extends Component {
   handleMouseEnter = () => {
     this.setState({ hover: true });
   };
+
   handleMouseLeave = () => {
     this.setState({ hover: false });
   };
+
   render() {
     const { role, company, dates, responsibilities, skills } = this.props;
     const { hover } = this.state;
