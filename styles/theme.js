@@ -6,7 +6,8 @@ const THEME = {
     tabletLarge: '@media screen and (min-width: 980px)',
     desk: '@media screen and (min-width: 1025px)',
     wide: '@media screen and (min-width: 1220px)',
-    max: '@media screen and (min-width: 1440px)'
+    max: '@media screen and (min-width: 1440px)',
+    print: '@media print'
   },
   colors: {
     primary: ['#276EF1', '#174EB6', '#9CBCF8'],

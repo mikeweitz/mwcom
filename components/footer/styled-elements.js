@@ -1,15 +1,21 @@
 import { styled } from 'styletron-react';
+import { THEME } from '../../styles/theme';
+
+const {
+  breakpoints: { print, tablet, tabletLarge, desk, wide }
+} = THEME;
 
 export const Footer = styled('footer', {
   position: 'relative',
   overflow: 'hidden',
   background: 'url(/static/images/txture.png) #222',
   background: 'url(/static/images/dark_stripes.png) #222',
-  padding: '2rem 0',
+  padding: '4rem 0',
+  marginTop: '3em',
   width: '100%',
   minHeight: '80px',
   color: '#ddd',
-  // @include boxshadow(0 -4px 8px rgba(0,0,0,0.3));
+  boxShadow: '0 -4px 8px rgba(0,0,0,0.3)',
   borderTop: '1px solid #ccc'
 });
 
@@ -48,6 +54,9 @@ export const ButtonPrint = styled('button', {
       left: '10px',
       top: '7px'
     }
+  },
+  [print]: {
+    display: 'none'
   }
 });
 
@@ -83,5 +92,8 @@ export const ButtonTop = styled('button', {
   cursor: 'pointer',
   ':hover': {
     backgroundColor: '#eee'
+  },
+  [print]: {
+    display: 'none'
   }
 });

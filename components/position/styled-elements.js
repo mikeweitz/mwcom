@@ -2,12 +2,44 @@ import { styled } from 'styletron-react';
 import { THEME } from '../../styles/theme';
 const { fontSize } = THEME;
 
+const {
+  breakpoints: { tablet, tabletLarge, desk, wide, print }
+} = THEME;
+
 // statically styled component
 export const Position = styled('article', {
-  margin: '2em 0 2em',
-  paddingBottom: '1.5em',
-  borderBottom: '1px solid #ccc',
-  justifySelf: 'center'
+  marginTop: '4em',
+  paddingBottom: '4em',
+  position: 'relative',
+  justifySelf: 'center',
+  ':first-of-type': {
+    marginTop: '2em'
+  },
+  [tablet]: {
+    ':first-of-type': {
+      marginTop: '4em'
+    }
+  },
+  [print]: {
+    display: 'inline-block',
+    width: '50%',
+    verticalAlign: 'top',
+    paddingRight: '4em',
+    marginTop: '0',
+    marginBottom: '4em',
+    ':first-of-type': {
+      marginTop: '0'
+    }
+  },
+  ':after': {
+    position: 'absolute',
+    content: '""',
+    height: '1px',
+    width: '100%',
+    backgroundColor: '#ccc',
+    left: '0',
+    bottom: '0'
+  }
 });
 
 export const Role = styled('header', ({ $hover }) => ({
@@ -23,7 +55,7 @@ export const Role = styled('header', ({ $hover }) => ({
   paddingTop: '0.25em',
   paddingBottom: '0.25em',
   paddingLeft: '0',
-  paddingRight: '0.5em',
+  paddingRight: '2em',
   ':after': {
     content: '""',
     width: '100%',
@@ -57,4 +89,10 @@ export const Subhead = styled('strong', {
   lineHeight: '1.5em',
   margin: '1.5em 0 0.25em',
   fontSize: '0.8em'
+});
+
+export const List = styled('ul', {
+  [print]: {
+    width: '66.667%'
+  }
 });

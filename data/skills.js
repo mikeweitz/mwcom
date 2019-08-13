@@ -1,30 +1,31 @@
 const skills = [
   {
-    heading: "Core",
+    heading: 'Core',
     skills: [
-      "React",
-      "Styletron",
-      "JavaScript / ES6",
-      "Node",
-      "Webpack",
-      "Gulp",
-      "Git",
-      "HTML",
-      "CSS / SCSS",
-      "Vue"
+      'React',
+      'Styletron',
+      'JavaScript / ES6',
+      'Node',
+      'Webpack',
+      'Gulp',
+      'Git',
+      'HTML',
+      'CSS / SCSS',
+      'Vue'
     ]
   },
   {
-    heading: "Electives",
+    heading: 'Electives',
     skills: [
-      "Dependency Management (Yarn / NPM)",
-      "Webpack / Babel",
-      "AWS (S3, CloudFront, Lambda, Route 53)",
-      "Wordpress VIP",
-      "FusionJS",
-      "NextJS",
-      "Shopify",
-      "Angular"
+      'Dependency Management (Yarn / NPM)',
+      'Webpack / Babel',
+      'AWS (S3, CloudFront, Lambda, Route 53)',
+      'Wordpress VIP',
+      'FusionJS',
+      'NextJS',
+      'Shopify',
+      'Docker',
+      'Angular'
     ]
   }
 ];

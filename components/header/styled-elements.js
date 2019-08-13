@@ -1,18 +1,27 @@
 import { styled, withStyle } from 'styletron-react';
 import { THEME, A } from '../../styles/theme';
-
-const { fonts, colors } = THEME;
+const {
+  fonts,
+  fontSize,
+  colors,
+  breakpoints: { print }
+} = THEME;
 
 export const Heading = styled('header', {
   background: 'url(/static/images/txture.png) #222',
   background: 'url(/static/images/dark_stripes.png) #222',
   position: 'relative',
-  padding: '2.125em 0',
+  paddingTop: '2.125em',
+  paddingBottom: '2.125em',
   width: '100%',
   minHeight: '100px',
   color: '#ddd',
   borderBottom: '1px solid #ccc',
-  boxShadow: '0 4px 8px rgba(0,0,0,0.3)'
+  boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
+  [print]: {
+    borderBottom: 'none',
+    paddingTop: '5em'
+  }
 });
 
 export const Group = styled('hgroup', {
@@ -25,7 +34,10 @@ export const Group = styled('hgroup', {
 
 export const Title = styled('h1', {
   ...fonts.heading,
-  fontSize: THEME.fontSize.display
+  fontSize: fontSize.display,
+  [print]: {
+    paddingTop: '2em'
+  }
 });
 
 export const StyledLink = withStyle(A, {

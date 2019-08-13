@@ -1,6 +1,18 @@
 import { styled } from 'styletron-react';
+import { THEME } from '../../styles/theme';
 
-export const SkillGroup = styled('div', {});
+const {
+  breakpoints: { print }
+} = THEME;
+
+export const SkillGroup = styled('div', {
+  [print]: {
+    display: 'inline-block',
+    width: '50%',
+    paddingRight: '3em',
+    verticalAlign: 'top'
+  }
+});
 
 export const SkillHeading = styled('header', {
   textTransform: 'uppercase',

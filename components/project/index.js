@@ -38,8 +38,7 @@ class Project extends Component {
         $hasLink={!!link.url}
       >
         <S.Strong>{title}</S.Strong>
-        <br />
-        {subtitle && subtitle}
+        <S.Subtitle>{subtitle}</S.Subtitle>
         {summary.map((paragraph, i) => (
           <S.P key={`${slug}-p-${i}`}>{paragraph}</S.P>
         ))}

@@ -29,7 +29,7 @@ const Home = () => {
         </Grid>
       </Container>
 
-      <Container>
+      <Container style={{ paddingTop: '48px' }} $pageBreak>
         <GridLinks>
           {skills.map((skillset, i) => {
             return <SkillGroup key={`skillset-${i}`} {...skillset} />;
@@ -37,7 +37,7 @@ const Home = () => {
         </GridLinks>
       </Container>
 
-      <Container>
+      <Container style={{ paddingTop: '48px' }}>
         <GridLinks>
           {projects.map((project, i) => {
             return <Project key={`project-${i}`} {...project} />;

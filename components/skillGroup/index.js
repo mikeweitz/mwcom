@@ -12,7 +12,7 @@ class SkillGroup extends Component {
   render() {
     const { heading, skills } = this.props;
     return (
-      <S.SkillGroup>
+      <S.SkillGroup className="skillset">
         <S.SkillHeading>{heading}</S.SkillHeading>
         <S.SkillList>
           {skills.map((skill, i) => (

@@ -45,12 +45,12 @@ class Position extends Component {
         </S.Dates>
 
         <S.Subhead>Key attributes and responsibilities</S.Subhead>
-        <ul>
+        <S.List>
           {responsibilities.length > 0 &&
             responsibilities.map((item, i) => (
               <li key={`role-actions_${i}`}>{item}</li>
             ))}
-        </ul>
+        </S.List>
         {skills && skills.length > 0 && (
           <>
             <S.Subhead>Primary skill utilization</S.Subhead>

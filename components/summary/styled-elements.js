@@ -1,6 +1,15 @@
 import { styled } from 'styletron-react';
-
+import { THEME } from '../../styles/theme';
+const {
+  breakpoints: { print }
+} = THEME;
 export const Summary = styled('section', {
-  margin: '2.75em 0 1.25em',
-  fontSize: '1.25em'
+  fontSize: '1.25em',
+  marginTop: '64px',
+  marginBottom: '18px',
+  width: '66.667%',
+  [print]: {
+    marginBottom: '32px',
+    width: '66.667%'
+  }
 });

@@ -13,6 +13,7 @@ class Footer extends Component {
   state = {
     hoverPrint: false
   };
+
   onPrint = e => {
     return window.print();
   };
