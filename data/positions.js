@@ -28,11 +28,11 @@ const positions = [
       end: 'Aug 2018'
     },
     responsibilities: [
-      'Scope and scaffold projects',
-      'Provide stake holders with implementation plans and estimates for project tasks',
-      'Work closely with account, production, and QA teams to ensure projects are built to spec',
+      'Scope and scaffold projects.',
+      'Provide stake-holders with implementation plans and estimates for project tasks.',
+      'Work closely with account, production, technology and QA teams to ensure projects are built to spec.',
       'Scaffold front-end projects including documentation of requirements, dependencies, and work-flows.',
-      'Provide guidances to other developers on methodologies and preferred practices, and general requirements.'
+      'Provide guidance to other developers on methodologies and preferred practices, and general requirements.'
     ],
     skills: [
       'JavaScript',
@@ -50,21 +50,20 @@ const positions = [
       end: 'May 2018'
     },
     responsibilities: [
-      'Define and implement front end deliverables for client projects',
-      'Provide level-of-effort estimates for project timelines',
-      'Work closely with account and production teams to ensure projects are built to spec',
-      'Scaffold front-end projects including READMEs, work-flows, and manage Repos',
-      'Provide guidances to other developers on preferred methodologies'
+      'Define and implement front end deliverables for client projects.',
+      'Provide level-of-effort estimates for project timelines.',
+      'Work closely with production teams to ensure projects are built to spec.',
+      'Scaffold front-end projects including READMEs, work-flows, and manage Repos.'
     ],
     skills: [
       'JavaScript',
       'Node',
       'jQuery',
+      'CSS Animations',
       'HTML Templating',
       'PHP',
       'Git',
-      'Gulp',
-      'CSS Animations'
+      'Gulp'
     ]
   },
   {
@@ -95,7 +94,7 @@ const positions = [
       end: 'Jul 2014'
     },
     responsibilities: [
-      'Primary point of contact for all development and html technology needs for bpg.',
+      'Primary point of contact for all development needs for bpg.',
       'Provide oversight and feedback to internal and out-of-house developers.',
       'Set architecture and development scope for html-driven projects.',
       'Work closely with account team in responding to client requests.'

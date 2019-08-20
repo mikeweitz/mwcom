@@ -3,6 +3,7 @@ const skills = [
     heading: 'Core',
     skills: [
       'React',
+      'NextJS',
       'Styletron',
       'JavaScript / ES6',
       'Node',
@@ -10,8 +11,7 @@ const skills = [
       'Gulp',
       'Git',
       'HTML',
-      'CSS / SCSS',
-      'Vue'
+      'CSS / SCSS'
     ]
   },
   {
@@ -22,7 +22,7 @@ const skills = [
       'AWS (S3, CloudFront, Lambda, Route 53)',
       'Wordpress VIP',
       'FusionJS',
-      'NextJS',
+      'Vue',
       'Shopify',
       'Docker',
       'Angular'
