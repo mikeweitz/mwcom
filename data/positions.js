@@ -7,8 +7,9 @@ const positions = [
       end: 'Aug, 2019'
     },
     responsibilities: [
-      'Build marketing and on-boarding materials for core business interests for Uber and Facebook.',
-      'Follow opinionated, enterprise quality coding standards on client platforms including Wordpress VIP, and FusionJS.',
+      'Build large-scale, highly interactive component driven websites for major clients including Uber and Facebook.',
+      'Follow opinionated, enterprise-quality coding standards on client platforms including Wordpress VIP, and FusionJS.',
+      'Integrate with various back-end platforms including Contentful, Wordpress VIP, and Chameleon.',
       'Deliver above-quality code on time.'
     ],
     skills: [
