@@ -1,14 +1,11 @@
-import * as S from "./styled-elements";
+import * as S from './styled-elements';
+import { copy } from '../../data';
 
 const Summary = () => {
+  const { summary } = copy;
   return (
     <S.Summary>
-      <p>
-        Front-end architect with extensive tooling experience, attention to
-        detail, and commitment to delivering the best in-browser experiences. I
-        write Modular JS (ES6), semantic markup, and follow BEM and SMACSS.
-        practices for CSS.
-      </p>
+      <p>{summary}</p>
     </S.Summary>
   );
 };

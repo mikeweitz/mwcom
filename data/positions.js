@@ -126,7 +126,7 @@ const positions = [
       'Ran the official web sites for recording artists Foo Fighters, Beastie Boys, and Jimmy Eat World.',
       'Manage day-to-day interaction with fans on official message boards.',
       'Design, build, and ship artist newsletters.',
-      "Report directly to artist's management team."
+      'Report directly to artist’s management team.'
     ]
   }
 ];

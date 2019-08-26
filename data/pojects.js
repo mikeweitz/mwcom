@@ -64,16 +64,29 @@ const projects = [
       'Gulp Middleware vai Express'
     ]
   },
+  // {
+  //   title: 'Tacobell.com',
+  //   link: {
+  //     url: 'http://ta.co'
+  //   },
+  //   summary: [
+  //     "Bringing mobile ordering outside the app store.  My team was tasked with providing an integrated mobile and desktop experiences that leveraged existing APIs and services build for Taco Bell's mobile app. My primary responsibility during construction was a feature rich checkout process for guest and registered users, user conversion, and a side chained interface for reloading prepaid cards during checkout.",
+  //     'This site has since been proted to a new platform so much of the original work has been been written again.'
+  //   ],
+  //   stack: ['HTML', 'BackBone', 'SCSS']
+  // },
   {
-    title: 'Tacobell.com',
+    title: 'Uber Marketplace',
     link: {
-      url: 'http://ta.co'
+      url: 'https://marketplace.uber.com'
     },
     summary: [
-      "Bringing mobile ordering outside the app store.  My team was tasked with providing an integrated mobile and desktop experiences that leveraged existing APIs and services build for Taco Bell's mobile app. My primary responsibility during construction was a feature rich checkout process for guest and registered users, user conversion, and a side chained interface for reloading prepaid cards during checkout.",
-      'This site has since been proted to a new platform so much of the original work has been been written again.'
+      'Model out site structure and content using the agency’s Contentful account, and eventually migrate to Uber’s account.',
+      'Build out fully functional React components for the Marketplace site based on third-party designs.',
+      'Provide technical feedback on design files for ease of implementation, with suggested revisions.',
+      'Oversee development of other components, review pull requests, and manage repository branches and tags.'
     ],
-    stack: ['HTML', 'BackBone', 'SCSS']
+    stack: ['React', 'FusionJS', 'Styletron', 'Contentful']
   },
   {
     title: 'Eminem: Revival',

@@ -24,7 +24,6 @@ class Project extends Component {
 
   constructor() {
     super();
-    console.log('project props', this.props);
   }
 
   render() {
