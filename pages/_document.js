@@ -22,7 +22,6 @@ class MyDocument extends Document {
           <meta name="author" lang="en" content="MWeitzman" />
           <meta name="robots" content="Index,Follow" />
           <meta name="title" content="Michael Weitzman" />
-          <title>Michael Weitzman</title>
           <meta
             name="description"
             content="Resume for front end engineer Michael Weitzman"

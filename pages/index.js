@@ -1,6 +1,7 @@
 // DOCUMENTATION: http://styletron.org
 
 import { styled, useStyletron } from 'styletron-react';
+import Head from 'next/head';
 import Layout from '../components/layout';
 
 import Summary from '../components/summary';
@@ -16,35 +17,40 @@ const Home = () => {
   // an alternative hook based API
   const [css] = useStyletron();
   return (
-    <Layout>
-      <Container>
-        <Summary />
-      </Container>
+    <>
+      <Head>
+        <title>Michael Weitzman</title>
+      </Head>
+      <Layout>
+        <Container>
+          <Summary />
+        </Container>
 
-      <Container>
-        <Grid>
-          {positions.map((position, i) => {
-            return <Position key={`position-${i}`} {...position} />;
-          })}
-        </Grid>
-      </Container>
+        <Container>
+          <Grid>
+            {positions.map((position, i) => {
+              return <Position key={`position-${i}`} {...position} />;
+            })}
+          </Grid>
+        </Container>
 
-      <Container style={{ paddingTop: '48px' }} $pageBreak>
-        <GridLinks>
-          {skills.map((skillset, i) => {
-            return <SkillGroup key={`skillset-${i}`} {...skillset} />;
-          })}
-        </GridLinks>
-      </Container>
+        <Container style={{ paddingTop: '48px' }} $pageBreak>
+          <GridLinks>
+            {skills.map((skillset, i) => {
+              return <SkillGroup key={`skillset-${i}`} {...skillset} />;
+            })}
+          </GridLinks>
+        </Container>
 
-      <Container style={{ paddingTop: '48px' }}>
-        <GridLinks>
-          {projects.map((project, i) => {
-            return <Project key={`project-${i}`} {...project} />;
-          })}
-        </GridLinks>
-      </Container>
-    </Layout>
+        <Container style={{ paddingTop: '48px' }}>
+          <GridLinks>
+            {projects.map((project, i) => {
+              return <Project key={`project-${i}`} {...project} />;
+            })}
+          </GridLinks>
+        </Container>
+      </Layout>
+    </>
   );
 };
 
