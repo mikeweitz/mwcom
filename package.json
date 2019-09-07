@@ -8,6 +8,7 @@
     "export": "next export"
   },
   "dependencies": {
+    "lodash": "^4.17.15",
     "next": "latest",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
@@ -17,7 +18,9 @@
     "styletron-react": "^5.0.1"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.3",
     "eslint": "^6.2.2",
+    "eslint-plugin-flowtype": "^4.3.0",
     "eslint-plugin-react": "^7.14.3"
   }
 }
