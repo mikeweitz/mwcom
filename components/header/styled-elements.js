@@ -3,51 +3,98 @@ import { THEME, A } from '../../styles/theme';
 const {
   fonts,
   fontSize,
+  easing: { easeOutCirc, easeOutQuart, easeOutExpo, easeInOutSine },
   colors,
-  breakpoints: { print }
+  breakpoints: { print },
 } = THEME;
 
-export const Heading = styled('header', {
+export const Heading = styled('header', ({ $scrolled }) => ({
   background: 'url(/static/images/txture.png) #222',
   background: 'url(/static/images/dark_stripes.png) #222',
-  position: 'relative',
-  paddingTop: '2.125em',
-  paddingBottom: '2.125em',
+  position: 'fixed',
+  top: '0',
+  left: '0',
+  overflow: 'hidden',
+  zIndex: '10',
+  paddingTop: $scrolled ? '1em' : '2.125em',
+  paddingBottom: $scrolled ? '1em' : '2.125em',
   width: '100%',
-  minHeight: '100px',
+  height: $scrolled ? '48px' : '162px',
   color: '#ddd',
-  borderBottom: '1px solid #ccc',
+  borderBottom: '1px solid rgba(255,255,255, 0.4)',
   boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
+  marginBottom: $scrolled ? '50px' : '168px',
+  transition: `all 1s ${easeOutCirc}`,
   [print]: {
+    minHeight: '150px',
+    position: 'static',
+    overflow: 'visible',
     borderBottom: 'none',
-    paddingTop: '5em'
-  }
-});
+    paddingTop: '5em',
+  },
+}));
+
+export const PageTop = styled('div', ({ $scrolled }) => ({
+  position: 'relative',
+  top: '0',
+  transform: $scrolled ? 'translateY(-150px)' : 'translateY(0)',
+  transitionProperty: 'all',
+  transitionDuration: '1s',
+  transitionTimingFunction: easeOutCirc,
+  transitionDelay: $scrolled ? '0' : '0.5s',
+  [print]: {
+    transform: 'none',
+  },
+}));
+
+export const PageScrolled = styled('div', ({ $scrolled }) => ({
+  position: 'relative',
+  display: 'flex',
+  justifyContent: 'flex-start',
+  alignItems: 'center',
+  top: '0',
+  transform: $scrolled ? 'translateY(-110px)' : 'translateY(110px)',
+  // transition: `all 0.3s ${easeOutCirc}`,
+  transitionProperty: 'all',
+  transitionDuration: $scrolled ? '1s' : '0.7s',
+  transitionTimingFunction: $scrolled ? easeOutExpo : easeInOutSine,
+  transitionDelay: $scrolled ? '0' : '0',
+  [print]: {
+    display: 'none',
+  },
+}));
 
 export const Group = styled('hgroup', {
   textShadow: '1px 1px 0 #000',
-  transition: 'all, 0.5s',
+  transition: `all 0.3s ${easeOutCirc}`,
   ':hover': {
-    textShadow: '0 0 4px #555'
-  }
+    textShadow: '0 0 4px #555',
+  },
 });
 
-export const Title = styled('h1', {
+export const Title = styled('h1', ({ $small }) => ({
   ...fonts.heading,
-  fontSize: fontSize.display,
+  ...($small
+    ? {
+        paddingRight: '2em',
+        fontSize: fontSize.body,
+      }
+    : {
+        fontSize: fontSize.display,
+      }),
   [print]: {
-    paddingTop: '2em'
-  }
-});
+    paddingTop: '2em',
+  },
+}));
 
-export const StyledLink = withStyle(A, {
+export const StyledLink = withStyle(A, ({ $scrolled }) => ({
   ':hover': {
-    textDecoration: 'none'
+    textDecoration: 'none',
   },
   ':focus': {
-    textDecoration: 'none'
-  }
-});
+    textDecoration: 'none',
+  },
+}));
 
 export const LinkSpan = styled('span', {
   padding: '0',
@@ -55,10 +102,10 @@ export const LinkSpan = styled('span', {
   position: 'relative',
   textDecoration: 'none',
   ':hover': {
-    textDecoration: 'none'
+    textDecoration: 'none',
   },
   ':focus': {
-    textDecoration: 'none'
+    textDecoration: 'none',
   },
   ':after': {
     content: '""',
@@ -70,10 +117,15 @@ export const LinkSpan = styled('span', {
     backgroundColor: 'currentColor',
     visibility: 'hidden',
     transform: 'scaleX(0)',
-    transition: 'all 0.25s ease-in-out'
+    transitionProperty: 'all',
+    transitionDelay: '0.2s',
+    transitionDuration: '0.4s',
+    transitionTimingFunction: easeOutExpo,
   },
   ':hover:after': {
     visibility: 'visible',
-    transform: 'scaleX(1)'
-  }
+    transform: 'scaleX(1)',
+    transitionDuration: '0.4s',
+    transitionDelay: '0',
+  },
 });

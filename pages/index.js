@@ -1,5 +1,5 @@
 // DOCUMENTATION: http://styletron.org
-
+import React, { Component } from 'react';
 import { styled, useStyletron } from 'styletron-react';
 import Head from 'next/head';
 import Layout from '../components/layout';
@@ -8,16 +8,14 @@ import Summary from '../components/summary';
 import Position from '../components/position';
 import SkillGroup from '../components/skillGroup';
 import Project from '../components/project';
-
+import { ScrollProvider } from '../components/scrollContext';
 import { positions, skills, projects } from '../data';
 
 import { Grid, GridLinks, Container } from '../styles/grid';
 
 const Home = () => {
-  // an alternative hook based API
-  const [css] = useStyletron();
   return (
-    <>
+    <ScrollProvider>
       <Head>
         <title>Michael Weitzman</title>
       </Head>
@@ -50,7 +48,7 @@ const Home = () => {
           </GridLinks>
         </Container>
       </Layout>
-    </>
+    </ScrollProvider>
   );
 };
 
