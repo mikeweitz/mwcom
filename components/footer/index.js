@@ -11,7 +11,7 @@ class Footer extends Component {
   }
 
   state = {
-    hoverPrint: false
+    hoverPrint: false,
   };
 
   onPrint = e => {

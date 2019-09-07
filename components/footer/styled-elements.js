@@ -2,7 +2,8 @@ import { styled } from 'styletron-react';
 import { THEME } from '../../styles/theme';
 
 const {
-  breakpoints: { print, tablet, tabletLarge, desk, wide }
+  breakpoints: { print, tablet, tabletLarge, desk, wide },
+  easing: { easeOutCirc, easeOutQuart, easeOutExpo, easeInOutSine },
 } = THEME;
 
 export const Footer = styled('footer', {
@@ -18,8 +19,8 @@ export const Footer = styled('footer', {
   boxShadow: '0 -4px 8px rgba(0,0,0,0.3)',
   borderTop: '1px solid #ccc',
   [print]: {
-    display: 'none'
-  }
+    display: 'none',
+  },
 });
 
 export const ButtonPrint = styled('button', {
@@ -43,7 +44,7 @@ export const ButtonPrint = styled('button', {
     height: '22px',
     position: 'absolute',
     left: '-50px',
-    top: '2px'
+    top: '2px',
     // background: 'url(/static/images/icon_print.png)'
   },
   ':hover': {
@@ -55,12 +56,12 @@ export const ButtonPrint = styled('button', {
     paddingLeft: '14px',
     ':before': {
       left: '10px',
-      top: '7px'
-    }
+      top: '7px',
+    },
   },
   [print]: {
-    display: 'none'
-  }
+    display: 'none',
+  },
 });
 
 export const PrintIcon = styled('span', ({ $hover }) => ({
@@ -69,7 +70,7 @@ export const PrintIcon = styled('span', ({ $hover }) => ({
   top: '50%',
   left: '16px',
   transform: $hover ? 'translate(0, -50%)' : 'translate(-60px, -50%)',
-  transition: 'transform 0.3s ease-in-out'
+  transition: `transform 0.3s ${easeInOutSine}`,
 }));
 
 export const ButtonTop = styled('button', {
@@ -94,9 +95,9 @@ export const ButtonTop = styled('button', {
   backgroundColor: '#888',
   cursor: 'pointer',
   ':hover': {
-    backgroundColor: '#eee'
+    backgroundColor: '#eee',
   },
   [print]: {
-    display: 'none'
-  }
+    display: 'none',
+  },
 });
