@@ -15,7 +15,7 @@ class Footer extends Component {
   };
 
   onPrint = e => {
-    return window.print();
+    return window.open('/static/pdf/michael-weitzman-resume.pdf', 'download');
   };
 
   handleToTop = e => {
