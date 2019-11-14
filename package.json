@@ -23,6 +23,7 @@
     "eslint": "^6.2.2",
     "eslint-plugin-flowtype": "^4.3.0",
     "eslint-plugin-react": "^7.14.3",
-    "ftp": "^0.3.10"
+    "ftp": "^0.3.10",
+    "recursive-readdir-sync": "^1.0.6"
   }
 }

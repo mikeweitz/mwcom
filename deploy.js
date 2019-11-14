@@ -1,6 +1,7 @@
 // deploy.js
 var Client = require('ftp');
 var chalk = require('chalk');
+var recursiveReadSync = require('recursive-readdir-sync');
 var fs = require('fs');
 var path = require('path');
 var ENV = process.env;
@@ -18,7 +19,7 @@ client.on('greeting', function(msg) {
 client.on('ready', function() {
   client.list(TARGET_PATH, function(err, serverList) {
     console.log(chalk.green('get list from server.'));
-    var uploadList = fs.readdirSync(BUILD_PATH);
+    var uploadList = recursiveReadSync(BUILD_PATH);
     var total = uploadList.length;
     console.log(chalk.green(`Upload ${total} server.`));
     var uploadCount = 0;
