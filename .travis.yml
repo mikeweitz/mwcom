@@ -6,6 +6,8 @@ cache:
     - node_modules
 script:
   - npm run build
+before_install:
+  - npm install
 deploy:
   provider: script
   script: node deploy.js
