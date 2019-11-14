@@ -18,9 +18,10 @@ client.on('greeting', function(msg) {
 });
 client.on('ready', function() {
   client.list(TARGET_PATH, function(err, serverList) {
+    let uploadList;
     console.log(chalk.green('get list from server.'));
     try {
-      let uploadList = recursiveReadSync(BUILD_PATH);
+      uploadList = recursiveReadSync(BUILD_PATH);
     } catch (err) {
       if (err.errno === 34) {
         console.log('Path does not exist');
