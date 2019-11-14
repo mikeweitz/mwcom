@@ -2,7 +2,7 @@
 var Client = require('ftp');
 var chalk = require('chalk');
 var recursiveReadSync = require('recursive-readdir-sync');
-var fs = require('fs');
+// var fs = require('fs');
 var path = require('path');
 var ENV = process.env;
 var BUILD_PATH = path.resolve(__dirname, ENV.FTP_BUILD_PATH || 'out');
@@ -19,7 +19,16 @@ client.on('greeting', function(msg) {
 client.on('ready', function() {
   client.list(TARGET_PATH, function(err, serverList) {
     console.log(chalk.green('get list from server.'));
-    var uploadList = recursiveReadSync(BUILD_PATH);
+    try {
+      let uploadList = recursiveReadSync(BUILD_PATH);
+    } catch (err) {
+      if (err.errno === 34) {
+        console.log('Path does not exist');
+      } else {
+        //something unrelated went wrong, rethrow
+        throw err;
+      }
+    }
     var total = uploadList.length;
     console.log(chalk.green(`Upload ${total} server.`));
     var uploadCount = 0;
