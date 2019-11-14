@@ -6,3 +6,8 @@ cache:
     - node_modules
 script:
   - npm run build
+deploy:
+  provider: script
+  script: node deploy.js
+  on:
+    branch: master
