@@ -3,7 +3,6 @@ node_modules
 out
 _SSL
 npm-debug.log
-test.js
 
 # Numerous always-ignore extensions
 *.diff
