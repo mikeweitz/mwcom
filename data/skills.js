@@ -7,12 +7,13 @@ const skills = [
       'Styletron',
       'JavaScript / ES6',
       'Node',
-      'Webpack',
-      'Gulp',
       'Git',
+      'Webpack',
+      'Travis',
+      'Gulp',
       'HTML',
-      'CSS / SCSS'
-    ]
+      'CSS / SCSS',
+    ],
   },
   {
     heading: 'Electives',
@@ -25,8 +26,8 @@ const skills = [
       'Vue',
       'Shopify',
       'Docker',
-      'Angular'
-    ]
-  }
+      'Angular',
+    ],
+  },
 ];
 export { skills };
