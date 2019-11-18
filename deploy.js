@@ -1,4 +1,3 @@
-// deploy.js
 var Client = require('ftp');
 var chalk = require('chalk');
 var recursiveReadSync = require('recursive-readdir-sync');
