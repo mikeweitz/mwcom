@@ -9,7 +9,7 @@ branches:
   only:
     - master
 before_install:
-  - npm install -g webpack ftp chalk recursive-readdir-sync
+  - npm install -g webpack ftp chalk recursive-readdir-sync @babel/core
   # - npm link webpack ftp chalk recursive-readdir-sync
 install:
   - npm install
