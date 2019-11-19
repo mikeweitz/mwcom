@@ -13,6 +13,7 @@ script:
   - npm run build
 deploy:
   provider: script
-  script: bash ./deploy.sh
+  # script: bash ./deploy.sh
+  script: node ftpupload.js
   on:
     branch: master
