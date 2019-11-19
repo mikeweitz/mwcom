@@ -8,11 +8,11 @@ cache:
 branches:
   only:
     - master
-install:
-  - npm install
-before_script:
+before_install:
   - npm install -g webpack ftp chalk recursive-readdir-sync
   # - npm link webpack ftp chalk recursive-readdir-sync
+install:
+  - npm install
 script:
   - npm run build
 deploy:
