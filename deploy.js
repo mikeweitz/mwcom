@@ -10,27 +10,63 @@ var PASSWORD = ENV.FTP_PASSWORD;
 var HOST = ENV.FTP_SERVER_HOST;
 var PORT = ENV.FTP_SERVER_PORT || 21;
 
+let uploadList;
+
+// try {
+//     uploadList = recursiveReadSync(BUILD_PATH);
+// } catch(err){
+//   if(err.errno === 34){
+//     console.log('Path does not exist');
+//   } else {
+//     //something unrelated went wrong, rethrow
+//     throw err;
+//   }
+// }
+
+const listFiles = dir => {
+  let filesList = [];
+
+  const files = fs.readdirSync(dir);
+  files.map(file => {
+    const fullPath = path.resolve(dir, file);
+    const stats = fs.lstatSync(fullPath);
+    if (stats.isDirectory()) {
+      filesList = filesList.concat(listFiles(fullPath));
+    } else {
+      if (dir.endsWith(BUILD_PATH)) {
+        filesList.push({
+          local: fullPath,
+          target: file,
+        });
+      } else {
+        const lastSeparator = dir.lastIndexOf(path.sep);
+        const parentDir = dir.substring(lastSeparator);
+        const targetPath = `${parentDir}${path.sep}${file}`.replace(/\\/g, '/');
+
+        filesList.push({
+          local: fullPath,
+          target: targetPath,
+        });
+      }
+    }
+  });
+
+  return filesList;
+};
+
+uploadList = listFiles(BUILD_PATH);
+
 var client = new Client();
 console.log(`Preparing to deploy from ${BUILD_PATH}...`);
 client.on('greeting', function(msg) {
   console.log('greeting', msg);
 });
 client.on('ready', function() {
+  console.log(`List files in ${TARGET_PATH}`);
   client.list(TARGET_PATH, function(err, serverList) {
-    let uploadList;
     console.log('get list from server.');
-    try {
-      uploadList = recursiveReadSync(BUILD_PATH);
-    } catch (err) {
-      if (err.errno === 34) {
-        console.log('Path does not exist');
-      } else {
-        //something unrelated went wrong, rethrow
-        throw err;
-      }
-    }
     var total = uploadList.length;
-    console.log(`Upload ${total} server.`);
+    console.log(`Upload ${total} files to server server.`);
     var uploadCount = 0;
     var errorList = [];
     uploadList.forEach(function(file) {
