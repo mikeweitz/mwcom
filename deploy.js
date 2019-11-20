@@ -1,5 +1,4 @@
 var Client = require('ftp');
-var chalk = require('chalk');
 var recursiveReadSync = require('recursive-readdir-sync');
 // var fs = require('fs');
 var path = require('path');
