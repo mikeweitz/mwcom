@@ -13,12 +13,12 @@ var PORT = ENV.FTP_SERVER_PORT || 21;
 
 var client = new Client();
 client.on('greeting', function(msg) {
-  console.log(chalk.green('greeting'), msg);
+  console.log('greeting', msg);
 });
 client.on('ready', function() {
   client.list(TARGET_PATH, function(err, serverList) {
     let uploadList;
-    console.log(chalk.green('get list from server.'));
+    console.log('get list from server.');
     try {
       uploadList = recursiveReadSync(BUILD_PATH);
     } catch (err) {
@@ -30,39 +30,33 @@ client.on('ready', function() {
       }
     }
     var total = uploadList.length;
-    console.log(chalk.green(`Upload ${total} server.`));
+    console.log(`Upload ${total} server.`);
     var uploadCount = 0;
     var errorList = [];
     uploadList.forEach(function(file) {
-      console.log(
-        chalk.blue('start'),
-        file.local + chalk.grey(' --> ') + file.target
-      );
+      console.log('start', file.local + ' --> ' + file.target);
       client.put(file.local, file.target, function(err) {
         uploadCount++;
         if (err) {
-          console.error(
-            chalk.red('error'),
-            file.local + chalk.grey(' --> ') + file.target
-          );
+          console.error('error', file.local + ' --> ' + file.target);
           console.error(err.message);
           throw err;
         } else {
           console.info(
-            chalk.green('success'),
-            file.local + chalk.grey(' --> ') + file.target,
-            chalk.grey('( ' + uploadCount + '/' + total + ' )')
+            'success',
+            file.local + ' --> ' + file.target,
+            '( ' + uploadCount + '/' + total + ' )'
           );
         }
 
         if (uploadCount === total) {
           client.end();
           if (errorList.length === 0) {
-            console.info(chalk.green('All files uploaded!'));
+            console.info('All files uploaded!');
           } else {
-            console.log(chalk.red('Failed files:'));
+            console.log('Failed files:');
             errorList.forEach(function(file) {
-              console.log(file.local + chalk.grey(' --> ') + file.target);
+              console.log(file.local + ' --> ' + file.target);
             });
             throw 'Total Failed: ' + errorList.length;
           }
