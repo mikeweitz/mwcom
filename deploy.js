@@ -11,6 +11,7 @@ var HOST = ENV.FTP_SERVER_HOST;
 var PORT = ENV.FTP_SERVER_PORT || 21;
 
 var client = new Client();
+console.log(`Preparing to deploy from ${BUILD_PATH}...`);
 client.on('greeting', function(msg) {
   console.log('greeting', msg);
 });
