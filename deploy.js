@@ -22,36 +22,36 @@ let uploadList;
 //     throw err;
 //   }
 // }
- 
+
 const listFiles = dir => {
-    let filesList = [];
-    
-    const files = fs.readdirSync(dir);
-    files.map(file => {
-        const fullPath = path.resolve(dir, file);
-        const stats = fs.lstatSync(fullPath);
-        if (stats.isDirectory()) {
-            filesList = filesList.concat(listFiles(fullPath));
-        } else {
-            if (dir.endsWith(BUILD_PATH)) {
-                filesList.push({
-                    'local': fullPath,
-                    'target': file
-                });
-            } else {
-                const lastSeparator = dir.lastIndexOf(path.sep);
-                const parentDir = dir.substring(lastSeparator);
-                const targetPath = ${parentDir}${path.sep}${file}.replace(/\\/g, '/');
-                
-                filesList.push({
-                    'local': fullPath,
-                    'target': targetPath
-                });
-            }
-        }
-    });
-    
-    return filesList;
+  let filesList = [];
+
+  const files = fs.readdirSync(dir);
+  files.map(file => {
+    const fullPath = path.resolve(dir, file);
+    const stats = fs.lstatSync(fullPath);
+    if (stats.isDirectory()) {
+      filesList = filesList.concat(listFiles(fullPath));
+    } else {
+      if (dir.endsWith(BUILD_PATH)) {
+        filesList.push({
+          local: fullPath,
+          target: file,
+        });
+      } else {
+        const lastSeparator = dir.lastIndexOf(path.sep);
+        const parentDir = dir.substring(lastSeparator);
+        const targetPath = `${parentDir}${path.sep}${file}`.replace(/\\/g, '/');
+
+        filesList.push({
+          local: fullPath,
+          target: targetPath,
+        });
+      }
+    }
+  });
+
+  return filesList;
 };
 
 uploadList = listFiles(BUILD_PATH);
