@@ -1,6 +1,6 @@
 var Client = require('ftp');
 var recursiveReadSync = require('recursive-readdir-sync');
-// var fs = require('fs');
+var fs = require('fs');
 var path = require('path');
 var ENV = process.env;
 var BUILD_PATH = path.resolve(__dirname, ENV.FTP_BUILD_PATH || 'out');
