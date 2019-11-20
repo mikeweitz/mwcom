@@ -55,16 +55,19 @@ const listFiles = dir => {
 };
 
 uploadList = listFiles(BUILD_PATH);
+console.log(`Preparing to deploy from ${BUILD_PATH}...`);
+console.log('Uploadlist:', uploadList);
 
 var client = new Client();
-console.log(`Preparing to deploy from ${BUILD_PATH}...`);
+
 client.on('greeting', function(msg) {
   console.log('greeting', msg);
 });
+
 client.on('ready', function() {
   console.log(`List files in ${TARGET_PATH}`);
   client.list(TARGET_PATH, function(err, serverList) {
-    console.log('get list from server.');
+    console.log('get list from server.', serverList);
     var total = uploadList.length;
     console.log(`Upload ${total} files to server server.`);
     var uploadCount = 0;
