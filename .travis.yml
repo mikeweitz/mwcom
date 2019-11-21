@@ -18,8 +18,9 @@ before_deploy:
   - echo "Before deploy:\n"
   - echo $TRAVIS_BUILD_DIR
 deploy:
-  skip_cleanup: true
   provider: script
+  # skip_cleanup: true
+  cleanup: false
   # script: bash ./deploy.sh
   # script: node ftpupload.js
   script: node deploy.js
