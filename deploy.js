@@ -25,6 +25,14 @@ let uploadList;
 
 const listFiles = dir => {
   let filesList = [];
+  console.log(`Read files from ${dir}`);
+  if (fs.existsSync('out')) {
+    console.log('directory `./out` found');
+  }
+  if (!fs.existsSync(dir)) {
+    console.log('directory not found');
+    return;
+  }
 
   const files = fs.readdirSync(dir);
   files.map(file => {
