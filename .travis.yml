@@ -14,6 +14,9 @@ cache:
 script:
   - npm test
   - npm run build
+before_deploy:
+  - echo "Befpre deploy:\n"
+  - pwd
 deploy:
   skip_cleanup: true
   provider: script
