@@ -31,7 +31,7 @@ const listFiles = dir => {
   }
   if (!fs.existsSync(dir)) {
     console.log('directory not found');
-    return;
+    return filesList;
   }
 
   const files = fs.readdirSync(dir);
