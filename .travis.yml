@@ -15,7 +15,7 @@ script:
   - npm test
   - npm run build
 before_deploy:
-  - echo "Befpre deploy:\n"
+  - echo "Before deploy:\n"
   - pwd
 deploy:
   skip_cleanup: true
