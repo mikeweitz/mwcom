@@ -15,8 +15,8 @@ script:
   - npm test
   - npm run build
 before_deploy:
-  - bash echo "Before deploy:\n"
-  - bash pwd
+  - echo "Before deploy:\n"
+  - echo $TRAVIS_BUILD_DIR
 deploy:
   skip_cleanup: true
   provider: script
