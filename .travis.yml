@@ -14,9 +14,8 @@ cache:
 script:
   - npm test
   - npm run build
-before_deploy:
-  - echo "Before deploy:\n"
-  - echo $TRAVIS_BUILD_DIR
+after_script:
+  - node afterScript.js
 deploy:
   provider: script
   skip_cleanup: true
