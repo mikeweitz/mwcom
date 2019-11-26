@@ -10,6 +10,61 @@ var PASSWORD = ENV.FTP_PASSWORD;
 var HOST = ENV.FTP_SERVER_HOST;
 var PORT = ENV.FTP_SERVER_PORT || 21;
 
+var util = require('util');
+var walker = require('./walker');
+
+/*
+ * To walk a directory and generate the tree object
+ *
+ * @param dest {string} the directory to start with.
+ * @param cb {function} the callback function, cb(err, dirObj)
+ *
+ */
+
+function readDir(dest, cb) {
+  var dirObj = {};
+  var child, parts, obj;
+
+  walker(dest)
+    .on('dir', function(dir, stat) {
+      if (dir === dest) return;
+
+      child = dir.slice(dest.length, dir.length);
+      if (child.indexOf(path.sep) === 0) {
+        child = child.slice(1, child.length);
+      }
+
+      parts = child.split(path.sep);
+
+      obj = dirObj;
+
+      for (var i = 0; i < parts.length; i++) {
+        if (parts[i] !== '') {
+          if (obj[parts[i]] === undefined) {
+            obj[parts[i]] = {};
+          }
+
+          obj = obj[parts[i]];
+        }
+      }
+    })
+    .on('error', function(err, entry, stat) {
+      cb(err, null);
+    })
+    .on('end', function() {
+      cb(null, dirObj);
+    });
+}
+
+readDir(__dirname, function(err, dirObj) {
+  if (err) {
+    console.log(err);
+  } else {
+    // Handle the returned directory object
+    console.log(util.inspect(dirObj, { showHidden: true, depth: null }));
+  }
+});
+
 let uploadList;
 
 // try {
