@@ -10,12 +10,16 @@
   "dependencies": {
     "lodash": "^4.17.15",
     "next": "latest",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
+    "npm": "^6.14.5",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "react-ga": "^2.6.0",
     "react-scroll": "^1.7.12",
+    "react-spotify-api": "^3.0.0",
+    "spotify-web-api-js": "^1.4.0",
     "styletron-engine-atomic": "^1.1.2",
-    "styletron-react": "^5.0.1"
+    "styletron-react": "^5.0.1",
+    "swr": "^0.2.3"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
