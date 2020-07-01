@@ -4,6 +4,7 @@ import * as S from './styled-elements';
 import { animateScroll } from 'react-scroll';
 import { Container } from '../../styles/grid';
 import { Print } from '../icons';
+import Link from 'next/link'
 
 class Footer extends Component {
   constructor() {
@@ -46,6 +47,9 @@ class Footer extends Component {
           </S.ButtonPrint>
 
           <S.ButtonTop onClick={this.handleToTop}>Back to top</S.ButtonTop>
+        </Container>
+        <Container>
+          <Link href="/playlists">Monthly Playlists</Link>
         </Container>
       </S.Footer>
     );

@@ -1,4 +1,3 @@
-// DOCUMENTATION: http://styletron.org
 import React, { Component } from 'react';
 import { styled, useStyletron } from 'styletron-react';
 import Head from 'next/head';
@@ -7,9 +6,13 @@ import useSWR from 'swr';
 
 import Summary from '../components/summary';
 import Playlist from '../components/playlist';
+import Position from '../components/position';
+import SkillGroup from '../components/skillGroup';
+import Project from '../components/project';
 import { ScrollProvider } from '../components/scrollContext';
+import { positions, skills, projects } from '../data';
+
 import { Grid, GridLinks, Container } from '../styles/grid';
-import { isLength } from 'lodash';
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -25,13 +28,16 @@ const Playlists = () => {
   const { data, error } = useSWR(() => `/api/spotify`, fetcher);
   if (error) return <div>{error.message}</div>;
   if (!data) return <div>Loading...</div>;
-  console.log(data);
   return (
     <ScrollProvider>
       <Head>
         <title>Michael Weitzman</title>
       </Head>
       <Layout>
+        <Container>
+          <Summary />
+        </Container>
+
         <Container>
           <Grid>
             {data.map((pid, i) => (

@@ -74,6 +74,8 @@ export const Group = styled('hgroup', {
 
 export const Title = styled('h1', ({ $small }) => ({
   ...fonts.heading,
+  cursor: 'inherit',
+  color: '#fff',
   ...($small
     ? {
         paddingRight: '2em',
@@ -82,10 +84,22 @@ export const Title = styled('h1', ({ $small }) => ({
     : {
         fontSize: fontSize.display,
       }),
+  [':hover']: {
+    textDecoration: 'none',
+  },
   [print]: {
     paddingTop: '2em',
   },
 }));
+
+export const TitleLink = styled('a', {
+  color: '#fff',
+  textDecoration: 'none',
+  [':hover']: {
+    color: '#fff',
+    textDecoration: 'none',
+  },
+});
 
 export const StyledLink = withStyle(A, ({ $scrolled }) => ({
   ':hover': {

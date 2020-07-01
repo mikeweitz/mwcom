@@ -32,6 +32,7 @@ const THEME = {
     },
   },
   fontSize: {
+    small: '12px',
     body: '16px',
     position: '17.5px',
     display: '38.5px',

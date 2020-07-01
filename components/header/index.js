@@ -3,12 +3,38 @@ import * as S from './styled-elements';
 import { Container } from '../../styles/grid';
 import { copy } from '../../data';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 
 import { withScroll } from '../scrollContext';
 
 class Header extends Component {
   constructor(props) {
     super(props);
+  }
+
+  renderLinks() {
+    const {
+      header: { title, email, github, linkedin },
+    } = copy;
+    return (
+      <address>
+        <S.StyledLink href="#">
+          <S.LinkSpan>
+            {email.address}
+            {email.domain}
+          </S.LinkSpan>
+        </S.StyledLink>
+        <S.StyledLink href={github.url}>
+          <S.LinkSpan>{github.text}</S.LinkSpan>
+        </S.StyledLink>
+        <S.StyledLink href={linkedin.url}>
+          <S.LinkSpan>{linkedin.text}</S.LinkSpan>
+        </S.StyledLink>
+        <S.StyledLink href="/playlists">
+          <S.LinkSpan>{'Playlists'}</S.LinkSpan>
+        </S.StyledLink>
+      </address>
+    );
   }
 
   render() {
@@ -23,39 +49,24 @@ class Header extends Component {
         <Container>
           <S.PageTop $scrolled={scrolled}>
             <S.Group>
-              <S.Title>{title}</S.Title>
+              <Link href="/" passHref>
+                <S.TitleLink>
+                  <S.Title>{title}</S.Title>
+                </S.TitleLink>
+              </Link>
             </S.Group>
 
-            <address>
-              <S.StyledLink href="#">
-                <S.LinkSpan>
-                  {email.address}
-                  {email.domain}
-                </S.LinkSpan>
-              </S.StyledLink>
-              <S.StyledLink href={github.url}>
-                <S.LinkSpan>{github.text}</S.LinkSpan>
-              </S.StyledLink>
-              <S.StyledLink href={linkedin.url}>
-                <S.LinkSpan>{linkedin.text}</S.LinkSpan>
-              </S.StyledLink>
-            </address>
+            {this.renderLinks()}
           </S.PageTop>
 
           <S.PageScrolled $scrolled={scrolled}>
-            <S.Title $small>{'MW'}</S.Title>
-            <S.StyledLink href="#">
-              <S.LinkSpan>
-                {email.address}
-                {email.domain}
-              </S.LinkSpan>
-            </S.StyledLink>
-            <S.StyledLink href={github.url}>
-              <S.LinkSpan>{github.text}</S.LinkSpan>
-            </S.StyledLink>
-            <S.StyledLink href={linkedin.url}>
-              <S.LinkSpan>{linkedin.text}</S.LinkSpan>
-            </S.StyledLink>
+            <Link href="/" passHref>
+              <S.TitleLink>
+                <S.Title $small>{'MW'}</S.Title>
+              </S.TitleLink>
+            </Link>
+
+            {this.renderLinks()}
           </S.PageScrolled>
         </Container>
       </S.Heading>

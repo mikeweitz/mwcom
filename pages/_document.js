@@ -4,21 +4,21 @@ import { styletron } from '../styletron';
 
 class MyDocument extends Document {
   static getInitialProps(props) {
-    const page = props.renderPage(App => props => (
+    const page = props.renderPage((App) => (props) => (
       <StyletronProvider value={styletron}>
         <App {...props} />
       </StyletronProvider>
-    ));
-    const stylesheets = styletron.getStylesheets() || [];
-    return { ...page, stylesheets };
+    ))
+    const stylesheets = styletron.getStylesheets() || []
+    return { ...page, stylesheets }
   }
-
+  
   render() {
     return (
       <html>
         <Head>
-          <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-          <meta http-equiv="Content-Style-Type" content="text/css" />
+          <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+          <meta httpEquiv="Content-Style-Type" content="text/css" />
           <meta name="author" lang="en" content="MWeitzman" />
           <meta name="robots" content="Index,Follow" />
           <meta name="title" content="Michael Weitzman" />
