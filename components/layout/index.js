@@ -1,27 +1,33 @@
-import React, { Component } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { initGA, logPageView } from '../../util/analytics';
 import Header from '../header';
 import Footer from '../footer';
 
+import { useScrollContext } from '../scrollContext';
+
 import * as S from './styled-elements';
 
-class Layout extends Component {
-  componentDidMount() {
+const Layout = ({children}) => {
+  
+  const scroll = useScrollContext();
+
+  const useIsomorphicEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
+  
+  useIsomorphicEffect(() => {
     if (window && !window.GA_INITIALIZED) {
       initGA();
       window.GA_INITIALIZED = true;
     }
     logPageView();
-  }
+  }, []);
 
-  render() {
-    return (
-      <S.Main>
-        <Header />
-        {this.props.children}
-        <Footer />
-      </S.Main>
-    );
-  }
+  return (
+    <S.Main $scrolled={scroll.isScrolled}>
+      <Header />
+      {children}
+      <Footer />
+    </S.Main>
+  );
+  
 }
 export default Layout;

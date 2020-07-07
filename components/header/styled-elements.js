@@ -9,7 +9,7 @@ const {
 } = THEME;
 
 export const Heading = styled('header', ({ $scrolled }) => ({
-  background: 'url(/static/images/txture.png) #222',
+  background: 'url(/static/images/texture.png) #222',
   background: 'url(/static/images/dark_stripes.png) #222',
   position: 'fixed',
   top: '0',
@@ -23,7 +23,7 @@ export const Heading = styled('header', ({ $scrolled }) => ({
   color: '#ddd',
   borderBottom: '1px solid rgba(255,255,255, 0.4)',
   boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
-  marginBottom: $scrolled ? '50px' : '168px',
+  marginBottom: $scrolled ? '48px' : '168px',
   transition: `all 1s ${easeOutCirc}`,
   [print]: {
     minHeight: '150px',
@@ -36,8 +36,11 @@ export const Heading = styled('header', ({ $scrolled }) => ({
 
 export const PageTop = styled('div', ({ $scrolled }) => ({
   position: 'relative',
-  top: '0',
-  transform: $scrolled ? 'translateY(-150px)' : 'translateY(0)',
+  zIndex: 1,
+  top: '1em',
+  transform: $scrolled ? 'translateX(50px)' : 'translateX(0)',
+  opacity: $scrolled ? '0' : '1',
+  paddingLeft: $scrolled ? '122px' : '162px',
   transitionProperty: 'all',
   transitionDuration: '1s',
   transitionTimingFunction: easeOutCirc,
@@ -49,11 +52,15 @@ export const PageTop = styled('div', ({ $scrolled }) => ({
 
 export const PageScrolled = styled('div', ({ $scrolled }) => ({
   position: 'relative',
+  zIndex: 1,
   display: 'flex',
   justifyContent: 'flex-start',
   alignItems: 'center',
-  top: '0',
-  transform: $scrolled ? 'translateY(-110px)' : 'translateY(110px)',
+  top: '2.325em',
+  transform: $scrolled ? 'translate(0, -110px)' : 'translate(0, -110px)',
+  paddingLeft: $scrolled ? '138px' : '124px',
+  // paddingLeft:'138px',
+  opacity: $scrolled ? '1' : '0',
   // transition: `all 0.3s ${easeOutCirc}`,
   transitionProperty: 'all',
   transitionDuration: $scrolled ? '1s' : '0.7s',
@@ -64,6 +71,24 @@ export const PageScrolled = styled('div', ({ $scrolled }) => ({
   },
 }));
 
+export const Logo = styled('div', ({ $scrolled }) => ({
+  position: 'absolute',
+  height: $scrolled ? '128px' : '162px',
+  width: $scrolled ? '128px' : '162px',
+  transitionProperty: 'all',
+  transitionDuration: '1s',
+  transitionTimingFunction: easeOutCirc,
+  transitionDelay: $scrolled ? '0' : '0.325s',
+  zIndex: 0,
+  top: $scrolled ? '-4em' : '-2.125em',
+  left: 0,
+}));
+
+export const Img = styled('img', {
+  display: 'block',
+  width: '100%',
+  height: '100%',
+})
 export const Group = styled('hgroup', {
   textShadow: '1px 1px 0 #000',
   transition: `all 0.3s ${easeOutCirc}`,
@@ -74,10 +99,12 @@ export const Group = styled('hgroup', {
 
 export const Title = styled('h1', ({ $small }) => ({
   ...fonts.heading,
+  marginTop: 0,
   cursor: 'inherit',
   color: '#fff',
   ...($small
     ? {
+        marginBottom: 0,
         paddingRight: '2em',
         fontSize: fontSize.body,
       }

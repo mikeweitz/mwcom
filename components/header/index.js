@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
+import React, { useEffect, useLayoutEffect, useContext, useState } from 'react';
 import * as S from './styled-elements';
 import { Container } from '../../styles/grid';
 import { copy } from '../../data';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 
-import { withScroll } from '../scrollContext';
+import Head from 'next/head';
 
-class Header extends Component {
-  constructor(props) {
-    super(props);
-  }
+import { useScrollContext } from '../scrollContext';
 
-  renderLinks() {
+
+const Header = () => {
+  const scroll = useScrollContext();
+
+  const renderLinks = () => {
     const {
       header: { title, email, github, linkedin },
     } = copy;
@@ -37,41 +38,41 @@ class Header extends Component {
     );
   }
 
-  render() {
-    const {
-      header: { title, email, github, linkedin },
-    } = copy;
+  const {
+    header: { title, email, github, linkedin },
+  } = copy;
 
-    const scrolled = this.props.scrollY > 50;
-
-    return (
-      <S.Heading id="header" $scrolled={scrolled}>
-        <Container>
-          <S.PageTop $scrolled={scrolled}>
-            <S.Group>
-              <Link href="/" passHref>
-                <S.TitleLink>
-                  <S.Title>{title}</S.Title>
-                </S.TitleLink>
-              </Link>
-            </S.Group>
-
-            {this.renderLinks()}
-          </S.PageTop>
-
-          <S.PageScrolled $scrolled={scrolled}>
+  return (
+    <S.Heading id="header" $scrolled={scroll.isScrolled}>
+      <Container>
+        <S.PageTop $scrolled={scroll.isScrolled}>
+          <S.Group>
             <Link href="/" passHref>
               <S.TitleLink>
-                <S.Title $small>{'MW'}</S.Title>
+                <S.Title>{title}</S.Title>
               </S.TitleLink>
             </Link>
+          </S.Group>
 
-            {this.renderLinks()}
-          </S.PageScrolled>
-        </Container>
-      </S.Heading>
-    );
-  }
+          {renderLinks()}
+        </S.PageTop>
+
+        <S.PageScrolled $scrolled={scroll.isScrolled}>
+          <Link href="/" passHref>
+            <S.TitleLink>
+              <S.Title $small>{'MW'}</S.Title>
+            </S.TitleLink>
+          </Link>
+
+          {renderLinks()}
+        </S.PageScrolled>
+
+        <S.Logo $scrolled={scroll.isScrolled}>
+          <S.Img src="/static/logo.png" />
+        </S.Logo>
+
+      </Container>
+    </S.Heading>
+  );
 }
-
-export default withScroll ? withScroll(Header) : Header;
+export default Header;

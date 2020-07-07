@@ -1,6 +1,5 @@
 // DOCUMENTATION: http://styletron.org
-import React, { Component } from 'react';
-import { styled, useStyletron } from 'styletron-react';
+import React from 'react';
 import Head from 'next/head';
 import Layout from '../components/layout';
 

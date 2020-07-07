@@ -23,6 +23,16 @@ export const Container = styled('div', ({ $pageBreak }) => ({
     : {})
 }));
 
+export const GridFlex = styled('div', {
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'flex-start',
+  justifyContent: 'flex-start',
+  marginLeft: '-1em',
+  marginRight: '-1em',
+  flexWrap: 'wrap',
+});
+
 export const Grid = styled('div', {
   display: 'grid',
   gridTemplateColumns: 'repeat(1, 1fr)',

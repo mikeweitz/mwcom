@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import { styled, useStyletron } from 'styletron-react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Layout from '../components/layout';
 import useSWR from 'swr';
-
+import Link from 'next/link'
+import PlaylistDetails from '../components/playlist-details';
 import Summary from '../components/summary';
 import Playlist from '../components/playlist';
-import Position from '../components/position';
-import SkillGroup from '../components/skillGroup';
-import Project from '../components/project';
 import { ScrollProvider } from '../components/scrollContext';
 import { positions, skills, projects } from '../data';
 
-import { Grid, GridLinks, Container } from '../styles/grid';
+import { Grid, GridFlex, GridLinks, Container } from '../styles/grid';
+
+import * as S from './styled-elements';
+import { filter } from 'lodash';
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -25,25 +25,28 @@ const fetcher = async (url) => {
 };
 
 const Playlists = () => {
+  const [ active, setActive ] = useState(null);
   const { data, error } = useSWR(() => `/api/spotify`, fetcher);
-  if (error) return <div>{error.message}</div>;
-  if (!data) return <div>Loading...</div>;
+
   return (
     <ScrollProvider>
       <Head>
         <title>Michael Weitzman</title>
       </Head>
       <Layout>
+        <PlaylistDetails close={() => setActive(null)} pid={active || null} />
         <Container>
-          <Summary />
-        </Container>
-
-        <Container>
-          <Grid>
-            {data.map((pid, i) => (
-              <Playlist key={i} pid={pid} />
-            ))}
-          </Grid>
+          <GridFlex>
+            {!data 
+              ? 'loading...'
+              : error 
+                ? 'Uh oh...' 
+                : data.map((pid, i) => (
+                  <S.PlaylistWrap $active={active===pid} onClick={() => setActive(active === pid ? null : pid) }>
+                    <Playlist active={ pid === active } key={i} pid={pid} />
+                  </S.PlaylistWrap>
+                ))}
+          </GridFlex>
         </Container>
       </Layout>
     </ScrollProvider>
