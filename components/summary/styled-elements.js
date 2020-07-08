@@ -2,14 +2,14 @@ import { styled } from 'styletron-react';
 import { THEME } from '../../styles/theme';
 const {
   colors,
-  breakpoints: { print, tabletLarge }
+  breakpoints: { print, desk, tabletLarge }
 } = THEME;
 export const Summary = styled('section', {
   fontSize: '1.25em',
   marginTop: '64px',
   marginBottom: '18px',
   color: colors.black,
-  [tabletLarge]: {
+  [desk]: {
     width: '66.667%'
   },
   [print]: {
