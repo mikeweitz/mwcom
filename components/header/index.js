@@ -76,9 +76,11 @@ const Header = () => {
           {renderLinks()}
         </S.PageScrolled>
 
-        <S.Logo $scrolled={scroll.isScrolled}>
-          <S.Img src="/static/logo.png" />
-        </S.Logo>
+        <Link href="/" passHref>
+          <S.Logo $scrolled={scroll.isScrolled}>
+            <S.Img src="/static/logo.png" />
+          </S.Logo>
+        </Link>
 
       </Container>
     </S.Heading>

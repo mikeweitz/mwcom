@@ -1,11 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 
 import * as S from './styled-elements';
 import { animateScroll } from 'react-scroll';
 import { Container } from '../../styles/grid';
-import { Print } from '../icons';
+import { Print, Arrow } from '../icons';
 import Link from 'next/link'
 
+import { THEME } from '../../styles/theme';
+const {
+  colors
+} = THEME;
 class Footer extends Component {
   constructor() {
     super();
@@ -30,6 +34,7 @@ class Footer extends Component {
   handleMouseLeave = () => {
     this.setState({ hoverPrint: false });
   };
+
   render() {
     const { hoverPrint } = this.state;
     return (
@@ -41,12 +46,14 @@ class Footer extends Component {
             onClick={this.onPrint}
           >
             <S.PrintIcon $hover={hoverPrint}>
-              <Print />
+              <Print fill={colors.turquoise}/>
             </S.PrintIcon>
             Print this
           </S.ButtonPrint>
 
-          <S.ButtonTop onClick={this.handleToTop}>Back to top</S.ButtonTop>
+          <S.ButtonTop onClick={this.handleToTop}>
+            <Arrow fill={colors.turquoise} alt="Back to top" />
+          </S.ButtonTop>
         </Container>
       </S.Footer>
     );

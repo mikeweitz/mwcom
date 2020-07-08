@@ -198,7 +198,8 @@ body.loading::before {
 }
 
 #__next {
-  min-height: 100%;
+  display: flex;
+  min-height: 100vh;
 }
 
 @media print {

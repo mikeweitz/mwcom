@@ -2,10 +2,12 @@ import { styled } from 'styletron-react';
 import { THEME } from '../../styles/theme';
 
 const {
+  colors,
   breakpoints: { print }
 } = THEME;
 
 export const SkillGroup = styled('div', {
+  color: colors.black,
   [print]: {
     display: 'inline-block',
     width: '50%',

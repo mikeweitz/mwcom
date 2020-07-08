@@ -2,6 +2,7 @@ import { styled } from 'styletron-react';
 import { THEME } from '../../styles/theme';
 
 const {
+  colors,
   breakpoints: { print, tablet, tabletLarge, desk, wide },
   easing: { easeOutCirc, easeOutQuart, easeOutExpo, easeInOutSine },
 } = THEME;
@@ -9,15 +10,16 @@ const {
 export const Footer = styled('footer', {
   position: 'relative',
   overflow: 'hidden',
-  background: 'url(/static/images/txture.png) #222',
-  background: 'url(/static/images/dark_stripes.png) #222',
+  // background: 'url(/static/images/txture.png) #222',
+  // background: 'url(/static/images/dark_stripes.png) #222',
+  background: 'rgba(0, 0, 0, 0.7)',
   padding: '4rem 0',
   marginTop: '3em',
   width: '100%',
   minHeight: '80px',
   color: '#ddd',
   boxShadow: '0 -4px 8px rgba(0,0,0,0.3)',
-  borderTop: '1px solid #ccc',
+  borderTop: `1px solid ${colors.blueViolet}`,
   [print]: {
     display: 'none',
   },
@@ -32,10 +34,11 @@ export const ButtonPrint = styled('button', {
   margin: '-15px 0 0',
   padding: '0',
   textAlign: 'center',
-  backgroundColor: '#eee',
+  color: colors.steelBlue,
+  backgroundColor: colors.blueViolet,
   width: '100px',
   height: '30px',
-  border: '1px solid #888',
+  border: `1px solid ${colors.blueViolet}`,
   borderRadius: '8px',
   transition: 'all 0.15s ease-in-out',
   ':before': {
@@ -49,6 +52,7 @@ export const ButtonPrint = styled('button', {
   },
   ':hover': {
     // @include boxshadow(0 0 5px #ccc);
+    color: colors.turquoise,
     width: '124px',
     height: '40px',
     marginTop: '-20px',
@@ -75,7 +79,7 @@ export const PrintIcon = styled('span', ({ $hover }) => ({
 
 export const ButtonTop = styled('button', {
   position: 'absolute',
-  textIndent: '105%',
+  // textIndent: '105%',
   overflow: 'hidden',
   whiteSpace: 'nowrap',
   right: '2em',
@@ -83,19 +87,21 @@ export const ButtonTop = styled('button', {
   margin: '-15px 0 0',
   padding: '0',
   textAlign: 'left',
-  backgroundColor: '#eee',
+  // backgroundColor: '#eee',
   height: '30px',
   width: '30px',
-  border: '1px solid #888',
+  border: `1px solid ${colors.steelBlue}`,
+  padding: '4px',
   borderRadius: '20px',
-  transition: 'all 0.15s ease',
-  backgroundImage: 'url(/static/images/arrow-top.png)',
-  backgroundPosition: 'center center',
-  backgroundRepeat: 'no-repeat',
-  backgroundColor: '#888',
+  transition: 'all 0.35s ease',
+  // backgroundImage: 'url(/static/images/arrow-top.png)',
+  // backgroundPosition: 'center center',
+  // backgroundRepeat: 'no-repeat',
+  backgroundColor: 'transparent',
   cursor: 'pointer',
   ':hover': {
-    backgroundColor: '#eee',
+    // backgroundColor: '#eee',
+    border: `1px solid ${colors.turquoise}`,
   },
   [print]: {
     display: 'none',

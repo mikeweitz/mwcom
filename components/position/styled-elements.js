@@ -3,11 +3,14 @@ import { THEME } from '../../styles/theme';
 const { fontSize } = THEME;
 
 const {
+  colors,
   breakpoints: { tablet, tabletLarge, desk, wide, print }
 } = THEME;
 
 // statically styled component
 export const Position = styled('article', {
+  width: '100%',
+  color: colors.black,
   marginTop: '4em',
   paddingBottom: '4em',
   position: 'relative',
@@ -25,9 +28,11 @@ export const Position = styled('article', {
     content: '""',
     height: '1px',
     width: '100%',
-    backgroundColor: '#ccc',
+    opacity: '0.5',
+    backgroundColor: colors.black,
     left: '0',
-    bottom: '0'
+    bottom: '0',
+    // boxShadow: `0 4px 0 rgba(0,0,0,0.25)`,
   },
   [print]: {
     display: 'inline-block',
@@ -54,7 +59,7 @@ export const Role = styled('header', ({ $hover }) => ({
   position: 'relative',
   overflow: 'hidden',
   display: 'inline-block',
-  textShadow: '1px 1px 4px #fff',
+  // textShadow: `1px 1px 3px ${colors.gray2}`,
   transition: 'all 0.25s',
   paddingTop: '0.25em',
   paddingBottom: '0.25em',

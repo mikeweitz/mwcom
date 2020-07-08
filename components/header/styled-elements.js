@@ -14,7 +14,7 @@ const bgUrl = 'https://images.unsplash.com/photo-1579547944064-0180251f94c8?ixli
 export const Heading = styled('header', ({ $scrolled }) => ({
   // background: 'url() #222',
   background: `url(${bgUrl}) #222`,
-  background: colors.black,
+  background: 'rgba(0, 0, 0, 0.8)',
   position: 'fixed',
   top: '0',
   left: '0',
@@ -77,15 +77,25 @@ export const PageScrolled = styled('div', ({ $scrolled }) => ({
 
 export const Logo = styled('div', ({ $scrolled }) => ({
   position: 'absolute',
-  height: $scrolled ? '128px' : '162px',
-  width: $scrolled ? '128px' : '162px',
+  height: '162px',
+  width: '162px',
   transitionProperty: 'all',
   transitionDuration: '1s',
   transitionTimingFunction: easeOutCirc,
-  transitionDelay: $scrolled ? '0' : '0.325s',
+  transitionDelay: '0.325s',
   zIndex: 0,
-  top: $scrolled ? '-4em' : '-2.125em',
+  top: 0,
   left: 0,
+  transform: 'translate(0, -2.125em)',
+  ...($scrolled && {
+    transitionDelay: '0',
+    width: '328px',
+    height: '328px',
+    transform: 'translate(-160px, -210px)',
+    opacity: '0.7',
+    // filter: 'hue-rotate(180deg)',
+    filter: 'invert(10%)'
+  })
 }));
 
 export const Img = styled('img', {
@@ -137,13 +147,21 @@ export const TitleLink = styled('a', {
 });
 
 export const StyledLink = withStyle(A, ({ $scrolled }) => ({
-  color: colors.blueViolet,
+  color: colors.steelBlue,
+  ':link': {
+    color: colors.steelBlue,
+  },
   ':hover': {
+    color: colors.steelBlue,    
     textDecoration: 'none',
   },
   ':focus': {
+    color: colors.steelBlue,    
     textDecoration: 'none',
   },
+  ':visited': {
+    color: colors.steelBlue,    
+  }
 }));
 
 export const LinkSpan = styled('span', {

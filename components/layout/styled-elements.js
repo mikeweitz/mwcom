@@ -14,8 +14,13 @@ const {
 
 export const Main = styled('main', ({$scrolled}) => ({
   ...fonts.body,
+  width: '100%',
+  minHeight: '100%',
   paddingTop: $scrolled ? '48px' : '160px',
   transition: `all 1s ${easeOutCirc}`,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
 
   backgroundImage: `url(${bgUrl[0]})`,
 

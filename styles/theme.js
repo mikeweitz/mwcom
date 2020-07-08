@@ -22,6 +22,7 @@ const THEME = {
     heliotrope: '#EC5AFF',
     orangePeel: '#FF9D00',
     turquoise: '#51E8CF',
+    steelBlue: '#4984A8',
     raspberry: '#EE2677',
   },
   fonts: {
