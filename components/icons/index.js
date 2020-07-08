@@ -13,13 +13,14 @@ const Print = ({fill, alt}) => {
   );
 };
 
-const Arrow = ({ fill, alt }) => {
+const Arrow = ({ fill, alt, style }) => {  
   return (
     <svg 
       xmlns="http://www.w3.org/2000/svg" 
       data-tags="remove-circle, cancel, close, remove, delete"
-      viewBox="0 0 1200 1200">
-        {alt && <title>{alt}</title>}        
+      viewBox="0 0 1200 1200"       
+      >
+        {alt && <title>{alt}</title>}
         <path fill={fill || '#fff'} d="M599.992 0L131.243 703.131H383.79V1200h432.422V703.131h252.546L599.992 0z"/>
     </svg>
   )

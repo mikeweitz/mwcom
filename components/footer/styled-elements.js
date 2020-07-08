@@ -1,5 +1,6 @@
-import { styled } from 'styletron-react';
+import { styled, withStyle } from 'styletron-react';
 import { THEME } from '../../styles/theme';
+import { Container } from '../../styles/grid';
 
 const {
   colors,
@@ -26,12 +27,12 @@ export const Footer = styled('footer', {
 });
 
 export const ButtonPrint = styled('button', {
-  position: 'absolute',
+  position: 'relative',
   display: 'block',
   overflow: 'hidden',
   left: '2em',
-  top: '50%',
-  margin: '-15px 0 0',
+  // top: '50%',
+  margin: '0',
   padding: '0',
   textAlign: 'center',
   color: colors.steelBlue,
@@ -51,11 +52,10 @@ export const ButtonPrint = styled('button', {
     // background: 'url(/static/images/icon_print.png)'
   },
   ':hover': {
-    // @include boxshadow(0 0 5px #ccc);
     color: colors.turquoise,
     width: '124px',
     height: '40px',
-    marginTop: '-20px',
+    // marginTop: '-20px',
     borderRadius: '20px',
     paddingLeft: '14px',
     ':before': {
@@ -68,6 +68,12 @@ export const ButtonPrint = styled('button', {
   },
 });
 
+export const Row = withStyle(Container, {
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+})
+
 export const PrintIcon = styled('span', ({ $hover }) => ({
   position: 'absolute',
   display: 'inline-block',
@@ -78,32 +84,53 @@ export const PrintIcon = styled('span', ({ $hover }) => ({
 }));
 
 export const ButtonTop = styled('button', {
-  position: 'absolute',
+  position: 'relative',
   // textIndent: '105%',
   overflow: 'hidden',
   whiteSpace: 'nowrap',
   right: '2em',
   top: '50%',
-  margin: '-15px 0 0',
+  margin: '0',
   padding: '0',
   textAlign: 'left',
-  // backgroundColor: '#eee',
-  height: '30px',
-  width: '30px',
-  border: `1px solid ${colors.steelBlue}`,
+  backgroundColor: colors.blueViolet,
+  height: '42px',
+  width: '42px',
+  border: `1px solid ${colors.blueViolet}`,
   padding: '4px',
   borderRadius: '20px',
   transition: 'all 0.35s ease',
   // backgroundImage: 'url(/static/images/arrow-top.png)',
   // backgroundPosition: 'center center',
   // backgroundRepeat: 'no-repeat',
-  backgroundColor: 'transparent',
+  // backgroundColor: 'transparent',
   cursor: 'pointer',
   ':hover': {
     // backgroundColor: '#eee',
-    border: `1px solid ${colors.turquoise}`,
+    border: `1px solid ${colors.steelBlue}`,
   },
   [print]: {
     display: 'none',
   },
 });
+
+export const Out = styled('div', ({$hover}) => ({
+  position: 'absolute',
+  width: '54%',
+  height: '54%',
+  top: '50%'  ,
+  left: '50%',
+  transition: `transform 0.3s ${easeInOutSine}`,
+  transform: $hover ? 'translate(-50%, -200%)' : 'translate(-50%, -60%)',
+}))
+
+export const Over = styled('div', ({$hover}) => ({
+  position: 'absolute',
+  width: '54%',
+  height: '54%',
+  margin: 'auto',
+  top: '50%',
+  left: '50%',
+  transition: `transform 0.3s ${easeInOutSine}`,
+  transform: !$hover ? 'translate(-50%, 200%)' : 'translate(-50%, -60%)',
+}))

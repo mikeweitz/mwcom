@@ -10,40 +10,34 @@ import { THEME } from '../../styles/theme';
 const {
   colors
 } = THEME;
-class Footer extends Component {
-  constructor() {
-    super();
-  }
+const Footer = () => {
 
-  state = {
-    hoverPrint: false,
-  };
+  const [ hoverPrint, setHoverPrint ] = useState(false)
+  const [ hoverArrow, setHoverArrow ] = useState(false)
 
-  onPrint = e => {
+  const onPrint = e => {
     return window.open('/static/pdf/michael-weitzman-resume.pdf', 'download');
   };
 
-  handleToTop = e => {
+  const handleToTop = e => {
     animateScroll.scrollToTop();
   };
 
-  handleMouseEnter = () => {
-    this.setState({ hoverPrint: true });
+  const handleMouseEnter = () => {
+    setHoverPrint(true);
   };
 
-  handleMouseLeave = () => {
-    this.setState({ hoverPrint: false });
+  const handleMouseLeave = () => {
+    setHoverPrint(false);
   };
 
-  render() {
-    const { hoverPrint } = this.state;
     return (
       <S.Footer id="footer">
-        <Container>
+        <S.Row>
           <S.ButtonPrint
-            onMouseEnter={this.handleMouseEnter}
-            onMouseLeave={this.handleMouseLeave}
-            onClick={this.onPrint}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onClick={onPrint}
           >
             <S.PrintIcon $hover={hoverPrint}>
               <Print fill={colors.turquoise}/>
@@ -51,13 +45,20 @@ class Footer extends Component {
             Print this
           </S.ButtonPrint>
 
-          <S.ButtonTop onClick={this.handleToTop}>
-            <Arrow fill={colors.turquoise} alt="Back to top" />
+          <S.ButtonTop onClick={handleToTop}
+            onMouseEnter={() => setHoverArrow(true)}
+            onMouseLeave={() => setHoverArrow(false)}
+            >
+            <S.Out $hover={hoverArrow}>
+              <Arrow fill={colors.steelBlue} alt="Back to top" />
+            </S.Out>
+            <S.Over $hover={hoverArrow}>
+              <Arrow fill={colors.turquoise} alt="Back to top" />              
+            </S.Over>
           </S.ButtonTop>
-        </Container>
+        </S.Row>
       </S.Footer>
     );
-  }
 }
 
 export default Footer;
