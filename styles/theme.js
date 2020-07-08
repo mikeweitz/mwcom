@@ -14,8 +14,15 @@ const THEME = {
     positive: ['#07A35A', '#057C44', '#88D3B0'],
     lime: '#c6ff00',
     darkBlue: '#103037',
+    blueViolet: '#402081',
+    black: '#111',
     gray1: '#dcdcdc',
     gray2: '#404040',
+    neonGreen: '#2BF403',
+    heliotrope: '#EC5AFF',
+    orangePeel: '#FF9D00',
+    turquoise: '#51E8CF',
+    raspberry: '#EE2677',
   },
   fonts: {
     heading: {

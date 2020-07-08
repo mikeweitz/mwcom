@@ -13,18 +13,19 @@ export const PList = styled('article', ({ $active }) => ({
   overflow: 'hidden',
   transition: 'all 1s ease-out',
   width: '100%',
-  height: '100%',
+  height: '0',
+  paddingBottom: '100%',
   fontSize: '0.85em',
   lineHeight: '1.4em',
   border: '1px solid #ddd',
   borderRadius: '1em 1em',
-  padding: '3em',
+  // padding: '3em',
   cursor: 'pointer',
   ...($active
     && {
-      width: 'calc(100% + 1em)',
-      height: 'calc(100% + 1em)',
-      margin: '-0.5em',
+      // width: 'calc(100% + 1em)',
+      // height: 'calc(100% + 1em)',
+      // margin: '-0.5em',
     }),
 }));
 
@@ -34,7 +35,7 @@ export const CoverArt = styled('img', ({$hover}) => ({
   top: '50%',
   left: '50%',
   width: '110%',
-  filter: 'grayscale(90%)',
+  filter: 'grayscale(100%)',
   transform: 'translate(-50%, -50%)',
   transition: 'all 0.5s ease-out',
   ...($hover

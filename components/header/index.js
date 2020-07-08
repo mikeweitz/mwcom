@@ -9,6 +9,19 @@ import Head from 'next/head';
 
 import { useScrollContext } from '../scrollContext';
 
+const Title = ({name}) => {
+  const parts = name.split(' ');
+  return (
+    <Link href="/" passHref>
+      <S.TitleLink>
+        <S.Title>{  parts.map((str, n) => {
+          const name = str.split();
+          return (<><S.Initial>{name.shift()}</S.Initial>{name.join()}{n < str.length +1 && ' '}</>)
+        })}</S.Title>
+      </S.TitleLink>
+    </Link>    
+  );
+}
 
 const Header = () => {
   const scroll = useScrollContext();
@@ -47,11 +60,7 @@ const Header = () => {
       <Container>
         <S.PageTop $scrolled={scroll.isScrolled}>
           <S.Group>
-            <Link href="/" passHref>
-              <S.TitleLink>
-                <S.Title>{title}</S.Title>
-              </S.TitleLink>
-            </Link>
+            <Title name={title} />
           </S.Group>
 
           {renderLinks()}

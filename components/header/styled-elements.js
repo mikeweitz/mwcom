@@ -8,9 +8,13 @@ const {
   breakpoints: { print },
 } = THEME;
 
+const bgUrl = 'https://images.unsplash.com/photo-1579547944064-0180251f94c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3292&q=80';
+// /static/images/dark_stripes.png
+// /static/images/texture.png
 export const Heading = styled('header', ({ $scrolled }) => ({
-  background: 'url(/static/images/texture.png) #222',
-  background: 'url(/static/images/dark_stripes.png) #222',
+  // background: 'url() #222',
+  background: `url(${bgUrl}) #222`,
+  background: colors.black,
   position: 'fixed',
   top: '0',
   left: '0',
@@ -23,7 +27,7 @@ export const Heading = styled('header', ({ $scrolled }) => ({
   color: '#ddd',
   borderBottom: '1px solid rgba(255,255,255, 0.4)',
   boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
-  marginBottom: $scrolled ? '48px' : '168px',
+  // marginBottom: $scrolled ? '48px' : '168px',
   transition: `all 1s ${easeOutCirc}`,
   [print]: {
     minHeight: '150px',
@@ -101,7 +105,7 @@ export const Title = styled('h1', ({ $small }) => ({
   ...fonts.heading,
   marginTop: 0,
   cursor: 'inherit',
-  color: '#fff',
+  color: colors.heliotrope,
   ...($small
     ? {
         marginBottom: 0,
@@ -119,6 +123,10 @@ export const Title = styled('h1', ({ $small }) => ({
   },
 }));
 
+export const Initial = styled('span', {
+  textTransform: 'uppercase',
+});
+
 export const TitleLink = styled('a', {
   color: '#fff',
   textDecoration: 'none',
@@ -129,6 +137,7 @@ export const TitleLink = styled('a', {
 });
 
 export const StyledLink = withStyle(A, ({ $scrolled }) => ({
+  color: colors.blueViolet,
   ':hover': {
     textDecoration: 'none',
   },

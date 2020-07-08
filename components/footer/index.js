@@ -48,9 +48,6 @@ class Footer extends Component {
 
           <S.ButtonTop onClick={this.handleToTop}>Back to top</S.ButtonTop>
         </Container>
-        <Container>
-          <Link href="/playlists">Monthly Playlists</Link>
-        </Container>
       </S.Footer>
     );
   }
