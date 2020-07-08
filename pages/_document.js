@@ -30,11 +30,6 @@ class MyDocument extends Document {
             name="keyword"
             content="Michael Weitzman, Javascript, CSS, HTML, front end engineer, web developer"
           />
-          <link
-            rel="stylesheet"
-            type="text/css"
-            href="/static/styles/main.css"
-          />
           {this.props.stylesheets.map((sheet, i) => (
             <style
               className="_styletron_hydrate_"

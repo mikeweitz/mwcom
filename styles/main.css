@@ -24,6 +24,7 @@ textarea {
 html {
   font-size: 1em;
   line-height: 1.4em;
+  height: 100%;
 }
 
 /*
@@ -167,11 +168,12 @@ a:focus {
 body {
   position: relative;
   background: #333;
+  min-height: 100%;
   /* background: url(/static/images/ps_neutral.png); */
 }
 
 body.loading::before {
-  background: url(../images/loading.gif) no-repeat center;
+  background: url(/public/static/images/loading.gif) no-repeat center;
 }
 
 * {
@@ -193,6 +195,10 @@ body.loading::before {
 
 .ir br {
   display: none;
+}
+
+#__next {
+  min-height: 100%;
 }
 
 @media print {
@@ -283,18 +289,22 @@ body.loading::before {
     margin-bottom: 0;
     border-bottom: none;
   }
+
   #header:before {
     content: '';
   }
+
   #header h1 {
     font-size: 15px;
     margin: 0;
     font-weight: bold;
   }
+
   #header address {
     margin: 0;
     padding: 0;
   }
+
   #header a {
     display: block;
     width: auto;
