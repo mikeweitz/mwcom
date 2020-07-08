@@ -10,6 +10,8 @@ export const Container = styled('div', ({ $pageBreak }) => ({
   position: 'relative',
   maxWidth: '90%',
   margin: '0 auto',
+  width: '100%',
+
   [desk]: {
     width: '90%',
     maxWidth: '1440px'
