@@ -1,5 +1,22 @@
 const positions = [
   {
+    role: 'Senior Engineer',
+    company: 'Warner Bros',
+    dates: {
+      start: 'March, 2020'
+    },
+    responsibilities: [
+      'Build and maintain features on WarnerBros.com portal, across 18 different regions',
+    ],
+    skills: [
+      'React',
+      'Styled Components',
+      'Git',
+      'Jest / Enzyme',
+      'Node',
+    ]
+  },
+  {
     role: 'Lead Developer',
     company: 'HAUS',
     dates: {

@@ -32,6 +32,9 @@ const THEME = {
       fontFamily: '"Roboto", sans-serif',
       fontWeight: '400',
     },
+    display: {
+      fontFamily: '"Metrophobic", sans-serif',
+    },
     body: {
       fontFamily: '"Open Sans", sans-serif',
       fontFamily: '"Metrophobic", sans-serif',
@@ -44,6 +47,11 @@ const THEME = {
     body: '16px',
     position: '17.5px',
     display: '38.5px',
+    mobile: {
+      small: '12px',
+      body: '16px',
+      display: '24px'
+    },
   },
   sizing: ['2px', '6px', '10px', '16px', '24px'],
   easing: {

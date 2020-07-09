@@ -7,12 +7,12 @@ import { useScrollContext } from '../scrollContext';
 
 import * as S from './styled-elements';
 
-const Layout = ({children}) => {
-  
+const Layout = ({ children }) => {
   const scroll = useScrollContext();
 
-  const useIsomorphicEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
-  
+  const useIsomorphicEffect =
+    typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+
   useIsomorphicEffect(() => {
     if (window && !window.GA_INITIALIZED) {
       initGA();
@@ -28,6 +28,5 @@ const Layout = ({children}) => {
       <Footer />
     </S.Main>
   );
-  
-}
+};
 export default Layout;

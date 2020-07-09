@@ -19,8 +19,8 @@ export const Footer = styled('footer', {
   width: '100%',
   minHeight: '80px',
   color: '#ddd',
-  boxShadow: '0 -4px 8px rgba(0,0,0,0.3)',
-  borderTop: `1px solid ${colors.blueViolet}`,
+  boxShadow: '0 -4px 8px rgba(0, 0, 0, 0.3)',
+  borderTop: `1px solid rgba(0, 0, 0, 0.5)`,
   [print]: {
     display: 'none',
   },
@@ -72,7 +72,7 @@ export const Row = withStyle(Container, {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-})
+});
 
 export const PrintIcon = styled('span', ({ $hover }) => ({
   position: 'absolute',
@@ -114,17 +114,17 @@ export const ButtonTop = styled('button', {
   },
 });
 
-export const Out = styled('div', ({$hover}) => ({
+export const Out = styled('div', ({ $hover }) => ({
   position: 'absolute',
   width: '54%',
   height: '54%',
-  top: '50%'  ,
+  top: '50%',
   left: '50%',
   transition: `transform 0.3s ${easeInOutSine}`,
   transform: $hover ? 'translate(-50%, -200%)' : 'translate(-50%, -60%)',
-}))
+}));
 
-export const Over = styled('div', ({$hover}) => ({
+export const Over = styled('div', ({ $hover }) => ({
   position: 'absolute',
   width: '54%',
   height: '54%',
@@ -133,4 +133,4 @@ export const Over = styled('div', ({$hover}) => ({
   left: '50%',
   transition: `transform 0.3s ${easeInOutSine}`,
   transform: !$hover ? 'translate(-50%, 200%)' : 'translate(-50%, -60%)',
-}))
+}));

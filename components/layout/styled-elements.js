@@ -9,25 +9,30 @@ const {
   fonts,
   colors,
   easing: { easeOutCirc, easeOutQuart, easeOutExpo, easeInOutSine },
-  breakpoints: { print },
+  breakpoints: { tablet, print },
 } = THEME;
 
 export const Main = styled('main', ({$scrolled}) => ({
   ...fonts.body,
+  display: 'flex',
   width: '100%',
   minHeight: '100%',
-  paddingTop: $scrolled ? '48px' : '160px',
-  transition: `all 1s ${easeOutCirc}`,
-  display: 'flex',
+  // paddingTop: $scrolled ? '48px' : '172px',
+  paddingTop: '72px',
+  transitionProperty: 'all',
+  transitionTimingFunction: easeOutCirc,
+  transitionDuration: '0.5s',
+  transitionDelay: '.5s',
   flexDirection: 'column',
   justifyContent: 'space-between',
-
   backgroundImage: `url(${bgUrl[0]})`,
-
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
   backgroundAttachment: 'fixed',
   backgroundColor: '#111',
+  [tablet]: {
+    paddingTop: '172px',
+  },
   [print]: {
     paddingTop: 'initial',
   },

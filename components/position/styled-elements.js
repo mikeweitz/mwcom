@@ -4,6 +4,7 @@ const { fontSize } = THEME;
 
 const {
   colors,
+  fonts,
   breakpoints: { tablet, tabletLarge, desk, wide, print }
 } = THEME;
 
@@ -11,6 +12,7 @@ const {
 export const Position = styled('article', {
   width: '100%',
   color: colors.black,
+  // textShadow: `1px 1px 1px ${colors.steelBlue}`,
   marginTop: '4em',
   paddingBottom: '4em',
   position: 'relative',
@@ -60,6 +62,7 @@ export const Role = styled('header', ({ $hover }) => ({
   overflow: 'hidden',
   display: 'inline-block',
   // textShadow: `1px 1px 3px ${colors.gray2}`,
+  textShadow: 'none',
   transition: 'all 0.25s',
   paddingTop: '0.25em',
   paddingBottom: '0.25em',

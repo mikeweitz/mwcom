@@ -3,7 +3,7 @@ import { THEME } from './theme';
 
 const {
   breakpoints: { tablet, tabletLarge, desk, wide, max, print },
-  colors
+  colors,
 } = THEME;
 
 export const Container = styled('div', ({ $pageBreak }) => ({
@@ -14,15 +14,15 @@ export const Container = styled('div', ({ $pageBreak }) => ({
 
   [desk]: {
     width: '90%',
-    maxWidth: '1440px'
+    maxWidth: '1440px',
   },
   ...($pageBreak
     ? {
         [print]: {
-          pageBreakAfter: 'always'
-        }
+          pageBreakAfter: 'always',
+        },
       }
-    : {})
+    : {}),
 }));
 
 export const GridFlex = styled('div', {
@@ -43,20 +43,36 @@ export const Grid = styled('div', {
   justifyContent: 'center',
   [tablet]: {
     gridGap: '32px',
-    gridTemplateColumns: 'repeat(2, 1fr)'
+    gridTemplateColumns: 'repeat(2, 1fr)',
   },
   [tabletLarge]: {
     gridGap: '32px',
-    gridTemplateColumns: 'repeat(3, 1fr)'
+    gridTemplateColumns: 'repeat(3, 1fr)',
   },
   [desk]: {
     maxWidth: '1440px',
     gridTemplateColumns: 'repeat(3, 1fr)',
-    gridGap: '24px'
+    gridGap: '24px',
   },
   [print]: {
-    display: 'block'
-  }
+    display: 'block',
+  },
+});
+export const GridPlaylist = withStyle(Grid, {
+  gridTemplateColumns: 'repeat(2, 1fr)',
+  gridGap: '38px',
+  [tablet]: {
+    gridGap: '32px',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+  },
+  [tabletLarge]: {
+    gridTemplateColumns: 'repeat(4, 1fr)',
+  },
+  [desk]: {
+    maxWidth: '1440px',
+    gridTemplateColumns: 'repeat(5, 1fr)',
+    gridGap: '64px',
+  },
 });
 
 export const GridLinks = styled('div', {
@@ -65,17 +81,17 @@ export const GridLinks = styled('div', {
   gridAutoFlow: 'row',
   gridGap: '32px',
   [tablet]: {
-    gridTemplateColumns: 'repeat(2, 1fr)'
+    gridTemplateColumns: 'repeat(2, 1fr)',
   },
   [tabletLarge]: {
-    gridTemplateColumns: 'repeat(2, 1fr)'
+    gridTemplateColumns: 'repeat(2, 1fr)',
   },
   [desk]: {
     maxWidth: '1440px',
     gridTemplateColumns: 'repeat(2, 1fr)',
-    gridGap: '24px'
+    gridGap: '24px',
   },
   [print]: {
-    display: 'block'
-  }
+    display: 'block',
+  },
 });

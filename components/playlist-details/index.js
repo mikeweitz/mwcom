@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as S from './styled-elements';
-import { Container } from '../../styles/grid';
-import { copy } from '../../data';
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import useSWR from 'swr';
+import { THEME } from '../../styles/theme';
+import { Close } from '../icons';
 
 import { useScrollContext } from '../scrollContext';
 
+const {
+  colors
+} = THEME;
 
 const fetcher = async url => {
   const res = await fetch(url);
@@ -21,9 +23,16 @@ const fetcher = async url => {
 
 const PlaylistDetails = ({ pid, playlist, close }) => {
   const scroll = useScrollContext();
-
+  const scrollRef = useRef(null)
   const { data, error } = useSWR( !pid ? null : () => `/api/spotify/${pid}`, fetcher);
-
+  const [ hoverClose, setHoverClose ] = useState(false);
+  useEffect(() => {
+    console.warn('plist details effect', scrollRef)
+    if (scrollRef && scrollRef.current) {
+      scrollRef.current.scrollTop = 0;
+    }
+  }, [pid])
+  
   console.log('Playlist Details', pid, playlist, data );
 
   const { images, name, tracks, external_urls } = data || {}; 
@@ -32,7 +41,7 @@ const PlaylistDetails = ({ pid, playlist, close }) => {
     <S.Drawer $scrolled={scroll.isScrolled} $active={pid}>
       <S.Section id="playlist-details" $scrolled={scroll.isScrolled} $active={pid}>
         {error || !data ? null : (
-          <S.ScrollContainer>
+          <S.ScrollContainer ref={scrollRef} >
             <S.Meta>
               <a href={external_urls.spotify} target="_blank">
                 <S.PlistName>{name}</S.PlistName>
@@ -40,14 +49,16 @@ const PlaylistDetails = ({ pid, playlist, close }) => {
             </S.Meta>
 
             <S.Cover>
-              <S.CoverImg src={images[0].url} />
+              <a href={external_urls.spotify} target="_blank">
+                <S.CoverImg src={images[0].url} />
+              </a>
             </S.Cover>
 
             <S.Songs>
               <S.TrackList>
                 {tracks.items.map(t => (
                   <S.Track key={t.sharing_info.share_id}>
-                    {t.track.name}
+                    <strong>{t.track.name}</strong>
                     <br />
                     {t.track.artists.map(a => {
                       return <S.Artist key={`${pid}_${a.id}`}>{a.name}</S.Artist>;
@@ -59,7 +70,16 @@ const PlaylistDetails = ({ pid, playlist, close }) => {
           </S.ScrollContainer>
         )}
       </S.Section>
-      <S.Close onClick={close}>Close</S.Close>
+      <S.Close 
+        $active={pid}
+        onClick={close}
+        onMouseEnter={() => setHoverClose(true)}
+        onMouseLeave={() => setHoverClose(false)}
+      >
+        <S.Icon>
+          <Close alt='Close' width="50%" height="auto" fill={hoverClose && colors.heliotrope} />
+        </S.Icon>
+      </S.Close>
     </S.Drawer>
   );
 }

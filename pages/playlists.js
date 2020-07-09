@@ -9,7 +9,7 @@ import Playlist from '../components/playlist';
 import { ScrollProvider } from '../components/scrollContext';
 import { positions, skills, projects } from '../data';
 
-import { Grid, GridFlex, GridLinks, Container } from '../styles/grid';
+import { GridPlaylist, GridLinks, Container } from '../styles/grid';
 
 import * as S from './styled-elements';
 import { filter } from 'lodash';
@@ -36,7 +36,7 @@ const Playlists = () => {
       <Layout>
         <PlaylistDetails close={() => setActive(null)} pid={active || null} />
         <Container>
-          <GridFlex>
+          <GridPlaylist>
             {!data 
               ? 'loading...'
               : error 
@@ -46,7 +46,7 @@ const Playlists = () => {
                     <Playlist active={ pid === active } key={i} pid={pid} />
                   </S.PlaylistWrap>
                 ))}
-          </GridFlex>
+          </GridPlaylist>
         </Container>
       </Layout>
     </ScrollProvider>

@@ -35,6 +35,7 @@ export default function Playlist({ pid, active }) {
       onMouseLeave={() => setHover(false)}
       $active={active || hover}
     >
+      <S.PlistName $hover={hover || active}><span>{name}</span></S.PlistName>
       <S.CoverArt
         $hover={hover || active}
         src={images[0].url}

@@ -10,24 +10,32 @@ const {
   breakpoints: { print },
 } = THEME;
 
+const transition = {
+  transitionProperty: 'all',
+  transitionDuration: '1s',
+  transitionTimingFunction: easeOutCirc,
+  transitionDelay: '0',
+};
+
 export const Drawer = styled('div', ({ $scrolled, $active }) => ({
   position: 'fixed',
-  zIndex: '5',
-  top: '0',
+  zIndex: '10',
+  top: $scrolled ? '48px' : '162px',
   left: '0',
+  overflow: 'hidden',
   minHeight: '0',
-  maxHeight: '0', 
-  transition: `all 1s ${easeOutCirc}`,
-  transform: 'translateY(-100%)',
-  maxHeight: '50vh',
-  width: '100%',
+  height: '0', 
+  ...(transition),
+
+  // transform: 'translateY(-100%)',
+  height: $active ? '520px' : '0',
   display: 'grid',
+  width: '100%',
   gridAutoFlow: 'rows',
-  gridTemplateRows: 'auto 100px',
+  gridTemplateRows: '420px 100px',
   ...($active && {
-    minHeight: '250px',
-    top: $scrolled ? '48px' : '162px',
-    transform: 'translateY(0)',
+    // minHeight: '250px',
+    // transform: 'translateY(0)',
   })
 }));
 
@@ -35,15 +43,32 @@ export const ScrollContainer = withStyle(Container, () => ({
   display: 'flex',
   flexWrap: 'wrap',
   overflow: 'scroll',
-  height: '400px',
+  height: '100%',
+  position: 'relative',
+  paddingBottom: '3em',
+  ':after': {
+    position: 'fixed',
+    zIndex: 3,
+    content: '""',
+    bottom: '0',
+    left: '0',
+    width: '100%',
+    height: '3em',
+    transform: 'translateY(-100%)',
+    background: `linear-gradient(0deg, ${colors.black}, transparent 100%)`,
+  }
 }));
 
 export const Section = styled('section', ({ $scrolled, $active }) => ({
-  background: 'url(/static/images/texture.png) #222',
-  background: 'url(/static/images/dark_stripes.png) #222',
+  // background: 'url(/static/images/texture.png) #222',
+  // background: 'url(/static/images/dark_stripes.png) #222',
+  background: colors.black,
   paddingTop: '1em',
   paddingBottom: '3em',
-  color: '#ddd',
+  color: colors.gray1,
+  ...(transition),
+
+  transform: $active ? 'translateY(0)' : 'translateY(-420px)',
 }));
 
 export const Cover = styled('div', {
@@ -60,14 +85,14 @@ export const CoverImg = styled('img', {
 
 export const Songs = styled('div', {
   flex: '1 1 70%',
-  paddingLeft: '1em',
+  paddingLeft: '2em',
 });
 
 export const TrackList = styled('ol', {
-  width: '100%',
+  width: 'auto',
   display: 'block',
   listStyleType: 'decimal-leading-zero',
-  margin: '0 0 0 1.5em',
+  margin: '0 0 0 2em',
   padding: 0,
   columns: 2,
 });
@@ -75,10 +100,11 @@ export const TrackList = styled('ol', {
 export const Track = styled('li', {
   listStyleType: 'decimal-leading-zero',
   margin: '0 0 1em 0',
+  paddingRight: '3em',
   fontSize: '80%',
 })
 
-export const Close = styled('button', () => ({
+export const Close = styled('button', ({$active}) => ({
   justifySelf: 'end',
   zIndex: 5,
   cursor: 'pointer',
@@ -87,15 +113,23 @@ export const Close = styled('button', () => ({
   border: 'none',
   width: '100px',
   height: '100px',
-  background: '#000',
-  color: 'white',
-  transition: `all 1s ${easeOutCirc}`,
-
+  background: colors.black,
+  color: colors.gray1,
+  transform: $active ? 'translateY(0)' : 'translateY(-420px)',
+  ...(transition),
 }))
+
+export const Icon = styled('div', {
+  width: '20%',
+  height: '20%',
+  margin: 'auto',
+})
 
 export const Meta = styled('div', {
   flex: '0 0 100%',
   width: '100%',
+  fontSize: fontSize.position,
+  textTransform: 'uppercase',
 });
 
 export const PlistName = styled('h3', {

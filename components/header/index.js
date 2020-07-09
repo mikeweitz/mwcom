@@ -9,34 +9,41 @@ import Head from 'next/head';
 
 import { useScrollContext } from '../scrollContext';
 
-const Title = ({name}) => {
+const Title = ({ name, small }) => {
   const parts = name.split(' ');
   return (
     <Link href="/" passHref>
       <S.TitleLink>
-        <S.Title>{  parts.map((str, n) => {
-          const name = str.split();
-          return (<><S.Initial>{name.shift()}</S.Initial>{name.join()}{n < str.length +1 && ' '}</>)
-        })}</S.Title>
+        <S.Title $small={small}>
+          {parts.map((str, n) => {
+            const name = str.split('');
+            return (
+              <>
+                <S.Initial>{name.shift()}</S.Initial>
+                {!small && name.join('')}
+                {!small && n < str.length + 1 && ' '}
+              </>
+            );
+          })}
+        </S.Title>
       </S.TitleLink>
-    </Link>    
+    </Link>
   );
-}
+};
 
 const Header = () => {
   const scroll = useScrollContext();
 
+  const [showMenu, setShowMenu] = useState(false);
+
   const renderLinks = () => {
     const {
-      header: { title, email, github, linkedin },
+      header: { title, email, github, linkedin, playlists },
     } = copy;
     return (
-      <address>
+      <S.NavWrap $showMenu={showMenu}>
         <S.StyledLink href="#">
-          <S.LinkSpan>
-            {email.address}
-            {email.domain}
-          </S.LinkSpan>
+          <S.LinkSpan>{email.address + email.domain}</S.LinkSpan>
         </S.StyledLink>
         <S.StyledLink href={github.url}>
           <S.LinkSpan>{github.text}</S.LinkSpan>
@@ -44,34 +51,38 @@ const Header = () => {
         <S.StyledLink href={linkedin.url}>
           <S.LinkSpan>{linkedin.text}</S.LinkSpan>
         </S.StyledLink>
-        <S.StyledLink href="/playlists">
-          <S.LinkSpan>{'Playlists'}</S.LinkSpan>
-        </S.StyledLink>
-      </address>
+        <Link href={playlists.url}>
+          <S.StyledLink>
+            <S.LinkSpan>{playlists.text}</S.LinkSpan>
+          </S.StyledLink>
+        </Link>
+      </S.NavWrap>
     );
-  }
+  };
 
   const {
-    header: { title, email, github, linkedin },
+    header: { title },
   } = copy;
 
   return (
     <S.Heading id="header" $scrolled={scroll.isScrolled}>
-      <Container>
+      <S.Overflow $scrolled={scroll.isScrolled}>
+        <S.MenuButton
+          onClick={() => {
+            setShowMenu(!showMenu);
+          }}
+        >
+          Menu
+        </S.MenuButton>
+
         <S.PageTop $scrolled={scroll.isScrolled}>
-          <S.Group>
-            <Title name={title} />
-          </S.Group>
+          <Title name={title} />
 
           {renderLinks()}
         </S.PageTop>
 
         <S.PageScrolled $scrolled={scroll.isScrolled}>
-          <Link href="/" passHref>
-            <S.TitleLink>
-              <S.Title $small>{'MW'}</S.Title>
-            </S.TitleLink>
-          </Link>
+          <Title small name={title} />
 
           {renderLinks()}
         </S.PageScrolled>
@@ -81,9 +92,8 @@ const Header = () => {
             <S.Img src="/static/logo.png" />
           </S.Logo>
         </Link>
-
-      </Container>
+      </S.Overflow>
     </S.Heading>
   );
-}
+};
 export default Header;

@@ -182,7 +182,7 @@ body.loading::before {
   box-sizing: border-box;
 }
 
-.ir {
+/* .ir {
   background-color: transparent;
   background-repeat: no-repeat;
   border: 0;
@@ -195,7 +195,7 @@ body.loading::before {
 
 .ir br {
   display: none;
-}
+} */
 
 #__next {
   display: flex;

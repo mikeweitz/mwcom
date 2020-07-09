@@ -12,6 +12,10 @@ const copy = {
     linkedin: {
       text: 'linkedin',
       url: 'https://www.linkedin.com/in/mikeweitzman/'
+    },
+    playlists: {
+      text: 'playlists',
+      url: '/playlists'
     }
   },
   summary: `Front-end architect with extensive tooling experience, attention to
