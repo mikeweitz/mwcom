@@ -36,6 +36,21 @@ const Header = () => {
 
   const [showMenu, setShowMenu] = useState(false);
 
+  const timer = null;
+  const toggleMenu = () => {};
+  const handleMenu = () => {
+    console.log('hi');
+    if (['animateIn', 'animateOut'].includes(showMenu)) {
+      return false;
+    }
+
+    const newState = showMenu === 'in' ? 'animateOut' : 'animateIn';
+    const finalState = showMenu === 'in' ? 'out' : 'in';
+    console.log('set showMenu to', newState, finalState);
+    setShowMenu(newState);
+    setTimeout(() => setShowMenu(finalState), 2000);
+  };
+
   const renderLinks = () => {
     const {
       header: { title, email, github, linkedin, playlists },
@@ -67,12 +82,10 @@ const Header = () => {
   return (
     <S.Heading id="header" $scrolled={scroll.isScrolled}>
       <S.Overflow $scrolled={scroll.isScrolled}>
-        <S.MenuButton
-          onClick={() => {
-            setShowMenu(!showMenu);
-          }}
-        >
-          Menu
+        <S.MenuButton onClick={() => setShowMenu(!showMenu)}>
+          <S.MenuDotOne key={'menu-dot-one'} $active={showMenu} />
+          <S.MenuDotTwo key={'menu-dot-two'} $active={showMenu} />
+          <S.MenuDotThree key={'menu-dot-three'} $active={showMenu} />
         </S.MenuButton>
 
         <S.PageTop $scrolled={scroll.isScrolled}>

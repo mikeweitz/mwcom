@@ -1,4 +1,4 @@
-import { styled, withStyle } from 'styletron-react';
+import { styled, withStyle, autoComposeDeep } from 'styletron-react';
 import { THEME, A } from '../../styles/theme';
 const {
   fonts,
@@ -17,7 +17,7 @@ export const Heading = styled('header', ({ $scrolled }) => ({
   position: 'fixed',
   top: '0',
   left: '0',
-  zIndex: '10',
+  zIndex: '15',
   paddingTop: '0',
   paddingBottom: '0',
   width: '100%',
@@ -45,8 +45,12 @@ export const Overflow = styled('div', ({ $scrolled }) => ({
   overflow: 'hidden',
   height: '100%',
   width: '100%',
-  paddingTop: $scrolled ? '0' : '2.125em',
-  paddingBottom: $scrolled ? '0' : '2.125em',
+  [tablet]: {
+    paddingTop: $scrolled ? '0' : '2.125em',
+    paddingBottom: $scrolled ? '0' : '2.125em',
+    paddingTop: '0',
+    paddingBottom: '0',
+  },
 }));
 
 export const PageTop = styled('div', ({ $scrolled }) => ({
@@ -56,11 +60,11 @@ export const PageTop = styled('div', ({ $scrolled }) => ({
     display: 'block',
     position: 'relative',
     zIndex: $scrolled ? 1 : 2,
-    top: '4px',
+    // top: '4px',
     transitionProperty: 'all',
     transitionDuration: '1s',
     transitionTimingFunction: easeOutCirc,
-    top: '1em',
+    top: '46px',
     transform: $scrolled ? 'translateX(50px)' : 'translateX(0)',
     opacity: $scrolled ? '0' : '1',
     paddingLeft: $scrolled ? '122px' : '162px',
@@ -71,17 +75,14 @@ export const PageTop = styled('div', ({ $scrolled }) => ({
   },
 }));
 
-// export const HeaderContainer = withStyle(Container, {
-//   position: 'static'
-// })
-
 export const PageScrolled = styled('div', ({ $scrolled }) => ({
   zIndex: $scrolled ? 2 : 1,
   display: 'flex',
   justifyContent: 'flex-start',
   alignItems: 'center',
-  top: '0.75em',
+  top: '1.75em',
   paddingLeft: '64px',
+  paddingTop: '32px',
   // paddingLeft:'138px',
   // transition: `all 0.3s ${easeOutCirc}`,
   transitionProperty: 'all',
@@ -90,6 +91,7 @@ export const PageScrolled = styled('div', ({ $scrolled }) => ({
   transitionDelay: $scrolled ? '0' : '0',
   [tablet]: {
     top: '1.325em',
+    paddingTop: '0',
     transform: $scrolled ? 'translate(0, -76px)' : 'translate(0, -76px)',
     paddingLeft: $scrolled ? '138px' : '124px',
     opacity: $scrolled ? '1' : '0',
@@ -110,7 +112,11 @@ export const MenuButton = styled('button', {
   height: '64px',
   width: '64px',
   zIndex: 2,
+  background: colors.black,
+  border: 'none',
+  borderLeft: `1px solid ${colors.steelBlue}`,
   cursor: 'pointer',
+  display: 'flex',
   [tablet]: {
     display: 'none',
   },
@@ -119,22 +125,86 @@ export const MenuButton = styled('button', {
   },
 });
 
+export const DotWrap = styled('div', {
+  position: 'relative',
+  height: '100%',
+  width: '100%',
+});
+
+export const MenuDot = styled('span', ({ $active, $position }) => ({
+  borderRadius: '100% 100%',
+  backgroundColor: 'white',
+  width: '8px',
+  height: '8px',
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%) rotate(0)',
+  animationDuration: '0.5s',
+  animationTimingFunction: 'cubic-bezier(.68,-0.07,.28,1.14)',
+  animationFillMode: 'forwards',
+  transition: `background-color 0.65s ${easeInOutSine}`,
+  ...($active && {
+    backgroundColor: colors.turquoise,
+  }),
+}));
+
+export const TransitionDot = withStyle(MenuDot, ({ $active }) => ({
+  backgroundColor: 'purple',
+  transition: `width 0.5s ease,
+    border-radius 0.5s 0.5s ease,
+    transform 1s 1s ease
+  `,
+  ...($active && {
+    width: '36px',
+    height: '4px',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%) rotate(-57deg)',
+    borderRadius: '0 0',
+  }),
+}));
+
+export const MenuDotOne = withStyle(MenuDot, ({ $active }) => ({
+  'animation-name': 'menuDotOne_off',
+  ...($active && {
+    'animation-name': 'menuDotOne_on',
+  }),
+}));
+
+export const MenuDotTwo = withStyle(MenuDot, ({ $active }) => ({
+  'animation-name': 'menuDotTwo_off',
+  ...($active && {
+    'animation-name': 'menuDotTwo_on',
+  }),
+}));
+
+export const MenuDotThree = withStyle(MenuDot, ({ $active }) => ({
+  animationName: 'menuDotThree_off',
+  ...($active && {
+    animationName: 'menuDotThree_on',
+  }),
+}));
+
 export const Logo = styled('div', ({ $scrolled }) => ({
   position: 'relative',
+  cursor: 'pointer',
   height: '64px',
   width: '64px',
   zIndex: 0,
-  top: 0,
-  left: 0,
+  top: '2px',
+  left: '6px',
   transform: 'translate(-10%, -58px)',
   transitionProperty: 'all',
   transitionDuration: '1s',
   transitionTimingFunction: easeOutCirc,
   transitionDelay: '0.325s',
   [tablet]: {
+    top: 0,
+    left: 0,
     height: '162px',
     width: '162px',
-    transform: 'translate(0, -132px)',
+    transform: 'translate(0, -96px)',
     zIndex: 3,
     ...($scrolled && {
       transitionDelay: '0',
@@ -172,7 +242,7 @@ export const Title = styled('h1', ({ $small }) => ({
     ? {
         marginBottom: 0,
         paddingRight: '2em',
-        fontSize: fontSize.body,
+        fontSize: fontSize.position,
       }
     : {
         fontSize: fontSize.display,
@@ -187,16 +257,29 @@ export const Title = styled('h1', ({ $small }) => ({
 }));
 
 export const NavWrap = styled('address', ({ $showMenu }) => ({
-  display: $showMenu ? 'block' : 'none',
+  display: 'block',
+  opacity: $showMenu ? '1' : '0.75',
+  maxHeight: $showMenu ? '70vh' : 0,
+  overflow: 'hidden',
+  width: '100%',
+  transition: `all 0.5s cubic-bezier(.39,.46,.06,1.06)`,
   position: 'absolute',
+  top: '64px',
+  left: '0',
+  background: 'rgba(0, 0, 0, 0.9)',
+  // filter: $showMenu ? 'none' : 'blur(2px)',
   ...($showMenu && {
     top: '64px',
     left: '0',
     width: '100%',
     background: 'rgba(0, 0, 0, 0.9)',
+    zIndex: 20,
   }),
   [tablet]: {
+    maxHeight: 'initial',
     display: 'block',
+    width: 'auto',
+    opacity: 1,
     position: 'static',
     background: 'transparent',
   },
@@ -214,8 +297,8 @@ export const TitleLink = styled('a', {
   transition: `all 0.3s ${easeOutCirc}`,
 
   [':hover']: {
-    color: colors.raspberry,
-    textShadow: `0 0 4px ${colors.neonGreen}`,
+    color: colors.heliotrope,
+    textShadow: `0 0 2px ${colors.steelBlue}`,
     textDecoration: 'none',
   },
 });
@@ -225,14 +308,16 @@ export const StyledLink = withStyle(A, ({ $scrolled }) => ({
   // fontSize: fontSize.mobile.display,
   transition: 'all 0.5s ease',
   display: 'block',
-  padding: '1em 64px',
+  padding: '1.5em 0 1.5em 64px',
   borderBottom: `1px solid ${colors.gray2}`,
   ':link': {
     color: colors.steelBlue,
   },
   ':hover': {
     color: colors.turquoise,
+    backgroundColor: colors.darkBlue,
     textDecoration: 'none',
+    padding: '1.5em 0 1.5em 84px',
   },
   ':focus': {
     color: colors.neonGreen,
@@ -243,6 +328,16 @@ export const StyledLink = withStyle(A, ({ $scrolled }) => ({
     display: 'inline',
     padding: '0',
     borderBottom: 'none',
+    textIndex: '0',
+    transform: 'translateX(0)',
+    textShadow: `-1px 1px 0px ${colors.black}`,
+    ':hover': {
+      color: colors.turquoise,
+      textDecoration: 'none',
+      padding: '1.5em 0 1.5em 0',
+      textShadow: `-6px -6px 2px ${colors.black}`,
+      marginRight: '-3px',
+    },
   },
 }));
 
