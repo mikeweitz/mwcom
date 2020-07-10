@@ -143,9 +143,13 @@ export const Close = styled('button', ({ $active }) => ({
 }));
 
 export const Icon = styled('div', {
-  width: '20%',
-  height: '20%',
+  width: '40%',
+  height: '40%',
   margin: 'auto',
+  [tablet]: {
+    width: '20%',
+    height: '20%',
+  },
 });
 
 export const Meta = styled('div', {
@@ -153,9 +157,12 @@ export const Meta = styled('div', {
   // width: '100%',
   fontSize: fontSize.position,
   textTransform: 'uppercase',
+  display: 'flex',
+  alignItems: 'flex-end',
   [tablet]: {
     flex: '0 0 100%',
     width: '100%',
+    display: 'block',
   },
 });
 

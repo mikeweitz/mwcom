@@ -16,8 +16,8 @@
     border-radius: 0 0;
   }
   50% {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(0);
@@ -51,16 +51,16 @@
     border-radius: 100% 100%;
   }
   30% {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     top: 50%;
     left: 50%;
-    transform: translate(-320%, -150%) rotate(0);
+    transform: translate(-230%, -100%) rotate(0);
     border-radius: 100% 100%;
   }
   50% {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(0);
@@ -102,8 +102,8 @@
     border-radius: 0 0;
   }
   50% {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(0);
@@ -137,16 +137,16 @@
     border-radius: 100% 100%;
   }
   30% {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 100%) rotate(0);
+    transform: translate(-50%, 50%) rotate(0);
     border-radius: 100% 100%;
   }
   50% {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(0);
@@ -188,8 +188,8 @@
     border-radius: 0 0;
   }
   50% {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(0);
@@ -216,23 +216,23 @@
 @keyframes menuDotThree_on {
   0% {
     width: 8px;
-    height: 8px;
+    height: px;
     top: 50%;
     left: 50%;
     transform: translate(120%, -50%) rotate(0);
     border-radius: 100% 100%;
   }
   30% {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     top: 50%;
     left: 50%;
-    transform: translate(220%, -150%) rotate(0);
+    transform: translate(130%, -100%) rotate(0);
     border-radius: 100% 100%;
   }
   50% {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(0);
