@@ -14,8 +14,17 @@ const THEME = {
     positive: ['#07A35A', '#057C44', '#88D3B0'],
     lime: '#c6ff00',
     darkBlue: '#103037',
+    blueViolet: '#402081',
+    black: '#111',
     gray1: '#dcdcdc',
     gray2: '#404040',
+    neonGreen: '#2BF403',
+    heliotrope: '#EC5AFF',
+    steelPink: '#FF84E0 ',
+    orangePeel: '#FF9D00',
+    turquoise: '#51E8CF',
+    steelBlue: '#4984A8',
+    raspberry: '#EE2677',
   },
   fonts: {
     heading: {
@@ -23,6 +32,9 @@ const THEME = {
       fontFamily: '"Metrophobic", sans-serif',
       fontFamily: '"Roboto", sans-serif',
       fontWeight: '400',
+    },
+    display: {
+      fontFamily: '"Metrophobic", sans-serif',
     },
     body: {
       fontFamily: '"Open Sans", sans-serif',
@@ -32,9 +44,15 @@ const THEME = {
     },
   },
   fontSize: {
+    small: '12px',
     body: '16px',
     position: '17.5px',
     display: '38.5px',
+    mobile: {
+      small: '12px',
+      body: '16px',
+      display: '24px',
+    },
   },
   sizing: ['2px', '6px', '10px', '16px', '24px'],
   easing: {

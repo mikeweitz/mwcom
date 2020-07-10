@@ -1,8 +1,8 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300, 400, 700);
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400, 700);
-@import url(http://fonts.googleapis.com/css?family=Metrophobic);
+@import url(https://fonts.googleapis.com/css?family=Open + Sans:300, 400, 700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400, 700);
+@import url(https://fonts.googleapis.com/css?family=Metrophobic);
 @import url(
-  http://fonts.googleapis.com/css?family=Roboto:400,
+  https://fonts.googleapis.com/css?family=Roboto:400,
   700,
   300,
   700italic,
@@ -24,6 +24,7 @@ textarea {
 html {
   font-size: 1em;
   line-height: 1.4em;
+  height: 100%;
 }
 
 /*
@@ -103,8 +104,8 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: #eee;
-  color: #444;
+  background: #000;
+  color: #ccc;
   font-weight: 300;
   letter-spacing: 1px;
   font-size: 16px;
@@ -166,11 +167,13 @@ a:focus {
 
 body {
   position: relative;
-  background: url(/static/images/ps_neutral.png);
+  background: #333;
+  min-height: 100%;
+  /* background: url(/static/images/ps_neutral.png); */
 }
 
 body.loading::before {
-  background: url(../images/loading.gif) no-repeat center;
+  background: url(/public/static/images/loading.gif) no-repeat center;
 }
 
 * {
@@ -179,7 +182,7 @@ body.loading::before {
   box-sizing: border-box;
 }
 
-.ir {
+/* .ir {
   background-color: transparent;
   background-repeat: no-repeat;
   border: 0;
@@ -192,6 +195,11 @@ body.loading::before {
 
 .ir br {
   display: none;
+} */
+
+#__next {
+  display: flex;
+  min-height: 100vh;
 }
 
 @media print {
@@ -282,18 +290,22 @@ body.loading::before {
     margin-bottom: 0;
     border-bottom: none;
   }
+
   #header:before {
     content: '';
   }
+
   #header h1 {
     font-size: 15px;
     margin: 0;
     font-weight: bold;
   }
+
   #header address {
     margin: 0;
     padding: 0;
   }
+
   #header a {
     display: block;
     width: auto;
