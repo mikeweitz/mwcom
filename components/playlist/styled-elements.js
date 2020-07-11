@@ -4,6 +4,7 @@ import { THEME, A } from '../../styles/theme';
 const {
   fontSize,
   colors,
+  easing,
   breakpoints: { print, tablet, tabletLarge, desk, wide },
 } = THEME;
 
@@ -12,6 +13,8 @@ export const PList = styled('article', ({ $active }) => ({
   // margin: '2em auto',
   position: 'relative',
   overflow: 'hidden',
+  backfaceVisibility: 'hidden',
+  transform: 'translate3d(0, 0, 0)',
   transition: 'all 1s ease-out',
   width: '100%',
   height: '0',
@@ -22,36 +25,34 @@ export const PList = styled('article', ({ $active }) => ({
   borderRadius: '100% 100%',
   backgroundColor: colors.blueViolet,
   cursor: 'pointer',
-  ...($active
-    && {
-      // borderRadius: '1em 1em',
-      border: `1px solid ${colors.turquoise}`,
-      // width: 'calc(100% + 1em)',
-      // height: 'calc(100% + 1em)',
-      // margin: '-0.5em',
-    }),
+  ...($active && {
+    // borderRadius: '1em 1em',
+    border: `1px solid ${colors.turquoise}`,
+    // width: 'calc(100% + 1em)',
+    // height: 'calc(100% + 1em)',
+    // margin: '-0.5em',
+  }),
 }));
 
-export const CoverArt = styled('img', ({$hover}) => ({
+export const CoverArt = styled('img', ({ $hover }) => ({
   position: 'absolute',
   zIndex: 0,
   top: '50%',
   left: '50%',
-  width: '110%',
+  width: '116%',
   height: 'auto',
   filter: 'grayscale(100%)',
   transform: 'translate(-50%, -50%)',
-  transition: 'all 0.5s ease-out',
+  transition: `all 0.75s ${easing.easeOutCirc}`,
   opacity: '0.5',
-  ...($hover
-    && {
-      filter: 'grayscale(0)',
-      opacity: 1,
-      width: '102%',
-    }),
+  ...($hover && {
+    filter: 'grayscale(0)',
+    opacity: 1,
+    width: '102%',
+  }),
 }));
 
-export const PlistName = styled('h3', ({$hover}) =>  ({
+export const PlistName = styled('h3', ({ $hover }) => ({
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
@@ -66,12 +67,18 @@ export const PlistName = styled('h3', ({$hover}) =>  ({
   zIndex: '1',
   color: 'white',
   fontWeight: 800,
-  transition: 'all 1s ease',
-  // transform: $hover ? 'translateY(100%)' : 'translateY(0)', 
+  transition: `transform 0.5s 0.2s ${easing.ease},
+    filter 0.5s 0.2s ${easing.ease},
+    color 0.5s 0.2s ${easing.ease},
+    opacity 0.5s 0.45s ${easing.ease}`,
+  // transform: $hover ? 'translateY(100%)' : 'translateY(0)',
   ...($hover && {
+    filter: 'blur(2px)',
     opacity: 0,
-    transform: 'scale(1.2)'
-  })
+    color: colors.turquoise,
+    // mixBlendMode: 'difference',
+    transform: 'scale(1.05)',
+  }),
 }));
 
 export const Artist = styled('span', {
@@ -83,5 +90,5 @@ export const Artist = styled('span', {
   ':last-of-type:after': {
     display: 'none',
     content: '""',
-  }
+  },
 });

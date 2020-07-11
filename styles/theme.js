@@ -56,6 +56,7 @@ const THEME = {
   },
   sizing: ['2px', '6px', '10px', '16px', '24px'],
   easing: {
+    ease: 'cubic-bezier(.29,.13,.39,1)',
     easeOutCirc: 'cubic-bezier(0.075, 0.82, 0.165, 1)',
     easeOutExpo: 'cubic-bezier(0.19, 1, 0.22, 1)',
     easeInOutSine: 'cubic-bezier(0.445, 0.05, 0.55, 0.95)',

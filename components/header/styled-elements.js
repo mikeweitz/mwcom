@@ -104,6 +104,7 @@ export const PageScrolled = styled('div', ({ $scrolled }) => ({
 
 export const MenuButton = styled('button', {
   position: 'absolute',
+  display: 'block',
   right: '64px',
   top: '0',
   right: '0',
@@ -127,6 +128,9 @@ export const MenuButton = styled('button', {
 
 export const DotWrap = styled('div', {
   position: 'relative',
+  top: 0,
+  left: 0,
+  backgroundColor: 'red',
   height: '100%',
   width: '100%',
 });
@@ -140,10 +144,11 @@ export const MenuDot = styled('span', ({ $active, $position }) => ({
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%) rotate(0)',
-  animationDuration: '0.5s',
+  transformOrigin: '50% 50%',
+  animationDuration: $active ? '1s' : '0.65s',
   animationTimingFunction: 'cubic-bezier(.68,-0.07,.28,1.14)',
   animationFillMode: 'forwards',
-  transition: `background-color 0.65s ${easeInOutSine}`,
+  transition: `background-color 0.1s 0.25s ${easeInOutSine}`,
   ...($active && {
     backgroundColor: colors.turquoise,
   }),
@@ -166,6 +171,7 @@ export const TransitionDot = withStyle(MenuDot, ({ $active }) => ({
 }));
 
 export const MenuDotOne = withStyle(MenuDot, ({ $active }) => ({
+  // backgroundColor: 'red',
   'animation-name': 'menuDotOne_off',
   ...($active && {
     'animation-name': 'menuDotOne_on',
@@ -180,6 +186,7 @@ export const MenuDotTwo = withStyle(MenuDot, ({ $active }) => ({
 }));
 
 export const MenuDotThree = withStyle(MenuDot, ({ $active }) => ({
+  // backgroundColor: 'lime',
   animationName: 'menuDotThree_off',
   ...($active && {
     animationName: 'menuDotThree_on',
@@ -333,6 +340,7 @@ export const StyledLink = withStyle(A, ({ $scrolled }) => ({
     textShadow: `-1px 1px 0px ${colors.black}`,
     ':hover': {
       color: colors.turquoise,
+      backgroundColor: 'transparent',
       textDecoration: 'none',
       padding: '1.5em 0 1.5em 0',
       textShadow: `-6px -6px 2px ${colors.black}`,
