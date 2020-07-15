@@ -13,7 +13,7 @@ const Footer = () => {
   const [hoverArrow, setHoverArrow] = useState(false);
 
   const onPrint = (e) => {
-    return window.open('/static/pdf/michael-weitzman-resume.pdf', 'download');
+    return window.open('/pdf/michael-weitzman-resume.pdf', 'download');
   };
 
   const handleToTop = (e) => {

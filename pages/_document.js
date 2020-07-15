@@ -8,11 +8,11 @@ class MyDocument extends Document {
       <StyletronProvider value={styletron}>
         <App {...props} />
       </StyletronProvider>
-    ))
-    const stylesheets = styletron.getStylesheets() || []
-    return { ...page, stylesheets }
+    ));
+    const stylesheets = styletron.getStylesheets() || [];
+    return { ...page, stylesheets };
   }
-  
+
   render() {
     return (
       <html>
@@ -39,26 +39,23 @@ class MyDocument extends Document {
               key={i}
             />
           ))}
-          <link rel="icon" type="image/png" href="/static/images/logo.png" />
+          <link rel="icon" type="image/png" href="/static/logo.png" />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="144x144"
-            href="/static/images/logo.png"
+            href="/static/logo.png"
           />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="114x114"
-            href="/static/images/logo.png"
+            href="/static/logo.png"
           />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="72x72"
-            href="/static/images/logo.png"
+            href="/static/logo.png"
           />
-          <link
-            rel="apple-touch-icon-precomposed"
-            href="/static/images/logo.png"
-          />
+          <link rel="apple-touch-icon-precomposed" href="/static/logo.png" />
         </Head>
         <body>
           <Main />

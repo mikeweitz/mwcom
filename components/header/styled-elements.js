@@ -90,6 +90,7 @@ export const PageScrolled = styled('div', ({ $scrolled }) => ({
   transitionTimingFunction: $scrolled ? easeOutExpo : easeInOutSine,
   transitionDelay: $scrolled ? '0' : '0',
   [tablet]: {
+    height: '47px',
     top: '1.325em',
     paddingTop: '0',
     transform: $scrolled ? 'translate(0, -76px)' : 'translate(0, -76px)',
@@ -145,7 +146,7 @@ export const MenuDot = styled('span', ({ $active, $position }) => ({
   left: '50%',
   transform: 'translate(-50%, -50%) rotate(0)',
   transformOrigin: '50% 50%',
-  animationDuration: $active ? '1s' : '0.65s',
+  animationDuration: $active ? '0.75s' : '0.45s',
   animationTimingFunction: 'cubic-bezier(.68,-0.07,.28,1.14)',
   animationFillMode: 'forwards',
   transition: `background-color 0.1s 0.25s ${easeInOutSine}`,
@@ -260,13 +261,16 @@ export const Title = styled('h1', ({ $small }) => ({
   },
   [tablet]: {
     transform: 'none',
+    ...($small && {
+      paddingTop: '1.25em',
+    }),
   },
 }));
 
 export const NavWrap = styled('address', ({ $showMenu }) => ({
   display: 'block',
   opacity: $showMenu ? '1' : '0.75',
-  maxHeight: $showMenu ? '70vh' : 0,
+  maxHeight: $showMenu ? '60vh' : 0,
   overflow: 'hidden',
   width: '100%',
   transition: `all 0.5s cubic-bezier(.39,.46,.06,1.06)`,
@@ -281,6 +285,8 @@ export const NavWrap = styled('address', ({ $showMenu }) => ({
     width: '100%',
     background: 'rgba(0, 0, 0, 0.9)',
     zIndex: 20,
+    overflowX: 'auto',
+    overflowY: 'scroll',
   }),
   [tablet]: {
     maxHeight: 'initial',
@@ -289,6 +295,8 @@ export const NavWrap = styled('address', ({ $showMenu }) => ({
     opacity: 1,
     position: 'static',
     background: 'transparent',
+    overflow: 'initial',
+    maxHeight: $showMenu ? '70vh' : 0,
   },
 }));
 

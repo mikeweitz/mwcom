@@ -5,7 +5,7 @@ import { over, wrap } from 'lodash';
 const {
   fonts,
   fontSize,
-  easing: { easeOutCirc, easeOutQuart, easeOutExpo, easeInOutSine },
+  easing: { ease, easeOutCirc, easeOutQuart, easeOutExpo, easeInOutSine },
   colors,
   breakpoints: { tablet, print },
 } = THEME;
@@ -17,22 +17,21 @@ const transition = {
   transitionDelay: '0',
 };
 
-export const Drawer = styled('div', ({ $scrolled, $active }) => ({
+export const Drawer = styled('div', ({ $scrolled, $scrolling, $active }) => ({
   position: 'fixed',
   zIndex: '10',
   top: '64px',
   left: '0',
   overflow: 'hidden',
   minHeight: '0',
-  height: '0',
   ...transition,
 
   // transform: 'translateY(-100%)',
-  height: $active ? 'calc(70vh + 60px)' : '0',
-  display: 'grid',
+  height: $active ? 'calc(60vh + 60px)' : '0',
+  display: $scrolling && !$active ? 'none' : 'grid',
   width: '100%',
   gridAutoFlow: 'rows',
-  gridTemplateRows: '70vh 60px',
+  gridTemplateRows: '60vh 60px',
   ...($active &&
     {
       // minHeight: '250px',
@@ -121,24 +120,87 @@ export const Track = styled('li', {
   margin: '0 0 1em 0',
   paddingRight: '3em',
   fontSize: '80%',
+  [':hover']: {
+    color: colors.steelBlue,
+  },
+});
+export const TrackLink = withStyle(A, {
+  display: 'block',
+  color: colors.gray1,
+  [':hover']: {
+    color: colors.steelBlue,
+    textDecoration: 'none',
+  },
+});
+
+export const Action = styled('div', {
+  flexBasis: '0 0 100%',
+  width: '100%',
+  display: 'flex',
+  marginTop: '2em',
+  justifyContent: 'center',
+  alignItems: 'stretch',
+});
+
+export const Go = styled('a', {
+  display: 'flex',
+  position: 'relative',
+  flex: '1 1 100%',
+  width: '50%',
+  maxWidth: '320px',
+  borderRadius: '1.5em 1.5em',
+  padding: '0 1.5em',
+  height: '3em',
+  width: '100%',
+  margin: '0 auto',
+  justifyContent: 'center',
+  alignItems: 'center',
+  textDecoration: 'none',
+  color: colors.heliotrope,
+  backgroundColor: colors.darkBlue,
+  backgroundImage: `linear-gradient(
+    ${colors.darkBlue}, ${colors.darkBlue} 50%, ${colors.darkBlueHover} 50%, ${colors.darkBlueHover}
+  )`,
+  backgroundSize: '100% 200%',
+  // boxShadow: `0 0 6px 2px ${colors.black},
+  //   0 4px 10px -8px ${colors.steelBlue}`,
+  overflow: 'hidden',
+  transition: `all 0.2s ${easeOutCirc}`,
+  [':link']: {
+    color: colors.steelPink,
+    textDecoration: 'none',
+  },
+  [':hover']: {
+    // backgroundColor: colors.darkBlue,
+    backgroundPosition: '100% 100%',
+    color: colors.turquoise,
+    // boxShadow: `0 0 4px 2px ${colors.black},
+    // 0 8px 18px -13px ${colors.steelBlue}`,
+    textDecoration: 'none',
+  },
+  [':active']: {
+    color: colors.heliotrope,
+    textDecoration: 'none',
+  },
 });
 
 export const Close = styled('button', ({ $active }) => ({
   justifySelf: 'end',
+  alignSelf: 'end',
   zIndex: 5,
   cursor: 'pointer',
   margin: '0',
   padding: '0',
   border: 'none',
   width: '60px',
-  height: '60px',
+  height: '62px',
   background: colors.black,
   color: colors.gray1,
   transform: $active ? 'translateY(0)' : 'translateY(-420px)',
   ...transition,
   [tablet]: {
     width: '100px',
-    height: '100px',
+    height: '102px',
   },
 }));
 
@@ -174,7 +236,7 @@ export const PlistName = styled('h3', {
   color: 'white',
   fontWeight: 800,
   [tablet]: {
-    margin: '2em 0',
+    margin: '1em 0 0.5em',
     padding: 0,
   },
 });

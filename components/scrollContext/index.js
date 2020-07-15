@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
-import { debounce } from 'lodash';
+import { throttle } from 'lodash';
 const isBrowser = typeof window !== `undefined`;
 
 const useIsomorphicEffect = isBrowser ? useLayoutEffect : useEffect;
@@ -21,22 +21,36 @@ function useScrollContext() {
 }
 
 const ScrollProvider = ({ children, scrollThreshold = 50 }) => {
-  const [scroll, setScroll] = useState({ x: 0, y: 0, isScrolled: false });
+  const [scroll, setScroll] = useState({
+    x: 0,
+    y: 0,
+    isScrolled: false,
+    scrolling: false,
+  });
 
   useIsomorphicEffect(() => {
     if (!isBrowser) {
       return;
     }
-
-    const handleScroll = debounce(
+    let timer = null;
+    const delay = 250;
+    const handleScroll = throttle(
       () => {
-        const newScroll = getScroll();
+        clearTimeout(timer);
+        const coords = getScroll();
+        const newScroll = {
+          ...coords,
+          isScrolled: Math.abs(coords.y) > scrollThreshold,
+          scrolling: true,
+        };
         setScroll({
           ...newScroll,
-          isScrolled: Math.abs(newScroll.y) > scrollThreshold,
         });
+        timer = setTimeout(() => {
+          setScroll({ ...newScroll, scrolling: false });
+        }, delay + 10);
       },
-      500,
+      delay,
       {
         leading: true,
       }

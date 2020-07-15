@@ -14,6 +14,7 @@ const THEME = {
     positive: ['#07A35A', '#057C44', '#88D3B0'],
     lime: '#c6ff00',
     darkBlue: '#103037',
+    darkBlueHover: '#17515e',
     blueViolet: '#402081',
     black: '#111',
     gray1: '#dcdcdc',

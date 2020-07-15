@@ -18,11 +18,11 @@ const Title = ({ name, small }) => {
           {parts.map((str, n) => {
             const name = str.split('');
             return (
-              <>
+              <React.Fragment key={`header_title_${small}${n}`}>
                 <S.Initial>{name.shift()}</S.Initial>
                 {!small && name.join('')}
                 {!small && n < str.length + 1 && ' '}
-              </>
+              </React.Fragment>
             );
           })}
         </S.Title>
@@ -39,14 +39,12 @@ const Header = () => {
   const timer = null;
   const toggleMenu = () => {};
   const handleMenu = () => {
-    console.log('hi');
     if (['animateIn', 'animateOut'].includes(showMenu)) {
       return false;
     }
 
     const newState = showMenu === 'in' ? 'animateOut' : 'animateIn';
     const finalState = showMenu === 'in' ? 'out' : 'in';
-    console.log('set showMenu to', newState, finalState);
     setShowMenu(newState);
     setTimeout(() => setShowMenu(finalState), 2000);
   };
@@ -90,13 +88,11 @@ const Header = () => {
 
         <S.PageTop $scrolled={scroll.isScrolled}>
           <Title name={title} />
-
           {renderLinks()}
         </S.PageTop>
 
         <S.PageScrolled $scrolled={scroll.isScrolled}>
           <Title small name={title} />
-
           {renderLinks()}
         </S.PageScrolled>
 

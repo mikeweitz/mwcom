@@ -28,7 +28,6 @@ const PlaylistDetails = ({ pid, playlist, close }) => {
   );
   const [hoverClose, setHoverClose] = useState(false);
   useEffect(() => {
-    console.warn('plist details effect', scrollRef);
     if (scrollRef && scrollRef.current) {
       scrollRef.current.scrollTop = 0;
     }
@@ -37,7 +36,11 @@ const PlaylistDetails = ({ pid, playlist, close }) => {
   const { images, name, tracks, external_urls } = data || {};
 
   return (
-    <S.Drawer $scrolled={scroll.isScrolled} $active={pid}>
+    <S.Drawer
+      $scrolled={scroll.isScrolled}
+      $scrolling={scroll.scrolling}
+      $active={pid}
+    >
       <S.Section
         id="playlist-details"
         $scrolled={scroll.isScrolled}
@@ -46,32 +49,45 @@ const PlaylistDetails = ({ pid, playlist, close }) => {
         {error || !data ? null : (
           <S.ScrollContainer ref={scrollRef}>
             <S.Meta>
-              <a href={external_urls.spotify} target="_blank">
+              <a href={external_urls.spotify} target="spotify">
                 <S.PlistName>{name}</S.PlistName>
               </a>
             </S.Meta>
 
             <S.Cover>
-              <a href={external_urls.spotify} target="_blank">
+              <a href={external_urls.spotify} target="spotify">
                 <S.CoverImg src={images[0].url} />
               </a>
             </S.Cover>
 
             <S.Songs>
               <S.TrackList>
-                {tracks.items.map((t) => (
-                  <S.Track key={t.sharing_info.share_id}>
-                    <strong>{t.track.name}</strong>
-                    <br />
-                    {t.track.artists.map((a) => {
-                      return (
-                        <S.Artist key={`${pid}_${a.id}`}>{a.name}</S.Artist>
-                      );
-                    })}
-                  </S.Track>
-                ))}
+                {tracks.items.map((t) => {
+                  return (
+                    <S.Track key={t.sharing_info.share_id}>
+                      <S.TrackLink
+                        href={t.track.external_urls.api}
+                        target="spotify"
+                      >
+                        <strong>{t.track.name}</strong>
+                        <br />
+                        {t.track.artists.map((a) => {
+                          return (
+                            <S.Artist key={`${pid}_${a.id}`}>{a.name}</S.Artist>
+                          );
+                        })}
+                      </S.TrackLink>
+                    </S.Track>
+                  );
+                })}
               </S.TrackList>
             </S.Songs>
+
+            <S.Action>
+              <S.Go href={external_urls.spotify} target="spotify">
+                {'Listen on Spotify'}
+              </S.Go>
+            </S.Action>
           </S.ScrollContainer>
         )}
       </S.Section>

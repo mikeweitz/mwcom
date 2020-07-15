@@ -18,9 +18,11 @@ const Layout = ({ children }) => {
 
   return (
     <S.Main>
-      <Header />
-      {children}
-      <Footer />
+      <S.ContentWrap>
+        <Header />
+        {children}
+        <Footer />
+      </S.ContentWrap>
     </S.Main>
   );
 };
