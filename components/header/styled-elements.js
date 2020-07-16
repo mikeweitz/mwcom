@@ -315,7 +315,18 @@ export const TitleLink = styled('a', {
   textDecoration: 'none',
   textShadow: `1px 1px 0 ${colors.black}`,
   transition: `all 0.3s ${easeOutCirc}`,
-
+  [':link']: {
+    color: colors.heliotrope,
+  },
+  [':visited']: {
+    color: colors.heliotrope,
+  },
+  [':active']: {
+    color: colors.heliotrope,
+  },
+  [':focus']: {
+    color: colors.heliotrope,
+  },
   [':hover']: {
     color: colors.heliotrope,
     textShadow: `0 0 2px ${colors.steelBlue}`,

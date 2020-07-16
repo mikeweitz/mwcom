@@ -35,3 +35,9 @@ I host on an Ubuntu cloud server running Nginx.
 There's a static Angular app on the same server, setup under it's onw Nginx block. This site needs NodeJS for the SSR/API, so there's an additional handoff of requests to the Node instance.
 
 Ths instance is watched by PM2 so it doesn't just go dark if the process crashes.
+
+To start NextJS node process
+`pm2 start yarn --name "nextjs" --interpreter bash -- start`
+
+To restart after deploying new files:
+`pm2 restart nextjs`
