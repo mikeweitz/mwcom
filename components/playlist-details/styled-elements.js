@@ -120,16 +120,28 @@ export const Track = styled('li', {
   margin: '0 0 1em 0',
   paddingRight: '3em',
   fontSize: '80%',
-  [':hover']: {
-    color: colors.steelBlue,
-  },
+  // [':hover']: {
+  //   color: colors.steelBlue,
+  // },
 });
-export const TrackLink = withStyle(A, {
+export const TrackLink = styled('a', {
   display: 'block',
   color: colors.gray1,
+  [':link']: {
+    color: colors.gray1,
+  },
+  [':visited']: {
+    color: colors.steelBlue,
+  },
   [':hover']: {
     color: colors.steelBlue,
     textDecoration: 'none',
+  },
+  [':active']: {
+    color: colors.steelBlue,
+  },
+  [':focus']: {
+    color: colors.steelBlue,
   },
 });
 
@@ -147,7 +159,7 @@ export const Go = styled('a', {
   position: 'relative',
   flex: '1 1 100%',
   width: '50%',
-  maxWidth: '320px',
+  maxWidth: '220px',
   borderRadius: '1.5em 1.5em',
   padding: '0 1.5em',
   height: '3em',
@@ -181,6 +193,9 @@ export const Go = styled('a', {
   [':active']: {
     color: colors.heliotrope,
     textDecoration: 'none',
+  },
+  [tablet]: {
+    maxWidth: '320px',
   },
 });
 

@@ -1,1 +1,0 @@
-{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nimport * as S from './styled-elements';\nimport { copy } from '../../data';\n\nconst Summary = () => {\n  const {\n    summary\n  } = copy;\n  return __jsx(S.Summary, null, __jsx(\"p\", null, summary));\n};\n\nexport default Summary;","map":null,"metadata":{},"sourceType":"module"}

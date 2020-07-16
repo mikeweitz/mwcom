@@ -81,8 +81,9 @@ export const PageScrolled = styled('div', ({ $scrolled }) => ({
   justifyContent: 'flex-start',
   alignItems: 'center',
   top: '1.75em',
+  height: '64px',
   paddingLeft: '64px',
-  paddingTop: '32px',
+  paddingTop: '0',
   // paddingLeft:'138px',
   // transition: `all 0.3s ${easeOutCirc}`,
   transitionProperty: 'all',
@@ -200,19 +201,21 @@ export const Logo = styled('div', ({ $scrolled }) => ({
   height: '64px',
   width: '64px',
   zIndex: 0,
-  top: '2px',
+  top: '0',
   left: '6px',
-  transform: 'translate(-10%, -58px)',
+  transform: 'translate(-10%, -66px)',
   transitionProperty: 'all',
   transitionDuration: '1s',
   transitionTimingFunction: easeOutCirc,
   transitionDelay: '0.325s',
+  // transform: 'translate(-10%, 0)',
+
   [tablet]: {
     top: 0,
     left: 0,
     height: '162px',
     width: '162px',
-    transform: 'translate(0, -96px)',
+    transform: 'translate(0, -98px)',
     zIndex: 3,
     ...($scrolled && {
       transitionDelay: '0',
@@ -249,7 +252,9 @@ export const Title = styled('h1', ({ $small }) => ({
   ...($small
     ? {
         marginBottom: 0,
+        paddingTop: 0,
         paddingRight: '2em',
+        transform: 'translateY(0)',
         fontSize: fontSize.position,
       }
     : {
