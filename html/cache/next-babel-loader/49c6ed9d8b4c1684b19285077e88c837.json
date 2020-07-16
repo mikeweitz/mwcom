@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { projects } from './pojects';\nimport { positions } from './positions';\nimport { skills } from './skills';\nimport { copy } from './copy';\nexport { positions, skills, projects, copy };","map":null,"metadata":{},"sourceType":"module"}
