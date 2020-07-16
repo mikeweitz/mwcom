@@ -1,6 +1,8 @@
 node_modules
 .next
-out
+out/*
+html/*
+dist/*
 _SSL
 npm-debug.log
 

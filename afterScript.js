@@ -3,7 +3,7 @@ var recursiveReadSync = require('recursive-readdir-sync');
 var fs = require('fs');
 var path = require('path');
 var ENV = process.env;
-var BUILD_PATH = path.resolve(__dirname, ENV.FTP_BUILD_PATH || 'out');
+var BUILD_PATH = path.resolve(__dirname, ENV.BUILD_PATH || 'out');
 
 let uploadList;
 
@@ -18,7 +18,7 @@ let uploadList;
 //   }
 // }
 
-const listFiles = dir => {
+const listFiles = (dir) => {
   let filesList = [];
   console.log(`Read files from ${dir}`);
   if (fs.existsSync('out')) {
@@ -30,7 +30,7 @@ const listFiles = dir => {
   }
 
   const files = fs.readdirSync(dir);
-  files.map(file => {
+  files.map((file) => {
     const fullPath = path.resolve(dir, file);
     const stats = fs.lstatSync(fullPath);
     if (stats.isDirectory()) {

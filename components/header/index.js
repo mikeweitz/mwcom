@@ -13,8 +13,8 @@ const Title = ({ name, small }) => {
   const parts = name.split(' ');
   return (
     <Link href="/" passHref>
-      <S.TitleLink>
-        <S.Title $small={small}>
+      <S.Title $small={small}>
+        <S.TitleLink>
           {parts.map((str, n) => {
             const name = str.split('');
             return (
@@ -25,8 +25,8 @@ const Title = ({ name, small }) => {
               </React.Fragment>
             );
           })}
-        </S.Title>
-      </S.TitleLink>
+        </S.TitleLink>
+      </S.Title>
     </Link>
   );
 };

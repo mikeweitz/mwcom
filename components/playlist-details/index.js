@@ -63,10 +63,11 @@ const PlaylistDetails = ({ pid, playlist, close }) => {
             <S.Songs>
               <S.TrackList>
                 {tracks.items.map((t) => {
+                  console.log(t.track);
                   return (
                     <S.Track key={t.sharing_info.share_id}>
                       <S.TrackLink
-                        href={t.track.external_urls.api}
+                        href={t.track.external_urls.spotify}
                         target="spotify"
                       >
                         <strong>{t.track.name}</strong>
