@@ -11,6 +11,8 @@ branches:
 cache:
   directories:
     - node_modules
+before_script:
+  - echo -e "Host 167.71.144.175\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 script:
   - npm test
   - npm run build
