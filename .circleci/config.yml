@@ -1,18 +1,44 @@
 version: 2.1
-orbs:
-  node: circleci/node@1.1.6
 jobs:
-  build-and-test:
-    executor:
-      name: node/default
+  build:
+    # pre-built images: https://circleci.com/docs/2.0/circleci-images/
+    docker:
+      - image: circleci/node:12.16.3-browsers
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - '4e:fe:3f:a2:04:6d:60:d2:97:bc:d7:14:24:b0:1b:ab'
+      # - run: ssh-keyscan $REMOTE_IP >> ~/.ssh/known_hosts
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: npm run test
-            - run: npm run build
+      - run:
+          name: Code Has Arrived
+          command: |
+            ls -al
+            echo '^^^That should look familiar^^^'
+      - run: npm install
+      - run: npm run test
+      - run: npm build
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - run:
+          name: Deploy Over SSH
+          command: |
+            scp -r ./$BUILD_PATH/* $FTP_USER@$REMOTE_IP:$REMOTE_PATH/$BUILD_PATH
+            OUT=$?
+            if [ $OUT = 0 ]; then
+              echo 'transfer successful'
+            else
+              echo 'transfer failed'
+            fi
 workflows:
-    build-and-test:
-      jobs:
-        - build-and-test
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master # only deploy on the master branch
