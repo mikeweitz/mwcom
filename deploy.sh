@@ -1,11 +1,8 @@
 #!/bin/sh
 echo "Running deployment script..."
-ftp -n $FTP_SERVER_HOST <<END_SCRIPT
-quote USER ${FTP_USERNAME}
-quote PASS ${FTP_PASSWORD}
-binary
-mput ${FTP_BUILD_PATH}/*
-quit
-END_SCRIPT
+for file in $BUILD_PATH/*
+do
+  curl -k "sftp://$HOST/$REMOTE_PATH/$BUILD_PATH/${file}" --user "$FTP_USR:$FTP_PASS" -T ${file} --ftp-create-dirs
+done
 echo "Pushed deployment successfully"
 exit 0
