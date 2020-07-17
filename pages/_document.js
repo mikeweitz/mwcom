@@ -30,6 +30,13 @@ class MyDocument extends Document {
             name="keyword"
             content="Michael Weitzman, Javascript, CSS, HTML, front end engineer, web developer"
           />
+          <meta
+            property="og:description"
+            content="Resume for front end engineer Michael Weitzman"
+          />
+          <meta property="og:title" content="MW" />
+          <meta property="og:type" content="website" />
+          <meta property="og:image" content="https://weitzly.com/share.png" />
           {this.props.stylesheets.map((sheet, i) => (
             <style
               className="_styletron_hydrate_"
