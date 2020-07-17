@@ -36,7 +36,10 @@ class MyDocument extends Document {
           />
           <meta property="og:title" content="MW" />
           <meta property="og:type" content="website" />
-          <meta property="og:image" content="https://weitzly.com/share.png" />
+          <meta
+            property="og:image"
+            content="https://weitzly.com/static/share.png"
+          />
           {this.props.stylesheets.map((sheet, i) => (
             <style
               className="_styletron_hydrate_"
