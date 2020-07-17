@@ -19,8 +19,8 @@ after_script:
 deploy:
   provider: script
   skip_cleanup: true
-  # script: bash ./deploy.sh
+  script: bash ./deploy.sh
   # script: node ftpupload.js
-  script: node deploy.js
+  # script: node deploy.js
   on:
     branch: master
