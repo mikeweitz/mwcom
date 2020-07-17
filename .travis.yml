@@ -14,8 +14,8 @@ cache:
 script:
   - npm test
   - npm run build
-after_script:
-  - node afterScript.js
+# after_script:
+#   - node afterScript.js
 deploy:
   provider: script
   skip_cleanup: true
