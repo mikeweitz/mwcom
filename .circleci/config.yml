@@ -1,0 +1,62 @@
+version: 2.1
+jobs:
+  build:
+    # pre-built images: https://circleci.com/docs/2.0/circleci-images/
+    docker:
+      - image: circleci/node:12.16.3-browsers
+
+    working_directory: ~/weitzly
+
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - '4e:fe:3f:a2:04:6d:60:d2:97:bc:d7:14:24:b0:1b:ab'
+      # - run: ssh-keyscan $REMOTE_IP >> ~/.ssh/known_hosts
+      - checkout
+      - run:
+          name: Code Has Arrived
+          command: |
+            ls -al
+            echo '^^^That should look familiar^^^'
+      - run: npm install
+      - run: npm run test
+      - run: npm run build
+      - store_artifacts:
+          path: ~/weitzly/html
+  deploy:
+    docker:
+      - image: circleci/node:12.16.3-browsers
+
+    working_directory: ~/weitzly
+
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - '63:4a:86:b0:a4:a2:83:c8:8a:42:ef:0d:0c:dc:31:bb'
+      - run: ssh-keyscan $REMOTE_IP >> ~/.ssh/known_hosts
+      - run:
+          name: Review files...
+          command: |
+            pwd
+            ls -al
+            echo '^^^That should look familiar^^^'
+      - run:
+          name: Deploy Over SSH
+          command: |
+            scp -r ~/weitzly/html/* $FTP_USER@$REMOTE_IP:$REMOTE_PATH/$BUILD_PATH
+            OUT=$?
+            if [ $OUT = 0 ]; then
+              echo 'transfer successful'
+            else
+              echo 'transfer failed'
+            fi
+workflows:
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master # only deploy on the master branch
