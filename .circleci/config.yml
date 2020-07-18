@@ -1,12 +1,13 @@
 version: 2.1
-jobs:
-  build:
-    # pre-built images: https://circleci.com/docs/2.0/circleci-images/
+executors:
+  node-browser:
     docker:
       - image: circleci/node:12.16.3-browsers
-
     working_directory: ~/weitzly
 
+jobs:
+  build:
+    executor: node-browser
     steps:
       - add_ssh_keys:
           fingerprints:
@@ -21,15 +22,20 @@ jobs:
       - run: npm install
       - run: npm run test
       - run: npm run build
-      - store_artifacts:
-          path: ~/weitzly/html
+      - run: mkdir -p ~/weitzly/output
+      - run: cp -avr html ~/weitzly/output/html
+      # - store_artifacts:
+      #     path: ~/weitzly/html
+      - persist_to_workspace:
+          root: output
+          paths:
+            - html/*
   deploy:
-    docker:
-      - image: circleci/node:12.16.3-browsers
-
-    working_directory: ~/weitzly
+    executor: node-browser
 
     steps:
+      - attach_workspace:
+          at: ~/weitzly/output
       - add_ssh_keys:
           fingerprints:
             - '63:4a:86:b0:a4:a2:83:c8:8a:42:ef:0d:0c:dc:31:bb'
@@ -38,18 +44,14 @@ jobs:
           name: Review files...
           command: |
             pwd
+            cd ~/weitzly/output
             ls -al
             echo '^^^That should look familiar^^^'
       - run:
           name: Deploy Over SSH
           command: |
-            scp -r ~/weitzly/html/* $FTP_USER@$REMOTE_IP:$REMOTE_PATH/$BUILD_PATH
-            OUT=$?
-            if [ $OUT = 0 ]; then
-              echo 'transfer successful'
-            else
-              echo 'transfer failed'
-            fi
+            scp -r ~/weitzly/output/html/* $FTP_USER@$REMOTE_IP:$REMOTE_PATH/$BUILD_PATH
+
 workflows:
   build-and-deploy:
     jobs:
