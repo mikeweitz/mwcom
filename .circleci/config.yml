@@ -5,6 +5,9 @@ executors:
       - image: circleci/node:12.16.3-browsers
     working_directory: ~/weitzly
 
+orbs:
+  doctl: digitalocean/cli@1.0.0
+
 jobs:
   build:
     executor: node-browser
@@ -47,10 +50,11 @@ jobs:
             cd ~/weitzly/output
             ls -al
             echo '^^^That should look familiar^^^'
+      - doctl/install_and_initialize_cli
       - run:
           name: Deploy Over SSH
           command: |
-            scp -r ~/weitzly/output/html/* $FTP_USER@$REMOTE_IP:$REMOTE_PATH/$BUILD_PATH
+            scp -r ~/weitzly/output/html/* weitzly@167.71.144.175:/var/www/weitzly.com/html
 
 workflows:
   build-and-deploy:
