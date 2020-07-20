@@ -50,7 +50,14 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-            scp -r ~/weitzly/output/html/* weitzly@167.71.144.175:/var/www/weitzly.com/html
+            { 
+              scp -r ~/weitzly/output/html/* $FTP_USER@$REMOTE_IP:$REMOTE_PATH/$BUILD_PATH && scp_status=$?
+              echo SCP returned with code $scp_status
+              return 0;
+            } || { 
+              echo SCP returned with code $scp_status
+              return 0;
+            }
 
 workflows:
   build-and-deploy:
