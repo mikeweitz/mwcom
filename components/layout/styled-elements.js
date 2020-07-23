@@ -12,7 +12,7 @@ const {
   breakpoints: { tablet, print },
 } = THEME;
 
-export const Main = styled('main', ({ $scrolled }) => ({
+export const Main = styled('main', ({ $hue, $delay }) => ({
   ...fonts.body,
   display: 'flex',
   width: '100%',
@@ -25,6 +25,8 @@ export const Main = styled('main', ({ $scrolled }) => ({
   transitionDelay: '.5s',
   flexDirection: 'column',
   justifyContent: 'space-between',
+  // textShadow: '-1px 1px 1px rgba(64,224,208, 0.3)',
+  textShadow: `-1px 1px 0 rgba(255, 255, 255, 0.25)`,
   [tablet]: {
     paddingTop: '172px',
   },
@@ -41,10 +43,13 @@ export const Main = styled('main', ({ $scrolled }) => ({
     height: '100%',
     zIndex: 0,
     backgroundImage: `url(${bgUrl[0]})`,
-    backgroundSize: '195% auto',
+    backgroundSize: 'auto 230%',
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'scroll',
-    textShadow: '-1px 1px 1px rgba(64,224,208, 0.3)',
+    ...($hue && {
+      transition: `filter ${$delay}ms linear`,
+      filter: `hue-rotate(${$hue}deg)`,
+    }),
     [tablet]: {
       backgroundSize: 'cover',
     },
