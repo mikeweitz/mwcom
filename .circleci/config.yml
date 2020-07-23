@@ -28,12 +28,14 @@ jobs:
       - run: npm run build
       - run: mkdir -p ~/weitzly/output
       - run: cp -avr html ~/weitzly/output/html
+      - run: cp -avr scripts ~/weitzly/output/scripts
       # - store_artifacts:
       #     path: ~/weitzly/html
       - persist_to_workspace:
           root: output
           paths:
             - html/*
+            - scripts/*
   deploy:
     executor: node-browser
 
@@ -54,6 +56,10 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
+            cd ~/weitzly/output/scripts
+            echo 'move to scripts folder'
+            ls -al
+            echo '^^^That should look familiar^^^'
             ./deploy.sh
 
 workflows:
