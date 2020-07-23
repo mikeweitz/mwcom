@@ -63,7 +63,6 @@ const PlaylistDetails = ({ pid, playlist, close }) => {
             <S.Songs>
               <S.TrackList>
                 {tracks.items.map((t) => {
-                  console.log(t.track);
                   return (
                     <S.Track key={t.sharing_info.share_id}>
                       <S.TrackLink

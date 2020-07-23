@@ -15,7 +15,6 @@ const Layout = ({ children }) => {
 
   const changeHueRotation = () => {
     const hue = Math.round(Math.random() * -180);
-    console.log('Change bg hue', hue);
     setHueRotation(hue);
   };
 
@@ -29,9 +28,6 @@ const Layout = ({ children }) => {
       window.GA_INITIALIZED = true;
     }
     logPageView();
-    return () => {
-      console.log('unmount');
-    };
   }, []);
 
   return (
