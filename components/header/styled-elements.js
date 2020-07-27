@@ -367,7 +367,6 @@ export const StyledLink = withStyle(A, ({ $scrolled }) => ({
       backgroundColor: 'transparent',
       textDecoration: 'none',
       padding: '1.5em 0 1.5em 0',
-      textShadow: `-6px -6px 2px ${colors.black}`,
     },
   },
 }));

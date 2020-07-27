@@ -58,6 +58,7 @@ export const PlistName = styled('h3', ({ $hover }) => ({
   width: '100%',
   height: '100%',
   alignItems: 'center',
+  textAlign: 'center',
   justifyContent: 'center',
   margin: '0',
   padding: '0',

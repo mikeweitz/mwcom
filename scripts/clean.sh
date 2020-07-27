@@ -5,7 +5,7 @@ ssh "$FTP_USER"@"$REMOTE_IP" << "EOF"
   cd /var/www/weitzly.com/html
   ls -la
   echo '^^^That should look familiar^^^'
-  echo 'Here would call rm rf star'
+  rm -rf *
   echo 'closing connection'
   exit;
 EOF
