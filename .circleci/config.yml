@@ -71,10 +71,7 @@ jobs:
           name: Restart NextJS
           command: |
             cd ~/weitzly/output/scripts
-            echo 'move to scripts folder'
-            ls -al
-            echo '^^^That should look familiar^^^'
-            ./deploy.sh
+            ./restart.sh
 workflows:
   build-and-deploy:
     jobs:
