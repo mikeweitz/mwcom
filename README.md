@@ -41,3 +41,10 @@ To start NextJS node process
 
 To restart after deploying new files:
 `pm2 restart nextjs`
+
+## fun stuff
+
+Playlist date sorting
+Background image hue-rotation filter on an interval hook
+Said interval pauses when the document looses focus.
+This is to prevent sudden color shifts when the user tabs away, we don't change the hue rotation.

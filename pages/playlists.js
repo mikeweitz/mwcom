@@ -28,9 +28,31 @@ const Playlists = () => {
   const [active, setActive] = useState(null);
   const { data, error } = useSWR(() => `/api/spotify`, fetcher);
 
+  const [yearFilter, setYearFilter] = useState([]);
+
   const handleChange = (pid) => {
     setActive(active === pid ? null : pid);
   };
+
+  const filterYear = (year) => {
+    console.log(`toggle ${year} in yearfilter`, yearFilter);
+    if (yearFilter.includes(year)) {
+      const newFilter = yearFilter.filter((y) => y !== year);
+      setYearFilter(newFilter);
+    } else {
+      console.log('this is new');
+      setYearFilter([...yearFilter, year]);
+    }
+  };
+  const filterData = data
+    ? yearFilter.length > 0
+      ? data.filter((d) => {
+          const y = new Date(d.date).getFullYear();
+          console.log({ date: new Date(d.date).getFullYear(), yearFilter });
+          return yearFilter.includes(y + '');
+        })
+      : data
+    : null;
   return (
     <ScrollProvider>
       <Head>
@@ -43,21 +65,27 @@ const Playlists = () => {
       <Layout>
         <PlaylistDetails close={() => setActive(null)} pid={active || null} />
         <Container>
+          <>Filter by year</>
+          <button onClick={() => filterYear('2020')}>2020</button>
+          <button onClick={() => filterYear('2019')}>2019</button>
+
           <GridPlaylist>
-            {!data
+            {!filterData
               ? 'loading...'
               : error
               ? 'Uh oh...'
-              : data.map((pid, i) => (
-                  <S.PlaylistWrap $active={active === pid} key={pid}>
-                    <Playlist
-                      handler={handleChange}
-                      active={pid === active}
-                      key={i}
-                      pid={pid}
-                    />
-                  </S.PlaylistWrap>
-                ))}
+              : filterData.map((p, i) => {
+                  return (
+                    <S.PlaylistWrap $active={active === p.pid} key={p.pid}>
+                      <Playlist
+                        handler={handleChange}
+                        active={p.pid === active}
+                        key={i}
+                        pid={p.pid}
+                      />
+                    </S.PlaylistWrap>
+                  );
+                })}
           </GridPlaylist>
         </Container>
       </Layout>
