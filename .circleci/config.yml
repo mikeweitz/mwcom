@@ -54,6 +54,18 @@ jobs:
             ls -al
             echo '^^^That should look familiar^^^'
       - run:
+          name: Clean the server
+          command: |
+            ssh $FTP_USER@$REMOTE_IP
+            pwd
+            echo 'Are we remoted?'
+            cd /var/www/weitzly.com/html
+            ls -la
+            echo '^^^That should look familiar^^^'
+            echo 'Here would call rm rf star'
+            echo 'closing connection'
+            exit;
+      - run:
           name: Deploy Over SSH
           command: |
             cd ~/weitzly/output/scripts
@@ -61,7 +73,14 @@ jobs:
             ls -al
             echo '^^^That should look familiar^^^'
             ./deploy.sh
-
+      - run:
+          name: Restart NextJS
+          command: |
+            cd ~/weitzly/output/scripts
+            echo 'move to scripts folder'
+            ls -al
+            echo '^^^That should look familiar^^^'
+            ./deploy.sh
 workflows:
   build-and-deploy:
     jobs:
