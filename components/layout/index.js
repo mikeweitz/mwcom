@@ -12,22 +12,36 @@ const Layout = ({ children }) => {
   const delay = 8000;
 
   const [hueRotation, setHueRotation] = useState(null);
+  const [hasFocus, setHasFocus] = useState(true);
+
+  const onFocusChange = () => {
+    setHasFocus(document.hasFocus());
+  };
 
   const changeHueRotation = () => {
     const hue = Math.round(Math.random() * -180);
     setHueRotation(hue);
   };
 
-  useInterval(() => {
-    changeHueRotation();
-  }, delay);
+  useInterval(
+    () => {
+      changeHueRotation();
+    },
+    hasFocus ? delay : null
+  );
 
   useIsomorphicEffect(() => {
+    window.addEventListener('focus', onFocusChange);
+    window.addEventListener('blur', onFocusChange);
     if (window && !window.GA_INITIALIZED) {
       initGA();
       window.GA_INITIALIZED = true;
     }
     logPageView();
+    return () => {
+      window.removeEventListener('focus', onFocusChange);
+      window.addEventListener('focus', onFocusChange);
+    };
   }, []);
 
   return (
