@@ -37,11 +37,11 @@ import { data as apr_2020 } from './lists/apr_2020';
 import { data as may_2020 } from './lists/may_2020';
 
 export const playlists = [
-  jan_2020,
-  feb_2020,
-  march_2020,
-  apr_2020,
   may_2020,
+  apr_2020,
+  march_2020,
+  feb_2020,
+  jan_2020,
 
   dec_2019,
   nov_2019,
