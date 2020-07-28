@@ -28,7 +28,7 @@ export const Main = styled('main', ({ $hue, $delay }) => ({
   // textShadow: '-1px 1px 1px rgba(64,224,208, 0.3)',
   textShadow: `-1px 1px 0 rgba(255, 255, 255, 0.25)`,
   [tablet]: {
-    paddingTop: '172px',
+    paddingTop: '162px',
   },
   [print]: {
     paddingTop: 'initial',
@@ -59,4 +59,8 @@ export const Main = styled('main', ({ $hue, $delay }) => ({
 export const ContentWrap = styled('div', {
   position: 'static',
   zIndex: 1,
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
 });

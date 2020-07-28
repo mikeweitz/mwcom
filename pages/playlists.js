@@ -7,12 +7,14 @@ import PlaylistDetails from '../components/playlist-details';
 import Summary from '../components/summary';
 import Playlist from '../components/playlist';
 import { ScrollProvider } from '../components/scrollContext';
-import { positions, skills, projects } from '../data';
+import { Close } from '../components/icons';
 
 import { GridPlaylist, GridLinks, Container } from '../styles/grid';
 
+import { THEME } from '../styles/theme';
+const { colors } = THEME;
+
 import * as S from '../styles/pages';
-import { filter } from 'lodash';
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -28,9 +30,32 @@ const Playlists = () => {
   const [active, setActive] = useState(null);
   const { data, error } = useSWR(() => `/api/spotify`, fetcher);
 
+  const [yearFilter, setYearFilter] = useState([]);
+
   const handleChange = (pid) => {
     setActive(active === pid ? null : pid);
   };
+
+  const filterYear = (year) => {
+    if (yearFilter.includes(year)) {
+      const newFilter = yearFilter.filter((y) => y !== year);
+      setYearFilter(newFilter);
+    } else {
+      setYearFilter([...yearFilter, year]);
+    }
+  };
+
+  const activeYears = ['2015', '2016', '2017', '2018', '2019', '2020'];
+
+  const filterData = data
+    ? yearFilter.length > 0
+      ? data.filter((d) => {
+          const y = new Date(d.date).getFullYear();
+          return yearFilter.includes(y + '');
+        })
+      : data
+    : null;
+
   return (
     <ScrollProvider>
       <Head>
@@ -43,21 +68,50 @@ const Playlists = () => {
       <Layout>
         <PlaylistDetails close={() => setActive(null)} pid={active || null} />
         <Container>
+          <S.PlaylistFilters>
+            {yearFilter.length < 1 ? null : (
+              <S.ClearButton
+                // // $active={pid}
+                onClick={() => setYearFilter([])}
+                // // onMouseEnter={() => setHoverClose(true)}
+                // // onMouseLeave={() => setHoverClose(false)}
+              >
+                <Close
+                  alt="Close"
+                  width="50%"
+                  height="auto"
+                  fill={colors.steelBlue}
+                />
+              </S.ClearButton>
+            )}
+            {activeYears.map((y) => (
+              <S.FilterOption
+                $active={yearFilter.includes(y)}
+                key={`plist_filter_${y}`}
+                onClick={() => filterYear(y)}
+              >
+                {y}
+              </S.FilterOption>
+            ))}
+          </S.PlaylistFilters>
+
           <GridPlaylist>
-            {!data
+            {!filterData
               ? 'loading...'
               : error
               ? 'Uh oh...'
-              : data.map((pid, i) => (
-                  <S.PlaylistWrap $active={active === pid} key={pid}>
-                    <Playlist
-                      handler={handleChange}
-                      active={pid === active}
-                      key={i}
-                      pid={pid}
-                    />
-                  </S.PlaylistWrap>
-                ))}
+              : filterData.map((p, i) => {
+                  return (
+                    <S.PlaylistWrap $active={active === p.pid} key={p.pid}>
+                      <Playlist
+                        handler={handleChange}
+                        active={p.pid === active}
+                        key={i}
+                        pid={p.pid}
+                      />
+                    </S.PlaylistWrap>
+                  );
+                })}
           </GridPlaylist>
         </Container>
       </Layout>
