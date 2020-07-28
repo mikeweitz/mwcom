@@ -120,7 +120,7 @@ const playlists = [
 
 playlists.forEach((list, index) => {
   let date = parseDateFrom(list.name);
-  playlists[index].date = new Date(`${date.month} ${date.year}`);
+  playlists[index].date = new Date(`${date.month} ${date.year} 12:00`);
 });
 
 playlists.sort((a, b) => b.date - a.date);
