@@ -34,11 +34,19 @@ export const PlaylistWrap = styled('div', ({ $active }) => ({
 export const PlaylistFilters = styled('div', {
   color: colors.black,
   display: 'flex',
-  flexDirection: 'row',
-  flexWrap: 'wrap',
-  justifyContent: 'flex-end',
-  margin: '2em 0',
+  margin: '2em 0 0',
   color: colors.blueViolet,
+  overflowX: 'scroll',
+  overflowY: 'auto',
+  flexWrap: 'nowrap',
+  justifyContent: 'flex-start',
+  [tablet]: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-end',
+    overflow: 'initial',
+    margin: '2em 0',
+  },
 });
 
 export const FilterOption = styled('button', ({ $active }) => ({
@@ -49,7 +57,7 @@ export const FilterOption = styled('button', ({ $active }) => ({
   backgroundColor: 'rgba(0, 0, 0, 0.2)',
   cursor: 'pointer',
   transition: `all 0.5s ${easeOutCirc}`,
-  fontSize: fontSize.mobile.display,
+  fontSize: fontSize.mobile.body,
   color: colors.white,
   padding: '0.5em 1em',
   [':hover']: {
@@ -67,24 +75,41 @@ export const FilterOption = styled('button', ({ $active }) => ({
   },
 }));
 
+export const FilterLabel = styled('small', {
+  display: 'block',
+  color: colors.steelBlue,
+  marginBottom: '2em',
+  padding: '6px',
+  [tablet]: {
+    display: 'none',
+  },
+});
+
 export const ClearButton = styled('button', {
-  justifySelf: 'end',
-  alignSelf: 'end',
+  // justifySelf: 'start',
+  alignSelf: 'center',
+  display: 'flex',
   fontSize: fontSize.body,
-  zIndex: 5,
   cursor: 'pointer',
   margin: '4px 12px',
   padding: '0',
   border: 'none',
-  width: '24px',
+  width: '32px',
   height: '24px',
   alignSelf: 'center',
   background: 'transparent',
-  color: colors.gray1,
+  color: colors.black,
   position: 'relative',
-  ...transition,
   [tablet]: {
+    justifySelf: 'end',
+    alignSelf: 'center',
     width: '18px',
     height: '18px',
   },
+});
+
+export const SvgWrap = styled('div', {
+  width: '24px',
+  height: '24px',
+  margin: 'auto',
 });

@@ -76,12 +76,14 @@ const Playlists = () => {
                 // // onMouseEnter={() => setHoverClose(true)}
                 // // onMouseLeave={() => setHoverClose(false)}
               >
-                <Close
-                  alt="Close"
-                  width="50%"
-                  height="auto"
-                  fill={colors.steelBlue}
-                />
+                <S.SvgWrap>
+                  <Close
+                    alt="Close"
+                    width="100%"
+                    height="100%"
+                    fill={colors.steelBlue}
+                  />
+                </S.SvgWrap>
               </S.ClearButton>
             )}
             {activeYears.map((y) => (
@@ -94,12 +96,15 @@ const Playlists = () => {
               </S.FilterOption>
             ))}
           </S.PlaylistFilters>
+          <S.FilterLabel>Filter by year</S.FilterLabel>
 
           <GridPlaylist>
             {!filterData
               ? 'loading...'
               : error
               ? 'Uh oh...'
+              : filterData.length < 1
+              ? 'No matching'
               : filterData.map((p, i) => {
                   return (
                     <S.PlaylistWrap $active={active === p.pid} key={p.pid}>
