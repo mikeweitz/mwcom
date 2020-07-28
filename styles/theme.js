@@ -17,6 +17,7 @@ const THEME = {
     darkBlueHover: '#17515e',
     blueViolet: '#402081',
     black: '#111',
+    white: '#eee',
     gray1: '#dcdcdc',
     gray2: '#404040',
     neonGreen: '#2BF403',

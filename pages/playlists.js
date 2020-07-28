@@ -7,12 +7,14 @@ import PlaylistDetails from '../components/playlist-details';
 import Summary from '../components/summary';
 import Playlist from '../components/playlist';
 import { ScrollProvider } from '../components/scrollContext';
-import { positions, skills, projects } from '../data';
+import { Close } from '../components/icons';
 
 import { GridPlaylist, GridLinks, Container } from '../styles/grid';
 
+import { THEME } from '../styles/theme';
+const { colors } = THEME;
+
 import * as S from '../styles/pages';
-import { filter } from 'lodash';
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -35,24 +37,25 @@ const Playlists = () => {
   };
 
   const filterYear = (year) => {
-    console.log(`toggle ${year} in yearfilter`, yearFilter);
     if (yearFilter.includes(year)) {
       const newFilter = yearFilter.filter((y) => y !== year);
       setYearFilter(newFilter);
     } else {
-      console.log('this is new');
       setYearFilter([...yearFilter, year]);
     }
   };
+
+  const activeYears = ['2015', '2016', '2017', '2018', '2019', '2020'];
+
   const filterData = data
     ? yearFilter.length > 0
       ? data.filter((d) => {
           const y = new Date(d.date).getFullYear();
-          console.log({ date: new Date(d.date).getFullYear(), yearFilter });
           return yearFilter.includes(y + '');
         })
       : data
     : null;
+
   return (
     <ScrollProvider>
       <Head>
@@ -65,9 +68,32 @@ const Playlists = () => {
       <Layout>
         <PlaylistDetails close={() => setActive(null)} pid={active || null} />
         <Container>
-          <>Filter by year</>
-          <button onClick={() => filterYear('2020')}>2020</button>
-          <button onClick={() => filterYear('2019')}>2019</button>
+          <S.PlaylistFilters>
+            {yearFilter.length < 1 ? null : (
+              <S.ClearButton
+                // // $active={pid}
+                onClick={() => setYearFilter([])}
+                // // onMouseEnter={() => setHoverClose(true)}
+                // // onMouseLeave={() => setHoverClose(false)}
+              >
+                <Close
+                  alt="Close"
+                  width="50%"
+                  height="auto"
+                  fill={colors.steelBlue}
+                />
+              </S.ClearButton>
+            )}
+            {activeYears.map((y) => (
+              <S.FilterOption
+                $active={yearFilter.includes(y)}
+                key={`plist_filter_${y}`}
+                onClick={() => filterYear(y)}
+              >
+                {y}
+              </S.FilterOption>
+            ))}
+          </S.PlaylistFilters>
 
           <GridPlaylist>
             {!filterData
