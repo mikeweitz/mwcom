@@ -34,18 +34,30 @@ export const PlaylistWrap = styled('div', ({ $active }) => ({
 export const PlaylistFilters = styled('div', {
   color: colors.black,
   display: 'flex',
-  margin: '2em 0 0',
+  margin: '0 0 1em',
+  padding: '0 0 1em',
   color: colors.blueViolet,
   overflowX: 'scroll',
   overflowY: 'auto',
   flexWrap: 'nowrap',
   justifyContent: 'flex-start',
+  [':after']: {
+    position: 'static',
+    content: '"\\0020"',
+    display: 'inline-block',
+    width: '36px',
+    minWidth: '36px',
+    height: '4px',
+  },
   [tablet]: {
+    margin: '2em 0 1em',
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'flex-end',
     overflow: 'initial',
-    margin: '2em 0',
+    [':after']: {
+      content: 'none',
+    },
   },
 });
 
@@ -53,7 +65,7 @@ export const FilterOption = styled('button', ({ $active }) => ({
   backgroundColor: 'transparent',
   border: 'none',
   borderRadius: '4px 4px',
-  margin: '4px 4px',
+  margin: '0 4px',
   backgroundColor: 'rgba(0, 0, 0, 0.2)',
   cursor: 'pointer',
   transition: `all 0.5s ${easeOutCirc}`,
@@ -65,9 +77,9 @@ export const FilterOption = styled('button', ({ $active }) => ({
   },
   ...($active && {
     color: colors.white,
-    backgroundColor: colors.heliotrope,
+    backgroundColor: colors.orangePeel,
     [':hover']: {
-      backgroundColor: colors.steelPink,
+      backgroundColor: colors.orangePeel,
     },
   }),
   [tablet]: {
@@ -78,7 +90,7 @@ export const FilterOption = styled('button', ({ $active }) => ({
 export const FilterLabel = styled('small', {
   display: 'block',
   color: colors.steelBlue,
-  marginBottom: '2em',
+  margin: '2em 0 0.5em',
   padding: '6px',
   [tablet]: {
     display: 'none',
