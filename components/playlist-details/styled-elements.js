@@ -84,6 +84,7 @@ export const Section = styled('section', ({ $scrolled, $active }) => ({
 }));
 
 export const Cover = styled('div', {
+  position: 'relative',
   flexBasis: '1 1 40%',
   width: '40%',
   height: 'auto',
@@ -268,3 +269,20 @@ export const Artist = styled('span', {
     content: '""',
   },
 });
+
+export const PlayWrapper = styled('span', ({ $hover }) => ({
+  position: 'absolute',
+  width: $hover ? '60%' : '50%',
+  height: $hover ? '60%' : '50%',
+  opacity: $hover ? '1' : '0.85',
+  transition: `all 0.5s ${easeOutQuart}`,
+  top: 0,
+  left: 0,
+  bottom: 0,
+  right: 0,
+  margin: 'auto',
+  [tablet]: {
+    opacity: $hover ? '0.85' : '0.5',
+    filter: $hover ? 'grayscale(0%)' : 'grayscale(100%)',
+  },
+}));

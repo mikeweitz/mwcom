@@ -3,7 +3,7 @@ import * as S from './styled-elements';
 import Link from 'next/link';
 import useSWR from 'swr';
 import { THEME } from '../../styles/theme';
-import { Close } from '../icons';
+import { Close, Play } from '../icons';
 
 import { useScrollContext } from '../scrollContext';
 
@@ -26,7 +26,9 @@ const PlaylistDetails = ({ pid, playlist, close }) => {
     !pid ? null : () => `/api/spotify/${pid}`,
     fetcher
   );
+  const [hoverPlay, setHoverPlay] = useState(false);
   const [hoverClose, setHoverClose] = useState(false);
+
   useEffect(() => {
     if (scrollRef && scrollRef.current) {
       scrollRef.current.scrollTop = 0;
@@ -54,8 +56,14 @@ const PlaylistDetails = ({ pid, playlist, close }) => {
               </a>
             </S.Meta>
 
-            <S.Cover>
+            <S.Cover
+              onMouseEnter={() => setHoverPlay(true)}
+              onMouseLeave={() => setHoverPlay(false)}
+            >
               <a href={external_urls.spotify} target="spotify">
+                <S.PlayWrapper $hover={hoverPlay}>
+                  <Play fill={colors.neonGreen} />
+                </S.PlayWrapper>
                 <S.CoverImg src={images[0].url} />
               </a>
             </S.Cover>
