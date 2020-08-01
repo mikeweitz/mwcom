@@ -60,12 +60,12 @@ const PlaylistDetails = ({ pid, playlist, close }) => {
               onMouseEnter={() => setHoverPlay(true)}
               onMouseLeave={() => setHoverPlay(false)}
             >
-              <a href={external_urls.spotify} target="spotify">
+              <S.CoverLink href={external_urls.spotify} target="spotify">
                 <S.PlayWrapper $hover={hoverPlay}>
                   <Play fill={colors.neonGreen} />
                 </S.PlayWrapper>
                 <S.CoverImg src={images[0].url} />
-              </a>
+              </S.CoverLink>
             </S.Cover>
 
             <S.Songs>
