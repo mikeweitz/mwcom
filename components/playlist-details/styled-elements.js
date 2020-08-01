@@ -270,6 +270,14 @@ export const Artist = styled('span', {
   },
 });
 
+export const CoverLink = styled('a', {
+  display: 'block',
+  width: '100%',
+  height: 0,
+  paddingBottom: '100%',
+  position: 'relative',
+});
+
 export const PlayWrapper = styled('span', ({ $hover }) => ({
   position: 'absolute',
   width: $hover ? '60%' : '50%',
