@@ -7,6 +7,7 @@ const positions = [
     },
     responsibilities: [
       'Build and maintain features on WarnerBros.com portal, deployed across 18 different regions',
+      'Build new unit tests in Jest, and End to end tets with Cucumber / Protractor',
     ],
     skills: ['React', 'Styled Components', 'Git', 'Jest / Enzyme', 'Node'],
   },
