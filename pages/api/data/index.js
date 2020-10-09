@@ -35,6 +35,8 @@ import { data as feb_2020 } from './lists/feb_2020';
 import { data as march_2020 } from './lists/march_2020';
 import { data as apr_2020 } from './lists/apr_2020';
 import { data as may_2020 } from './lists/may_2020';
+import { data as jul_2020 } from './lists/jul_2020';
+import { data as sep_2020 } from './lists/sep_2020';
 
 const months = [
   'jan',
@@ -80,6 +82,8 @@ const parseDateFrom = (name) => {
 };
 
 const playlists = [
+  sep_2020,
+  jul_2020,
   may_2020,
   apr_2020,
   march_2020,
