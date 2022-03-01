@@ -42,6 +42,14 @@ import { data as nov_2020 } from './lists/nov_2020';
 
 import { data as jan_2021 } from './lists/jan_2021';
 import { data as feb_2021 } from './lists/feb_2021';
+import { data as may_2021 } from './lists/may_2021';
+import { data as jun_2021 } from './lists/jun_2021';
+import { data as sep_2021 } from './lists/sep_2021';
+import { data as oct_2021 } from './lists/oct_2021';
+import { data as nov_2021 } from './lists/nov_2021';
+
+import { data as jan_2022 } from './lists/jan_2022';
+import { data as feb_2022 } from './lists/feb_2022';
 
 const months = [
   'jan',
@@ -87,6 +95,14 @@ const parseDateFrom = (name) => {
 };
 
 const playlists = [
+  feb_2022,
+  jan_2022,
+
+  nov_2021,
+  oct_2021,
+  sep_2021,
+  jun_2021,
+  may_2021,
   feb_2021,
   jan_2021,
 

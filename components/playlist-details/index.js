@@ -35,8 +35,9 @@ const PlaylistDetails = ({ pid, playlist, close }) => {
     }
   }, [pid]);
 
-  const { images, name, tracks, external_urls } = data || {};
-
+  const { id, images, name, tracks, external_urls } = data || {};
+  const link =
+    external_urls?.spotify || (id && `https://open.spotify.com/playlist/${id}`);
   return (
     <S.Drawer
       $scrolled={scroll.isScrolled}
@@ -51,7 +52,7 @@ const PlaylistDetails = ({ pid, playlist, close }) => {
         {error || !data ? null : (
           <S.ScrollContainer ref={scrollRef}>
             <S.Meta>
-              <a href={external_urls?.spotify} target="spotify">
+              <a href={link} target="spotify">
                 <S.PlistName>{name}</S.PlistName>
               </a>
             </S.Meta>
@@ -60,7 +61,7 @@ const PlaylistDetails = ({ pid, playlist, close }) => {
               onMouseEnter={() => setHoverPlay(true)}
               onMouseLeave={() => setHoverPlay(false)}
             >
-              <S.CoverLink href={external_urls?.spotify} target="spotify">
+              <S.CoverLink href={link} target="spotify">
                 <S.PlayWrapper $hover={hoverPlay}>
                   <Play fill={colors.neonGreen} />
                 </S.PlayWrapper>
@@ -93,7 +94,7 @@ const PlaylistDetails = ({ pid, playlist, close }) => {
             </S.Songs>
 
             <S.Action>
-              <S.Go href={external_urls?.spotify} target="spotify">
+              <S.Go href={link} target="spotify">
                 {'Listen on Spotify'}
               </S.Go>
             </S.Action>
