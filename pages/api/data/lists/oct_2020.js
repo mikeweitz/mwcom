@@ -1,5 +1,5 @@
 export const data = {
-  id: '5Dw0r94mB0oX3hnZqNZUXO',
+  id: '0byZRX6auo8IFqhtkkfAwf',
   collaborative: false,
   description: '',
   followers: {
@@ -9,23 +9,23 @@ export const data = {
     {
       height: 640,
       url:
-        'https://mosaic.scdn.co/640/ab67616d0000b27316ff5471107eda777437aa81ab67616d0000b2737c9dbb7ec1e865198386a822ab67616d0000b2738d7d3584e5220d0cd406eea4ab67616d0000b273a6370891414f39e41894af2b',
+        'https://mosaic.scdn.co/640/ab67616d0000b2731ad316504c6fe6ecf7c4e313ab67616d0000b273621a23b8673d26c5974460a6ab67616d0000b27390c36214509d9330a6afb0f3ab67616d0000b273aea6268d072d601a13242c6d',
       width: 640,
     },
     {
       height: 300,
       url:
-        'https://mosaic.scdn.co/300/ab67616d0000b27316ff5471107eda777437aa81ab67616d0000b2737c9dbb7ec1e865198386a822ab67616d0000b2738d7d3584e5220d0cd406eea4ab67616d0000b273a6370891414f39e41894af2b',
+        'https://mosaic.scdn.co/300/ab67616d0000b2731ad316504c6fe6ecf7c4e313ab67616d0000b273621a23b8673d26c5974460a6ab67616d0000b27390c36214509d9330a6afb0f3ab67616d0000b273aea6268d072d601a13242c6d',
       width: 300,
     },
     {
       height: 60,
       url:
-        'https://mosaic.scdn.co/60/ab67616d0000b27316ff5471107eda777437aa81ab67616d0000b2737c9dbb7ec1e865198386a822ab67616d0000b2738d7d3584e5220d0cd406eea4ab67616d0000b273a6370891414f39e41894af2b',
+        'https://mosaic.scdn.co/60/ab67616d0000b2731ad316504c6fe6ecf7c4e313ab67616d0000b273621a23b8673d26c5974460a6ab67616d0000b27390c36214509d9330a6afb0f3ab67616d0000b273aea6268d072d601a13242c6d',
       width: 60,
     },
   ],
-  name: 'January 2021',
+  name: 'October 2020',
   owner: {
     display_name: 'Weity',
     id: '1247970817',
@@ -36,90 +36,102 @@ export const data = {
     items: [
       {
         track: {
-          duration_ms: 243769,
+          duration_ms: 178658,
           type: 'track',
         },
       },
       {
         track: {
-          duration_ms: 197946,
+          duration_ms: 175346,
           type: 'track',
         },
       },
       {
         track: {
-          duration_ms: 180685,
+          duration_ms: 216000,
           type: 'track',
         },
       },
       {
         track: {
-          duration_ms: 237253,
+          duration_ms: 191196,
           type: 'track',
         },
       },
       {
         track: {
-          duration_ms: 255093,
+          duration_ms: 170211,
           type: 'track',
         },
       },
       {
         track: {
-          duration_ms: 125962,
+          duration_ms: 217223,
           type: 'track',
         },
       },
       {
         track: {
-          duration_ms: 376490,
+          duration_ms: 177826,
           type: 'track',
         },
       },
       {
         track: {
-          duration_ms: 254160,
+          duration_ms: 253289,
           type: 'track',
         },
       },
       {
         track: {
-          duration_ms: 226048,
+          duration_ms: 361453,
           type: 'track',
         },
       },
       {
         track: {
-          duration_ms: 359214,
+          duration_ms: 358095,
           type: 'track',
         },
       },
       {
         track: {
-          duration_ms: 251255,
+          duration_ms: 226229,
           type: 'track',
         },
       },
       {
         track: {
-          duration_ms: 261120,
+          duration_ms: 288133,
           type: 'track',
         },
       },
       {
         track: {
-          duration_ms: 274333,
+          duration_ms: 232706,
           type: 'track',
         },
       },
       {
         track: {
-          duration_ms: 141000,
+          duration_ms: 250666,
+          type: 'track',
+        },
+      },
+      {
+        track: {
+          duration_ms: 148438,
+          type: 'track',
+        },
+      },
+      {
+        track: {
+          duration_ms: 223640,
           type: 'track',
         },
       },
     ],
-    total: 14,
+    total: 16,
   },
-  uri: 'spotify:playlist:5Dw0r94mB0oX3hnZqNZUXO',
+  uri: 'spotify:playlist:0byZRX6auo8IFqhtkkfAwf',
 };

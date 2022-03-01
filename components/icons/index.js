@@ -47,7 +47,7 @@ const Close = ({ fill, alt }) => {
 const Play = ({ fill, alt }) => {
   return (
     <svg
-      class="MuiSvgIcon-root jss80 MuiSvgIcon-fontSizeLarge"
+      className="MuiSvgIcon-root jss80 MuiSvgIcon-fontSizeLarge"
       focusable="false"
       viewBox="0 0 24 24"
       aria-hidden="true"

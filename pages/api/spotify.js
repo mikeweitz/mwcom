@@ -5,6 +5,7 @@ export default (req, res) => {
   const pids = playlists.map((list) => ({ pid: list.id, date: list.date }));
   // PL with id exists
   if (pids.length > 0) {
+    console.log('playlists', pids);
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
     res.json(pids);

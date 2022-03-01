@@ -1,9 +1,33 @@
 const positions = [
   {
+    role: 'Technology Lead',
+    company: 'Deutsch LA',
+    dates: {
+      start: 'Dec, 2020',
+    },
+    responsibilities: [
+      'Work on an embedded team within Yum corporation to build and maintain frontend component library for TacoBell.com marketing and e-commerce channels.',
+      'Provide technical leadership through pair programming, code review, and merge request oversight.',
+      'Build and deploy custom promotional pages to support Ad campaigns and other marketing driven initiatives.',
+      'Work closely with iOS and Android app development teams, and Java-based backend teams.',
+      'Implemented new documentation and linting tools standards to improve developer experience.',
+    ],
+    skills: [
+      'React',
+      'NextJS',
+      'Contentful',
+      'Gitlab',
+      'Storybook',
+      'Node',
+      'AWS',
+    ],
+  },
+  {
     role: 'Senior Engineer',
     company: 'Warner Bros',
     dates: {
       start: 'March, 2020',
+      end: 'Dec, 2020',
     },
     responsibilities: [
       'Build and maintain features on WarnerBros.com portal, deployed across 18 different regions',
