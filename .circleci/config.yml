@@ -45,6 +45,9 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - '63:4a:86:b0:a4:a2:83:c8:8a:42:ef:0d:0c:dc:31:bb'
+      - run:
+          name: Creating empty folder
+          command: touch ~/.ssh/known_hosts
       - run: ssh-keyscan $REMOTE_IP >> ~/.ssh/known_hosts
       - run:
           name: Review files...
