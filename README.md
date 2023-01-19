@@ -42,6 +42,12 @@ To start NextJS node process
 To restart after deploying new files:
 `pm2 restart nextjs`
 
+## SSL cert
+
+ssh into server to run certbot per domain - see note app for nginx block
+
+Hosting specific details in Digitial Ocean docs on `certbot on ubuntu 18.04`
+
 ## fun stuff
 
 Playlist date sorting

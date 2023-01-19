@@ -15,7 +15,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - '4e:fe:3f:a2:04:6d:60:d2:97:bc:d7:14:24:b0:1b:ab'
+            - '9c:03:2e:6e:01:2f:6e:1f:18:c2:60:f9:cc:db:c9:93'
       # - run: ssh-keyscan $REMOTE_IP >> ~/.ssh/known_hosts
       - checkout
       - run:
