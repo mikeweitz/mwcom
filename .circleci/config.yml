@@ -51,11 +51,15 @@ jobs:
             if [[ -d ~/.ssh ]]
             then
               echo ".ssh exist"
+            else
+              echo "make .ssh dir"
               mkdir ~/.ssh
             fi
             if [[ -f ~/.ssh/known_hosts ]]
             then 
-              echo ".ssh/known_hosts does NOT exist"
+              echo ".ssh/known_hosts exists"
+            else 
+              echo "make known_hosts file"
               touch ~/.ssh/known_hosts
             fi
       - run: ssh-keyscan $REMOTE_IP >> ~/.ssh/known_hosts
