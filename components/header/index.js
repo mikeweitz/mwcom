@@ -1,33 +1,22 @@
-import React, { useEffect, useLayoutEffect, useContext, useState } from 'react';
+import React, { useState } from 'react';
 import * as S from './styled-elements';
-import { Container } from '../../styles/grid';
 import { copy } from '../../data';
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
-
-import Head from 'next/head';
 
 import { useScrollContext } from '../scrollContext';
 
-const Title = ({ name, small }) => {
-  const parts = name.split(' ');
+const Title = ({ name, small = false }) => {
+  const initials = name
+    .split(' ')
+    .map((part) => part.charAt(0))
+    .join('');
+
   return (
-    <Link href="/" passHref>
-      <S.Title $small={small}>
-        <S.TitleLink>
-          {parts.map((str, n) => {
-            const name = str.split('');
-            return (
-              <React.Fragment key={`header_title_${small}${n}`}>
-                <S.Initial>{name.shift()}</S.Initial>
-                {!small && name.join('')}
-                {!small && n < str.length + 1 && ' '}
-              </React.Fragment>
-            );
-          })}
-        </S.TitleLink>
-      </S.Title>
-    </Link>
+    <S.Title $small={small}>
+      <S.TitleLink href="/">
+        {small ? <S.Initial>{initials}</S.Initial> : name}
+      </S.TitleLink>
+    </S.Title>
   );
 };
 
@@ -51,10 +40,12 @@ const Header = () => {
 
   const renderLinks = () => {
     const {
-      header: { title, email, github, linkedin, playlists },
+      header: { email, github, linkedin, playlists },
     } = copy;
     return (
-      <S.NavWrap $showMenu={showMenu}>
+      <S.NavWrap
+      // $showMenu={showMenu}
+      >
         <S.StyledLink href="#">
           <S.LinkSpan>{email.address + email.domain}</S.LinkSpan>
         </S.StyledLink>
@@ -64,11 +55,9 @@ const Header = () => {
         <S.StyledLink href={linkedin.url}>
           <S.LinkSpan>{linkedin.text}</S.LinkSpan>
         </S.StyledLink>
-        <Link href={playlists.url}>
-          <S.StyledLink>
-            <S.LinkSpan>{playlists.text}</S.LinkSpan>
-          </S.StyledLink>
-        </Link>
+        <S.StyledLink href={playlists.url}>
+          <S.LinkSpan>{playlists.text}</S.LinkSpan>
+        </S.StyledLink>
       </S.NavWrap>
     );
   };
@@ -92,7 +81,7 @@ const Header = () => {
         </S.PageTop>
 
         <S.PageScrolled $scrolled={scroll.isScrolled}>
-          <Title small name={title} />
+          <Title name={title} $small={true} />
           {renderLinks()}
         </S.PageScrolled>
 

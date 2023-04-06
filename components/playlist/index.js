@@ -49,7 +49,7 @@ export default function Playlist({ pid, active, handler }) {
         ref.current.removeEventListener('touchstart', touchStart);
         ref.current.removeEventListener('touchmove', touchMove);
         ref.current.removeEventListener('touchend', touchEnd);
-        ref.current.addEventListener('click', onClick);
+        ref.current.removeEventListener('click', onClick);
       };
     }
   }, [data, pid, ref.current]);

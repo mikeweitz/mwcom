@@ -65,7 +65,6 @@ const Playlists = () => {
       : data
     : null;
 
-  console.log('filterData', { filterData });
   return (
     <ScrollProvider>
       <Head>
