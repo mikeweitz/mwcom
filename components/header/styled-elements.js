@@ -243,7 +243,7 @@ export const Group = styled('hgroup', {
   },
 });
 
-export const Title = styled('h1', ({ $small }) => ({
+export const Title = styled('h2', ({ $small }) => ({
   ...fonts.heading,
   marginTop: 0,
   cursor: 'inherit',

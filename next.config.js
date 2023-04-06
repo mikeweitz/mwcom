@@ -4,10 +4,4 @@ module.exports = {
     config.externals['styletron-server'] = 'styletron-server';
     return config;
   },
-  // distDir: 'html',
-  exportPathMap: function () {
-    return {
-      '/': { page: '/' },
-    };
-  },
 };
