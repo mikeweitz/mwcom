@@ -1,14 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Open + Sans:300, 400, 700);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400, 700);
 @import url(https://fonts.googleapis.com/css?family=Metrophobic);
-@import url(
-  https://fonts.googleapis.com/css?family=Roboto:400,
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,
   700,
   300,
   700italic,
   400italic,
-  300italic
-);
+  300italic);
 
 /* ==========================================================================
    Author's custom styles
@@ -169,11 +167,11 @@ body {
   position: relative;
   background: #333;
   min-height: 100%;
-  /* background: url(/static/images/ps_neutral.png); */
+  /* background: url(/images/ps_neutral.png); */
 }
 
 body.loading::before {
-  background: url(/public/static/images/loading.gif) no-repeat center;
+  background: url(/images/loading.gif) no-repeat center;
 }
 
 * {

@@ -98,7 +98,7 @@ const Header = () => {
 
         <Link href="/" passHref>
           <S.Logo $scrolled={scroll.isScrolled}>
-            <S.Img src="/static/logo.png" />
+            <S.Img src="/logo.png" />
           </S.Logo>
         </Link>
       </S.Overflow>
