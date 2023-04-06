@@ -10,8 +10,8 @@ const {
 
 const bgUrl =
   'https://images.unsplash.com/photo-1579547944064-0180251f94c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3292&q=80';
-// /static/images/dark_stripes.png
-// /static/images/texture.png
+// /images/dark_stripes.png
+// /images/texture.png
 export const Heading = styled('header', ({ $scrolled }) => ({
   background: 'rgba(0, 0, 0, 0.9)',
   position: 'fixed',

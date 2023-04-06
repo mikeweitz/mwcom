@@ -36,10 +36,7 @@ class MyDocument extends Document {
           />
           <meta property="og:title" content="MW" />
           <meta property="og:type" content="website" />
-          <meta
-            property="og:image"
-            content="https://weitzly.com/static/share.png"
-          />
+          <meta property="og:image" content="https://weitzly.com/share.png" />
           {this.props.stylesheets.map((sheet, i) => (
             <style
               className="_styletron_hydrate_"
@@ -49,23 +46,23 @@ class MyDocument extends Document {
               key={i}
             />
           ))}
-          <link rel="icon" type="image/png" href="/static/logo.png" />
+          <link rel="icon" type="image/png" href="/logo.png" />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="144x144"
-            href="/static/logo.png"
+            href="/logo.png"
           />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="114x114"
-            href="/static/logo.png"
+            href="/logo.png"
           />
           <link
             rel="apple-touch-icon-precomposed"
             sizes="72x72"
-            href="/static/logo.png"
+            href="/logo.png"
           />
-          <link rel="apple-touch-icon-precomposed" href="/static/logo.png" />
+          <link rel="apple-touch-icon-precomposed" href="/logo.png" />
         </Head>
         <body>
           <Main />

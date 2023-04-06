@@ -11,8 +11,8 @@ const {
 export const Footer = styled('footer', {
   position: 'relative',
   overflow: 'hidden',
-  // background: 'url(/static/images/txture.png) #222',
-  // background: 'url(/static/images/dark_stripes.png) #222',
+  // background: 'url(/images/txture.png) #222',
+  // background: 'url(/images/dark_stripes.png) #222',
   background: 'rgba(0, 0, 0, 0.7)',
   padding: '4rem 0',
   marginTop: '3em',
@@ -49,7 +49,7 @@ export const ButtonPrint = styled('button', {
     position: 'absolute',
     left: '-50px',
     top: '2px',
-    // background: 'url(/static/images/icon_print.png)'
+    // background: 'url(/images/icon_print.png)'
   },
   ':hover': {
     color: colors.turquoise,
@@ -100,7 +100,7 @@ export const ButtonTop = styled('button', {
   padding: '4px',
   borderRadius: '20px',
   transition: 'all 0.35s ease',
-  // backgroundImage: 'url(/static/images/arrow-top.png)',
+  // backgroundImage: 'url(/images/arrow-top.png)',
   // backgroundPosition: 'center center',
   // backgroundRepeat: 'no-repeat',
   // backgroundColor: 'transparent',

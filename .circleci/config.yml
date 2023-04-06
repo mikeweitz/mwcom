@@ -27,14 +27,14 @@ jobs:
       - run: npm run test
       - run: npm run build
       - run: mkdir -p ~/weitzly/output
-      - run: cp -avr html ~/weitzly/output/html
+      - run: cp -avr .next ~/weitzly/output/html
       - run: cp -avr scripts ~/weitzly/output/scripts
       # - store_artifacts:
       #     path: ~/weitzly/html
       - persist_to_workspace:
           root: output
           paths:
-            - html/*
+            - .next/*
             - scripts/*
   deploy:
     executor: node-browser

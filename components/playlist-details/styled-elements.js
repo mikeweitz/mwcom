@@ -72,8 +72,8 @@ export const ScrollContainer = withStyle(Container, () => ({
 }));
 
 export const Section = styled('section', ({ $scrolled, $active }) => ({
-  // background: 'url(/static/images/texture.png) #222',
-  // background: 'url(/static/images/dark_stripes.png) #222',
+  // background: 'url(/images/texture.png) #222',
+  // background: 'url(/images/dark_stripes.png) #222',
   background: colors.black,
   paddingTop: '1em',
   paddingBottom: '3em',
