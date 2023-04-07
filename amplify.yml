@@ -1,0 +1,22 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - echo 'run clean install...'
+        - npm ci
+    build:
+      commands:
+        - |
+          ls -al
+          echo '^^^That should look familiar^^^'
+        - npm run build
+        - mkdir -p ~/weitzly/output
+        - cp -avr .next ~/weitzly/output/.next
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
