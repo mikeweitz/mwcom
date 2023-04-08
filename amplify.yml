@@ -12,9 +12,9 @@ frontend:
           echo '^^^That should look familiar^^^'
         - pwd
         - npm run build
-        - ls -la
-        - mkdir -p ~/weitzly/output
-        - cp -avr .next ~/weitzly/output/.next
+        # - ls -la
+        # - mkdir -p ~/weitzly/output
+        # - cp -avr .next ~/weitzly/output/.next
   artifacts:
     baseDirectory: .next
     files:
