@@ -40,7 +40,7 @@ const Layout = ({ children }) => {
     logPageView();
     return () => {
       window.removeEventListener('focus', onFocusChange);
-      window.removeEventListener('focus', onFocusChange);
+      window.removeEventListener('blur', onFocusChange);
     };
   }, []);
 
