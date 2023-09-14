@@ -43,9 +43,7 @@ const Header = () => {
       header: { email, github, linkedin, playlists },
     } = copy;
     return (
-      <S.NavWrap
-      // $showMenu={showMenu}
-      >
+      <S.NavWrap $showMenu={showMenu}>
         <S.StyledLink href="#">
           <S.LinkSpan>{email.address + email.domain}</S.LinkSpan>
         </S.StyledLink>

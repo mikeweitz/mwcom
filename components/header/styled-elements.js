@@ -246,6 +246,7 @@ export const Group = styled('hgroup', {
 export const Title = styled('h2', ({ $small }) => ({
   ...fonts.heading,
   marginTop: 0,
+  paddingTop: '2em',
   cursor: 'inherit',
   textTransform: 'none',
   transform: 'translateY(-10px)',
@@ -258,7 +259,7 @@ export const Title = styled('h2', ({ $small }) => ({
         fontSize: fontSize.position,
       }
     : {
-        fontSize: fontSize.display,
+        fontSize: fontSize.position,
       }),
 
   [print]: {
@@ -266,6 +267,7 @@ export const Title = styled('h2', ({ $small }) => ({
   },
   [tablet]: {
     transform: 'none',
+    fontSize: fontSize.display,
     ...($small && {
       paddingTop: '1.25em',
     }),
