@@ -45,13 +45,19 @@ export default function Playlist({ pid, active, handler }) {
       ref.current.addEventListener('touchmove', touchMove);
       ref.current.addEventListener('touchend', touchEnd);
       ref.current.addEventListener('click', onClick);
-      return () => {
-        ref.current.removeEventListener('touchstart', touchStart);
-        ref.current.removeEventListener('touchmove', touchMove);
-        ref.current.removeEventListener('touchend', touchEnd);
-        ref.current.removeEventListener('click', onClick);
-      };
+      // return () => {
+      //   ref.current.removeEventListener('touchstart', touchStart);
+      //   ref.current.removeEventListener('touchmove', touchMove);
+      //   ref.current.removeEventListener('touchend', touchEnd);
+      //   ref.current.removeEventListener('click', onClick);
+      // };
     }
+    return () => {
+      ref.current.removeEventListener('touchstart', touchStart);
+      ref.current.removeEventListener('touchmove', touchMove);
+      ref.current.removeEventListener('touchend', touchEnd);
+      ref.current.removeEventListener('click', onClick);
+    };
   }, [data, pid, ref.current]);
 
   if (error) return <div>{error.message}</div>;
