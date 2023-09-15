@@ -3,25 +3,24 @@ const copy = {
     title: 'Michael Weitzman',
     email: {
       address: 'weitzly',
-      domain: '@gmail.com'
+      domain: '@gmail.com',
     },
     github: {
       text: 'github',
-      url: 'https://github.com/mikeweitz'
+      url: 'https://github.com/mikeweitz',
     },
     linkedin: {
       text: 'linkedin',
-      url: 'https://www.linkedin.com/in/mikeweitzman/'
+      url: 'https://www.linkedin.com/in/mikeweitzman/',
     },
     playlists: {
       text: 'playlists',
-      url: '/playlists'
-    }
+      url: '/playlists',
+    },
   },
-  summary: `Front-end architect with extensive tooling experience, attention to
+  summary: `Technical lead with extensive frontend  experience, attention to
     detail, and commitment to delivering top tier in-browser experiences. I
-    am versed in multiple React frameworks and ES6 modules, CSS modules, and
-    CSS preprocessors.`
+    am versed in multiple React frameworks and `,
 };
 
 export { copy };

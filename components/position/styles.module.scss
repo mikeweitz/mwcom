@@ -1,0 +1,117 @@
+@use 'fonts';
+@use 'colors';
+
+// article
+.position {
+    width: 100%;
+    color: colors.$black;
+    // textShadow: `1px 1px 1px ${colors.steelBlue}`,
+    margin-top: 4em;
+    padding-bottom: 4em;
+    position: relative;
+    justify-self: center;
+
+    &:first-of-type {
+        margin-top: 2em
+    }
+
+    @media screen and (min-width: 768px) {        
+        &:first-of-type {
+            margin-top: 4em;
+        }
+    }
+    
+    &:after {
+      position: absolute;
+      content: '';
+      height: 1px;
+      width: 100%;
+      opacity: 0.5;
+      background-color: colors.$black;
+      left: 0;
+      bottom: 0;
+      // boxShadow: `0 4px 0 rgba(0,0,0,0.25)`,
+    }
+
+    @media print {
+        display: inline-block;
+        width: 50%;
+        vertical-align: top;
+        padding-right: 4em;
+        padding-top: 0;
+        margin-top: 0;
+        margin-bottom: 4em;
+
+        &:first-of-type {
+            margin-top: 0;
+        }
+
+        &:after {
+            width: 80%;
+        }
+    }
+}
+
+//header
+.role {
+    text-transform: uppercase;
+    font-size: 1.25em;
+    line-height: 1.25em;
+    height: 1.625em;
+    font-weight: 700;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    // textShadow: `1px 1px 3px ${colors.gray2}`,
+    text-shadow: none;
+    transition: all 0.25s;
+    padding: 0.25em 2em 0.25em 0;
+    
+    &:after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.1);
+      transition: all 0.25s ease;
+      position: absolute;
+        border-radius: 4px 4px;
+      top: 0;
+      left: -101%;
+    }
+
+    &.hover {
+        &:after {
+            left: 0;
+        }
+
+        padding-left: 1em;
+        padding-right: 1.1em;
+    }
+}
+  
+
+// h4
+.organization {
+    font-size: fonts.$position;
+    margin: 0.5em 0 0.75em;
+    line-height: 20px;
+}
+  
+.dates {
+    font-style: oblique
+}
+  
+//strong
+.subhead {
+    display: block;
+    line-height: 1.5em;
+    margin: 1.5em 0 0.25em;
+    font-size: 0.8em
+}
+  
+@media print {
+    .list {
+      width: 75%;
+    }
+}
+  

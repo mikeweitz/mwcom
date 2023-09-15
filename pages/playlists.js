@@ -37,6 +37,7 @@ const Playlists = () => {
   };
 
   const filterYear = (year) => {
+    console.log('filter year', year, yearFilter);
     if (yearFilter.includes(year)) {
       const newFilter = yearFilter.filter((y) => y !== year);
       setYearFilter(newFilter);

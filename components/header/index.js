@@ -1,24 +1,13 @@
 import React, { useState } from 'react';
-import * as S from './styled-elements';
+import cx from 'classnames';
+
 import { copy } from '../../data';
 import Link from 'next/link';
-
+import Title from './title';
+import Navigation from './navigation';
 import { useScrollContext } from '../scrollContext';
 
-const Title = ({ name, small = false }) => {
-  const initials = name
-    .split(' ')
-    .map((part) => part.charAt(0))
-    .join('');
-
-  return (
-    <S.Title $small={small}>
-      <S.TitleLink href="/">
-        {small ? <S.Initial>{initials}</S.Initial> : name}
-      </S.TitleLink>
-    </S.Title>
-  );
-};
+import styles from './styles.module.scss';
 
 const Header = () => {
   const scroll = useScrollContext();
@@ -38,58 +27,75 @@ const Header = () => {
     setTimeout(() => setShowMenu(finalState), 2000);
   };
 
-  const renderLinks = () => {
-    const {
-      header: { email, github, linkedin, playlists },
-    } = copy;
-    return (
-      <S.NavWrap $showMenu={showMenu}>
-        <S.StyledLink href="#">
-          <S.LinkSpan>{email.address + email.domain}</S.LinkSpan>
-        </S.StyledLink>
-        <S.StyledLink href={github.url}>
-          <S.LinkSpan>{github.text}</S.LinkSpan>
-        </S.StyledLink>
-        <S.StyledLink href={linkedin.url}>
-          <S.LinkSpan>{linkedin.text}</S.LinkSpan>
-        </S.StyledLink>
-        <S.StyledLink href={playlists.url}>
-          <S.LinkSpan>{playlists.text}</S.LinkSpan>
-        </S.StyledLink>
-      </S.NavWrap>
-    );
-  };
-
   const {
-    header: { title },
+    header: { title, email, github, linkedin, playlists },
   } = copy;
 
   return (
-    <S.Heading id="header" $scrolled={scroll.isScrolled}>
-      <S.Overflow $scrolled={scroll.isScrolled}>
-        <S.MenuButton onClick={() => setShowMenu(!showMenu)}>
-          <S.MenuDotOne key={'menu-dot-one'} $active={showMenu} />
-          <S.MenuDotTwo key={'menu-dot-two'} $active={showMenu} />
-          <S.MenuDotThree key={'menu-dot-three'} $active={showMenu} />
-        </S.MenuButton>
+    <heading
+      className={cx(styles.header, {
+        [styles.scrolled]: scroll.isScrolled,
+      })}
+      id="header"
+    >
+      <div
+        className={cx(styles.overflow, {
+          [styles.scrolled]: scroll.isScrolled,
+        })}
+      >
+        <button
+          className={styles['menu-button']}
+          onClick={() => setShowMenu(!showMenu)}
+        >
+          <span
+            className={cx(styles['menu-dot'], styles['menu-dot-one'], {
+              [styles.active]: showMenu,
+            })}
+            key={'menu-dot-one'}
+          />
+          <span
+            className={cx(styles['menu-dot'], styles['menu-dot-two'], {
+              [styles.active]: showMenu,
+            })}
+            key={'menu-dot-two'}
+          />
+          <span
+            className={cx(styles['menu-dot'], styles['menu-dot-three'], {
+              [styles.active]: showMenu,
+            })}
+            key={'menu-dot-three'}
+          />
+        </button>
 
-        <S.PageTop $scrolled={scroll.isScrolled}>
+        <div
+          className={cx(styles['page-top'], {
+            [styles.scrolled]: scroll.isScrolled,
+          })}
+        >
           <Title name={title} />
-          {renderLinks()}
-        </S.PageTop>
+          <Navigation {...{ email, github, linkedin, playlists, showMenu }} />
+        </div>
 
-        <S.PageScrolled $scrolled={scroll.isScrolled}>
-          <Title name={title} $small={true} />
-          {renderLinks()}
-        </S.PageScrolled>
+        <div
+          className={cx(styles['page-scrolled'], {
+            [styles.scrolled]: scroll.isScrolled,
+          })}
+        >
+          <Title name={title} small={true} />
+          <Navigation {...{ email, github, linkedin, playlists, showMenu }} />
+        </div>
 
         <Link href="/" passHref>
-          <S.Logo $scrolled={scroll.isScrolled}>
-            <S.Img src="/logo.png" />
-          </S.Logo>
+          <div
+            className={cx(styles.logo, {
+              [styles.scrolled]: scroll.isScrolled,
+            })}
+          >
+            <img className={styles.img} src="/logo.png" />
+          </div>
         </Link>
-      </S.Overflow>
-    </S.Heading>
+      </div>
+    </heading>
   );
 };
 export default Header;

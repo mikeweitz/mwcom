@@ -31,7 +31,7 @@ const positions = [
     },
     responsibilities: [
       'Build and maintain features on WarnerBros.com portal, deployed across 18 different regions',
-      'Build new unit tests in Jest, and End to end tets with Cucumber / Protractor',
+      'Build new unit tests in Jest, and End to end tests with Cucumber / Protractor',
     ],
     skills: ['React', 'Styled Components', 'Git', 'Jest / Enzyme', 'Node'],
   },
@@ -46,7 +46,7 @@ const positions = [
       'Build large-scale, highly interactive component driven websites for major clients including Uber and Facebook.',
       'Follow opinionated, enterprise-quality coding standards on client platforms including Wordpress VIP, and FusionJS.',
       'Integrate with various back-end platforms including Contentful, Wordpress VIP, and Chameleon.',
-      'Deliver above-quality code on time.',
+      'Deliver top-quality code on time.',
     ],
     skills: [
       'React',
