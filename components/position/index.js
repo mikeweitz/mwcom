@@ -1,69 +1,61 @@
-import React, { Component } from 'react';
-import * as S from './styled-elements';
+import React, { Component, useState } from 'react';
+import cx from 'classnames';
 
-class Position extends Component {
-  static defaultProps = {
-    role: 'Title',
-    company: 'Company Name',
-    dates: {
-      start: 'Month, Year',
-      end: 'Month, Year'
-    },
-    responsibilities: [],
-    skills: []
-  };
-  constructor() {
-    super();
-  }
+import styles from './styles.module.scss';
 
-  state = {
-    hover: false
-  };
+const Position = ({
+  role = 'Title',
+  company = 'Company Name',
+  dates = { start: 'Month Year', end: 'Month Year' },
+  responsibilities = [],
+  skills = [],
+}) => {
+  const [hover, setHover] = useState(false);
+  const handleMouseEnter = () => setHover(true);
+  const handleMouseLeave = () => setHover(false);
 
-  handleMouseEnter = () => {
-    this.setState({ hover: true });
-  };
-
-  handleMouseLeave = () => {
-    this.setState({ hover: false });
-  };
-
-  render() {
-    const { role, company, dates, responsibilities, skills } = this.props;
-    const { hover } = this.state;
-    return !role ? null : (
-      <S.Position
-        className="position"
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave}
+  return !role ? (
+    <></>
+  ) : (
+    <article
+      className={styles.position}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <header
+        className={cx(styles.role, {
+          [styles.hover]: hover,
+        })}
       >
-        <S.Role $hover={hover}>{role}</S.Role>
-        <S.Organization>{company}</S.Organization>
-        <S.Dates>
-          {dates.start}
-          {dates.end && ` - ${dates.end}`}
-        </S.Dates>
+        {role}
+      </header>
+      <h4 className={styles.organization}>{company}</h4>
+      <div className={styles.dates}>
+        {dates.start}
+        {dates.end && ` - ${dates.end}`}
+      </div>
 
-        <S.Subhead>Key attributes and responsibilities</S.Subhead>
-        <S.List>
-          {responsibilities.length > 0 &&
-            responsibilities.map((item, i) => (
-              <li key={`role-actions_${i}`}>{item}</li>
+      <strong className={styles.subhead}>
+        Key attributes and responsibilities
+      </strong>
+      <ul className={styles.list}>
+        {responsibilities.length > 0 &&
+          responsibilities.map((item, i) => (
+            <li key={`role-actions_${i}`}>{item}</li>
+          ))}
+      </ul>
+      {skills && skills.length > 0 && (
+        <>
+          <strong className={styles.subhead}>Primary skill utilization</strong>
+          <ul>
+            {skills.map((item, i) => (
+              <li key={`${company}-${role}-skills_${i}`}>{item}</li>
             ))}
-        </S.List>
-        {skills && skills.length > 0 && (
-          <>
-            <S.Subhead>Primary skill utilization</S.Subhead>
-            <ul>
-              {skills.map((item, i) => (
-                <li key={`${company}-${role}-skills_${i}`}>{item}</li>
-              ))}
-            </ul>
-          </>
-        )}
-      </S.Position>
-    );
-  }
-}
+          </ul>
+        </>
+      )}
+    </article>
+  );
+};
 
 export default Position;

@@ -1,12 +1,14 @@
-import * as S from './styled-elements';
 import { copy } from '../../data';
+
+import styles from './styles.module.scss';
 
 const Summary = () => {
   const { summary } = copy;
+
   return (
-    <S.Summary>
+    <section className={styles.summary}>
       <p>{summary}</p>
-    </S.Summary>
+    </section>
   );
 };
 

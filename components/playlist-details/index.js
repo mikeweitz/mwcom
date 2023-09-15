@@ -10,6 +10,7 @@ import { useScrollContext } from '../scrollContext';
 const { colors } = THEME;
 
 const fetcher = async (url) => {
+  console.log('fetcher', { url });
   const res = await fetch(url);
   const data = await res.json();
 

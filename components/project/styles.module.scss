@@ -1,0 +1,55 @@
+@use 'colors';
+
+// a
+.article {
+    color: colors.$black;
+    margin: 2em auto;
+    font-size: 0.85em;
+    line-height: 1.4em;
+    border: 1px solid colors.$darkBlue;
+    border-radius: 1em 1em;
+    padding: 3em;
+    transition: all 0.3s ease-in-out;
+    cursor: default;
+
+    &.has-link {
+        cursor: pointer;
+    }
+
+    &:link,
+    &:active
+    &:visited, &:hover {
+        color: colors.$black,
+    }
+
+    &:hover {
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    @media print {
+        display: inline-block;
+        border: none;
+        padding: 0 96px 24px 0;
+        width: 50%;
+        vertical-align: top;
+    }
+}
+
+.strong {
+    text-transform: uppercase;
+}
+
+// div
+.subtitle {
+    min-height: 1em;
+}
+  
+.p {
+    margin: 1em auto;
+}
+  
+.em {
+    font-size: 0.8em;
+}
+  
