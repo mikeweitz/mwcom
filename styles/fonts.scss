@@ -6,3 +6,8 @@ $display: 38.5px;
 $mobile-small: 12px;
 $mobile-body: 16px;
 $mobile-display: 24px;
+
+%font-body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+}

@@ -18,9 +18,7 @@ const copy = {
       url: '/playlists',
     },
   },
-  summary: `Technical lead with extensive frontend  experience, attention to
-    detail, and commitment to delivering top tier in-browser experiences. I
-    am versed in multiple React frameworks and `,
+  summary: `Technical lead with extensive frontend  experience, attention to detail, and commitment to delivering top tier in-browser experiences. I am versed in multiple React frameworks, build tools, CSS modules and preprocessors, and Node. Extensive experience with Nextjs.`,
 };
 
 export { copy };

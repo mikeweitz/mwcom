@@ -3,7 +3,8 @@ import { useInterval } from '../../hooks/useInterval';
 import { initGA, logPageView } from '../../util/analytics';
 import Header from '../header';
 import Footer from '../footer';
-import * as S from './styled-elements';
+
+import styles from './styles.module.scss';
 
 const Layout = ({ children }) => {
   const useIsomorphicEffect =
@@ -11,7 +12,7 @@ const Layout = ({ children }) => {
 
   const delay = 8000;
 
-  const [hueRotation, setHueRotation] = useState(null);
+  const [hueRotation, setHueRotation] = useState(0);
   const [hasFocus, setHasFocus] = useState(true);
 
   const onFocusChange = () => {
@@ -45,13 +46,20 @@ const Layout = ({ children }) => {
   }, []);
 
   return (
-    <S.Main $hue={hueRotation} $delay={delay}>
-      <S.ContentWrap>
+    <main className={styles.main}>
+      <div className={styles['content-wrap']}>
         <Header />
         {children}
         <Footer />
-      </S.ContentWrap>
-    </S.Main>
+      </div>
+      <div
+        className={styles.bg}
+        style={{
+          transition: `filter ${delay}ms linear`,
+          filter: `hue-rotate(${hueRotation}deg)`,
+        }}
+      />
+    </main>
   );
 };
 export default Layout;
