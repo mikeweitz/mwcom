@@ -5,8 +5,17 @@ const projects = [
       url: 'https://ta.co',
       title: 'Taco Bell',
     },
-    subtitle: 'Marketing and Ecommerce site for Taco Bell',
-    stack: ['NexJS', 'React', 'SCSS modules', 'Contentful', 'Node', 'AWS'],
+    subtitle: 'Ecommerce and marketing site for Taco Bell',
+    summary: ['Technical Lead for frontend team on Tacobell.com'],
+    stack: [
+      'NexJS',
+      'React',
+      'SCSS modules',
+      'Contentful',
+      'Serverless',
+      'Node',
+      'AWS',
+    ],
   },
   {
     title: 'WarnerBros.com',
@@ -15,6 +24,9 @@ const projects = [
       title: 'Warner Brothers',
     },
     subtitle: 'Consumer facing website for Warner Bros.',
+    summary: [
+      'Fullstack engineer with web team supporting multiple territories.',
+    ],
     stack: ['React Static', 'Drupal', 'Cucumber / Selenium', 'SCSS'],
   },
   {

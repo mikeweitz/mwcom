@@ -50,6 +50,24 @@ import { data as nov_2021 } from './lists/nov_2021';
 
 import { data as jan_2022 } from './lists/jan_2022';
 import { data as feb_2022 } from './lists/feb_2022';
+import { data as mar_2022 } from './lists/mar_2022';
+import { data as apr_2022 } from './lists/apr_2022';
+import { data as may_2022 } from './lists/may_2022';
+import { data as jun_2022 } from './lists/jun_2022';
+import { data as jul_2022 } from './lists/jul_2022';
+import { data as aug_2022 } from './lists/aug_2022';
+import { data as sep_2022 } from './lists/sep_2022';
+import { data as nov_2022 } from './lists/nov_2022';
+import { data as dec_2022 } from './lists/dec_2022';
+
+import { data as feb_2023 } from './lists/feb_2023';
+import { data as mar_2023 } from './lists/mar_2023';
+import { data as apr_2023 } from './lists/apr_2023';
+import { data as may_2023 } from './lists/may_2023';
+import { data as jun_2023 } from './lists/jun_2023';
+import { data as jul_2023 } from './lists/jul_2023';
+import { data as aug_2023 } from './lists/aug_2023';
+import { data as sep_2023 } from './lists/sep_2023';
 
 const months = [
   'jan',
@@ -95,6 +113,24 @@ const parseDateFrom = (name) => {
 };
 
 const playlists = [
+  sep_2023,
+  aug_2023,
+  jul_2023,
+  jun_2023,
+  may_2023,
+  apr_2023,
+  mar_2023,
+  feb_2023,
+
+  dec_2022,
+  nov_2022,
+  sep_2022,
+  aug_2022,
+  jul_2022,
+  jun_2022,
+  may_2022,
+  apr_2022,
+  mar_2022,
   feb_2022,
   jan_2022,
 
@@ -149,7 +185,7 @@ const playlists = [
 ];
 
 playlists.forEach((list, index) => {
-  let date = parseDateFrom(list.name);
+  let date = parseDateFrom(list.name || list.playlistV2.name);
   playlists[index].date = new Date(`${date.month} ${date.year} 12:00`);
 });
 

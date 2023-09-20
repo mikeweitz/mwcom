@@ -10,7 +10,6 @@ import { useScrollContext } from '../scrollContext';
 const { colors } = THEME;
 
 const fetcher = async (url) => {
-  console.log('fetcher', { url });
   const res = await fetch(url);
   const data = await res.json();
 
@@ -73,7 +72,6 @@ const PlaylistDetails = ({ pid, playlist, close }) => {
             <S.Songs>
               <S.TrackList>
                 {tracks.items.map((t) => {
-                  console.log(t);
                   return (
                     <S.Track key={t.sharing_info?.share_id || t.ms}>
                       <S.TrackLink
@@ -84,7 +82,9 @@ const PlaylistDetails = ({ pid, playlist, close }) => {
                         <br />
                         {t.track.artists?.map((a) => {
                           return (
-                            <S.Artist key={`${pid}_${a.id}`}>{a.name}</S.Artist>
+                            <S.Artist key={`${pid}_${a.id}`}>
+                              {a.name || a.id || 'unknown'}
+                            </S.Artist>
                           );
                         })}
                       </S.TrackLink>

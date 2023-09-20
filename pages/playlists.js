@@ -37,7 +37,6 @@ const Playlists = () => {
   };
 
   const filterYear = (year) => {
-    console.log('filter year', year, yearFilter);
     if (yearFilter.includes(year)) {
       const newFilter = yearFilter.filter((y) => y !== year);
       setYearFilter(newFilter);
@@ -55,6 +54,7 @@ const Playlists = () => {
     '2020',
     '2021',
     '2022',
+    '2023',
   ];
 
   const filterData = data
@@ -117,18 +117,16 @@ const Playlists = () => {
             ) : filterData.length < 1 ? (
               <h3>No matching lists for this filter.</h3>
             ) : (
-              filterData.map((p, i) => {
-                return (
-                  <S.PlaylistWrap $active={active === p.pid} key={p.pid}>
-                    <Playlist
-                      handler={handleChange}
-                      active={p.pid === active}
-                      key={i}
-                      pid={p.pid}
-                    />
-                  </S.PlaylistWrap>
-                );
-              })
+              filterData.map((p, i) => (
+                <S.PlaylistWrap $active={active === p.pid} key={p.pid}>
+                  <Playlist
+                    handler={handleChange}
+                    active={p.pid === active}
+                    key={i}
+                    pid={p.pid}
+                  />
+                </S.PlaylistWrap>
+              ))
             )}
           </GridPlaylist>
         </Container>
