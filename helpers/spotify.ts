@@ -18,9 +18,10 @@ const getAccessToken = async () => {
                 refresh_token,
             }),
         });
-
+        console.log('retrieved spotify token');
         return await response.json();
     } catch (e) {
+        console.error('Spotify access issue', e);
         return {};
     }
 };

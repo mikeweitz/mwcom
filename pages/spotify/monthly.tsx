@@ -9,6 +9,7 @@ import styles from './styles.module.scss';
 
 export const getStaticProps = async () => {
     const data = await getPlaylistIds();
+    console.log('./spotify/monthly getStaticProps', data);
     return {
         props: {
             pids: data.slice(1, data.length),
