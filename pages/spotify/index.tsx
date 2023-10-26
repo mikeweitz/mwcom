@@ -2,7 +2,7 @@ import { topTracks } from '@mw/helpers/spotify';
 
 export const getServerSideProps = async () => {
     const response = await topTracks();
-
+    console.log('retrieve top tracks', response);
     if (response.ok) {
         const { items } = await response.json();
 

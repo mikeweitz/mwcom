@@ -14,8 +14,10 @@ export const fetchPlaylist = async (id: string): Promise<PlaylistData> => {
                 coverImage: track.album.images[1],
             })
         );
+        console.log('Retrieved playlist', id);
         return { title, name, external_urls, images, url, tracks };
     }
+    console.error('Error fetching playlist', id);
 
     return {
         title: '',

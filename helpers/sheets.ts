@@ -18,8 +18,8 @@ export const getPlaylistIds = async () => {
             spreadsheetId: process.env.SPREADSHEET_ID,
             range: 'ids', // sheet name
         });
-
         const rows = response.data.values;
+        console.log('Retireved PIDs form google', rows);
         if (rows.length) {
             return rows.map((row) => ({
                 id: row[0],
