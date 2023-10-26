@@ -1,5 +1,8 @@
 import { playlists } from '@mw/helpers/spotify';
 
+/**
+ * Read all playlists for my user accout, the max is 50 in one request:
+ */
 export const getServerSideProps = async () => {
     const response = await playlists(50, 50);
     const data = [];
@@ -15,7 +18,6 @@ export const getServerSideProps = async () => {
                 coverImage: (list.images && list.images[0]) || null,
             };
         });
-        console.log('data:', lists);
         return { props: { lists } };
     }
     return { props: { lists: [] } };

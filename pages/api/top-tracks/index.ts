@@ -3,7 +3,7 @@ import { topTracks } from '@mw/helpers/spotify';
 export default async function handler(req, res) {
     try {
         const response = await topTracks();
-        console.log('sp response', response);
+
         const { items } = await response.json();
 
         const tracks = items.slice(0, 5).map((track: Record<string, any>) => ({

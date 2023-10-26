@@ -4,7 +4,6 @@ const USER_ID = '1247970817';
 const getAccessToken = async () => {
     const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
 
-    console.log('token:', refresh_token);
     try {
         const response = await fetch('https://accounts.spotify.com/api/token', {
             method: 'POST',
@@ -43,7 +42,7 @@ export const topTracks = async (range: Range = 'medium_term') => {
 
 export const playlist = async (id: string) => {
     const { access_token } = await getAccessToken();
-    console.log('get playlist ', id);
+
     return fetch('https://api.spotify.com/v1/playlists/' + id, {
         headers: {
             Authorization: `Bearer ${access_token}`,

@@ -8,7 +8,6 @@ export const getServerSideProps = async (context) => {
 
     if (response.ok) {
         const list = await response.json();
-        console.log('data:', list.external_urls.spotify);
         const title = list.name;
         const url = list.external_urls.spotify;
         const tracks = list.tracks.items.map(
@@ -21,7 +20,7 @@ export const getServerSideProps = async (context) => {
         );
         return { props: { title, url, tracks } };
     }
-    console.log('response not ok', response.headers, response.status);
+
     return { props: { title: '', url: '', tracks: [] } };
 };
 
