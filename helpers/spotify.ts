@@ -1,7 +1,7 @@
 const USER_NAME = 'weity';
 const USER_ID = '1247970817';
 
-const getAccessToken = async () => {
+export const getAccessToken = async () => {
     const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
 
     try {
