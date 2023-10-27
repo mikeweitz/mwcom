@@ -69,7 +69,7 @@ const Spotify = () => {
                     </div>
                 );
             })}
-            <h3>Long Term top tracks:</h3>
+            {/* <h3>Long Term top tracks:</h3>
             {tracks?.long?.map((track, n) => {
                 return (
                     <div key={n}>
@@ -78,7 +78,7 @@ const Spotify = () => {
                         </a>
                     </div>
                 );
-            })}
+            })} */}
         </main>
     );
 };
