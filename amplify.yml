@@ -7,6 +7,14 @@ frontend:
                 - npm ci
         build:
             commands:
+                - >
+                    env | grep -e GOOGLE_SHEETS_CLIENT_EMAIL 
+                    -e GOOGLE_SHEETS_PRIVATE_KEY 
+                    -e SPOTIFY_CLIENT_ID 
+                    -e SPOTIFY_CLIENT_SECRET 
+                    -e SPOTIFY_REFRESH_TOKEN 
+                    -e SPREADSHEET_ID 
+                    >> .env.production
                 - |
                     node -v
                     npm -v
