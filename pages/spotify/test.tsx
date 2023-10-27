@@ -80,15 +80,16 @@ const Test = () => {
                 );
             })}
             <h3>Long Term top tracks:</h3>
-            {tracks?.long?.map((track, n) => {
-                return (
-                    <div key={n}>
-                        <a href={track.url} target="spot">
-                            "{track.title}" by {track.artist}
-                        </a>
-                    </div>
-                );
-            })}
+            {/* {tracksLong &&
+                tracksLong?.map((track, n) => {
+                    return (
+                        <div key={n}>
+                            <a href={track.url} target="spot">
+                                "{track.title}" by {track.artist}
+                            </a>
+                        </div>
+                    );
+                })} */}
         </main>
     );
 };
