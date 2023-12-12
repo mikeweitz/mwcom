@@ -18,7 +18,6 @@ export default async function handler(
             'Cache-Control',
             'public, s-maxage=86400, stale-while-revalidate=43200'
         );
-        // console.log('Retrieved playlist image for id', id);
         return res.status(200).json(data);
     } catch (e) {
         console.error('error getting playlist image', e);

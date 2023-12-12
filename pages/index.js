@@ -1,54 +1,68 @@
-// DOCUMENTATION: http://styletron.org
-import React from 'react';
 import Head from 'next/head';
-import Layout from '../components/layout';
+import cx from 'classnames';
 
-import Summary from '../components/summary';
-import Position from '../components/position';
-import SkillGroup from '../components/skillGroup';
-import Project from '../components/project';
-import { ScrollProvider } from '../components/scrollContext';
-import { positions, skills, projects } from '../data';
+import Layout from '@mw/components/layout';
+import Summary from '@mw/components/summary';
+import Position from '@mw/components/position';
+import SkillGroup from '@mw/components/skillGroup';
+import Project from '@mw/components/project';
+import { ScrollProvider } from '@mw/components/scrollContext';
+import { positions, skills, projects } from '@mw/data';
 
-import { Grid, GridLinks, Container } from '../styles/grid';
+import styles from './styles.module.scss';
 
 const Home = () => {
-  return (
-    <ScrollProvider>
-      <Head>
-        <title>Michael Weitzman</title>
-      </Head>
-      <Layout>
-        <Container>
-          <Summary />
-        </Container>
+    return (
+        <ScrollProvider>
+            <Head>
+                <title>Michael Weitzman</title>
+            </Head>
+            <Layout>
+                <div className={styles.container}>
+                    <Summary />
+                </div>
 
-        <Container>
-          <Grid>
-            {positions.map((position, i) => {
-              return <Position key={`position-${i}`} {...position} />;
-            })}
-          </Grid>
-        </Container>
+                <div className={styles.container}>
+                    <div className={styles.grid}>
+                        {positions.map((position, i) => {
+                            return (
+                                <Position key={`position-${i}`} {...position} />
+                            );
+                        })}
+                    </div>
+                </div>
 
-        <Container style={{ paddingTop: '48px' }} $pageBreak>
-          <GridLinks>
-            {skills.map((skillset, i) => {
-              return <SkillGroup key={`skillset-${i}`} {...skillset} />;
-            })}
-          </GridLinks>
-        </Container>
+                <div
+                    className={cx(
+                        styles.container,
+                        styles['pad-top'],
+                        styles['page-break']
+                    )}
+                >
+                    <div className={styles.links}>
+                        {skills.map((skillset, i) => {
+                            return (
+                                <SkillGroup
+                                    key={`skillset-${i}`}
+                                    {...skillset}
+                                />
+                            );
+                        })}
+                    </div>
+                </div>
 
-        <Container style={{ paddingTop: '48px' }}>
-          <GridLinks>
-            {projects.map((project, i) => {
-              return <Project key={`project-${i}`} {...project} />;
-            })}
-          </GridLinks>
-        </Container>
-      </Layout>
-    </ScrollProvider>
-  );
+                <div className={cx(styles.container, styles['pad-top'])}>
+                    <div className={styles.links}>
+                        {projects.map((project, i) => {
+                            return (
+                                <Project key={`project-${i}`} {...project} />
+                            );
+                        })}
+                    </div>
+                </div>
+            </Layout>
+        </ScrollProvider>
+    );
 };
 
 export default Home;

@@ -61,7 +61,6 @@ const Playlists = ({ data }) => {
         ? yearFilter.length > 0
             ? data.filter((d) => {
                   const y = new Date(d.date).getFullYear();
-                  console.log('year', y, d.date);
                   return yearFilter.includes(y + '');
               })
             : data
