@@ -41,7 +41,6 @@ const PlaylistDetailsV2 = ({ pid, close }: PlaylistDetailsProps) => {
     const [hoverClose, setHoverClose] = useState(false);
 
     useEffect(() => {
-        console.log('pid change', pid);
         if (pid) {
             fetchPlaylist(pid).then(setData);
         }

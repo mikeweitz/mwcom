@@ -47,6 +47,14 @@ export const fetchPlaylistImage = async (
     return [];
 };
 
+const tracksAdapter = (list): PlaylistData['tracks'] =>
+    list?.tracks?.items.map(({ track }: Record<string, any>) => ({
+        title: track.name,
+        artist: track.artists.map((_artist) => _artist.name).join(', '),
+        url: track.external_urls.spotify,
+        coverImage: track.album.images[1],
+    }));
+
 const emptyList = {
     title: '',
     id: '',
@@ -65,18 +73,10 @@ export const fetchPlaylist = async (id: string): Promise<PlaylistData> => {
             console.error(list.error);
             return { ...emptyList, error: list.error };
         }
-        console.log('playlist:', list);
+
         const { name, images, name: title, external_urls } = list;
         const url = list.external_urls?.spotify;
-        const tracks = list?.tracks?.items.map(
-            ({ track }: Record<string, any>) => ({
-                title: track.name,
-                artist: track.artists.map((_artist) => _artist.name).join(', '),
-                url: track.external_urls.spotify,
-                coverImage: track.album.images[1],
-            })
-        );
-        console.log('Retrieved playlist', id);
+        const tracks = tracksAdapter(list);
         return { title, id, name, external_urls, images, url, tracks };
     }
     console.error('Error fetching playlist', id);

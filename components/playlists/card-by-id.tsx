@@ -65,14 +65,14 @@ const CardById = ({ id, name, image, active, ...rest }: CartProps) => {
         };
     }, [id, ref.current]);
 
-    useEffect(() => {
-        if (images[0]) {
-            console.log(
-                'images retrieved, you should write this to the spreadsheet',
-                { id, image: images[0] }
-            );
-        }
-    }, [id, images]);
+    // useEffect(() => {
+    //     if (images[0]) {
+    //         console.log(
+    //             'images retrieved, you should write this to the spreadsheet',
+    //             { id, image: images[0] }
+    //         );
+    //     }
+    // }, [id, images]);
 
     return (
         <div

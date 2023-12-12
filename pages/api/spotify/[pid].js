@@ -2,12 +2,11 @@ import { playlists } from '../data';
 
 export default function listHandler({ query: { pid } }, res) {
     const filtered = playlists.filter((list) => {
-        console.log('search list for pid', list.id, pid);
         return 'playlistV2' in list
             ? list.playlistV2.uri.endsWith(pid)
             : list.id === pid;
     });
-    console.log(pid, filtered);
+
     // PL with id exists
     if (filtered.length > 0) {
         res.status(200).json(playlistAdapter(filtered[0]));
