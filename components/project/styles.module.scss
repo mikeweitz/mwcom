@@ -18,9 +18,9 @@
     }
 
     &:link,
-    &:active
-    &:visited, &:hover {
-        color: colors.$black,
+    &:active &:visited,
+    &:hover {
+        color: colors.$black;
     }
 
     &:hover {
@@ -38,19 +38,20 @@
 }
 
 .strong {
+    display: block;
     text-transform: uppercase;
+    margin-bottom: 1em;
 }
 
 // div
 .subtitle {
     min-height: 1em;
 }
-  
+
 .p {
     margin: 1em auto;
 }
-  
+
 .em {
     font-size: 0.8em;
 }
-  

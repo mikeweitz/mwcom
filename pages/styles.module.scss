@@ -1,0 +1,23 @@
+@use 'grid';
+
+.container {
+    @extend %container;
+}
+
+.pad-top {
+    padding-top: 48px;
+}
+
+.page-break {
+    @media print {
+        page-break-after: 'always';
+    }
+}
+
+.grid {
+    @extend %grid;
+}
+
+.links {
+    @extend .grid-links;
+}

@@ -37,9 +37,8 @@ export const getPlaylistIds = async (): Promise<PlaylistSheetsData[]> => {
                 })
             );
             sortPlaylists(playlists);
-            console.log(playlists.slice(0, 5));
-            return playlists;
         }
+        return playlists;
     } catch (err) {
         console.error('Error retrieving data', err);
     }

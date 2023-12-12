@@ -11,7 +11,6 @@ export default async function handler(
         query: { id },
     } = req;
 
-    console.log('api route for playlist id', id, req.query);
     try {
         const response = await playlist(id as string);
         const data = await response.json();

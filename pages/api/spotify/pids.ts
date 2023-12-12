@@ -8,8 +8,6 @@ export default async function handler(
 ) {
     try {
         const data = await getPlaylistIds();
-        console.log('./spotify/monthly getStaticProps', data);
-
         return res.status(200).json(data);
     } catch (e) {
         console.error('error getting playlist', e);

@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { playlist, getAccessToken } from '@mw/helpers/spotify';
+import { getAccessToken } from '@mw/helpers/spotify';
 
 export default async function handler(
     req: NextApiRequest,
@@ -8,7 +8,6 @@ export default async function handler(
 ) {
     try {
         const { access_token } = await getAccessToken();
-        console.log('Access token', access_token);
         return res.status(200).json({ token: access_token });
     } catch (e) {
         console.error('error getting playlist', e);
