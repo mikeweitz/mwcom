@@ -16,6 +16,10 @@ module.exports = {
                 protocol: 'https',
                 hostname: 'mosaic.scdn.co',
             },
+            {
+                protocol: 'https',
+                hostname: 'i.scdn.co',
+            },
         ],
     },
 };

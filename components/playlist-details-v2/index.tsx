@@ -12,22 +12,22 @@ import styles from './styles.module.scss';
 
 const { colors } = THEME;
 
-const fetcher = async (url: string) => {
-    const res = await fetch(url);
-    const data = await res.json();
+// const fetcher = async (url: string) => {
+//     const res = await fetch(url);
+//     const data = await res.json();
 
-    if (res.status !== 200) {
-        throw new Error(data.message);
-    }
-    return data;
-};
+//     if (res.status !== 200) {
+//         throw new Error(data.message);
+//     }
+//     return data;
+// };
 
 type PlaylistDetailsProps = {
     pid: string;
     close: () => void;
 };
 
-const PlaylistDetails = ({ pid, close }: PlaylistDetailsProps) => {
+const PlaylistDetailsV2 = ({ pid, close }: PlaylistDetailsProps) => {
     const scroll = useScrollContext();
     const scrollRef = useRef(null);
     const [data, setData] = useState<PlaylistData>();
@@ -43,7 +43,7 @@ const PlaylistDetails = ({ pid, close }: PlaylistDetailsProps) => {
     useEffect(() => {
         console.log('pid change', pid);
         if (pid) {
-            fetchPlaylist(id).then(setData);
+            fetchPlaylist(pid).then(setData);
         }
 
         if (scrollRef && scrollRef.current) {
@@ -104,7 +104,7 @@ const PlaylistDetails = ({ pid, close }: PlaylistDetailsProps) => {
                                 >
                                     <Play fill={colors.neonGreen} />
                                 </span>
-                                {images && (
+                                {images && images[0] && (
                                     <img
                                         className={styles['cover-img']}
                                         src={images[0].url}
@@ -119,34 +119,24 @@ const PlaylistDetails = ({ pid, close }: PlaylistDetailsProps) => {
                                     return (
                                         <li
                                             className={styles.track}
-                                            key={
-                                                t.sharing_info?.share_id || t.ms
-                                            }
+                                            key={t.url}
                                         >
                                             <a
                                                 className={styles['track-link']}
-                                                href={
-                                                    t.track.external_urls
-                                                        ?.spotify
-                                                }
+                                                href={t.url}
                                                 target="spotify"
                                             >
-                                                <strong>{t.track.name}</strong>
+                                                <strong>{t.title}</strong>
                                                 <br />
-                                                {t.track.artists?.map((a) => {
-                                                    return (
-                                                        <span
-                                                            className={
-                                                                styles.artist
-                                                            }
-                                                            key={`${pid}_${a.id}`}
-                                                        >
-                                                            {a.name ||
-                                                                a.id ||
-                                                                'unknown'}
-                                                        </span>
-                                                    );
-                                                })}
+                                                {t.artist && (
+                                                    <span
+                                                        className={
+                                                            styles.artist
+                                                        }
+                                                    >
+                                                        {t.artist || 'unknown'}
+                                                    </span>
+                                                )}
                                             </a>
                                         </li>
                                     );
@@ -187,4 +177,4 @@ const PlaylistDetails = ({ pid, close }: PlaylistDetailsProps) => {
     );
 };
 
-export default PlaylistDetails;
+export default PlaylistDetailsV2;

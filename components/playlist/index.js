@@ -1,5 +1,5 @@
 // @flow
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import useSWR from 'swr';
 import cx from 'classnames';
 import Image from 'next/image';
@@ -7,7 +7,7 @@ import Image from 'next/image';
 import styles from './styled.module.scss';
 
 const fetcher = async (url) => {
-    const res = await fetch(url);
+    const res = await fetch(url, { next: { revalidate: revalidateSeconds } });
     const data = await res.json();
 
     if (res.status !== 200) {
@@ -70,12 +70,11 @@ export default function Playlist({ pid, active, handler }) {
             ref={ref}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
-            $active={active || hover}
         >
             {data ? (
                 <>
                     <h3
-                        className={cx(styles['p-list-namee'], {
+                        className={cx(styles['p-list-name'], {
                             [styles.hover]: hover || active,
                         })}
                     >
@@ -86,13 +85,14 @@ export default function Playlist({ pid, active, handler }) {
                             [styles.hover]: hover || active,
                         })}
                         src={data.images[0].url}
+                        alt={data.name || ''}
                         width={'120' || data.images[0].width}
                         height={'120' || data.images[0].height}
                     />
                 </>
             ) : (
                 <h3
-                    className={cx(styles['p-list-namee'], {
+                    className={cx(styles['p-list-name'], {
                         [styles.hover]: hover || active,
                     })}
                 >

@@ -1,6 +1,5 @@
 import React, { Component, useState } from 'react';
 
-import * as S from './styled-elements';
 import { animateScroll } from 'react-scroll';
 import { Container } from '../../styles/grid';
 import { Print, Arrow } from '../icons';
@@ -8,55 +7,41 @@ import Link from 'next/link';
 
 import { THEME } from '../../styles/theme';
 const { colors } = THEME;
+
+import styles from './styles.module.scss';
+
 const Footer = () => {
-  const [hoverPrint, setHoverPrint] = useState(false);
-  const [hoverArrow, setHoverArrow] = useState(false);
+    // const [hoverPrint, setHoverPrint] = useState(false);
+    // const [hoverArrow, setHoverArrow] = useState(false);
 
-  const onPrint = (e) => {
-    return window.open('/pdf/michael-weitzman-resume.pdf', 'download');
-  };
+    const onPrint = () =>
+        window.open('/pdf/michael-weitzman-resume.pdf', 'download');
 
-  const handleToTop = (e) => {
-    animateScroll.scrollToTop();
-  };
+    const handleToTop = (e) => {
+        animateScroll.scrollToTop();
+    };
 
-  const handleMouseEnter = () => {
-    setHoverPrint(true);
-  };
+    return (
+        <footer id={styles.footer}>
+            <div className={styles.row}>
+                <button className={styles['button-print']} onClick={onPrint}>
+                    <span className={styles['print-icon']}>
+                        <Print fill={colors.turquoise} />
+                    </span>
+                    Print this
+                </button>
 
-  const handleMouseLeave = () => {
-    setHoverPrint(false);
-  };
-
-  return (
-    <S.Footer id="footer">
-      <S.Row>
-        <S.ButtonPrint
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          onClick={onPrint}
-        >
-          <S.PrintIcon $hover={hoverPrint}>
-            <Print fill={colors.turquoise} />
-          </S.PrintIcon>
-          Print this
-        </S.ButtonPrint>
-
-        <S.ButtonTop
-          onClick={handleToTop}
-          onMouseEnter={() => setHoverArrow(true)}
-          onMouseLeave={() => setHoverArrow(false)}
-        >
-          <S.Out $hover={hoverArrow}>
-            <Arrow fill={colors.steelBlue} alt="Back to top" />
-          </S.Out>
-          <S.Over $hover={hoverArrow}>
-            <Arrow fill={colors.turquoise} alt="Back to top" />
-          </S.Over>
-        </S.ButtonTop>
-      </S.Row>
-    </S.Footer>
-  );
+                <button className={styles['button-top']} onClick={handleToTop}>
+                    <div className={styles.out}>
+                        <Arrow fill={colors.steelBlue} alt="Back to top" />
+                    </div>
+                    <div className={styles.over}>
+                        <Arrow fill={colors.turquoise} alt="Back to top" />
+                    </div>
+                </button>
+            </div>
+        </footer>
+    );
 };
 
 export default Footer;

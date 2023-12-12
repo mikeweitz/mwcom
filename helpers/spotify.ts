@@ -18,7 +18,6 @@ export const getAccessToken = async () => {
                 refresh_token,
             }),
         });
-        console.log('retrieved spotify token');
         return await response.json();
     } catch (e) {
         console.error('Spotify access issue', e);
@@ -45,6 +44,16 @@ export const playlist = async (id: string) => {
     const { access_token } = await getAccessToken();
 
     return fetch('https://api.spotify.com/v1/playlists/' + id, {
+        headers: {
+            Authorization: `Bearer ${access_token}`,
+        },
+    });
+};
+
+export const playlistImages = async (id: string) => {
+    const { access_token } = await getAccessToken();
+
+    return fetch(`https://api.spotify.com/v1/playlists/${id}/images`, {
         headers: {
             Authorization: `Bearer ${access_token}`,
         },

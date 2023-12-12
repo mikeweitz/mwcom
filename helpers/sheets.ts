@@ -1,6 +1,14 @@
 import { google } from 'googleapis';
 
-export const getPlaylistIds = async () => {
+import sortPlaylists from '@mw/helpers/sort-playlists';
+import { PlaylistSheetsData } from '@mw/types';
+
+/**
+ *
+ * @returns PlaylistSheetsData[]
+ * { id, name, Date }[]
+ */
+export const getPlaylistIds = async (): Promise<PlaylistSheetsData[]> => {
     try {
         const target = [
             'https://www.googleapis.com/auth/spreadsheets.readonly',
@@ -18,13 +26,19 @@ export const getPlaylistIds = async () => {
             spreadsheetId: process.env.SPREADSHEET_ID,
             range: 'ids', // sheet name
         });
-        const rows = response.data.values;
-        console.log('Retireved PIDs form google', rows);
+        const rows = response.data.values.slice(1);
+        let playlists = [];
         if (rows.length) {
-            return rows.map((row) => ({
-                id: row[0],
-                name: row[1],
-            }));
+            rows.map((row) =>
+                playlists.push({
+                    id: row[0],
+                    name: row[1],
+                    image: row[2] || null,
+                })
+            );
+            sortPlaylists(playlists);
+            console.log(playlists.slice(0, 5));
+            return playlists;
         }
     } catch (err) {
         console.error('Error retrieving data', err);
