@@ -1,24 +1,34 @@
 version: 1
 frontend:
-  phases:
-    preBuild:
-      commands:
-        - echo 'run clean install...'
-        - npm ci
-    build:
-      commands:
-        - |
-          ls -al
-          echo '^^^That should look familiar^^^'
-        - pwd
-        - npm run build
-        # - ls -la
-        # - mkdir -p ~/weitzly/output
-        # - cp -avr .next ~/weitzly/output/.next
-  artifacts:
-    baseDirectory: .next
-    files:
-      - '**/*'
-  cache:
-    paths:
-      - node_modules/**/*
+    phases:
+        preBuild:
+            commands:
+                - echo 'run clean install...'
+                - npm ci
+        build:
+            commands:
+                - >
+                    env | grep -e GOOGLE_SHEETS_CLIENT_EMAIL 
+                    -e GOOGLE_SHEETS_PRIVATE_KEY 
+                    -e SPOTIFY_CLIENT_ID 
+                    -e SPOTIFY_CLIENT_SECRET 
+                    -e SPOTIFY_REFRESH_TOKEN 
+                    -e SPREADSHEET_ID 
+                    >> .env.production
+                - |
+                    node -v
+                    npm -v
+                    ls -al
+                    echo '^^^That should look familiar^^^'
+                - pwd
+                - npm run build
+                # - ls -la
+                # - mkdir -p ~/weitzly/output
+                # - cp -avr .next ~/weitzly/output/.next
+    artifacts:
+        baseDirectory: .next
+        files:
+            - '**/*'
+    cache:
+        paths:
+            - node_modules/**/*

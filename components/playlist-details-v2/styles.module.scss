@@ -1,0 +1,359 @@
+@use 'easing';
+@use 'colors';
+@use 'fonts';
+
+%transition {
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: easing.$out-circ;
+    transition-delay: 0;
+}
+
+// div
+%container {
+    position: relative;
+    max-width: 90%;
+    margin: 0 auto;
+    width: 100%;
+
+    @media screen and (min-width: 980) {
+        width: 90%;
+        max-width: 1440px;
+    }
+    // ...($pageBreak
+    &.page-break {
+        @media print {
+            page-break-after: always;
+        }
+    }
+}
+
+// div
+.drawer {
+    @extend %transition;
+    position: fixed;
+    z-index: 10;
+    top: 64px;
+    left: 0;
+    overflow: hidden;
+    height: 0;
+    min-height: 0;
+    width: 100%;
+    grid-auto-flow: row;
+    grid-template-rows: 60vh 60px;
+    // display: $scrolling && !$active ? none : grid;
+    display: grid;
+
+    &.scrolling {
+        display: none;
+    }
+
+    &.active {
+        height: calc(60vh + 60px);
+        display: grid;
+        // minHeight: 250px;
+        // transform: translateY(0);
+    }
+
+    @media screen and (min-width: 768px) {
+        height: 0;
+        top: 162px;
+        grid-template-rows: 420px 100px;
+
+        &.scrolled {
+            top: 48px;
+        }
+
+        &.active {
+            height: 520px;
+        }
+    }
+}
+
+.scroll-container {
+    @extend %container;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    overflow-x: initial;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding-top: 1em;
+    padding-bottom: 3em;
+
+    &:after {
+        position: fixed;
+        z-index: 3;
+        content: '';
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3em;
+        transform: translateY(-100%);
+        background: linear-gradient(0deg, colors.$black, transparent 100%);
+    }
+
+    @media screen and (min-width: 768) {
+        flex-direction: row;
+    }
+}
+
+.section {
+    @extend %transition;
+    // background: 'url(/images/texture.png) #222;
+    // background: 'url(/images/dark_stripes.png) #222;
+    background: colors.$black;
+    padding-top: 1em;
+    padding-bottom: 3em;
+    color: colors.$gray1;
+    transform: translateY(-420px);
+    &.active {
+        transform: translateY(0);
+    }
+}
+
+// div
+.meta {
+    flex: 0 0 60%;
+    // width: 100%;
+    font-size: fonts.$position;
+    text-transform: uppercase;
+    display: flex;
+    align-items: flex-end;
+
+    @media screen and (min-width: 768px) {
+        flex: 0 0 100%;
+        width: 100%;
+        display: block;
+    }
+}
+
+// h3
+.p-list-name {
+    position: relative;
+    z-index: 5;
+    margin: 0 0;
+    padding-left: 1em;
+    color: white;
+    font-weight: 800;
+
+    @media screen and (min-width: 768px) {
+        margin: 1em 0 0.5em;
+        padding: 0;
+    }
+}
+
+//span
+.artist {
+    font-size: fonts.$small;
+    &:after {
+        display: inline;
+        content: '';
+    }
+
+    &:last-of-type:after {
+        display: none;
+        content: '';
+    }
+}
+
+// div
+.cover {
+    position: relative;
+    flex-basis: 40%;
+    width: 40%;
+    height: auto;
+    @media screen and (min-width: 768px) {
+        flex-basis: 30%;
+        width: 30%;
+    }
+}
+
+// a
+.cover-link {
+    display: block;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    position: relative;
+}
+
+// span
+.play-wrapper {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    opacity: 0.85;
+    transition: all 0.5s easing.$out-quart;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    &.hover {
+        width: 60%;
+        height: 60%;
+        opacity: 1;
+    }
+
+    @media screen and (min-width: 640px) {
+        opacity: 0.5;
+        filter: grayscale(100%);
+
+        &.hover {
+            opacity: 0.85;
+            filter: grayscale(0%);
+        }
+    }
+}
+
+// img
+.cover-img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+// div
+.songs {
+    flex: 1 1 70%;
+    padding-left: 2em;
+}
+
+// ol
+.track-list {
+    width: auto;
+    display: block;
+    list-style-type: decimal-leading-zero;
+    padding: 0;
+    margin: 2em 0 0 0;
+    columns: 2;
+
+    @media screen and (min-width: 768px) {
+        margin: 0 0 0 2em;
+    }
+}
+
+// li
+.track {
+    list-style-type: decimal-leading-zero;
+    margin: 0 0 1em 0;
+    padding-right: 3em;
+    break-inside: avoid;
+    font-size: 80%;
+}
+
+// a
+.track-link {
+    display: block;
+    color: colors.$gray1;
+    &:link {
+        color: colors.$gray1;
+    }
+    &:hover,
+    &:visited,
+    &:active,
+    &:focus {
+        color: colors.$steelBlue;
+    }
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+//div
+.action {
+    flex-basis: 0 0 100%;
+    width: 100%;
+    display: flex;
+    margin-top: 2em;
+    justify-content: center;
+    align-items: stretch;
+}
+
+// a
+.go {
+    display: flex;
+    position: relative;
+    flex: 1 1 100%;
+    width: 50%;
+    max-width: 220px;
+    border-radius: 1.5em 1.5em;
+    padding: 0 1.5em;
+    height: 3em;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: colors.$heliotrope;
+    background-color: colors.$darkBlue;
+    background-image: linear-gradient(
+        colors.$darkBlue,
+        colors.$darkBlue 50%,
+        colors.$darkBlueHover 50%,
+        colors.$darkBlueHover
+    );
+    background-size: 100% 200%;
+    overflow: hidden;
+    transition: all 0.2s easing.$out-circ;
+
+    &:link {
+        color: colors.$steelPink;
+        text-decoration: none;
+    }
+    &:hover {
+        background-position: 100% 100%;
+        color: colors.$turquoise;
+        text-decoration: none;
+    }
+    &:active {
+        color: colors.$heliotrope;
+        text-decoration: none;
+    }
+
+    @media screen and (min-width: 768px) {
+        max-width: 320px;
+    }
+}
+
+// div
+.icon {
+    width: 40%;
+    height: 40%;
+    margin: auto;
+
+    @media screen and (min-width: 768px) {
+        width: 20%;
+        height: 20%;
+    }
+}
+
+// button
+.close {
+    @extend %transition;
+
+    justify-self: end;
+    align-self: end;
+    z-index: 5;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 60px;
+    height: 62px;
+    background: colors.$black;
+    color: colors.$gray1;
+    transform: translateY(-420px);
+
+    &.active {
+        transform: translateY(0);
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 100px;
+        height: 102px;
+    }
+}
