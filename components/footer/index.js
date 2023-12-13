@@ -1,9 +1,5 @@
-import React, { Component, useState } from 'react';
-
 import { animateScroll } from 'react-scroll';
-import { Container } from '../../styles/grid';
 import { Print, Arrow } from '../icons';
-import Link from 'next/link';
 
 import { THEME } from '../../styles/theme';
 const { colors } = THEME;
