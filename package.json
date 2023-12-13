@@ -21,8 +21,6 @@
     "react-spotify-api": "^3.0.0",
     "sass": "^1.67.0",
     "spotify-web-api-js": "^1.4.0",
-    "styletron-engine-atomic": "^1.1.2",
-    "styletron-react": "^6.1.0",
     "swr": "^2"
   },
   "devDependencies": {

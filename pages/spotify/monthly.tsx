@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
 import List from '@mw/components/playlists/list';
-import { Card, CardById } from '@mw/components/playlists';
-// import { data } from '@mw/data/playlists';
+import { CardById } from '@mw/components/playlists';
 import { getPlaylistIds } from '@mw/helpers/sheets';
 
 import styles from './styles.module.scss';
@@ -17,7 +16,7 @@ export const getStaticProps = async () => {
     };
 };
 
-const Monthly = ({ lists }) => {
+const Monthly = ({ lists = [] }) => {
     const [selected, setSelected] = useState<string>(null);
     return (
         <main>

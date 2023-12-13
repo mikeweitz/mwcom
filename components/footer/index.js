@@ -1,8 +1,6 @@
 import { animateScroll } from 'react-scroll';
 import { Print, Arrow } from '../icons';
-
-import { THEME } from '../../styles/theme';
-const { colors } = THEME;
+import colors from '@mw/constants/colors';
 
 import styles from './styles.module.scss';
 

@@ -8,10 +8,7 @@ import { CardById } from '@mw/components/playlists';
 import { ScrollProvider } from '@mw/components/scrollContext';
 import { Close } from '@mw/components/icons';
 import { getPlaylistIds } from '@mw/helpers/sheets';
-
-import { THEME } from '@mw/styles/theme';
-const { colors } = THEME;
-
+import colors from '@mw/constants/colors';
 import styles from './styles.module.scss';
 
 export const getStaticProps = async () => {
