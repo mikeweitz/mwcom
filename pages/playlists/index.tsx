@@ -1,20 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Head from 'next/head';
-import useSWR from 'swr';
 import cx from 'classnames';
 
 import Layout from '@mw/components/layout';
-import PlaylistDetails from '@mw/components/playlist-details';
 import PlaylistDetailsV2 from '@mw/components/playlist-details-v2';
-import Playlist from '@mw/components/playlist';
-import { Card, CardById } from '@mw/components/playlists';
+import { CardById } from '@mw/components/playlists';
 import { ScrollProvider } from '@mw/components/scrollContext';
 import { Close } from '@mw/components/icons';
 import { getPlaylistIds } from '@mw/helpers/sheets';
-
-import { THEME } from '@mw/styles/theme';
-const { colors } = THEME;
-
+import colors from '@mw/constants/colors';
 import styles from './styles.module.scss';
 
 export const getStaticProps = async () => {

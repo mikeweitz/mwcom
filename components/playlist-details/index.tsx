@@ -1,26 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
-import useSWR from 'swr';
 
-import { THEME } from '@mw/styles/theme';
+import colors from '@mw/constants/colors';
 import { Close, Play } from '@mw/components/icons';
 import { useScrollContext } from '@mw/components/scrollContext';
 import { fetchPlaylist } from '@mw/helpers/fetch-playlist';
 import { PlaylistData } from '@mw/types';
 
 import styles from './styles.module.scss';
-
-const { colors } = THEME;
-
-const fetcher = async (url: string) => {
-    const res = await fetch(url);
-    const data = await res.json();
-
-    if (res.status !== 200) {
-        throw new Error(data.message);
-    }
-    return data;
-};
 
 type PlaylistDetailsProps = {
     pid: string;
@@ -31,12 +18,6 @@ const PlaylistDetails = ({ pid, close }: PlaylistDetailsProps) => {
     const scroll = useScrollContext();
     const scrollRef = useRef(null);
     const [data, setData] = useState<PlaylistData>();
-
-    // const { data, error } = useSWR(
-    //     !pid ? null : () => `/api/spotify/${pid}`,
-    //     fetcher
-    // );
-
     const [hoverPlay, setHoverPlay] = useState(false);
     const [hoverClose, setHoverClose] = useState(false);
 
