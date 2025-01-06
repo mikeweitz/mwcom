@@ -1,18 +1,18 @@
 const positions = [
-    // {
-    //     role: 'Technology Lead (Contract)',
-    //     company: 'Taco Bell',
-    //     dates: {
-    //         start: 'Jan, 2024',
-    //     },
-    //     responsibilities: [
-    //         'Build and maintain serverless microservices and frontend component library for TacoBell.com e-commerce platform',
-    //         'Provide technical leadership through code review, pair programming, and frontend strategy.',
-    //         'Work closely with iOS and Android app development teams, and dev-ops teams.',
-    //         'Implemented new documentation and linting tools standards to improve developer experience.',
-    //     ],
-    //     skills: ['React', 'NextJS', 'Node', 'AWS', 'Contentful'],
-    // },
+    {
+        role: 'Technology Lead (Contract)',
+        company: 'Taco Bell',
+        dates: {
+            start: 'Jan, 2024',
+        },
+        responsibilities: [
+            'Provide web architeture and strategy for frontend ecommerce platform.',
+            'Lead technical upgrades and optimization efforts for code and infrastructure.',
+            'Maintain and optimize CI/CD pipelines and Dockerized application configuration.',
+            'Provide technical leadership through code review, pair programming, and frontend strategy.'
+        ],
+        skills: ['React', 'Typescript', 'NextJS', 'AWS', 'CI/CD', 'Docker', 'Contentful'],
+    },
     {
         role: 'Technology Lead',
         company: 'Deutsch LA',

@@ -36,6 +36,8 @@ const Playlists = ({ data }) => {
         '2021',
         '2022',
         '2023',
+        '2024',
+        '2025',
     ];
 
     const handleChange = (pid) => {
@@ -54,9 +56,9 @@ const Playlists = ({ data }) => {
     const filterData = data
         ? yearFilter.length > 0
             ? data.filter((d) => {
-                  const y = new Date(d.date).getFullYear();
-                  return yearFilter.includes(y + '');
-              })
+                const y = new Date(d.date).getFullYear();
+                return yearFilter.includes(y + '');
+            })
             : data
         : null;
 
@@ -85,8 +87,8 @@ const Playlists = ({ data }) => {
                                 className={styles['clear-button']}
                                 // // $active={pid}
                                 onClick={() => setYearFilter([])}
-                                // // onMouseEnter={() => setHoverClose(true)}
-                                // // onMouseLeave={() => setHoverClose(false)}
+                            // // onMouseEnter={() => setHoverClose(true)}
+                            // // onMouseLeave={() => setHoverClose(false)}
                             >
                                 <div className={styles['svg-wrap']}>
                                     <Close
@@ -115,26 +117,26 @@ const Playlists = ({ data }) => {
                         {!filterData ? (
                             'loading...'
                         ) : // ) : error ? (
-                        //     'Uh oh...'
-                        filterData.length < 1 ? (
-                            <h3>No matching lists for this filter.</h3>
-                        ) : (
-                            filterData.map((p, i: number) => (
-                                <div
-                                    className={styles['playlist-wrap']}
-                                    key={p.id}
-                                >
-                                    <CardById
-                                        active={p.id === active}
+                            //     'Uh oh...'
+                            filterData.length < 1 ? (
+                                <h3>No matching lists for this filter.</h3>
+                            ) : (
+                                filterData.map((p, i: number) => (
+                                    <div
+                                        className={styles['playlist-wrap']}
                                         key={p.id}
-                                        id={p.id}
-                                        name={p.name}
-                                        image={p.image}
-                                        onClick={() => handleChange(p.id)}
-                                    />
-                                </div>
-                            ))
-                        )}
+                                    >
+                                        <CardById
+                                            active={p.id === active}
+                                            key={p.id}
+                                            id={p.id}
+                                            name={p.name}
+                                            image={p.image}
+                                            onClick={() => handleChange(p.id)}
+                                        />
+                                    </div>
+                                ))
+                            )}
                     </div>
                 </div>
             </Layout>
