@@ -47,6 +47,7 @@ export default function Document() {
                     href="/logo.png"
                 />
                 <link rel="apple-touch-icon-precomposed" href="/logo.png" />
+                <link rel="preload" as="image" href="/images/bg.jpg" />
             </Head>
             <body>
                 <Main />

@@ -1,7 +1,7 @@
 @use 'colors';
 
 // div
-.skill-group  {
+.skill-group {
     color: colors.$black;
     @media print {
         display: inline-block;
@@ -13,25 +13,26 @@
 
 // header
 .skill-heading {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 18px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 600;
 }
-  
-  // ul
-.skill-list  {
+
+// ul
+.skill-list {
     margin: 0 0;
     padding: 0 0;
 }
-  
+
 // li
 .skill {
     list-style-type: none;
     list-style-position: inside;
     margin: 0 1em 0 0;
     padding: 0.5em 0.325em;
-    
+
     &:hover {
-         background-color: rgba(0,0,0,0.1);
+        background-color: rgba(0, 0, 0, 0.1);
     }
 }
-  
