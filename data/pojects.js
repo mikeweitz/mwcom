@@ -1,11 +1,12 @@
 const projects = [
     {
         title: 'DLA Creature Cards',
-        link: {
-            url: 'https://creaturecards.deutschla.com/',
-            title: 'DLA Creature Cards',
-        },
-        subtitle: 'A canvas drawing app with a stable diffusion backend.',
+        // link: {
+        //     url: 'https://creaturecards.deutschla.com/',
+        //     title: 'DLA Creature Cards',
+        // },
+        subtitle:
+            'A canvas drawing app converting user generated drawings into generative AI compositited into printable playing cards.',
         summary: [
             'A full stack application for an internal DLA project.',
             'User generated Canvas drawings are combined a send to a stable diffusion backend.',
@@ -20,8 +21,12 @@ const projects = [
             url: 'https://ta.co',
             title: 'Taco Bell',
         },
-        subtitle: 'Ecommerce and marketing site for Taco Bell',
-        summary: ['Technical Lead for frontend team on Tacobell.com'],
+        subtitle:
+            'Ecommerce and marketing site for Taco Bell. Integrating online ordering, user accounts, and order history, as well as all marketing, legal, and content needs.',
+        summary: [
+            'Technical Lead for frontend team on Tacobell.com',
+            'Integrat multiple data sources include serverless APIs, product and restarautn data, and headless CMSs content.',
+        ],
         stack: [
             'NexJS',
             'React',

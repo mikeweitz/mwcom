@@ -6,7 +6,8 @@
     margin-top: 64px;
     margin-bottom: 18px;
     color: colors.$black;
-    
+    padding: 0 0.625em;
+
     @media screen and (min-width: 1025px) {
         width: 66.667%;
     }
@@ -17,4 +18,3 @@
         width: 75%;
     }
 }
-  

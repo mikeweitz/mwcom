@@ -24,12 +24,7 @@ const Layout = ({ children }) => {
         setHueRotation(hue);
     };
 
-    useInterval(
-        () => {
-            changeHueRotation();
-        },
-        hasFocus ? delay : null
-    );
+    useInterval(changeHueRotation, hasFocus ? delay : null);
 
     useIsomorphicEffect(() => {
         window.addEventListener('focus', onFocusChange);
