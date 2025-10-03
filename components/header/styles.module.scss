@@ -23,14 +23,14 @@
             transform: translateX(50px);
             opacity: 0;
             padding-left: 122px;
-            transition-delay: 0;  
+            transition-delay: 0;
         }
     }
 
     @media print {
-      transform: none;
+        transform: none;
     }
-} 
+}
 
 .page-scrolled {
     z-index: 1;
@@ -71,8 +71,8 @@
         }
     }
 
-    @media print  {
-      display: none;
+    @media print {
+        display: none;
     }
 }
 .header {
@@ -86,8 +86,8 @@
     width: 100%;
     height: 64px;
     color: #ddd;
-    border-bottom: 1px solid rgba(0,0,0, 0.4);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: all 1s easing.$out-circ;
 
     @media screen and (min-width: 768px) {
@@ -100,7 +100,6 @@
             background: rgba(0, 0, 0, 0.9);
             height: 48px;
         }
-
     }
 
     @media print {
@@ -125,7 +124,7 @@
     }
 }
 
-// $scrolled 
+// $scrolled
 .logo {
     position: relative;
     cursor: pointer;
@@ -140,7 +139,7 @@
     transition-timing-function: easing.$out-circ;
     transition-delay: 0.325s;
     // transform: 'translate(-10%, 0)';
-  
+
     @media screen and (min-width: 768px) {
         top: 0;
         left: 0;
@@ -148,7 +147,7 @@
         width: 162px;
         transform: translate(0, -98px);
         z-index: 3;
-      
+
         &.scrolled {
             transition-delay: 0;
             width: 328px;
@@ -170,7 +169,7 @@
 .title {
     // font-family: "Montserrat", sans-serif;
     // font-family: "Metrophobic", sans-serif;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     margin-top: 0;
     padding-top: 2em;
@@ -187,7 +186,7 @@
     }
 
     @media only print {
-        padding-top: 2em,
+        padding-top: 2em;
     }
 
     @media screen and (min-width: 768px) {
@@ -196,9 +195,9 @@
         font-size: 38.5px;
         margin-bottom: 0;
         &.title-small {
-            padding-top: 0.625em,
+            padding-top: 0.625em;
         }
-    }    
+    }
 }
 
 .title-link {
@@ -239,7 +238,7 @@
     left: 0;
     background: rgba(0, 0, 0, 0.9);
     // filter: $showMenu ? 'none' : 'blur(2px)',
-    
+
     &.show-menu {
         opacity: 1;
         max-height: 60vh;
@@ -253,19 +252,19 @@
     }
 
     @media screen and (min-width: 768px) {
-      max-height: initial;
-      max-height: 0;
-      display: block;
-      width: auto;
-      opacity: 1;
-      position: static;
-      background: transparent;
-      overflow: initial;
-
-      &.show-menu {
+        max-height: initial;
+        max-height: 0;
+        display: block;
+        width: auto;
+        opacity: 1;
+        position: static;
         background: transparent;
-        max-height: 70vh;
-      }
+        overflow: initial;
+
+        &.show-menu {
+            background: transparent;
+            max-height: 70vh;
+        }
     }
 }
 
@@ -284,49 +283,56 @@
     &:active,
     &:focus,
     &:hover {
-      color: colors.$link;
+        color: colors.$link;
     }
 
     &:hover,
     &:focus {
-      text-decoration: underline;
-      outline: none;
+        text-decoration: underline;
+        outline: none;
     }
 
     &:link {
-      color: colors.$steelBlue,
+        color: colors.$steelBlue;
     }
 
     &:hover {
-      color: colors.$turquoise;
-      background-color: colors.$darkBlue;
-      text-decoration: none;
-      padding: 1.5em 0 1.5em 84px;
+        color: colors.$turquoise;
+        background-color: colors.$darkBlue;
+        text-decoration: none;
+        padding: 1.5em 0 1.5em 84px;
     }
 
     &:focus {
-      color: #2BF403;
-      text-decoration: none;
+        color: #2bf403;
+        text-decoration: none;
     }
 
     @media screen and (min-width: 768px) {
-        
-      font-size: 16px;
-      display: inline;
-      padding: 0;
-      border-bottom: none;
-      text-index: 0;
-      transform: translateX(0);
-      text-shadow: -1px 1px 0px colors.$black;
-      
-      &:hover {
-        color: colors.$turquoise;
-        background-color: transparent;
-        text-decoration: none;
-        padding: 1.5em 0 1.5em 0;
-      }
+        font-size: 16px;
+        display: inline;
+        padding: 0;
+        border-bottom: none;
+        text-index: 0;
+        transform: translateX(0);
+        text-shadow: -1px 1px 0px colors.$black;
+
+        &:hover {
+            color: colors.$turquoise;
+            background-color: transparent;
+            text-decoration: none;
+            padding: 1.5em 0 1.5em 0;
+        }
     }
-  }
+
+    svg {
+        margin-right: 0.625em;
+    }
+}
+
+.link-icon {
+    margin-right: 1em;
+}
 
 .link-span {
     padding: 0;
@@ -335,36 +341,35 @@
 
     &:hover,
     &:focus {
-      text-decoration: none;
+        text-decoration: none;
     }
     &:after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 1px;
-      bottom: 0;
-      left: 0;
-      background-color: colors.$turquoise;
-      visibility: hidden;
-      transform: scaleX(0);
-      transition-property: all;
-      transition-delay: 0.2s;
-      transition-duration: 0.4s;
-      transition-timing-function: easing.$out-expo;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: colors.$turquoise;
+        visibility: hidden;
+        transform: scaleX(0);
+        transition-property: all;
+        transition-delay: 0.2s;
+        transition-duration: 0.4s;
+        transition-timing-function: easing.$out-expo;
     }
 
     &:hover:after {
-      visibility: visible;
-      transform: scaleX(1);
-      transition-duration: 0.4s;
-      transition-delay: 0;
+        visibility: visible;
+        transform: scaleX(1);
+        transition-duration: 0.4s;
+        transition-delay: 0;
     }
 
     @media screen and (min-width: 768px) {
-        margin-right: 25px,
+        margin-right: 25px;
     }
 }
-
 
 .menu-button {
     position: absolute;
@@ -383,7 +388,7 @@
     cursor: pointer;
     display: flex;
 
-    @media screen and (min-width: 768px) {        
+    @media screen and (min-width: 768px) {
         display: none;
     }
 
