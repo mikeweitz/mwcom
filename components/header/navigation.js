@@ -1,36 +1,43 @@
 import cx from 'classnames';
+import { Handshake, GitPullRequestArrow, ListMusic, Mail } from 'lucide-react';
 
 import styles from './styles.module.scss';
 
 const Navigation = ({
-  email,
-  github,
-  linkedin,
-  playlists,
-  showMenu = false,
+    email,
+    github,
+    linkedin,
+    playlists,
+    showMenu = false,
 }) => {
-  return (
-    <address
-      className={cx(styles['nav-wrap'], {
-        [styles['show-menu']]: showMenu,
-      })}
-    >
-      <a className={styles.link} href="#">
-        <span className={styles['link-span']}>
-          {email.address + email.domain}
-        </span>
-      </a>
-      <a className={styles.link} href={github.url}>
-        <span className={styles['link-span']}>{github.text}</span>
-      </a>
-      <a className={styles.link} href={linkedin.url}>
-        <span className={styles['link-span']}>{linkedin.text}</span>
-      </a>
-      <a className={styles.link} href={playlists.url}>
-        <span className={styles['link-span']}>{playlists.text}</span>
-      </a>
-    </address>
-  );
+    const size = 18;
+    const stroke = 1;
+    return (
+        <address
+            className={cx(styles['nav-wrap'], {
+                [styles['show-menu']]: showMenu,
+            })}
+        >
+            <a className={styles.link} href="#">
+                <Mail size={size} strokeWidth={stroke} />
+                <span className={styles['link-span']}>
+                    {email.address + email.domain}
+                </span>
+            </a>
+            <a className={styles.link} href={github.url}>
+                <GitPullRequestArrow size={size} strokeWidth={stroke} />
+                <span className={styles['link-span']}>{github.text}</span>
+            </a>
+            <a className={styles.link} href={linkedin.url}>
+                <Handshake size={size} strokeWidth={stroke} />
+                <span className={styles['link-span']}>{linkedin.text}</span>
+            </a>
+            <a className={styles.link} href={playlists.url}>
+                <ListMusic size={size} strokeWidth={stroke} />
+                <span className={styles['link-span']}>{playlists.text}</span>
+            </a>
+        </address>
+    );
 };
 
 export default Navigation;

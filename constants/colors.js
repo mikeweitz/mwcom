@@ -14,7 +14,8 @@ const colors = {
     turquoise: '#51E8CF',
     steelBlue: '#4984A8',
     raspberry: '#EE2677',
-    link: '#555',
+    // link: '#555',
+    link: '#4984A8',
 };
 
 export default colors;

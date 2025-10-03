@@ -14,7 +14,7 @@ export default function Document() {
                 <meta name="title" content="Michael Weitzman" />
                 <meta
                     name="description"
-                    content="Resume for front end engineer Michael Weitzman"
+                    content="Resume for frontend engineer Michael Weitzman"
                 />
                 <meta
                     name="keyword"

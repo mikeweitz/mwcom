@@ -8,6 +8,7 @@ const copy = {
         github: {
             text: 'github',
             url: 'https://github.com/mikeweitz',
+            icon: 'git-pull-request-arrow',
         },
         linkedin: {
             text: 'linkedin',
