@@ -1,6 +1,6 @@
 # Weitzly.com
 
-NextJS App with a Spotify API integration and data from Google Sheets.
+Next.js App with a Spotify API integration and data from Google Sheets.
 
 Since the Playlist are a subset of my user lists, the IDs are stored in Google Sheets, with list data retrieved on demand.
 
@@ -21,7 +21,7 @@ yarn dev
 
 ## How to use
 
-See the NextJS docs
+See the Next.js docs
 
 ## Build for production
 

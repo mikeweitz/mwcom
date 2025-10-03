@@ -3,6 +3,7 @@ import { useInterval } from '@mw/hooks/useInterval';
 import { initGA, logPageView } from '@mw/util/analytics';
 import Header from '@mw/components/header';
 import Footer from '@mw/components/footer';
+import SvgBackground from '@mw/components/layout/svg-background';
 
 import styles from './styles.module.scss';
 
@@ -50,10 +51,14 @@ const Layout = ({ children }) => {
             <div
                 className={styles.bg}
                 style={{
+                    // width: '100%',
+                    // height: '100%',
                     transition: `filter ${delay}ms linear`,
                     filter: `hue-rotate(${hueRotation}deg)`,
                 }}
-            />
+            >
+                <SvgBackground />
+            </div>
         </main>
     );
 };

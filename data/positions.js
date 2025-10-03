@@ -148,7 +148,7 @@ const positions = [
         ],
     },
     {
-        role: 'Senior Front End Prototyper',
+        role: 'Senior Frontend Prototyper',
         company: 'Yuzu by Barnes & Noble',
         dates: {
             start: 'July 2014',
