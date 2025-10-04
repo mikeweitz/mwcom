@@ -56,6 +56,7 @@
     //     bottom: .0em;
     // }
 }
+
 .name {
     font-weight: bold;
     text-transform: uppercase;
@@ -63,6 +64,7 @@
     text-shadow: 1px 1px black, -1px -1px black;
     // filter: invert(70%);
 }
+
 .glitch {
     position: relative;
 
@@ -126,10 +128,34 @@
     padding-bottom: 100%;
     font-size: 0.85em;
     line-height: 1.4em;
-    border: 1px solid colors.$black;
-    border-radius: 100% 100%;
-    background-color: colors.$blueViolet;
+    border: 1px solid rgb(0 0 0 / 0.25);
+    // border-radius: 100% 100%;
+    background-color: rgb(90 50 50 / 0.25); // colors.$blueViolet;
     cursor: pointer;
+
+    // position: absolute;
+    --x: 0;
+    --y: 0;
+    // perspective(75em)
+    --transform: rotateX(29.125deg) rotateZ(-26.625deg)
+        translate(calc(var(--x) * 100%), calc(var(--y) * 86.67%)) scale(1);
+    transform: var(--transform);
+    animation: _drop-in_mkmxd_1 0.35s cubic-bezier(0.215, 0.61, 0.355, 1)
+        var(--delay) backwards;
+    transition: transform 0.25s ease-out;
+    // clip-path: polygon(
+    //     50% 100%,
+    //     93.3% 75%,
+    //     93.3% 25%,
+    //     50% 0%,
+    //     6.7% 25%,
+    //     6.7% 75%
+    // );
+    // full size hexahgon
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+    // pentagon
+    // clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    // clip-path: polygon(50% 100%, 100% 64%, 83% 0, 18% 0, 0 64%);
 
     &.active {
         // borderRadius: '1em 1em;
