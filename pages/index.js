@@ -39,7 +39,7 @@ const Home = () => {
                         styles['page-break']
                     )}
                 >
-                    <div className={styles.links}>
+                    <div className={styles.skillset}>
                         {skills.map((skillset, i) => {
                             return (
                                 <SkillGroup

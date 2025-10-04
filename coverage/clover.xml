@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1759511666521" clover="3.2.0">
-  <project timestamp="1759511666521" name="All files">
-    <metrics statements="797" coveredstatements="728" conditionals="29" coveredconditionals="18" methods="18" coveredmethods="7" elements="844" coveredelements="753" complexity="0" loc="797" ncloc="797" packages="4" files="10" classes="10"/>
+<coverage generated="1759536393512" clover="3.2.0">
+  <project timestamp="1759536393512" name="All files">
+    <metrics statements="812" coveredstatements="743" conditionals="29" coveredconditionals="18" methods="18" coveredmethods="7" elements="859" coveredelements="768" complexity="0" loc="812" ncloc="812" packages="4" files="10" classes="10"/>
     <package name="components.header">
       <metrics statements="189" coveredstatements="180" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="3"/>
       <file name="index.js" path="/Users/michaelweitzman/Projects/mwcom/components/header/index.js">
@@ -391,7 +391,7 @@
       </file>
     </package>
     <package name="data">
-      <metrics statements="433" coveredstatements="433" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="448" coveredstatements="448" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="copy.js" path="/Users/michaelweitzman/Projects/mwcom/data/copy.js">
         <metrics statements="25" coveredstatements="25" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
@@ -804,7 +804,7 @@
         <line num="214" count="1" type="stmt"/>
       </file>
       <file name="skills.js" path="/Users/michaelweitzman/Projects/mwcom/data/skills.js">
-        <metrics statements="34" coveredstatements="34" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="49" coveredstatements="49" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -839,6 +839,21 @@
         <line num="32" count="1" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
         <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
       </file>
     </package>
   </project>

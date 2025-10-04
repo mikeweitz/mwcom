@@ -66,7 +66,7 @@
 
         &.scrolled {
             // transform: translate(0, -76px);
-            padding-left: 138px;
+            padding-left: 80px;
             opacity: 1;
         }
     }
@@ -146,7 +146,7 @@
         height: 162px;
         width: 162px;
         transform: translate(0, -98px);
-        z-index: 3;
+        z-index: 0;
 
         &.scrolled {
             transition-delay: 0;
@@ -154,6 +154,7 @@
             height: 328px;
             transform: translate(-160px, -310px);
             opacity: 0.7;
+            // z-index: 0;
             // filter: 'hue-rotate(180deg)',
             filter: invert(10%);
         }
@@ -181,7 +182,7 @@
     &.title-small {
         margin-bottom: 0;
         padding-top: 0;
-        padding-right: 2em;
+        padding-right: 0.5em;
         transform: translateY(0);
     }
 
