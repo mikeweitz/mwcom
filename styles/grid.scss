@@ -68,11 +68,20 @@
 %grid-playlist {
     @extend %grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 38px;
-
-    @media screen and (min-width: 768px) {
-        grid-gap: 32px;
+    grid-gap: 0;
+    padding-inline: 2.25em;
+    margin-inline: auto;
+    @media screen and (min-width: 480px) {
+        padding-inline: 3em;
+    }
+    @media screen and (min-width: 640px) {
+        // grid-gap: 32px;
+        // padding-inline: 3em;
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (min-width: 900px) {
+        padding-inline: 4em;
     }
 
     @media screen and (min-width: 980px) {
@@ -80,9 +89,10 @@
     }
 
     @media screen and (min-width: 1025px) {
-        max-width: 1440px;
+        padding-inline: 5em;
+        // max-width: 1440px;
         grid-template-columns: repeat(5, 1fr);
-        grid-gap: 64px;
+        // grid-gap: 64px;
     }
 }
 
