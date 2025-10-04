@@ -3,12 +3,12 @@
 // div
 .skill-group {
     color: colors.$black;
-    @media print {
-        display: inline-block;
-        width: 50%;
-        padding-right: 3em;
-        vertical-align: top;
-    }
+    // @media print {
+    //     display: inline-block;
+    //     width: 50%;
+    //     padding-right: 3em;
+    //     vertical-align: top;
+    // }
 }
 
 // header
@@ -17,20 +17,25 @@
     font-size: 18px;
     text-transform: uppercase;
     font-weight: 600;
+    margin-bottom: 0.5em;
 }
 
 // ul
 .skill-list {
     margin: 0 0;
     padding: 0 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.625em;
 }
 
 // li
 .skill {
     list-style-type: none;
     list-style-position: inside;
-    margin: 0 1em 0 0;
-    padding: 0.5em 0.325em;
+    margin: 0;
+    padding: 0.25em 0.5em;
 
     &:hover {
         background-color: rgba(0, 0, 0, 0.1);

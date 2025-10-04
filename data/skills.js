@@ -1,6 +1,6 @@
 const skills = [
     {
-        heading: 'Core',
+        heading: 'Core Skills',
         skills: [
             'TypeScript',
             'React',
@@ -14,15 +14,10 @@ const skills = [
             'Tailwind',
             'CSS Modules',
             'Styled Components',
+            'Jest / Cypres / Cucumber',
             'Vercel',
             'Netlify',
-            'Jest / Cypres / Cucumber',
             'NPM Workspaces',
-        ],
-    },
-    {
-        heading: 'Electives',
-        skills: [
             'Dependency Management (Yarn / NPM)',
             'Webpack / Babel',
             'Python',
@@ -35,5 +30,20 @@ const skills = [
             'Angular',
         ],
     },
+    // {
+    //     heading: 'Electives',
+    //     skills: [
+    //         'Dependency Management (Yarn / NPM)',
+    //         'Webpack / Babel',
+    //         'Python',
+    //         'Atomic CSS',
+    //         'Styletron',
+    //         'Shopify',
+    //         'Wordpress VIP',
+    //         'FusionJS',
+    //         'Vue',
+    //         'Angular',
+    //     ],
+    // },
 ];
 export { skills };

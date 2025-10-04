@@ -67,13 +67,13 @@
     text-transform: uppercase;
     font-size: 1.25em;
     line-height: 1.25em;
-    height: 1.625em;
+    // height: 1.625em;
     font-weight: 800;
     // font-family: Roboto, sans-serif;
     font-family: 'Barlow Semi Condensed', sans-serif;
 
     position: relative;
-    overflow: hidden;
+    // overflow: hidden;
     display: inline-block;
     // textShadow: `1px 1px 3px ${colors.gray2}`,
     text-shadow: none;
@@ -82,7 +82,7 @@
 
     &:after {
         content: '';
-        width: 100%;
+        width: 0%;
         height: 100%;
         // background-color: rgba(0, 0, 0, 0.1);
         background: rgb(100 95 100 / 0.1);
@@ -90,11 +90,12 @@
         position: absolute;
         border-radius: 4px 4px;
         top: 0;
-        left: -101%;
+        left: 0%;
     }
 
     &.hover {
         &:after {
+            width: 100%;
             left: 0;
         }
 
