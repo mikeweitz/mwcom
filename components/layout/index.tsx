@@ -1,4 +1,5 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
+
 import { useInterval } from '@mw/hooks/useInterval';
 import { initGA, logPageView } from '@mw/util/analytics';
 import Header from '@mw/components/header';
@@ -57,7 +58,7 @@ const Layout = ({ children }) => {
                     filter: `hue-rotate(${hueRotation}deg)`,
                 }}
             >
-                <SvgBackground />
+                <SvgBackground hasFocus={hasFocus} />
             </div>
         </main>
     );

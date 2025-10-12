@@ -1,0 +1,20 @@
+@use 'fonts';
+@use 'colors' as c;
+
+.button {
+    font-family: 'Barlow Semi Condensed';
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    // color: rgb(55 120 170 / 1);
+    background-color: c.$turquoise;
+    padding: 0.325em 1em;
+    // margin: 0;
+    border: 1px solid transparent;
+    border-radius: 3px 3px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: c.$steelBlue;
+    }
+}
