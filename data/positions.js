@@ -47,7 +47,7 @@ const positions = [
         ],
         skills: [
             'React',
-            'NextJS',
+            'Next.js',
             'Contentful',
             'Gitlab',
             'Storybook',

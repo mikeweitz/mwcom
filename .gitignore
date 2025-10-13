@@ -101,6 +101,8 @@ celerybeat.pid
 nohup.out
 project/settings/hosts/localhost.py
 
+coverage
+
 # Keep credentials out of the repo
 settings.json
 .env

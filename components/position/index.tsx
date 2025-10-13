@@ -11,6 +11,7 @@ export { default as Detail } from './detail';
 interface PositionProps {
     role: string;
     company: string;
+    index?: number;
     dates: { start: string; end?: string };
     summary?: string;
     responsibilities?: string[];
@@ -21,6 +22,7 @@ interface PositionProps {
 const Position = ({
     role = 'Title',
     company = 'Company Name',
+    index = undefined,
     dates = { start: 'Month Year', end: 'Month Year' },
     summary = undefined,
     responsibilities = [],
@@ -46,78 +48,90 @@ const Position = ({
                     company,
                     dates,
                     summary,
+                    index,
                     responsibilities,
                     skills,
                 })
             }
         >
-            <div className={styles.dates}>
-                {new Intl.DateTimeFormat('en-US', dateOptions).format(
-                    new Date(dates.start)
-                )}
-                {dates.end &&
-                    ` - ${new Intl.DateTimeFormat('en-US', dateOptions).format(
-                        new Date(dates.end)
-                    )}`}
-            </div>
-            <header
-                className={cx(styles.role, {
-                    [styles.hover]: hover,
-                })}
+            <div
+                className={styles.wrap}
+                // style={{
+                //     transform: 'skewY(2deg)',
+                // }}
             >
-                {role}
-            </header>
-            <h4 className={styles.organization}>{company}</h4>
+                <time
+                    className={styles.dates}
+                    dateTime={dates.start + dates.end ? '/' + dates.end : ''}
+                >
+                    {new Intl.DateTimeFormat('en-US', dateOptions).format(
+                        new Date(dates.start)
+                    )}
+                    {dates.end &&
+                        ` - ${new Intl.DateTimeFormat(
+                            'en-US',
+                            dateOptions
+                        ).format(new Date(dates.end))}`}
+                </time>
+                <header
+                    className={cx(styles.role, {
+                        [styles.hover]: hover,
+                    })}
+                >
+                    {role}
+                </header>
+                <h4 className={styles.organization}>{company}</h4>
 
-            <Button
-                className={styles.button}
-                onClick={() => {
-                    // setShowDeatils(!showDetails);
-                    setRole({
-                        role,
-                        company,
-                        dates,
-                        summary,
-                        responsibilities,
-                        skills,
-                    });
-                }}
-            >
-                <span>{showDetails ? 'Show Less' : 'Info'}</span>
-            </Button>
+                <Button
+                    className={styles.button}
+                    onClick={() => {
+                        // setShowDeatils(!showDetails);
+                        setRole({
+                            role,
+                            company,
+                            dates,
+                            summary,
+                            responsibilities,
+                            skills,
+                        });
+                    }}
+                >
+                    <span>{showDetails ? 'Show Less' : 'Info'}</span>
+                </Button>
 
-            <article
-                style={{
-                    visibility: showDetails ? 'initial' : 'hidden',
-                    height: showDetails ? '320px' : '0',
-                    overflowY: 'scroll',
-                    transition: 'all 1s ease-in-out',
-                }}
-            >
-                <strong className={styles.subhead}>
-                    Key attributes and responsibilities
-                </strong>
-                <ul className={styles.list}>
-                    {responsibilities.length > 0 &&
-                        responsibilities.map((item, i) => (
-                            <li key={`role-actions_${i}`}>{item}</li>
-                        ))}
-                </ul>
-                {skills && skills.length > 0 && (
-                    <>
-                        <strong className={styles.subhead}>
-                            Primary skill utilization
-                        </strong>
-                        <ul className={styles.skills}>
-                            {skills.map((item, i) => (
-                                <li key={`${company}-${role}-skills_${i}`}>
-                                    {item}
-                                </li>
+                <section
+                    style={{
+                        visibility: showDetails ? 'initial' : 'hidden',
+                        height: showDetails ? '320px' : '0',
+                        overflowY: 'scroll',
+                        transition: 'all 1s ease-in-out',
+                    }}
+                >
+                    <strong className={styles.subhead}>
+                        Key attributes and responsibilities
+                    </strong>
+                    <ul className={styles.list}>
+                        {responsibilities.length > 0 &&
+                            responsibilities.map((item, i) => (
+                                <li key={`role-actions_${i}`}>{item}</li>
                             ))}
-                        </ul>
-                    </>
-                )}
-            </article>
+                    </ul>
+                    {skills && skills.length > 0 && (
+                        <>
+                            <strong className={styles.subhead}>
+                                Primary skill utilization
+                            </strong>
+                            <ul className={styles.skills}>
+                                {skills.map((item, i) => (
+                                    <li key={`${company}-${role}-skills_${i}`}>
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </>
+                    )}
+                </section>
+            </div>
         </article>
     );
 };

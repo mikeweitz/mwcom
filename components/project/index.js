@@ -32,7 +32,13 @@ const Project = ({
                     {paragraph}
                 </p>
             ))}
-            <small className={styles.em}>{stack.join(' | ')}</small>
+            <footer className={styles.footer}>
+                {stack.map((item, n) => (
+                    <small key={n} className={styles.em}>
+                        {item}
+                    </small>
+                ))}
+            </footer>
         </a>
     );
 };
