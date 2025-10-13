@@ -1,14 +1,31 @@
+import { ReactSVGElement, useEffect, useRef } from 'react';
+
 export default function SvgBackground({
     duration = 300,
+    hasFocus = true,
 }: {
     duration?: number;
+    hasFocus?: boolean;
 }) {
+    const svgRef: React.RefObject<SVGSVGElement> = useRef();
+
+    useEffect(() => {
+        if (svgRef.current) {
+            if (hasFocus) {
+                svgRef.current.unpauseAnimations();
+            } else {
+                svgRef.current.pauseAnimations();
+            }
+        }
+    }, [hasFocus]);
+
     return (
         <svg
             viewBox="0 0 100 100"
             preserveAspectRatio="xMaxYMax"
             width="100%"
             height="100%"
+            ref={svgRef}
         >
             <defs>
                 <radialGradient

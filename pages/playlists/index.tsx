@@ -3,12 +3,15 @@ import Head from 'next/head';
 import cx from 'classnames';
 
 import Layout from '@mw/components/layout';
+import PlaylistDetails from '@mw/components/playlist-details-v3';
 import PlaylistDetailsV2 from '@mw/components/playlist-details-v2';
 import { CardById } from '@mw/components/playlists';
 import { ScrollProvider } from '@mw/components/scrollContext';
 import { Close } from '@mw/components/icons';
 import { getPlaylistIds } from '@mw/helpers/sheets';
 import colors from '@mw/constants/colors';
+import Drawer from '@mw/components/drawer';
+
 import styles from './styles.module.scss';
 
 export const getStaticProps = async () => {
@@ -56,9 +59,9 @@ const Playlists = ({ data }) => {
     const filterData = data
         ? yearFilter.length > 0
             ? data.filter((d) => {
-                const y = new Date(d.date).getFullYear();
-                return yearFilter.includes(y + '');
-            })
+                  const y = new Date(d.date).getFullYear();
+                  return yearFilter.includes(y + '');
+              })
             : data
         : null;
 
@@ -72,10 +75,13 @@ const Playlists = ({ data }) => {
                 />
             </Head>
             <Layout>
-                <PlaylistDetailsV2
+                <Drawer handleClose={setActive} active={!!active}>
+                    {active && <PlaylistDetails pid={active || null} />}
+                </Drawer>
+                {/* <PlaylistDetailsV2
                     close={() => setActive(null)}
                     pid={active || null}
-                />
+                /> */}
                 <div className={styles.container}>
                     <small className={styles['filter-label']}>
                         Filter by year
@@ -87,8 +93,8 @@ const Playlists = ({ data }) => {
                                 className={styles['clear-button']}
                                 // // $active={pid}
                                 onClick={() => setYearFilter([])}
-                            // // onMouseEnter={() => setHoverClose(true)}
-                            // // onMouseLeave={() => setHoverClose(false)}
+                                // // onMouseEnter={() => setHoverClose(true)}
+                                // // onMouseLeave={() => setHoverClose(false)}
                             >
                                 <div className={styles['svg-wrap']}>
                                     <Close
@@ -117,26 +123,26 @@ const Playlists = ({ data }) => {
                         {!filterData ? (
                             'loading...'
                         ) : // ) : error ? (
-                            //     'Uh oh...'
-                            filterData.length < 1 ? (
-                                <h3>No matching lists for this filter.</h3>
-                            ) : (
-                                filterData.map((p, i: number) => (
-                                    <div
-                                        className={styles['playlist-wrap']}
+                        //     'Uh oh...'
+                        filterData.length < 1 ? (
+                            <h3>No matching lists for this filter.</h3>
+                        ) : (
+                            filterData.map((p, i: number) => (
+                                <div
+                                    className={styles['playlist-wrap']}
+                                    key={p.id}
+                                >
+                                    <CardById
+                                        active={p.id === active}
                                         key={p.id}
-                                    >
-                                        <CardById
-                                            active={p.id === active}
-                                            key={p.id}
-                                            id={p.id}
-                                            name={p.name}
-                                            image={p.image}
-                                            onClick={() => handleChange(p.id)}
-                                        />
-                                    </div>
-                                ))
-                            )}
+                                        id={p.id}
+                                        name={p.name}
+                                        image={p.image}
+                                        onClick={() => handleChange(p.id)}
+                                    />
+                                </div>
+                            ))
+                        )}
                     </div>
                 </div>
             </Layout>

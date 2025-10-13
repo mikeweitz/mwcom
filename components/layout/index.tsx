@@ -1,4 +1,5 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
+
 import { useInterval } from '@mw/hooks/useInterval';
 import { initGA, logPageView } from '@mw/util/analytics';
 import Header from '@mw/components/header';
@@ -12,8 +13,10 @@ const Layout = ({ children }) => {
         typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
     const delay = 8000;
-
-    const [hueRotation, setHueRotation] = useState(0);
+    const filterRange = 180;
+    const [hueRotation, setHueRotation] = useState(
+        Math.round(Math.random() * filterRange) - filterRange / 2
+    );
     const [hasFocus, setHasFocus] = useState(true);
 
     const onFocusChange = () => {
@@ -21,7 +24,7 @@ const Layout = ({ children }) => {
     };
 
     const changeHueRotation = () => {
-        const hue = Math.round(Math.random() * -180);
+        const hue = Math.round(Math.random() * filterRange) - filterRange / 2;
         setHueRotation(hue);
     };
 
@@ -54,10 +57,18 @@ const Layout = ({ children }) => {
                     // width: '100%',
                     // height: '100%',
                     transition: `filter ${delay}ms linear`,
-                    filter: `hue-rotate(${hueRotation}deg)`,
+                    filter: `hue-rotate(${hueRotation}deg) brightness(${
+                        100 +
+                        (Math.round(
+                            ((hueRotation + filterRange / 2) / filterRange) *
+                                100
+                        ) -
+                            100) *
+                            -1
+                    }%)`,
                 }}
             >
-                <SvgBackground />
+                <SvgBackground hasFocus={hasFocus} />
             </div>
         </main>
     );

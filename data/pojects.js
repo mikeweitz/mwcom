@@ -6,14 +6,21 @@ const projects = [
         //     title: 'DLA Creature Cards',
         // },
         subtitle:
-            'A canvas drawing app converting user generated drawings into generative AI compositited into printable playing cards.',
+            'A canvas drawing app converting user-generated drawings into generative-AI images, compositited into customized, printable playing cards.',
         summary: [
-            'A full stack application for an internal DLA project.',
-            'User generated Canvas drawings are combined a send to a stable diffusion backend.',
-            'The backend returns a full fidelity AI rendered of the sketches.',
-            'The result is re-rendered into canvas and decorated with additional text and images.',
+            'Full stack application for an internal project.',
+            'User generated Canvas drawings are combined a sent to a stable diffusion backend.',
+            'The backend returns a full fidelity AI rendering of the sketches.',
+            'Result is composited into a final canvas with finishing details, and exported to S3 storage.',
         ],
-        stack: ['NexJS', 'Canvas', 'React', 'SCSS modules', 'AWS'],
+        stack: [
+            'Next.js',
+            'Canvas',
+            'React',
+            'SCSS modules',
+            'Replicate AI',
+            'AWS',
+        ],
     },
     {
         title: 'TacoBell.com',
@@ -22,14 +29,15 @@ const projects = [
             title: 'Taco Bell',
         },
         subtitle:
-            'Ecommerce and marketing site for Taco Bell. Integrating online ordering, user accounts, and order history, as well as all marketing, legal, and content needs.',
+            'Ecommerce and marketing site for Taco Bell. Integrating ordering, user accounts, and order history, as well as all marketing, legal, and content needs.',
         summary: [
             'Technical Lead for frontend team on Tacobell.com',
-            'Integrat multiple data sources include serverless APIs, product and restarautn data, and headless CMSs content.',
+            'Integrat multiple data sources include serverless APIs, product and restaraunt data, and headless CMSs content into a multizone Next.js application.',
         ],
         stack: [
-            'NexJS',
+            'Next.js',
             'React',
+            'Docker',
             'SCSS modules',
             'Contentful',
             'Serverless',
@@ -45,7 +53,8 @@ const projects = [
         },
         subtitle: 'Consumer facing website for Warner Bros.',
         summary: [
-            'Fullstack engineer with web team supporting multiple territories.',
+            'Fullstack engineer on web team supporting multiple territories.',
+            'Comprehensive automated testing for primary site features.',
         ],
         stack: ['React Static', 'Drupal', 'Cucumber / Selenium', 'SCSS'],
     },
@@ -55,11 +64,12 @@ const projects = [
             url: 'https://stories.fb.com',
             title: 'Facebook stories',
         },
-        subtitle: 'Marketing site for the Facebook Stories team.',
+        subtitle:
+            'Marketing site for the Facebook team in support of Stories feature launch for F8 event.',
         summary: [
             'Lead developer for a WordPress VIP site built to promote the Stories component of Facebook platform.',
-            'The project launch was scheduled to coincided with the teams F8 Conference presentation, so the timeline was fixed in advance. We developed quickly within a localized Docker instance to get development up to velocity, then ported over to the VIP platform and completed the build there.',
-            'The admin was built using custom fields to provide fully tailed content control to the Stories team to update content as necessary.',
+            'The project launch was scheduled to coincided the conference presentation, so the timeline was fixed in advance. We developed quickly within a localized Docker instance to get development up to velocity, then ported over to the VIP platform and completed the build there.',
+            'The admin was built using custom fields to provide fully tailored content control to the Stories team to author and edit as necessary.',
         ],
         stack: [
             'WPVIP',
@@ -140,12 +150,14 @@ const projects = [
     },
     {
         title: 'Eminem: Revival',
-        link: {
-            url: 'http://www.deutsch.com/projects/revival',
-        },
+        // link: {
+        //     url: 'http://www.deutsch.com/projects/revival',
+        // },
         subtitle: ' A short turn-around album teaser for Interscope records',
         summary: [
-            'Interscope was referred to our agency to handle rapid development for marketing efforts on the new Eminem album “Revival”. I was tasked with quickly building',
+            'Interscope was referred to our agency to handle rapid development on marketing efforts on the Eminem album “Revival”.',
+            'Strong attention to detail were paramount to eliminating back-and-forth revisions.',
+            'To faciliate rapid iteration and quick turnarounds, we opted for a low-tech static site hostied on S3 that could quickly be redeployed as updates roled in.',
         ],
         stack: ['HTML', 'SCSS', 'Gulp', 'AWS'],
     },

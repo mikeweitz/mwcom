@@ -3,16 +3,35 @@
 // a
 .article {
     color: colors.$black;
+    // color: colors.$turquoise;
+    // color: colors.$white;
+    // text-shadow: -1px -1px rgb(0 0 0 / 0.5);
     width: 100%;
     margin: 2em auto;
-    font-size: 0.85em;
-    line-height: 1.4em;
+    font-size: 0.9em;
+    font-weight: 300;
+    line-height: 1.5em;
     border: 1px solid rgb(0 0 0 / 0.15);
     box-shadow: 0 0 10px rgb(0 0 0 / 0.12);
-    border-radius: 1em 1em;
+    border-radius: 0.5em;
     // background-color: rgb(200 230 255 / 0.05);
     padding: 3em;
     transition: all 0.3s ease-in-out;
+    background-color: rgb(255 255 255 / 0.06);
+
+    background-color: rgba(93, 20, 195, 0.4);
+    background-color: rgba(93, 20, 195, 0.3);
+
+    // background: #020024;
+    // background: linear-gradient(
+    //     60deg,
+    //     rgba(2, 0, 36, 0.35) 0%,
+    //     rgba(9, 9, 121, 0.35) 35%,
+    //     rgba(0, 212, 255, 0.35) 100%
+    // );
+    mix-blend-mode: hue;
+    // mix-blend-mode: difference;
+
     cursor: default;
 
     &.has-link {
@@ -23,11 +42,26 @@
     &:active &:visited,
     &:hover {
         color: colors.$black;
+        text-decoration: none;
+        // color: colors.$white;
     }
 
     &:hover {
         text-decoration: none;
-        background-color: rgb(0 0 0 / 0.05);
+        background-color: rgb(200 200 200 / 0.25);
+        // background-color: rgba(93, 20, 195, 0.4);
+
+        // background: linear-gradient(
+        //     60deg,
+        //     rgba(102, 100, 136, 0.35) 0%,
+        //     rgba(109, 109, 221, 0.35) 35%,
+        //     rgba(0, 212, 255, 0.35) 100%
+        // );
+
+        .strong {
+            // text-shadow: 1px 1px 1px colors.$orangePeelDark;
+            // color: colors.$black;
+        }
     }
 
     @media print {
@@ -41,11 +75,14 @@
 
 .strong {
     font-family: 'Barlow Semi Condensed', sans-serif;
-    font-size: 15px;
+    font-size: 1.125em;
     font-weight: 700;
     display: block;
     text-transform: uppercase;
     margin-bottom: 1em;
+    // color: colors.$neonGreen;
+    text-shadow: none;
+    transition: all 0.5s ease;
 }
 
 // div
@@ -57,6 +94,16 @@
     margin: 1em auto;
 }
 
+.footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
 .em {
-    font-size: 0.8em;
+    font-size: 0.825em;
+    padding: 0.125em 1em;
+    // margin-right: 0.5em;
+    border: 1px solid rgb(11 11 11 / 0.4);
+    border-radius: 2em;
 }

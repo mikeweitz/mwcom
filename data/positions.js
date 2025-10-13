@@ -3,7 +3,7 @@ const positions = [
         role: 'Technology Lead',
         company: 'Taco Bell (contract)',
         dates: {
-            start: 'Jan, 2024',
+            start: '01/01/2024',
         },
         responsibilities: [
             'Domain expert on Dockerized Next.js application deployed to Amazon ECS serving 1.5 million daily users, driving millions in monthly revenue.',
@@ -31,7 +31,8 @@ const positions = [
         role: 'Technology Lead',
         company: 'Deutsch LA',
         dates: {
-            start: 'Dec, 2020 - Nov, 2023',
+            start: '12/01/2020',
+            end: '11/01/2023',
         },
         summary:
             'Lead engineer on embedded team within client organization to build and maintain frontend and API middleware for TacoBell.com.',
@@ -46,7 +47,7 @@ const positions = [
         ],
         skills: [
             'React',
-            'NextJS',
+            'Next.js',
             'Contentful',
             'Gitlab',
             'Storybook',
@@ -56,10 +57,10 @@ const positions = [
     },
     {
         role: 'Senior Engineer',
-        company: 'Warner Bros',
+        company: 'Warner Bros (contract)',
         dates: {
-            start: 'March, 2020',
-            end: 'Dec, 2020',
+            start: '03/01/2020',
+            end: '12/01/2020',
         },
         summary:
             'Contributor on a cross-functional team running the consumer facing warnerbros.com site supporting 18 regions and thousands of statically generated routes.',
@@ -84,8 +85,8 @@ const positions = [
         role: 'Lead Developer',
         company: 'HAUS',
         dates: {
-            start: 'Aug, 2018',
-            end: 'Aug, 2019',
+            start: '08/01/2018',
+            end: '08/01/2019',
         },
         responsibilities: [
             'Worked with Uber and Facebook clients to build large-scale component driven React websites using CSS-in-JS paradigms for interactivity, and event-driven animations with Greensock (GSAP).',
@@ -106,8 +107,8 @@ const positions = [
         role: 'Principal Engineer',
         company: 'Deutsch, Inc',
         dates: {
-            start: 'May 2018',
-            end: 'Aug 2018',
+            start: '05/01/2018',
+            end: '08/01/2018',
         },
         responsibilities: [
             'Gather requirements to scope and architect new client projects, defining technical workflows and dependencies to ensure on-time delivery.',
@@ -127,8 +128,8 @@ const positions = [
         role: 'Senior Frontend Engineer',
         company: 'Deutsch Inc',
         dates: {
-            start: 'May 2015',
-            end: 'May 2018',
+            start: '05/01/2015',
+            end: '05/01/2018',
         },
         responsibilities: [
             'Defined and implemented front end deliverables for client projects.',
@@ -151,8 +152,8 @@ const positions = [
         role: 'Senior Frontend Prototyper',
         company: 'Yuzu by Barnes & Noble',
         dates: {
-            start: 'July 2014',
-            end: 'Feb 2015',
+            start: '07/01/2014',
+            end: '02/01/2015',
         },
         responsibilities: [
             'Build high fidelity in-browser prototypes.',
@@ -171,8 +172,8 @@ const positions = [
         role: 'Senior Director, Development',
         company: 'bpg',
         dates: {
-            start: 'Oct 2012',
-            end: 'Jul 2014',
+            start: '10/01/2012',
+            end: '07/01/2014',
         },
         responsibilities: [
             'Primary point of contact for all development needs for bpg.',
@@ -185,8 +186,8 @@ const positions = [
         role: 'Interactive Developer',
         company: 'bpg',
         dates: {
-            start: 'Nov 2010',
-            end: 'Oct 2012',
+            start: '11/01/2010',
+            end: '10/01/2012',
         },
         responsibilities: [
             'Deliver HTML/JS/CSS/PHP driven sites for high-profile client, both independently and within teams.',
@@ -199,8 +200,8 @@ const positions = [
         role: 'Web Designer',
         company: 'Silva Artist Management',
         dates: {
-            start: 'Oct 2007',
-            end: 'Nov 2010',
+            start: '10/01/2007',
+            end: '11/01/2010',
         },
         responsibilities: [
             'Ran the official web sites for recording artists Foo Fighters, Beastie Boys, and Jimmy Eat World.',
