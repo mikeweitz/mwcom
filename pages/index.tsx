@@ -1,79 +1,83 @@
-import Head from 'next/head';
 import cx from 'classnames';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Layout from '@mw/components/layout';
 import Summary from '@mw/components/summary';
 import Position, { Detail } from '@mw/components/position';
 import SkillGroup from '@mw/components/skillGroup';
 import Project from '@mw/components/project';
-import Button from '@mw/components/button';
 import { ScrollProvider } from '@mw/components/scrollContext';
 import { positions, skills, projects } from '@mw/data';
+import Drawer from '@mw/components/drawer';
 
 import styles from './styles.module.scss';
 
-const Home = () => {
-    const [activeRole, setActiveRole] = useState(null);
+export default function Sticky() {
+    const [showDrawer, setShowDrawer] = useState(false);
     const [showDetail, setShowDetail] = useState(false);
-    const [transitionClass, setTransitionClass] = useState('');
+    const [activeRole, setActiveRole] = useState(null);
+
+    const scrollRef = useRef(null);
+    const detailRef = useRef(null);
 
     const togglePanel = (role = null) => {
-        setShowDetail(!showDetail);
-        setTransitionClass(
-            showDetail ? styles['animate-out'] : styles['animate-in']
-        );
-        setTimeout(setActiveRole, !role ? 1000 : 0, role);
-        setTimeout(setTransitionClass, 1000, '');
+        if (role) {
+            setShowDrawer(true);
+            setActiveRole(role);
+        } else {
+            setShowDrawer(false);
+            setTimeout(setActiveRole, 1000, null);
+        }
     };
-
     return (
         <ScrollProvider>
-            <Head>
-                <title>Michael Weitzman</title>
-            </Head>
             <Layout>
+                <Drawer handleClose={togglePanel} active={showDrawer}>
+                    {activeRole && <Detail {...activeRole} ref={detailRef} />}
+                </Drawer>
                 <div className={styles.container}>
                     <Summary />
                 </div>
 
                 <div
-                    className={cx(
-                        styles.viewport,
-                        showDetail && styles.open,
-                        transitionClass
-                    )}
+                    ref={scrollRef}
+                    style={{
+                        position: 'relative',
+                    }}
                 >
-                    <aside className={cx(styles['position-detail'])}>
-                        {!!activeRole && (
-                            <Detail
-                                className={styles.container}
-                                {...activeRole}
-                            >
-                                <Button
-                                    className={styles.button}
-                                    onClick={() => togglePanel(null)}
-                                >
-                                    close
-                                </Button>
-                            </Detail>
-                        )}
-                    </aside>
-
                     <div
-                        className={cx(
-                            styles['experience'],
-                            transitionClass,
-                            showDetail && styles.open
-                        )}
+                        className="experience"
+                        style={{
+                            position: 'relative',
+                            top: '0',
+                            left: '0',
+                            transition: 'all 1s ease',
+                        }}
                     >
-                        <div className={styles.container}>
-                            <div className={styles.grid}>
+                        <div
+                            className={styles.container}
+                            style={{
+                                transition: 'all 1s ease',
+                                gridTemplateColumns: 'repeat(3, 1fr)',
+                                ...(showDetail
+                                    ? {
+                                          transform: 'translate(35%, 0)',
+                                      }
+                                    : {
+                                          transform: 'translate(0, 0)',
+                                      }),
+                            }}
+                        >
+                            <div
+                                className={styles.grid}
+                                style={{ paddingBottom: '10px' }}
+                            >
                                 {positions.map((position, i) => {
                                     return (
                                         <Position
                                             key={`position-${i}`}
                                             {...position}
+                                            index={i}
                                             setRole={togglePanel}
                                         />
                                     );
@@ -82,7 +86,6 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-
                 <div
                     className={cx(
                         styles.container,
@@ -114,6 +117,4 @@ const Home = () => {
             </Layout>
         </ScrollProvider>
     );
-};
-
-export default Home;
+}

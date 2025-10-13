@@ -182,6 +182,7 @@
     z-index: 1;
     color: white;
     font-weight: 800;
+    text-shadow: -1px 0 0 rgb(0 0 0 / 0.5);
     transition: transform 0.25s 0.2s easing.$ease,
         filter 0.25s 0.2s easing.$ease, color 0.25s 0.2s easing.$ease,
         opacity 0.25s 0.3s easing.$ease;

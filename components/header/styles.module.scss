@@ -270,31 +270,33 @@
 }
 
 .link {
-    color: colors.$link;
+    // color: colors.$link;
     text-decoration: none;
     cursor: pointer;
-    color: colors.$steelBlue;
+    color: colors.$turquoise;
+    text-decoration: none;
     // fontSize: fontSize.mobile.display,
     transition: all 0.5s ease;
     display: block;
     padding: 1.5em 0 1.5em 64px;
-    border-bottom: 1px solid colors.$blueViolet;
+    border-bottom: 1px solid colors.$darkBlueHover;
 
     &:link,
     &:active,
     &:focus,
     &:hover {
-        color: colors.$link;
+        color: colors.$turquoise;
     }
 
     &:hover,
     &:focus {
+        color: colors.$turquoise;
         text-decoration: underline;
         outline: none;
     }
 
     &:link {
-        color: colors.$steelBlue;
+        // color: colors.$steelBlue;
     }
 
     &:hover {
@@ -319,7 +321,7 @@
         text-shadow: -1px 1px 0px colors.$black;
 
         &:hover {
-            color: colors.$turquoise;
+            // color: colors.$turquoise;
             background-color: transparent;
             text-decoration: none;
             padding: 1.5em 0 1.5em 0;

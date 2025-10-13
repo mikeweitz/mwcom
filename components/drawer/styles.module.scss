@@ -1,0 +1,162 @@
+@use 'easing' as ease;
+@use 'colors';
+@use 'fonts';
+@use 'grid';
+
+%transition {
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease.$out-circ;
+    transition-delay: 0;
+}
+
+// // div
+// %container {
+//     position: relative;
+//     // max-width: 90%;
+//     margin: 0 auto;
+//     // width: 100%;
+
+//     @media screen and (min-width: 980) {
+//         width: 90%;
+//         max-width: 1440px;
+//     }
+//     // ...($pageBreak
+//     &.page-break {
+//         @media print {
+//             page-break-after: always;
+//         }
+//     }
+// }
+
+.screen {
+    z-index: 9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    position: none;
+}
+
+.drawer {
+    @extend %transition;
+    position: fixed;
+    z-index: 10;
+    top: 64px;
+    left: 0;
+    overflow: hidden;
+    min-height: 0;
+    width: 100%;
+    grid-auto-flow: row;
+    height: 0;
+    grid-template-rows: 0 60px;
+    // display: $scrolling && !$active ? none : grid;
+    display: grid;
+
+    &.scrolling {
+        display: none;
+    }
+
+    &.active {
+        height: calc(70vh + 60px);
+        grid-template-rows: 70vh 60px;
+        display: grid;
+        // minHeight: 250px;
+        // transform: translateY(0);
+    }
+
+    @media screen and (min-width: 768px) {
+        height: 0;
+        top: 162px;
+        grid-template-rows: 0 100px;
+
+        &.active {
+            height: calc(92vh - 162px);
+            grid-template-rows: calc(92vh - 262px) 100px;
+        }
+
+        &.scrolled {
+            top: 48px;
+            &.active {
+                height: calc(80vh - 48px);
+                grid-template-rows: calc(80vh - 148px) 100px;
+            }
+        }
+    }
+}
+
+.section {
+    @extend %transition;
+    // background: 'url(/images/texture.png) #222;
+    // background: 'url(/images/dark_stripes.png) #222;
+    background: colors.$black;
+    // background: rgb(0 0 0 / 0.8);
+    padding-top: 1em;
+    padding-bottom: 3em;
+    color: colors.$gray1;
+    transform: translateY(-420px);
+    &.active {
+        transform: translateY(0);
+    }
+}
+
+.scroll-container {
+    @extend %container;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    overflow-x: initial;
+    // width: 100%;
+    height: 100%;
+    position: relative;
+    padding-top: 1em;
+    padding-bottom: 3em;
+
+    &:after {
+        position: fixed;
+        z-index: 3;
+        content: '';
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3em;
+        transform: translateY(-100%);
+        background: linear-gradient(0deg, colors.$black, transparent 100%);
+    }
+
+    // @media screen and (min-width: 768) {
+    //     flex-direction: row;
+    // }
+}
+
+// button
+.close {
+    @extend %transition;
+
+    justify-self: end;
+    align-self: end;
+    z-index: 5;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 60px;
+    height: 62px;
+    background: colors.$black;
+    color: colors.$gray1;
+    transform: translateY(-420px);
+
+    &.active {
+        transform: translateY(0);
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 100px;
+        height: 102px;
+    }
+}

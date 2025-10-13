@@ -1,8 +1,10 @@
-$ease: cubic-bezier(.29, .13, .39, 1);
+$ease: cubic-bezier(0.29, 0.13, 0.39, 1);
 $nav-wrap: cubic-bezier(0.39, 0.46, 0.06, 1.06);
 $out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
 $out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 $in-out-sine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 $out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
 
-$menu-dot: cubic-bezier(.68,-0.07,.28,1.14);
+$in-out-quint: cubic-bezier(0.6, 0, 0.07, 1);
+
+$menu-dot: cubic-bezier(0.68, -0.07, 0.28, 1.14);
