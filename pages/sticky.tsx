@@ -1,10 +1,6 @@
-import Head from 'next/head';
 import cx from 'classnames';
-import { X } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
-import { animateScroll } from 'react-scroll';
+import { useRef, useState } from 'react';
 
-import { useScrollContext } from '@mw/components/scrollContext';
 import Layout from '@mw/components/layout';
 import Summary from '@mw/components/summary';
 import Position, { Detail } from '@mw/components/position';
@@ -23,8 +19,6 @@ export default function Sticky() {
 
     const scrollRef = useRef(null);
     const detailRef = useRef(null);
-    // move this into own component
-    // const scroll = useScrollContext();
 
     const togglePanel = (role = null) => {
         // get scrollRef top
@@ -74,61 +68,8 @@ export default function Sticky() {
                     ref={scrollRef}
                     style={{
                         position: 'relative',
-                        // transition: 'all 500ms ease',
-                        // overflow: 'hidden',
-                        // display: 'grid',
-                        // gridTemplateColumns: '100% 100%',
                     }}
                 >
-                    {/* <aside
-                        className="details"
-                        style={{
-                            // overflow: 'hidden',
-                            position: 'relative',
-                            // top: 0,
-                            // left: 0,
-                            // backgroundColor: 'white',
-                            width: '100%',
-                            // outline: '1px solid red',
-                            transition: 'all 1s ease',
-                            ...(showDetail
-                                ? {
-                                      transform: 'translate(0, 0)',
-                                  }
-                                : {
-                                      transform: 'translate(-101%, 0)',
-                                  }),
-                        }}
-                    >
-                        <div
-                            className={styles.container}
-                            style={{
-                                transition: 'all 600ms ease-in',
-                                transitionDelay: '350ms',
-                                ...(showDetail
-                                    ? {
-                                          transform: 'translate(0, 0)',
-                                      }
-                                    : {
-                                          transform: 'translate(-35%, 0)',
-                                      }),
-                            }}
-                        >
-                            {activeRole && (
-                                <Detail {...activeRole} ref={detailRef}>
-                                    <button
-                                        className={
-                                            styles['position-detail-close']
-                                        }
-                                        onClick={() => togglePanel(null)}
-                                    >
-                                        <X />
-                                    </button>
-                                </Detail>
-                            )}
-                        </div>
-                    </aside> */}
-
                     <div
                         className="experience"
                         style={{
@@ -153,48 +94,12 @@ export default function Sticky() {
                             }}
                         >
                             <div className={styles.grid}>
-                                {new Array(4).fill(1).map((item, i) => {
-                                    return (
-                                        <div
-                                            style={{
-                                                //                                     width: 200px;
-                                                //    height: 100px;
-                                                backgroundColor: '#3e92cc',
-                                                transform: 'skewY(-2deg)',
-                                                marginBlock: '-4px',
-                                            }}
-                                            key={i}
-                                        >
-                                            <div
-                                                style={{
-                                                    transform: 'skewY(2deg)',
-                                                }}
-                                            >
-                                                <p
-                                                    style={{
-                                                        padding: '0.625em',
-                                                    }}
-                                                >
-                                                    asdfjl al ljfl aiwenxf asdf
-                                                    how ado thos this seem for a
-                                                    canopt of true face double
-                                                    pull everest.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    );
-                                })}
-
                                 {positions.map((position, i) => {
                                     return (
                                         <Position
                                             key={`position-${i}`}
                                             {...position}
                                             setRole={togglePanel}
-                                            // setRole={() => {
-                                            //     setActiveRole(position);
-                                            //     setShowDetail(true);
-                                            // }}
                                         />
                                     );
                                 })}
