@@ -1,13 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { getPlaylistIds } from '@mw/helpers/sheets';
+import { getPlaylistFromApi } from '@mw/helpers/sheets';
 
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
     try {
-        const data = await getPlaylistIds();
+        const data = await getPlaylistFromApi();
         return res.status(200).json(data);
     } catch (e) {
         console.error('error getting playlist', e);

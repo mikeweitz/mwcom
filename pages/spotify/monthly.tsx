@@ -2,12 +2,12 @@ import { useState } from 'react';
 
 import List from '@mw/components/playlists/list';
 import { CardById } from '@mw/components/playlists';
-import { getPlaylistIds } from '@mw/helpers/sheets';
+import { getPlaylistFromApi } from '@mw/helpers/sheets';
 
 import styles from './styles.module.scss';
 
 export const getStaticProps = async () => {
-    const data = await getPlaylistIds();
+    const data = await getPlaylistFromApi();
     return {
         props: {
             lists: JSON.parse(JSON.stringify(data.slice(1, data.length))),

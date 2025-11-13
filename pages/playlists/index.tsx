@@ -4,18 +4,18 @@ import cx from 'classnames';
 
 import Layout from '@mw/components/layout';
 import PlaylistDetails from '@mw/components/playlist-details-v3';
-import PlaylistDetailsV2 from '@mw/components/playlist-details-v2';
+// import PlaylistDetailsV2 from '@mw/components/playlist-details-v2';
 import { CardById } from '@mw/components/playlists';
 import { ScrollProvider } from '@mw/components/scrollContext';
 import { Close } from '@mw/components/icons';
-import { getPlaylistIds } from '@mw/helpers/sheets';
+import { getPlaylistFromApi } from '@mw/helpers/sheets';
 import colors from '@mw/constants/colors';
 import Drawer from '@mw/components/drawer';
 
 import styles from './styles.module.scss';
 
 export const getStaticProps = async () => {
-    const response = await getPlaylistIds();
+    const response = await getPlaylistFromApi();
     const data = JSON.parse(JSON.stringify(response));
     return {
         props: {
