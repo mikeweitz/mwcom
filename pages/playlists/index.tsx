@@ -15,8 +15,7 @@ import Drawer from '@mw/components/drawer';
 import styles from './styles.module.scss';
 
 export const getStaticProps = async () => {
-    const response = await getPlaylistFromApi();
-    const data = JSON.parse(JSON.stringify(response));
+    const data = await getPlaylistFromApi();
     return {
         props: {
             data,
