@@ -19,14 +19,16 @@ export default function Sticky() {
 
     const scrollRef = useRef(null);
     const detailRef = useRef(null);
+    const timeoutRef = useRef<ReturnType<typeof setTimeout>>(null);
 
     const togglePanel = (role = null) => {
         if (role) {
+            clearTimeout(timeoutRef.current);
             setShowDrawer(true);
             setActiveRole(role);
         } else {
             setShowDrawer(false);
-            setTimeout(setActiveRole, 1000, null);
+            timeoutRef.current = setTimeout(setActiveRole, 250, null);
         }
     };
     return (
