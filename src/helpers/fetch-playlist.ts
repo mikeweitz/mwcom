@@ -1,8 +1,4 @@
-import {
-    PlaylistData,
-    PlaylistImage,
-    PlaylistSheetsData,
-} from '@mw/types/index.d';
+import { PlaylistData, PlaylistImage, PlaylistSheetsData } from '@mw/types';
 
 const months = [
     'jan',

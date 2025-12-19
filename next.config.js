@@ -4,7 +4,7 @@ module.exports = {
     output: 'standalone',
     reactStrictMode: true,
     sassOptions: {
-        includePaths: [path.join(__dirname, 'styles')],
+        includePaths: [path.join(__dirname, 'src/styles')],
     },
     experimental: {
         // for AWS Amplify include base folder for output tracing
