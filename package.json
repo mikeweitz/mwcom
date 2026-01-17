@@ -33,7 +33,7 @@
     "@types/node": "20.6.3",
     "@types/react": "18.2.22",
     "babel-eslint": "^10.0.3",
-    "eslint": "^6.2.2",
+    "eslint": "^9.39.2",
     "eslint-plugin-flowtype": "^4.3.0",
     "eslint-plugin-react": "^7.14.3",
     "ftp": "^0.3.10",
