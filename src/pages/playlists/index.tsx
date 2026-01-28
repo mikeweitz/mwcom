@@ -29,6 +29,8 @@ export const getStaticProps = async () => {
 };
 
 const Playlists = ({ playlists, years }) => {
+    // sort years descending
+    years.sort((a: number, b: number) => b - a);
     const [active, setActive] = useState(null);
     const [yearFilter, setYearFilter] = useState([]);
 
@@ -49,7 +51,7 @@ const Playlists = ({ playlists, years }) => {
         ? yearFilter.length > 0
             ? playlists.filter((d) => {
                   const y = new Date(d.date).getFullYear();
-                  return yearFilter.includes(y + '');
+                  return yearFilter.includes(y);
               })
             : playlists
         : null;
@@ -95,7 +97,7 @@ const Playlists = ({ playlists, years }) => {
                                 </div>
                             </button>
                         )}
-                        {years.reverse().map((y) => (
+                        {years.map((y) => (
                             <button
                                 className={cx(styles['filter-option'], {
                                     [styles.active]: yearFilter.includes(y),
