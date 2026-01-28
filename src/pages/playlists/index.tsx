@@ -15,16 +15,17 @@ import Drawer from '@mw/components/drawer';
 import styles from './styles.module.scss';
 
 export const getStaticProps = async () => {
-    const data = await getPlaylistFromApi();
+    const { playlists, years } = await getPlaylistFromApi();
     return {
         props: {
-            data,
+            playlists,
+            years,
         },
         revalidate: 1 * 60 * 60 * 24, // value in seconds for 24 hours
     };
 };
 
-const Playlists = ({ data }) => {
+const Playlists = ({ playlists, years }) => {
     const [active, setActive] = useState(null);
     const [yearFilter, setYearFilter] = useState([]);
 
@@ -40,6 +41,7 @@ const Playlists = ({ data }) => {
         '2023',
         '2024',
         '2025',
+        '2026',
     ];
 
     const handleChange = (pid) => {
@@ -55,13 +57,13 @@ const Playlists = ({ data }) => {
         }
     };
 
-    const filterData = data
+    const filterData = playlists
         ? yearFilter.length > 0
-            ? data.filter((d) => {
+            ? playlists.filter((d) => {
                   const y = new Date(d.date).getFullYear();
                   return yearFilter.includes(y + '');
               })
-            : data
+            : playlists
         : null;
 
     return (
@@ -105,7 +107,7 @@ const Playlists = ({ data }) => {
                                 </div>
                             </button>
                         )}
-                        {activeYears.reverse().map((y) => (
+                        {years.reverse().map((y) => (
                             <button
                                 className={cx(styles['filter-option'], {
                                     [styles.active]: yearFilter.includes(y),
