@@ -15,7 +15,10 @@ import Drawer from '@mw/components/drawer';
 import styles from './styles.module.scss';
 
 export const getStaticProps = async () => {
-    const { playlists, years } = await getPlaylistFromApi();
+    const { playlists, years } = (await getPlaylistFromApi()) || {
+        playlists: null,
+        years: null,
+    };
     return {
         props: {
             playlists,

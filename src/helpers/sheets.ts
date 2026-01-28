@@ -61,6 +61,6 @@ export const getPlaylistFromApi = async () => {
         return data;
     } catch (e) {
         console.error('error retreiving playlists', e);
-        return [];
+        return { playlists: null, years: null };
     }
 };
