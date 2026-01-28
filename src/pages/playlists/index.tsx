@@ -29,21 +29,6 @@ const Playlists = ({ playlists, years }) => {
     const [active, setActive] = useState(null);
     const [yearFilter, setYearFilter] = useState([]);
 
-    const activeYears = [
-        '2015',
-        '2016',
-        '2017',
-        '2018',
-        '2019',
-        '2020',
-        '2021',
-        '2022',
-        '2023',
-        '2024',
-        '2025',
-        '2026',
-    ];
-
     const handleChange = (pid) => {
         setActive(active === pid ? null : pid);
     };
