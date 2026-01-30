@@ -1,0 +1,5 @@
+@use 'grid';
+
+.container {
+    @extend %container;
+}

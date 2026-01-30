@@ -1,0 +1,821 @@
+/* Gutenberg Block Classes */
+
+/* Core Blocks */
+.wp-block-audio {
+}
+
+.wp-block-button {
+}
+
+.wp-block-buttons {
+}
+
+.wp-block-calendar {
+}
+
+.wp-block-categories {
+}
+
+.wp-block-code {
+}
+
+.wp-block-column {
+}
+
+.wp-block-columns {
+}
+
+.wp-block-cover {
+}
+
+.wp-block-embed {
+}
+
+.wp-block-file {
+}
+
+.wp-block-gallery {
+}
+
+.wp-block-group {
+}
+
+.wp-block-heading {
+}
+
+.wp-block-html {
+}
+
+.wp-block-image {
+}
+
+.wp-block-latest-comments {
+}
+
+.wp-block-latest-posts {
+}
+
+.wp-block-list {
+}
+
+.wp-block-media-text {
+}
+
+.wp-block-navigation {
+}
+
+.wp-block-page-list {
+}
+
+.wp-block-paragraph {
+}
+
+.wp-block-preformatted {
+}
+
+.wp-block-pullquote {
+}
+
+.wp-block-quote {
+}
+
+.wp-block-rss {
+}
+
+.wp-block-search {
+}
+
+.wp-block-separator {
+}
+
+.wp-block-shortcode {
+}
+
+.wp-block-social-links {
+}
+
+.wp-block-spacer {
+}
+
+.wp-block-table {
+}
+
+.wp-block-tag-cloud {
+}
+
+.wp-block-text-columns {
+}
+
+.wp-block-verse {
+}
+
+.wp-block-video {
+}
+
+.wp-block-widget-group {
+}
+
+/* Alignment Classes */
+.aligncenter {
+}
+
+.alignleft {
+}
+
+.alignright {
+}
+
+.alignwide {
+}
+
+.alignfull {
+}
+
+/* Text Alignment Classes */
+.has-text-align-center {
+}
+
+.has-text-align-justify {
+}
+
+.has-text-align-left {
+}
+
+.has-text-align-right {
+}
+
+/* Color Background Classes */
+.has-background {
+}
+
+.has-black-background-color {
+}
+
+.has-white-background-color {
+}
+
+.has-gray-background-color {
+}
+
+.has-red-background-color {
+}
+
+.has-orange-background-color {
+}
+
+.has-yellow-background-color {
+}
+
+.has-green-background-color {
+}
+
+.has-blue-background-color {
+}
+
+.has-purple-background-color {
+}
+
+.has-pink-background-color {
+}
+
+/* Text Color Classes */
+.has-text-color {
+}
+
+.has-black-color {
+}
+
+.has-white-color {
+}
+
+.has-gray-color {
+}
+
+.has-red-color {
+}
+
+.has-orange-color {
+}
+
+.has-yellow-color {
+}
+
+.has-green-color {
+}
+
+.has-blue-color {
+}
+
+.has-purple-color {
+}
+
+.has-pink-color {
+}
+
+/* Font Size Classes */
+.has-extra-small-font-size {
+}
+
+.has-small-font-size {
+}
+
+.has-normal-font-size {
+}
+
+.has-medium-font-size {
+}
+
+.has-large-font-size {
+}
+
+.has-extra-large-font-size {
+}
+
+.has-huge-font-size {
+}
+
+.has-gigantic-font-size {
+}
+
+/* Block Style Variants */
+.is-style-default {
+}
+
+.is-style-outline {
+}
+
+.is-style-squared {
+}
+
+.is-style-rounded {
+}
+
+.is-style-circle {
+}
+
+/* Responsive Utility Classes */
+.wp-mobile-hidden {
+}
+
+.wp-tablet-hidden {
+}
+
+.wp-desktop-hidden {
+}
+
+/* Additional Utility Classes */
+.wp-block-group.has-background {
+}
+
+.wp-block-cover.has-background {
+}
+
+.wp-block-media-text.has-background {
+}
+
+.wp-block-columns.has-background {
+}
+
+/* Quote Specific */
+.wp-block-quote__citation {
+}
+
+.wp-block-pullquote__citation {
+}
+
+/* List Specific */
+.wp-block-list-item {
+}
+
+/* Gallery Specific */
+.wp-block-gallery-item {
+}
+
+/* Image Specific */
+.wp-block-image figcaption {
+}
+
+.wp-block-image img {
+}
+
+/* Button Specific */
+.wp-block-button__link {
+}
+
+/* Navigation Specific */
+.wp-block-navigation__container {
+}
+
+.wp-block-navigation-item {
+}
+
+.wp-block-navigation-link {
+}
+
+/* Social Links Specific */
+.wp-block-social-links-item {
+}
+
+.wp-block-social-link {
+}
+
+/* Table Specific */
+.wp-block-table th {
+}
+
+.wp-block-table td {
+}
+
+.wp-block-table tbody {
+}
+
+.wp-block-table thead {
+}
+
+.wp-block-table tfoot {
+}
+
+/* Embed Specific */
+.wp-block-embed__wrapper {
+}
+
+/* File Specific */
+.wp-block-file__button {
+}
+
+/* Search Specific */
+.wp-block-search__input {
+}
+
+.wp-block-search__button {
+}
+
+/* Latest Posts Specific */
+.wp-block-latest-posts__list {
+}
+
+.wp-block-latest-posts__list-item {
+}
+
+/* Categories Specific */
+.wp-block-categories__list {
+}
+
+.wp-block-categories__list-item {
+}
+
+/* Tag Cloud Specific */
+.wp-block-tag-cloud__tag {
+}
+
+/* Calendar Specific */
+.wp-block-calendar table {
+}
+
+.wp-block-calendar th {
+}
+
+.wp-block-calendar td {
+}
+
+/* RSS Specific */
+.wp-block-rss__item {
+}
+
+.wp-block-rss__item-title {
+}
+
+.wp-block-rss__item-excerpt {
+}
+
+/* HTML Specific */
+.wp-block-html textarea {
+}
+
+/* Shortcode Specific */
+.wp-block-shortcode {
+}
+
+/* Verse Specific */
+.wp-block-verse pre {
+}
+
+/* Code Specific */
+.wp-block-code code {
+}
+
+/* Preformatted Specific */
+.wp-block-preformatted pre {
+}
+
+/* Text Columns Specific */
+.wp-block-text-columns {
+}
+
+.wp-block-text-columns .wp-block-text-columns__column {
+}
+
+/* Widget Group Specific */
+.wp-block-widget-group__inner-blocks {
+}
+
+/* Additional Common Classes */
+.wp-block {
+}
+
+.wp-block[data-align="left"] {
+}
+
+.wp-block[data-align="center"] {
+}
+
+.wp-block[data-align="right"] {
+}
+
+.wp-block[data-align="wide"] {
+}
+
+.wp-block[data-align="full"] {
+}
+
+/* Custom Background and Text Color with Opacity */
+.has-background-dim {
+}
+
+.has-background-dim-10 {
+}
+
+.has-background-dim-20 {
+}
+
+.has-background-dim-30 {
+}
+
+.has-background-dim-40 {
+}
+
+.has-background-dim-50 {
+}
+
+.has-background-dim-60 {
+}
+
+.has-background-dim-70 {
+}
+
+.has-background-dim-80 {
+}
+
+.has-background-dim-90 {
+}
+
+.has-background-dim-100 {
+}
+
+/* Gradient Backgrounds */
+.has-background-gradient {
+}
+
+/* Specific Gradient Classes (examples) */
+.has-black-to-white-gradient-background {
+}
+
+.has-white-to-black-gradient-background {
+}
+
+/* Link Color Classes */
+.has-link-color {
+}
+
+.has-black-link-color {
+}
+
+.has-white-link-color {
+}
+
+.has-gray-link-color {
+}
+
+.has-red-link-color {
+}
+
+.has-orange-link-color {
+}
+
+.has-yellow-link-color {
+}
+
+.has-green-link-color {
+}
+
+.has-blue-link-color {
+}
+
+.has-purple-link-color {
+}
+
+.has-pink-link-color {
+}
+
+/* Drop Cap */
+.has-drop-cap {
+}
+
+/* Padding Classes */
+.has-padding {
+}
+
+.has-small-padding {
+}
+
+.has-medium-padding {
+}
+
+.has-large-padding {
+}
+
+/* Margin Classes */
+.has-margin {
+}
+
+.has-small-margin {
+}
+
+.has-medium-margin {
+}
+
+.has-large-margin {
+}
+
+/* Border Classes */
+.has-border {
+}
+
+.has-black-border-color {
+}
+
+.has-white-border-color {
+}
+
+.has-gray-border-color {
+}
+
+.has-red-border-color {
+}
+
+.has-orange-border-color {
+}
+
+.has-yellow-border-color {
+}
+
+.has-green-border-color {
+}
+
+.has-blue-border-color {
+}
+
+.has-purple-border-color {
+}
+
+.has-pink-border-color {
+}
+
+/* Border Radius */
+.has-border-radius {
+}
+
+.has-small-border-radius {
+}
+
+.has-medium-border-radius {
+}
+
+.has-large-border-radius {
+}
+
+/* Box Shadow */
+.has-box-shadow {
+}
+
+.has-small-box-shadow {
+}
+
+.has-medium-box-shadow {
+}
+
+.has-large-box-shadow {
+}
+
+/* Typography Utilities */
+.has-text-decoration-none {
+}
+
+.has-text-decoration-underline {
+}
+
+.has-text-decoration-line-through {
+}
+
+.has-font-weight-normal {
+}
+
+.has-font-weight-bold {
+}
+
+.has-font-weight-lighter {
+}
+
+.has-font-weight-bolder {
+}
+
+.has-letter-spacing-normal {
+}
+
+.has-letter-spacing-tight {
+}
+
+.has-letter-spacing-wide {
+}
+
+.has-line-height-normal {
+}
+
+.has-line-height-tight {
+}
+
+.has-line-height-loose {
+}
+
+/* Layout Utilities */
+.is-layout-flow {
+}
+
+.is-layout-flex {
+}
+
+.is-layout-grid {
+}
+
+/* Responsive Text Alignment */
+.has-text-align-center-mobile {
+}
+
+.has-text-align-left-tablet {
+}
+
+.has-text-align-right-desktop {
+}
+
+/* Additional Block Variants */
+.wp-block-group.is-style-boxed {
+}
+
+.wp-block-columns.is-style-boxed {
+}
+
+.wp-block-cover.is-style-boxed {
+}
+
+.wp-block-media-text.is-style-boxed {
+}
+
+/* Separator Styles */
+.is-style-wide {
+}
+
+.is-style-dots {
+}
+
+.is-style-wide-dots {
+}
+
+/* Spacer Styles */
+.is-style-small {
+}
+
+.is-style-medium {
+}
+
+.is-style-large {
+}
+
+/* Button Styles */
+.is-style-fill {
+}
+
+.is-style-outline {
+}
+
+.is-style-squared {
+}
+
+.is-style-rounded {
+}
+
+.is-style-circle {
+}
+
+/* Pullquote Styles */
+.is-style-default {
+}
+
+.is-style-solid-color {
+}
+
+/* Quote Styles */
+.is-style-default {
+}
+
+.is-style-large {
+}
+
+/* Image Styles */
+.is-style-rounded {
+}
+
+.is-style-circle-mask {
+}
+
+/* Gallery Styles */
+.is-style-masonry {
+}
+
+.is-style-tiled {
+}
+
+/* Cover Styles */
+.is-style-center {
+}
+
+.is-style-center-left {
+}
+
+.is-style-center-right {
+}
+
+.is-style-left {
+}
+
+.is-style-right {
+}
+
+/* Media & Text Styles */
+.is-style-default {
+}
+
+.is-style-stack-on-mobile {
+}
+
+/* Navigation Styles */
+.is-style-horizontal {
+}
+
+.is-style-vertical {
+}
+
+/* Social Links Styles */
+.is-style-logos-only {
+}
+
+.is-style-pill-shape {
+}
+
+/* Table Styles */
+.is-style-stripes {
+}
+
+.is-style-regular {
+}
+
+/* Latest Posts Styles */
+.is-style-grid {
+}
+
+.is-style-list {
+}
+
+/* Categories Styles */
+.is-style-list {
+}
+
+.is-style-dropdown {
+}
+
+/* Tag Cloud Styles */
+.is-style-flat {
+}
+
+.is-style-outline {
+}
+
+/* Calendar Styles */
+.is-style-bordered {
+}
+
+/* RSS Styles */
+.is-style-list {
+}
+
+.is-style-grid {
+}
