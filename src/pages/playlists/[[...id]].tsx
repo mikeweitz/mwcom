@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import cx from 'classnames';
+import { useRouter } from 'next/router';
 
 import Layout from '@mw/components/layout';
 import PlaylistDetails from '@mw/components/playlist-details-v3';
@@ -14,7 +15,7 @@ import Drawer from '@mw/components/drawer';
 
 import styles from './styles.module.scss';
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
     const { playlists, years } = (await getPlaylistFromApi()) || {
         playlists: null,
         years: null,
@@ -24,18 +25,29 @@ export const getStaticProps = async () => {
             playlists,
             years,
         },
-        revalidate: 1 * 60 * 60 * 24, // value in seconds for 24 hours
+        // revalidate: 1 * 60 * 60 * 24, // value in seconds for 24 hours
     };
 };
 
 const Playlists = ({ playlists, years }) => {
+    const router = useRouter();
+
     // sort years descending
     years.sort((a: number, b: number) => b - a);
-    const [active, setActive] = useState(null);
+    const [active, setActive] = useState(
+        router.query.id ? String(router.query.id) : null
+    );
     const [yearFilter, setYearFilter] = useState([]);
 
     const handleChange = (pid) => {
         setActive(active === pid ? null : pid);
+        router.push(
+            { pathname: router.pathname, query: { id: pid } },
+            undefined,
+            {
+                shallow: true,
+            }
+        );
     };
 
     const filterYear = (year) => {
@@ -66,7 +78,7 @@ const Playlists = ({ playlists, years }) => {
                 />
             </Head>
             <Layout>
-                <Drawer handleClose={setActive} active={!!active}>
+                <Drawer handleClose={handleChange} active={!!active}>
                     {active && <PlaylistDetails pid={active || null} />}
                 </Drawer>
                 {/* <PlaylistDetailsV2

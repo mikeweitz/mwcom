@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 
 interface DrawerProps {
     active: boolean;
-    handleClose: React.Dispatch<SetStateAction<null | Record<string, any>>>;
+    handleClose: React.Dispatch<SetStateAction<null | string>>;
     children?: React.ReactNode;
 }
 

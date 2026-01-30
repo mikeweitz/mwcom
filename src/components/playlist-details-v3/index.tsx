@@ -8,7 +8,10 @@ import { useScrollContext } from '@mw/components/scrollContext';
 import { fetchPlaylist } from '@mw/helpers/fetch-playlist';
 import { PlaylistData } from '@mw/types';
 
+import { TrackList } from './tracklist';
+
 import styles from './styles.module.scss';
+import { CoverImage } from './cover-image';
 
 type PlaylistDetailsProps = {
     pid: string;
@@ -42,7 +45,7 @@ const PlaylistDetails = ({ pid }: PlaylistDetailsProps) => {
     }, [data]);
 
     const { id, images, title, tracks, external_urls } = data || {};
-    const link =
+    const link: string =
         external_urls?.spotify ||
         (id && `https://open.spotify.com/playlist/${id}`);
 
@@ -58,54 +61,16 @@ const PlaylistDetails = ({ pid }: PlaylistDetailsProps) => {
                         </a>
                     </div>
 
-                    <div
-                        className={styles.cover}
+                    <CoverImage
                         onMouseEnter={() => setHoverPlay(true)}
                         onMouseLeave={() => setHoverPlay(false)}
-                    >
-                        <a
-                            className={styles['cover-link']}
-                            href={link}
-                            target="spotify"
-                        >
-                            <span
-                                className={cx(styles['play-wrapper'], {
-                                    [styles.hover]: hoverPlay,
-                                })}
-                            >
-                                <Play fill={colors.neonGreen} />
-                            </span>
-                            {images && images[0] && (
-                                <img
-                                    className={styles['cover-img']}
-                                    src={images[0].url}
-                                />
-                            )}
-                        </a>
-                    </div>
+                        link={link}
+                        hoverPlay={hoverPlay}
+                        images={images}
+                    />
 
                     <div className={styles.songs}>
-                        <ol className={styles['track-list']}>
-                            {tracks?.map((t) => {
-                                return (
-                                    <li className={styles.track} key={t.url}>
-                                        <a
-                                            className={styles['track-link']}
-                                            href={t.url}
-                                            target="spotify"
-                                        >
-                                            <strong>{t.title}</strong>
-                                            <br />
-                                            {t.artist && (
-                                                <span className={styles.artist}>
-                                                    {t.artist || 'unknown'}
-                                                </span>
-                                            )}
-                                        </a>
-                                    </li>
-                                );
-                            })}
-                        </ol>
+                        <TrackList tracks={tracks} />
                     </div>
 
                     <div className={styles.action}>
