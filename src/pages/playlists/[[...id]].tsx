@@ -31,16 +31,21 @@ export const getServerSideProps = async () => {
 
 const Playlists = ({ playlists, years }) => {
     const router = useRouter();
-
     // sort years descending
     years.sort((a: number, b: number) => b - a);
-    const [active, setActive] = useState(
+    const [active, setActive] = useState<string | null>(
         router.query.id ? String(router.query.id) : null
+    );
+    console.log(
+        'router.query.id',
+        router.query.id,
+        String(router.query.id),
+        active
     );
     const [yearFilter, setYearFilter] = useState([]);
 
     const handleChange = (pid) => {
-        setActive(active === pid ? null : pid);
+        console.log('handleChange pid', pid);
         router.push(
             { pathname: router.pathname, query: { id: pid } },
             undefined,
@@ -48,6 +53,7 @@ const Playlists = ({ playlists, years }) => {
                 shallow: true,
             }
         );
+        setActive(pid === null || active === pid ? null : pid);
     };
 
     const filterYear = (year) => {
@@ -135,9 +141,9 @@ const Playlists = ({ playlists, years }) => {
                                     className={styles['playlist-wrap']}
                                     key={p.id}
                                 >
+                                    {active === p.id && 'active'}
                                     <CardById
                                         active={p.id === active}
-                                        key={p.id}
                                         id={p.id}
                                         name={p.name}
                                         image={p.image}
