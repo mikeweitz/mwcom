@@ -1,9 +1,16 @@
 import cx from 'classnames';
-import { Handshake, GitPullRequestArrow, ListMusic, Mail } from 'lucide-react';
+import {
+    Handshake,
+    GitPullRequestArrow,
+    ListMusic,
+    Mail,
+    BookOpen,
+} from 'lucide-react';
 
 import styles from './styles.module.scss';
 
 const Navigation = ({
+    blog,
     email,
     github,
     linkedin,
@@ -28,6 +35,10 @@ const Navigation = ({
                 <GitPullRequestArrow size={size} strokeWidth={stroke} />
                 <span className={styles['link-span']}>{github.text}</span>
             </a>
+            <a className={styles.link} href={github.url}>
+                <GitPullRequestArrow size={size} strokeWidth={stroke} />
+                <span className={styles['link-span']}>{github.text}</span>
+            </a>
             <a className={styles.link} href={linkedin.url}>
                 <Handshake size={size} strokeWidth={stroke} />
                 <span className={styles['link-span']}>{linkedin.text}</span>
@@ -35,6 +46,10 @@ const Navigation = ({
             <a className={styles.link} href={playlists.url}>
                 <ListMusic size={size} strokeWidth={stroke} />
                 <span className={styles['link-span']}>{playlists.text}</span>
+            </a>
+            <a className={styles.link} href={blog.url}>
+                <BookOpen size={size} strokeWidth={stroke} />
+                <span className={styles['link-span']}>{blog.text}</span>
             </a>
         </address>
     );

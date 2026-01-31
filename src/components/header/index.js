@@ -28,7 +28,8 @@ const Header = () => {
     };
 
     const {
-        header: { title, email, github, linkedin, playlists },
+        header: { title, email, github, linkedin, playlists, blog },
+        header,
     } = copy;
 
     return (
@@ -84,9 +85,16 @@ const Header = () => {
                         [styles.scrolled]: scroll.isScrolled,
                     })}
                 >
-                    <Title name={title} />
+                    <Title name={header.title} />
                     <Navigation
-                        {...{ email, github, linkedin, playlists, showMenu }}
+                        {...{
+                            email,
+                            github,
+                            linkedin,
+                            playlists,
+                            blog,
+                            showMenu,
+                        }}
                     />
                 </div>
 
@@ -97,7 +105,14 @@ const Header = () => {
                 >
                     <Title name={title} small={true} />
                     <Navigation
-                        {...{ email, github, linkedin, playlists, showMenu }}
+                        {...{
+                            email,
+                            github,
+                            linkedin,
+                            playlists,
+                            blog,
+                            showMenu,
+                        }}
                     />
                 </div>
 

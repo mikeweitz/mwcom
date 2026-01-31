@@ -2,23 +2,17 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
 import Navigation from './navigation';
+import { copy } from '@mw/data/copy';
 
 const navItem = { url: 'http://www.google.com', text: 'test' };
 
-const NavProps = {
-    email: { address: 'x', domain: 'y.com' },
-    github: navItem,
-    linkedin: navItem,
-    playlists: navItem,
-};
-
 describe('Nav', () => {
     it('renders links', () => {
-        render(<Navigation {...NavProps} />);
+        render(<Navigation {...copy.header} />);
 
         // get array of links
         const links = screen.getAllByRole('link');
-        expect(links).toHaveLength(Object.entries(NavProps).length);
+        expect(links).toHaveLength(Object.entries(copy.header).length);
         links.forEach((link) => expect(link).toBeInTheDocument());
     });
 });

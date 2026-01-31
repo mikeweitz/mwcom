@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import Header from '../components/header/index';
+import Header from '@mw/components/header';
 import { ScrollProvider } from '@mw/components/scrollContext';
 
 it('renders page header unchanged', () => {

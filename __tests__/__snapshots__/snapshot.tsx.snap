@@ -117,6 +117,49 @@ exports[`renders page header unchanged 1`] = `
           </a>
           <a
             class="link"
+            href="https://github.com/mikeweitz"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-git-pull-request-arrow"
+              fill="none"
+              height="18"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1"
+              viewBox="0 0 24 24"
+              width="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="5"
+                cy="6"
+                r="3"
+              />
+              <path
+                d="M5 9v12"
+              />
+              <circle
+                cx="19"
+                cy="18"
+                r="3"
+              />
+              <path
+                d="m15 9-3-3 3-3"
+              />
+              <path
+                d="M12 6h5a2 2 0 0 1 2 2v7"
+              />
+            </svg>
+            <span
+              class="link-span"
+            >
+              github
+            </span>
+          </a>
+          <a
+            class="link"
             href="https://www.linkedin.com/in/mikeweitzman/"
           >
             <svg
@@ -195,6 +238,36 @@ exports[`renders page header unchanged 1`] = `
               playlists
             </span>
           </a>
+          <a
+            class="link"
+            href="/blog"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-book-open"
+              fill="none"
+              height="18"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1"
+              viewBox="0 0 24 24"
+              width="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 7v14"
+              />
+              <path
+                d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
+              />
+            </svg>
+            <span
+              class="link-span"
+            >
+              blog
+            </span>
+          </a>
         </address>
       </div>
       <div
@@ -249,6 +322,49 @@ exports[`renders page header unchanged 1`] = `
               class="link-span"
             >
               weitzly@gmail.com
+            </span>
+          </a>
+          <a
+            class="link"
+            href="https://github.com/mikeweitz"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-git-pull-request-arrow"
+              fill="none"
+              height="18"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1"
+              viewBox="0 0 24 24"
+              width="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="5"
+                cy="6"
+                r="3"
+              />
+              <path
+                d="M5 9v12"
+              />
+              <circle
+                cx="19"
+                cy="18"
+                r="3"
+              />
+              <path
+                d="m15 9-3-3 3-3"
+              />
+              <path
+                d="M12 6h5a2 2 0 0 1 2 2v7"
+              />
+            </svg>
+            <span
+              class="link-span"
+            >
+              github
             </span>
           </a>
           <a
@@ -372,6 +488,36 @@ exports[`renders page header unchanged 1`] = `
               class="link-span"
             >
               playlists
+            </span>
+          </a>
+          <a
+            class="link"
+            href="/blog"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-book-open"
+              fill="none"
+              height="18"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1"
+              viewBox="0 0 24 24"
+              width="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 7v14"
+              />
+              <path
+                d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
+              />
+            </svg>
+            <span
+              class="link-span"
+            >
+              blog
             </span>
           </a>
         </address>
