@@ -15,6 +15,33 @@ select,
 textarea {
     color: #222;
 }
+:root {
+    --main-bg-color: #33fff6;
+    --main-text-color: #111;
+    --link: #555;
+    --link-color: #555;
+    --link-hover-color: #555;
+    --gray-1: #dcdcdc;
+    --gray-2: #404040;
+
+    --black: #111;
+    --white: #eee;
+    --lime: #c6ff00;
+    --orange-peel: #ff9d00;
+    --raspberry: #ee2677;
+    --dark-raspberry: #50384b;
+    --neon-green: #2bf403;
+    --turquoise: #51e8cf;
+    --turquoise-dark: #1daf97;
+    --dark-blue: #103037;
+    --dark-blue-hover: #17515e;
+    --blue-violet: #402081;
+    --heliotrope: #ec5aff;
+    --steel-pink: #ff84e0;
+    --orange-peel-dark: #015a5d;
+    --steel-blue: #4984a8;
+    --steel-blue-light: #9ec7e0;
+}
 
 html {
     font-size: 1em;

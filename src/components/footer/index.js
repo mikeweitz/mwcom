@@ -16,25 +16,33 @@ const Footer = () => {
     };
 
     return (
-        <footer id={styles.footer}>
-            <div className={styles.row}>
-                <button className={styles['button-print']} onClick={onPrint}>
-                    <span className={styles['print-icon']}>
-                        <Print fill={colors.turquoise} />
-                    </span>
-                    Print this
-                </button>
+        <>
+            <footer id={styles.footer}>
+                <div className={styles.row}>
+                    <button
+                        className={styles['button-print']}
+                        onClick={onPrint}
+                    >
+                        <span className={styles['print-icon']}>
+                            <Print fill={colors.turquoise} />
+                        </span>
+                        Print this
+                    </button>
 
-                <button className={styles['button-top']} onClick={handleToTop}>
-                    <div className={styles.out}>
-                        <Arrow fill={colors.steelBlue} alt="Back to top" />
-                    </div>
-                    <div className={styles.over}>
-                        <Arrow fill={colors.turquoise} alt="Back to top" />
-                    </div>
-                </button>
-            </div>
-        </footer>
+                    <button
+                        className={styles['button-top']}
+                        onClick={handleToTop}
+                    >
+                        <div className={styles.out}>
+                            <Arrow fill={colors.steelBlue} alt="Back to top" />
+                        </div>
+                        <div className={styles.over}>
+                            <Arrow fill={colors.turquoise} alt="Back to top" />
+                        </div>
+                    </button>
+                </div>
+            </footer>
+        </>
     );
 };
 

@@ -35,10 +35,6 @@ const Navigation = ({
                 <GitPullRequestArrow size={size} strokeWidth={stroke} />
                 <span className={styles['link-span']}>{github.text}</span>
             </a>
-            <a className={styles.link} href={github.url}>
-                <GitPullRequestArrow size={size} strokeWidth={stroke} />
-                <span className={styles['link-span']}>{github.text}</span>
-            </a>
             <a className={styles.link} href={linkedin.url}>
                 <Handshake size={size} strokeWidth={stroke} />
                 <span className={styles['link-span']}>{linkedin.text}</span>

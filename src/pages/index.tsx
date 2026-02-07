@@ -11,11 +11,14 @@ import { positions, skills, projects } from '@mw/data';
 import Drawer from '@mw/components/drawer';
 
 import styles from './styles.module.scss';
+import Date from '@mw/components/date';
+import Link from 'next/link';
 
 export default function Sticky() {
     const [showDrawer, setShowDrawer] = useState(false);
     const [showDetail, setShowDetail] = useState(false);
     const [activeRole, setActiveRole] = useState(null);
+    const [post, setPost] = useState<Record<string, any>>(null);
 
     const scrollRef = useRef(null);
     const detailRef = useRef(null);
@@ -31,6 +34,17 @@ export default function Sticky() {
             timeoutRef.current = setTimeout(setActiveRole, 250, null);
         }
     };
+
+    useEffect(() => {
+        fetch(process.env.NEXT_PUBLIC_HOST + '/api/wp/get-posts')
+            .then((res) => {
+                res.json().then(setPost);
+            })
+            .catch((err) => {
+                console.error('error fetching posts:', err);
+            });
+    }, []);
+
     return (
         <ScrollProvider>
             <Layout>
@@ -39,6 +53,22 @@ export default function Sticky() {
                 </Drawer>
                 <div className={styles.container}>
                     <Summary />
+                    {post ? (
+                        <Link href={`/blog/${post.post.slug}`}>
+                            <div>
+                                {post.post.title}
+                                <br />
+                                <div
+                                    dangerouslySetInnerHTML={{
+                                        __html: post.post.excerpt,
+                                    }}
+                                ></div>
+                                <Date>{post.post.date}</Date>
+                            </div>
+                        </Link>
+                    ) : (
+                        <div>Loading latest post...</div>
+                    )}
                 </div>
 
                 <div

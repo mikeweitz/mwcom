@@ -1,821 +1,1087 @@
 /* Gutenberg Block Classes */
+.header {
+    margin-bottom: 2.25em;
+    padding-bottom: 1.625em;
+    border-bottom: 1px solid rgb(0 0 0 / 0.25);
+}
+
+.title {
+    margin-bottom: 0.5em;
+    color: var(--dark-blue-hover);
+    font-size: 2.5em;
+    font-weight: 900;
+}
+
+.date {
+    color: var(--gray-2);
+    // font-size: 0.875em;
+}
+
+.blog {
+    text-shadow: -1px 1px 0 rgb(255 255 255 / 0.75);
+    .box {
+        background-color: rgb(220 220 220 / 0.5);
+        border-radius: 24px;
+        margin-block: 3em;
+        padding: 2em;
+
+        @media screen and (min-width: 769px) {
+            // background-color: rgb(255, 255, 255, 0.5);
+            // border-radius: 12px;
+            // padding: 2em;
+            max-width: 150ch;
+        }
+
+        @media screen and (min-width: 1440px) {
+            // width: 82%;
+            // max-width: 1800px;
+            // margin-left: 9%;
+            // padding-right: calc(100% - 78ch);
+            margin-right: auto;
+            margin-left: 7%;
+            // max-width: 90ch;
+        }
+    }
+
+    // position: relative;
+    // max-width: 86%;
+    // margin: 0 auto;
+    // width: 100%;
+    margin-right: auto;
+    margin-left: 7%;
+    // padding-right: calc(100% - 58ch);
+    @media screen and (min-width: 480px) {
+        // max-width: 50ch; // set a max character width for better readability
+    }
+
+    @media screen and (min-width: 769px) {
+        // width: 90%;
+        margin-left: 5%;
+        // max-width: 1440px;
+        // padding-right: calc(100% - 64ch);
+        max-width: 90ch;
+    }
+
+    @media screen and (min-width: 1440px) {
+        // width: 82%;
+        // max-width: 1800px;
+        // margin-left: 9%;
+        // padding-right: calc(100% - 78ch);
+        // margin-right: auto;
+        margin-left: 7%;
+        max-width: 100ch;
+    }
+
+    :global {
+        /* Headings */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+            line-height: 1.125;
+            margin-top: 2em;
+            margin-bottom: 0.75em;
+            color: var(--gray-2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.625rem;
+        }
+
+        h4 {
+            font-size: 1.375rem;
+        }
+
+        h5 {
+            font-size: 1.125rem;
+        }
+
+        h6 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Blockquotes */
+        blockquote {
+            margin: 2em 0;
+            padding: 1.25em 1.5em;
+            border-left: 5px solid var(--steel-blue);
+            // border-left: 5px solid rgb(110 100 255 / 1);
+            border-right: 5px solid transparent;
+            background-color: rgb(80 50 125 / 0.75);
+            font-style: italic;
+            text-shadow: none;
+
+            // text-shadow: -1px 1px 0 rgb(0 0 0 / 0.5);
+            color: white;
+
+            p {
+                // margin-bottom: 0.75em;
+
+                // &:only-child,
+                // &:last-child {
+                //     margin-bottom: 0;
+                // }
+            }
+
+            cite {
+                display: block;
+                margin-top: 1em;
+                font-size: 0.875em;
+                font-style: normal;
+                color: var(--turquoise);
+
+                &::before {
+                    content: '— ';
+                }
+            }
+        }
+
+        /* Lists */
+        // ul,
+        // ol {
+        //     margin: 1.5em 0;
+        //     padding-left: 2em;
+        // }
+
+        // ul {
+        //     list-style-type: initial;
+
+        //     ul {
+        //         list-style-type: disc;
+
+        //         ul {
+        //             list-style-type: square;
+        //         }
+        //     }
+        // }
+
+        // ol {
+        //     list-style-type: decimal;
+        // }
+
+        // li {
+        //     // margin-bottom: 0.5em;
+        //     &::marker {
+        //         color: var(--dark-raspberry);
+        //     }
+        //     > ul,
+        //     > ol {
+        //         // margin-top: 0.5em;
+        //         // margin-bottom: 0.5em;
+        //     }
+        // }
+
+        /* Core Blocks */
+        .wp-block-audio {
+        }
+
+        .wp-block-button {
+        }
+
+        .wp-block-buttons {
+        }
+
+        .wp-block-calendar {
+        }
+
+        .wp-block-categories {
+        }
+
+        // generate boilerplate styles for code block
+        .wp-block-code {
+        }
+        .wp-block-syntaxhighlighter-code,
+        .wp-block-code {
+            background-color: var(--white);
+            border: 1px solid var(--gray-1);
+            border-radius: 1em;
+            padding: 1rem;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: #333;
+            overflow-x: auto;
+            // white-space: pre;
+            word-wrap: normal;
+            tab-size: 4;
+            -moz-tab-size: 4;
+            -webkit-tab-size: 4;
+            text-shadow: -1px 1px 0 rgb(255 255 255);
+            // background-color: #2d3748;
+            // background-color: #11201c;
+            // border-color: #4a5568;
+            // color: #e2e8f0;
+            // color: #1a202c;
+            // Dark theme variant
+
+            .tok-keyword {
+                color: #708;
+            }
+            .tok-typeName {
+                color: #085;
+            }
+            .tok-string {
+                color: #a11;
+            }
+
+            // .tok-operator {
+            //     color: #81e6d9;
+            // }
+            // .tok-number {
+            //     color: #ed64a6;
+            // }
+
+            &.is-style-dark {
+            }
+
+            // Ensure code inside is styled properly
+            code {
+                background: transparent;
+                border: none;
+                padding: 0;
+                font-family: inherit;
+                font-size: inherit;
+                line-height: inherit;
+                color: inherit;
+            }
+
+            // Responsive adjustments
+            @media (max-width: 768px) {
+                font-size: 0.8rem;
+                padding: 0.75rem;
+            }
+        }
+
+        .wp-block-column {
+        }
+
+        .wp-block-columns {
+        }
+
+        .wp-block-cover {
+        }
+
+        .wp-block-embed {
+        }
+
+        .wp-block-file {
+        }
+
+        .wp-block-gallery {
+        }
+
+        .wp-block-group {
+        }
+
+        .wp-block-heading {
+        }
+
+        .wp-block-html {
+        }
+
+        .wp-block-image {
+        }
+
+        .wp-block-latest-comments {
+        }
+
+        .wp-block-latest-posts {
+        }
+
+        .wp-block-list {
+        }
+
+        .wp-block-media-text {
+        }
+
+        .wp-block-navigation {
+        }
+
+        .wp-block-page-list {
+        }
+
+        .wp-block-paragraph {
+        }
+
+        .wp-block-preformatted {
+        }
+
+        .wp-block-pullquote {
+        }
+
+        .wp-block-quote {
+        }
+
+        .wp-block-rss {
+        }
+
+        .wp-block-search {
+        }
+
+        .wp-block-separator {
+            border-color: rgb(0 0 0 / 0.25);
+        }
+
+        .wp-block-shortcode {
+        }
+
+        .wp-block-social-links {
+        }
+
+        .wp-block-spacer {
+        }
+
+        .wp-block-table {
+        }
+
+        .wp-block-tag-cloud {
+        }
+
+        .wp-block-text-columns {
+        }
+
+        .wp-block-verse {
+        }
+
+        .wp-block-video {
+        }
+
+        .wp-block-widget-group {
+        }
+
+        /* WordPress alignment classes */
+        .alignleft {
+            float: left;
+            margin-right: 1.5em;
+            margin-bottom: 1em;
+        }
+
+        .alignright {
+            float: right;
+            margin-left: 1.5em;
+            margin-bottom: 1em;
+        }
+
+        .aligncenter {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .alignwide {
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .alignfull {
+            max-width: 100%;
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            margin-right: calc(50% - 50vw);
+        }
+
+        /* Text Alignment Classes */
+        .has-text-align-center {
+        }
+
+        .has-text-align-justify {
+        }
+
+        .has-text-align-left {
+        }
+
+        .has-text-align-right {
+        }
+
+        /* Color Background Classes */
+        .has-background {
+        }
+
+        .has-black-background-color {
+        }
+
+        .has-white-background-color {
+        }
+
+        .has-gray-background-color {
+        }
+
+        .has-red-background-color {
+        }
+
+        .has-orange-background-color {
+        }
+
+        .has-yellow-background-color {
+        }
+
+        .has-green-background-color {
+        }
+
+        .has-blue-background-color {
+        }
+
+        .has-purple-background-color {
+        }
+
+        .has-pink-background-color {
+        }
+
+        /* Text Color Classes */
+        .has-text-color {
+        }
+
+        .has-black-color {
+        }
+
+        .has-white-color {
+        }
 
-/* Core Blocks */
-.wp-block-audio {
-}
-
-.wp-block-button {
-}
-
-.wp-block-buttons {
-}
-
-.wp-block-calendar {
-}
-
-.wp-block-categories {
-}
-
-.wp-block-code {
-}
-
-.wp-block-column {
-}
-
-.wp-block-columns {
-}
-
-.wp-block-cover {
-}
-
-.wp-block-embed {
-}
-
-.wp-block-file {
-}
-
-.wp-block-gallery {
-}
-
-.wp-block-group {
-}
-
-.wp-block-heading {
-}
-
-.wp-block-html {
-}
-
-.wp-block-image {
-}
-
-.wp-block-latest-comments {
-}
-
-.wp-block-latest-posts {
-}
-
-.wp-block-list {
-}
-
-.wp-block-media-text {
-}
-
-.wp-block-navigation {
-}
-
-.wp-block-page-list {
-}
-
-.wp-block-paragraph {
-}
-
-.wp-block-preformatted {
-}
-
-.wp-block-pullquote {
-}
-
-.wp-block-quote {
-}
-
-.wp-block-rss {
-}
-
-.wp-block-search {
-}
-
-.wp-block-separator {
-}
-
-.wp-block-shortcode {
-}
-
-.wp-block-social-links {
-}
-
-.wp-block-spacer {
-}
-
-.wp-block-table {
-}
-
-.wp-block-tag-cloud {
-}
-
-.wp-block-text-columns {
-}
-
-.wp-block-verse {
-}
-
-.wp-block-video {
-}
-
-.wp-block-widget-group {
-}
-
-/* Alignment Classes */
-.aligncenter {
-}
-
-.alignleft {
-}
+        .has-gray-color {
+        }
+
+        .has-red-color {
+        }
+
+        .has-orange-color {
+        }
+
+        .has-yellow-color {
+        }
 
-.alignright {
-}
-
-.alignwide {
-}
-
-.alignfull {
-}
-
-/* Text Alignment Classes */
-.has-text-align-center {
-}
-
-.has-text-align-justify {
-}
-
-.has-text-align-left {
-}
-
-.has-text-align-right {
-}
-
-/* Color Background Classes */
-.has-background {
-}
-
-.has-black-background-color {
-}
-
-.has-white-background-color {
-}
-
-.has-gray-background-color {
-}
-
-.has-red-background-color {
-}
-
-.has-orange-background-color {
-}
-
-.has-yellow-background-color {
-}
-
-.has-green-background-color {
-}
-
-.has-blue-background-color {
-}
-
-.has-purple-background-color {
-}
-
-.has-pink-background-color {
-}
-
-/* Text Color Classes */
-.has-text-color {
-}
-
-.has-black-color {
-}
+        .has-green-color {
+        }
 
-.has-white-color {
-}
-
-.has-gray-color {
-}
-
-.has-red-color {
-}
-
-.has-orange-color {
-}
-
-.has-yellow-color {
-}
-
-.has-green-color {
-}
-
-.has-blue-color {
-}
-
-.has-purple-color {
-}
+        .has-blue-color {
+        }
+
+        .has-purple-color {
+        }
+
+        .has-pink-color {
+        }
 
-.has-pink-color {
-}
-
-/* Font Size Classes */
-.has-extra-small-font-size {
-}
+        /* Font Size Classes */
+        .has-extra-small-font-size {
+        }
 
-.has-small-font-size {
-}
+        .has-small-font-size {
+        }
 
-.has-normal-font-size {
-}
+        .has-normal-font-size {
+        }
 
-.has-medium-font-size {
-}
+        .has-medium-font-size {
+        }
 
-.has-large-font-size {
-}
+        .has-large-font-size {
+        }
 
-.has-extra-large-font-size {
-}
+        .has-extra-large-font-size {
+        }
 
-.has-huge-font-size {
-}
+        .has-huge-font-size {
+        }
 
-.has-gigantic-font-size {
-}
+        .has-gigantic-font-size {
+        }
 
-/* Block Style Variants */
-.is-style-default {
-}
+        /* Block Style Variants */
+        .is-style-default {
+        }
 
-.is-style-outline {
-}
+        .is-style-outline {
+        }
 
-.is-style-squared {
-}
+        .is-style-squared {
+        }
 
-.is-style-rounded {
-}
+        .is-style-rounded {
+        }
 
-.is-style-circle {
-}
+        .is-style-circle {
+        }
 
-/* Responsive Utility Classes */
-.wp-mobile-hidden {
-}
+        /* Responsive Utility Classes */
+        .wp-mobile-hidden {
+        }
 
-.wp-tablet-hidden {
-}
+        .wp-tablet-hidden {
+        }
 
-.wp-desktop-hidden {
-}
+        .wp-desktop-hidden {
+        }
 
-/* Additional Utility Classes */
-.wp-block-group.has-background {
-}
+        /* Additional Utility Classes */
+        .wp-block-group.has-background {
+        }
 
-.wp-block-cover.has-background {
-}
+        .wp-block-cover.has-background {
+        }
 
-.wp-block-media-text.has-background {
-}
+        .wp-block-media-text.has-background {
+        }
 
-.wp-block-columns.has-background {
-}
+        .wp-block-columns.has-background {
+        }
 
-/* Quote Specific */
-.wp-block-quote__citation {
-}
+        /* Quote Specific */
+        .wp-block-quote__citation {
+        }
 
-.wp-block-pullquote__citation {
-}
+        .wp-block-pullquote__citation {
+        }
 
-/* List Specific */
-.wp-block-list-item {
-}
+        /* List Specific */
+        .wp-block-list-item {
+        }
 
-/* Gallery Specific */
-.wp-block-gallery-item {
-}
+        /* Gallery Specific */
+        .wp-block-gallery-item {
+        }
 
-/* Image Specific */
-.wp-block-image figcaption {
-}
+        /* Image Specific */
+        .wp-block-image figcaption {
+        }
 
-.wp-block-image img {
-}
+        .wp-block-image img {
+        }
 
-/* Button Specific */
-.wp-block-button__link {
-}
+        /* Button Specific */
+        .wp-block-button__link {
+        }
 
-/* Navigation Specific */
-.wp-block-navigation__container {
-}
+        /* Navigation Specific */
+        .wp-block-navigation__container {
+        }
 
-.wp-block-navigation-item {
-}
+        .wp-block-navigation-item {
+        }
 
-.wp-block-navigation-link {
-}
+        .wp-block-navigation-link {
+        }
 
-/* Social Links Specific */
-.wp-block-social-links-item {
-}
+        /* Social Links Specific */
+        .wp-block-social-links-item {
+        }
 
-.wp-block-social-link {
-}
+        .wp-block-social-link {
+        }
 
-/* Table Specific */
-.wp-block-table th {
-}
+        /* Table Specific */
+        .wp-block-table th {
+        }
 
-.wp-block-table td {
-}
+        .wp-block-table td {
+        }
 
-.wp-block-table tbody {
-}
+        .wp-block-table tbody {
+        }
 
-.wp-block-table thead {
-}
+        .wp-block-table thead {
+        }
 
-.wp-block-table tfoot {
-}
+        .wp-block-table tfoot {
+        }
 
-/* Embed Specific */
-.wp-block-embed__wrapper {
-}
+        /* Embed Specific */
+        .wp-block-embed__wrapper {
+        }
 
-/* File Specific */
-.wp-block-file__button {
-}
+        /* File Specific */
+        .wp-block-file__button {
+        }
 
-/* Search Specific */
-.wp-block-search__input {
-}
+        /* Search Specific */
+        .wp-block-search__input {
+        }
 
-.wp-block-search__button {
-}
+        .wp-block-search__button {
+        }
 
-/* Latest Posts Specific */
-.wp-block-latest-posts__list {
-}
+        /* Latest Posts Specific */
+        .wp-block-latest-posts__list {
+        }
 
-.wp-block-latest-posts__list-item {
-}
+        .wp-block-latest-posts__list-item {
+        }
 
-/* Categories Specific */
-.wp-block-categories__list {
-}
+        /* Categories Specific */
+        .wp-block-categories__list {
+        }
 
-.wp-block-categories__list-item {
-}
+        .wp-block-categories__list-item {
+        }
 
-/* Tag Cloud Specific */
-.wp-block-tag-cloud__tag {
-}
+        /* Tag Cloud Specific */
+        .wp-block-tag-cloud__tag {
+        }
 
-/* Calendar Specific */
-.wp-block-calendar table {
-}
+        /* Calendar Specific */
+        .wp-block-calendar table {
+        }
 
-.wp-block-calendar th {
-}
+        .wp-block-calendar th {
+        }
 
-.wp-block-calendar td {
-}
+        .wp-block-calendar td {
+        }
 
-/* RSS Specific */
-.wp-block-rss__item {
-}
+        /* RSS Specific */
+        .wp-block-rss__item {
+        }
 
-.wp-block-rss__item-title {
-}
+        .wp-block-rss__item-title {
+        }
 
-.wp-block-rss__item-excerpt {
-}
+        .wp-block-rss__item-excerpt {
+        }
 
-/* HTML Specific */
-.wp-block-html textarea {
-}
+        /* HTML Specific */
+        .wp-block-html textarea {
+        }
 
-/* Shortcode Specific */
-.wp-block-shortcode {
-}
+        /* Shortcode Specific */
+        .wp-block-shortcode {
+        }
 
-/* Verse Specific */
-.wp-block-verse pre {
-}
+        /* Verse Specific */
+        .wp-block-verse pre {
+        }
 
-/* Code Specific */
-.wp-block-code code {
-}
+        /* Code Specific */
+        .wp-block-code code {
+        }
 
-/* Preformatted Specific */
-.wp-block-preformatted pre {
-}
+        /* Preformatted Specific */
+        .wp-block-preformatted pre {
+        }
 
-/* Text Columns Specific */
-.wp-block-text-columns {
-}
+        /* Text Columns Specific */
+        .wp-block-text-columns {
+        }
 
-.wp-block-text-columns .wp-block-text-columns__column {
-}
+        .wp-block-text-columns .wp-block-text-columns__column {
+        }
 
-/* Widget Group Specific */
-.wp-block-widget-group__inner-blocks {
-}
+        /* Widget Group Specific */
+        .wp-block-widget-group__inner-blocks {
+        }
 
-/* Additional Common Classes */
-.wp-block {
-}
+        /* Additional Common Classes */
+        .wp-block {
+        }
 
-.wp-block[data-align="left"] {
-}
+        .wp-block[data-align='left'] {
+        }
 
-.wp-block[data-align="center"] {
-}
+        .wp-block[data-align='center'] {
+        }
 
-.wp-block[data-align="right"] {
-}
+        .wp-block[data-align='right'] {
+        }
 
-.wp-block[data-align="wide"] {
-}
+        .wp-block[data-align='wide'] {
+        }
 
-.wp-block[data-align="full"] {
-}
+        .wp-block[data-align='full'] {
+        }
 
-/* Custom Background and Text Color with Opacity */
-.has-background-dim {
-}
+        /* Custom Background and Text Color with Opacity */
+        .has-background-dim {
+        }
 
-.has-background-dim-10 {
-}
+        .has-background-dim-10 {
+        }
 
-.has-background-dim-20 {
-}
+        .has-background-dim-20 {
+        }
 
-.has-background-dim-30 {
-}
+        .has-background-dim-30 {
+        }
 
-.has-background-dim-40 {
-}
+        .has-background-dim-40 {
+        }
 
-.has-background-dim-50 {
-}
+        .has-background-dim-50 {
+        }
 
-.has-background-dim-60 {
-}
+        .has-background-dim-60 {
+        }
 
-.has-background-dim-70 {
-}
+        .has-background-dim-70 {
+        }
 
-.has-background-dim-80 {
-}
+        .has-background-dim-80 {
+        }
 
-.has-background-dim-90 {
-}
+        .has-background-dim-90 {
+        }
 
-.has-background-dim-100 {
-}
+        .has-background-dim-100 {
+        }
 
-/* Gradient Backgrounds */
-.has-background-gradient {
-}
+        /* Gradient Backgrounds */
+        .has-background-gradient {
+        }
 
-/* Specific Gradient Classes (examples) */
-.has-black-to-white-gradient-background {
-}
+        /* Specific Gradient Classes (examples) */
+        .has-black-to-white-gradient-background {
+        }
 
-.has-white-to-black-gradient-background {
-}
+        .has-white-to-black-gradient-background {
+        }
 
-/* Link Color Classes */
-.has-link-color {
-}
+        /* Link Color Classes */
+        .has-link-color {
+        }
 
-.has-black-link-color {
-}
+        .has-black-link-color {
+        }
 
-.has-white-link-color {
-}
+        .has-white-link-color {
+        }
 
-.has-gray-link-color {
-}
+        .has-gray-link-color {
+        }
 
-.has-red-link-color {
-}
+        .has-red-link-color {
+        }
 
-.has-orange-link-color {
-}
+        .has-orange-link-color {
+        }
 
-.has-yellow-link-color {
-}
+        .has-yellow-link-color {
+        }
 
-.has-green-link-color {
-}
+        .has-green-link-color {
+        }
 
-.has-blue-link-color {
-}
+        .has-blue-link-color {
+        }
 
-.has-purple-link-color {
-}
+        .has-purple-link-color {
+        }
 
-.has-pink-link-color {
-}
+        .has-pink-link-color {
+        }
 
-/* Drop Cap */
-.has-drop-cap {
-}
+        /* Drop Cap */
+        .has-drop-cap {
+        }
 
-/* Padding Classes */
-.has-padding {
-}
+        /* Padding Classes */
+        .has-padding {
+        }
 
-.has-small-padding {
-}
+        .has-small-padding {
+        }
 
-.has-medium-padding {
-}
+        .has-medium-padding {
+        }
 
-.has-large-padding {
-}
+        .has-large-padding {
+        }
 
-/* Margin Classes */
-.has-margin {
-}
+        /* Margin Classes */
+        .has-margin {
+        }
 
-.has-small-margin {
-}
+        .has-small-margin {
+        }
 
-.has-medium-margin {
-}
+        .has-medium-margin {
+        }
 
-.has-large-margin {
-}
+        .has-large-margin {
+        }
 
-/* Border Classes */
-.has-border {
-}
+        /* Border Classes */
+        .has-border {
+        }
 
-.has-black-border-color {
-}
+        .has-black-border-color {
+        }
 
-.has-white-border-color {
-}
+        .has-white-border-color {
+        }
 
-.has-gray-border-color {
-}
+        .has-gray-border-color {
+        }
 
-.has-red-border-color {
-}
+        .has-red-border-color {
+        }
 
-.has-orange-border-color {
-}
+        .has-orange-border-color {
+        }
 
-.has-yellow-border-color {
-}
+        .has-yellow-border-color {
+        }
 
-.has-green-border-color {
-}
+        .has-green-border-color {
+        }
 
-.has-blue-border-color {
-}
+        .has-blue-border-color {
+        }
 
-.has-purple-border-color {
-}
+        .has-purple-border-color {
+        }
 
-.has-pink-border-color {
-}
+        .has-pink-border-color {
+        }
 
-/* Border Radius */
-.has-border-radius {
-}
+        /* Border Radius */
+        .has-border-radius {
+        }
 
-.has-small-border-radius {
-}
+        .has-small-border-radius {
+        }
 
-.has-medium-border-radius {
-}
+        .has-medium-border-radius {
+        }
 
-.has-large-border-radius {
-}
+        .has-large-border-radius {
+        }
 
-/* Box Shadow */
-.has-box-shadow {
-}
+        /* Box Shadow */
+        .has-box-shadow {
+        }
 
-.has-small-box-shadow {
-}
+        .has-small-box-shadow {
+        }
 
-.has-medium-box-shadow {
-}
+        .has-medium-box-shadow {
+        }
 
-.has-large-box-shadow {
-}
+        .has-large-box-shadow {
+        }
 
-/* Typography Utilities */
-.has-text-decoration-none {
-}
+        /* Typography Utilities */
+        .has-text-decoration-none {
+        }
 
-.has-text-decoration-underline {
-}
+        .has-text-decoration-underline {
+        }
 
-.has-text-decoration-line-through {
-}
+        .has-text-decoration-line-through {
+        }
 
-.has-font-weight-normal {
-}
+        .has-font-weight-normal {
+        }
 
-.has-font-weight-bold {
-}
+        .has-font-weight-bold {
+        }
 
-.has-font-weight-lighter {
-}
+        .has-font-weight-lighter {
+        }
 
-.has-font-weight-bolder {
-}
+        .has-font-weight-bolder {
+        }
 
-.has-letter-spacing-normal {
-}
+        .has-letter-spacing-normal {
+        }
 
-.has-letter-spacing-tight {
-}
+        .has-letter-spacing-tight {
+        }
 
-.has-letter-spacing-wide {
-}
+        .has-letter-spacing-wide {
+        }
 
-.has-line-height-normal {
-}
+        .has-line-height-normal {
+        }
 
-.has-line-height-tight {
-}
+        .has-line-height-tight {
+        }
 
-.has-line-height-loose {
-}
+        .has-line-height-loose {
+        }
 
-/* Layout Utilities */
-.is-layout-flow {
-}
+        /* Layout Utilities */
+        .is-layout-flow {
+        }
 
-.is-layout-flex {
-}
+        .is-layout-flex {
+        }
 
-.is-layout-grid {
-}
+        .is-layout-grid {
+        }
 
-/* Responsive Text Alignment */
-.has-text-align-center-mobile {
-}
+        /* Responsive Text Alignment */
+        .has-text-align-center-mobile {
+        }
 
-.has-text-align-left-tablet {
-}
+        .has-text-align-left-tablet {
+        }
 
-.has-text-align-right-desktop {
-}
+        .has-text-align-right-desktop {
+        }
 
-/* Additional Block Variants */
-.wp-block-group.is-style-boxed {
-}
+        /* Additional Block Variants */
+        .wp-block-group.is-style-boxed {
+        }
 
-.wp-block-columns.is-style-boxed {
-}
+        .wp-block-columns.is-style-boxed {
+        }
 
-.wp-block-cover.is-style-boxed {
-}
+        .wp-block-cover.is-style-boxed {
+        }
 
-.wp-block-media-text.is-style-boxed {
-}
+        .wp-block-media-text.is-style-boxed {
+        }
 
-/* Separator Styles */
-.is-style-wide {
-}
+        /* Separator Styles */
+        .is-style-wide {
+        }
 
-.is-style-dots {
-}
+        .is-style-dots {
+        }
 
-.is-style-wide-dots {
-}
+        .is-style-wide-dots {
+        }
 
-/* Spacer Styles */
-.is-style-small {
-}
+        /* Spacer Styles */
+        .is-style-small {
+        }
 
-.is-style-medium {
-}
+        .is-style-medium {
+        }
 
-.is-style-large {
-}
+        .is-style-large {
+        }
 
-/* Button Styles */
-.is-style-fill {
-}
+        /* Button Styles */
+        .is-style-fill {
+        }
 
-.is-style-outline {
-}
+        .is-style-outline {
+        }
 
-.is-style-squared {
-}
+        .is-style-squared {
+        }
 
-.is-style-rounded {
-}
+        .is-style-rounded {
+        }
 
-.is-style-circle {
-}
+        .is-style-circle {
+        }
 
-/* Pullquote Styles */
-.is-style-default {
-}
+        /* Pullquote Styles */
+        .is-style-default {
+        }
 
-.is-style-solid-color {
-}
+        .is-style-solid-color {
+        }
 
-/* Quote Styles */
-.is-style-default {
-}
+        /* Quote Styles */
+        .is-style-default {
+        }
 
-.is-style-large {
-}
+        .is-style-large {
+        }
 
-/* Image Styles */
-.is-style-rounded {
-}
+        /* Image Styles */
+        .is-style-rounded {
+        }
 
-.is-style-circle-mask {
-}
+        .is-style-circle-mask {
+        }
 
-/* Gallery Styles */
-.is-style-masonry {
-}
+        /* Gallery Styles */
+        .is-style-masonry {
+        }
 
-.is-style-tiled {
-}
+        .is-style-tiled {
+        }
 
-/* Cover Styles */
-.is-style-center {
-}
+        /* Cover Styles */
+        .is-style-center {
+        }
 
-.is-style-center-left {
-}
+        .is-style-center-left {
+        }
 
-.is-style-center-right {
-}
+        .is-style-center-right {
+        }
 
-.is-style-left {
-}
+        .is-style-left {
+        }
 
-.is-style-right {
-}
+        .is-style-right {
+        }
 
-/* Media & Text Styles */
-.is-style-default {
-}
+        /* Media & Text Styles */
+        .is-style-default {
+        }
 
-.is-style-stack-on-mobile {
-}
+        .is-style-stack-on-mobile {
+        }
 
-/* Navigation Styles */
-.is-style-horizontal {
-}
+        /* Navigation Styles */
+        .is-style-horizontal {
+        }
 
-.is-style-vertical {
-}
+        .is-style-vertical {
+        }
 
-/* Social Links Styles */
-.is-style-logos-only {
-}
+        /* Social Links Styles */
+        .is-style-logos-only {
+        }
 
-.is-style-pill-shape {
-}
+        .is-style-pill-shape {
+        }
 
-/* Table Styles */
-.is-style-stripes {
-}
+        /* Table Styles */
+        .is-style-stripes {
+        }
 
-.is-style-regular {
-}
+        .is-style-regular {
+        }
 
-/* Latest Posts Styles */
-.is-style-grid {
-}
+        /* Latest Posts Styles */
+        .is-style-grid {
+        }
 
-.is-style-list {
-}
+        .is-style-list {
+        }
 
-/* Categories Styles */
-.is-style-list {
-}
+        /* Categories Styles */
+        .is-style-list {
+        }
 
-.is-style-dropdown {
-}
+        .is-style-dropdown {
+        }
 
-/* Tag Cloud Styles */
-.is-style-flat {
-}
+        /* Tag Cloud Styles */
+        .is-style-flat {
+        }
 
-.is-style-outline {
-}
+        .is-style-outline {
+        }
 
-/* Calendar Styles */
-.is-style-bordered {
-}
+        /* Calendar Styles */
+        .is-style-bordered {
+        }
 
-/* RSS Styles */
-.is-style-list {
-}
+        /* RSS Styles */
+        .is-style-list {
+        }
 
-.is-style-grid {
+        .is-style-grid {
+        }
+    }
 }

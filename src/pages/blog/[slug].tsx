@@ -16,6 +16,8 @@ import { ScrollProvider } from '@mw/components/scrollContext';
 // import { emptyList, tracksAdapter } from '@mw/helpers/fetch-playlist';
 
 import styles from './styles.module.scss';
+import blogStyles from './gutenberg.module.scss';
+import Date from '@mw/components/date';
 
 export const getServerSideProps = async ({ query: { slug } }) => {
     const response = await fetch(
@@ -23,7 +25,6 @@ export const getServerSideProps = async ({ query: { slug } }) => {
     );
     if (response.ok) {
         const post = await response.json();
-        console.log('post from wordpress api', post);
         return {
             props: { ...post },
         };
@@ -45,10 +46,14 @@ const Playlists = ({ title, content, date }) => {
                 <meta name="description" content="Playlists Details" />
             </Head>
             <Layout>
-                <div className={styles.container}>
-                    <h1>{title}</h1>
-                    <Date>{new Date(date).toLocaleDateString()}</Date>
-                    <div dangerouslySetInnerHTML={{ __html: content }} />
+                <div className={cx(styles.container, blogStyles.blog)}>
+                    <article className={blogStyles.box}>
+                        <header className={blogStyles.header}>
+                            <h1 className={blogStyles.title}>{title}</h1>
+                            <Date className={blogStyles.date}>{date}</Date>
+                        </header>
+                        <div dangerouslySetInnerHTML={{ __html: content }} />
+                    </article>
                 </div>
             </Layout>
         </ScrollProvider>

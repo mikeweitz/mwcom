@@ -7,6 +7,9 @@ import { ScrollProvider } from '@mw/components/scrollContext';
 import Link from 'next/link';
 
 import styles from './styles.module.scss';
+import Date from '@mw/components/date';
+import classNames from 'classnames';
+import LinkButton from '@mw/components/button/link';
 
 export const getServerSideProps = async () => {
     const response = await fetch(
@@ -14,9 +17,9 @@ export const getServerSideProps = async () => {
     );
     if (response.ok) {
         const { found, posts } = await response.json();
-        console.log('posts from wordpress api', posts);
+
         return {
-            props: { posts },
+            props: { posts, found },
         };
     }
 
@@ -29,7 +32,8 @@ export const getServerSideProps = async () => {
     };
 };
 
-export default function Blog({ posts }) {
+export default function Blog({ posts, found }) {
+    const [feature, ...roll] = posts || [];
     return (
         <ScrollProvider>
             <Head>
@@ -40,19 +44,51 @@ export default function Blog({ posts }) {
                 />
             </Head>
             <Layout>
-                <div className={styles.container}>
-                    <h1>Blog</h1>
-                    <p>Pulling data from WordPress...</p>
-                    {posts &&
-                        posts.map((post) => (
-                            <div key={post.ID}>
-                                <h2>{post.title}</h2>
-                                <Link href={`/blog/${post.slug}`}>
-                                    Read more
-                                </Link>
-                            </div>
+                <h1 className={styles['page-title']}>Blog</h1>
+                <header className={styles.feature}>
+                    <div className={styles.container}>
+                        <Link href={`/blog/${feature.slug}`}>
+                            <em>Featured Post</em>
+                            <Date className={styles.date}>{feature.date}</Date>
+                            <h2>{feature.title}</h2>
+                            <article
+                                className={styles.blurb}
+                                dangerouslySetInnerHTML={{
+                                    __html: feature.excerpt,
+                                }}
+                            />
+                        </Link>
+                    </div>
+                </header>
+                <div
+                    className={classNames(
+                        styles.container,
+                        styles['blog-index']
+                    )}
+                >
+                    {roll &&
+                        roll.map((post) => (
+                            <article
+                                key={post.ID}
+                                className={styles['blog-card']}
+                            >
+                                <span className={styles['card-contents']}>
+                                    <Date format="short">{post.date}</Date>
+                                    <h2 className={styles.title}>
+                                        {post.title}
+                                    </h2>
+                                    <LinkButton
+                                        className={styles.button}
+                                        href={`/blog/${post.slug}`}
+                                    >
+                                        Read More
+                                    </LinkButton>
+                                </span>
+                            </article>
                         ))}
-                    <div>TODO: Pagination</div>
+                    {found > posts.length && (
+                        <div>More Posts - Pagination TBD</div>
+                    )}
                 </div>
             </Layout>
         </ScrollProvider>
