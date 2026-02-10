@@ -1,15 +1,24 @@
 import { useState } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import cx from 'classnames';
 
 import Layout from '@mw/components/layout';
 import { ScrollProvider } from '@mw/components/scrollContext';
-import Link from 'next/link';
-
-import styles from './styles.module.scss';
 import Date from '@mw/components/date';
 import classNames from 'classnames';
 import LinkButton from '@mw/components/button/link';
+import { BlogHeader } from './blog-header';
+
+import styles from './styles.module.scss';
+
+export interface Post extends Record<string, any> {
+    title: string;
+    date: string;
+    excerpt?: string;
+    slug: string;
+    content: string;
+}
 
 export const getServerSideProps = async () => {
     const response = await fetch(
@@ -32,7 +41,12 @@ export const getServerSideProps = async () => {
     };
 };
 
-export default function Blog({ posts, found }) {
+interface BlogProps {
+    posts: Post[];
+    found: number;
+}
+
+export default function Blog({ posts, found }: BlogProps) {
     const [feature, ...roll] = posts || [];
     return (
         <ScrollProvider>
@@ -45,21 +59,10 @@ export default function Blog({ posts, found }) {
             </Head>
             <Layout>
                 <h1 className={styles['page-title']}>Blog</h1>
-                <header className={styles.feature}>
-                    <div className={styles.container}>
-                        <Link href={`/blog/${feature.slug}`}>
-                            <em>Featured Post</em>
-                            <Date className={styles.date}>{feature.date}</Date>
-                            <h2>{feature.title}</h2>
-                            <article
-                                className={styles.blurb}
-                                dangerouslySetInnerHTML={{
-                                    __html: feature.excerpt,
-                                }}
-                            />
-                        </Link>
-                    </div>
-                </header>
+                <BlogHeader {...feature}>
+                    <em>Featured Post</em>
+                </BlogHeader>
+
                 <div
                     className={classNames(
                         styles.container,
