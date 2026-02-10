@@ -49,7 +49,7 @@ const Layout = ({ children }) => {
             <div className={styles['content-wrap']}>
                 <Header />
                 {children}
-                <hr className={styles.divider} />
+                {/* <hr className={styles.divider} /> */}
                 <Footer />
             </div>
             <div
