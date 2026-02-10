@@ -33,7 +33,7 @@ const Header = () => {
     } = copy;
 
     return (
-        <header
+        <menu
             className={cx(styles.header, {
                 [styles.scrolled]: scroll.isScrolled,
             })}
@@ -126,7 +126,7 @@ const Header = () => {
                     </div>
                 </Link>
             </div>
-        </header>
+        </menu>
     );
 };
 export default Header;
