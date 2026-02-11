@@ -1,25 +1,11 @@
-import { useState } from 'react';
 import Head from 'next/head';
 import cx from 'classnames';
-import { ChevronsLeft } from 'lucide-react';
 import { useRouter } from 'next/router';
 
 import Layout from '@mw/components/layout';
-// import PlaylistDetails from '@mw/components/playlist-details-v3';
-// import PlaylistDetailsV2 from '@mw/components/playlist-details-v2';
-// import { CardById } from '@mw/components/playlists';
 import { ScrollProvider } from '@mw/components/scrollContext';
-// import { Close } from '@mw/components/icons';
-// import { getPlaylistFromApi } from '@mw/helpers/sheets';
-// import colors from '@mw/constants/colors';
-// import Drawer from '@mw/components/drawer';
-// import { fetchPlaylist } from '@mw/helpers/fetch-playlist';
-// import { emptyList, tracksAdapter } from '@mw/helpers/fetch-playlist';
-
-import Date from '@mw/components/date';
-import Button from '@mw/components/button';
-import { AdjacentPosts } from './adjacent-posts';
-import { BlogHeader } from './blog-header';
+import AdjacentPosts from './adjacent-posts';
+import BlogHeader from './blog-header';
 
 import styles from './styles.module.scss';
 import blogStyles from './gutenberg.module.scss';

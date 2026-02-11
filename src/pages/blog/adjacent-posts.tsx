@@ -10,7 +10,7 @@ import { Truncate } from '@mw/components/truncate';
 
 const url = process.env.NEXT_PUBLIC_HOST;
 
-export function AdjacentPosts({
+export default function AdjacentPosts({
     className,
     date,
 }: {

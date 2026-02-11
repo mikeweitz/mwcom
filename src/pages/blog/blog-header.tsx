@@ -14,7 +14,7 @@ interface BlogHeaderProps
     children?: React.ReactNode;
 }
 
-export function BlogHeader({
+export default function BlogHeader({
     className,
     children,
     slug,

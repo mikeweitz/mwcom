@@ -8,7 +8,7 @@ import { ScrollProvider } from '@mw/components/scrollContext';
 import Date from '@mw/components/date';
 import classNames from 'classnames';
 import LinkButton from '@mw/components/button/link';
-import { BlogHeader } from './blog-header';
+import BlogHeader from './blog-header';
 
 import styles from './styles.module.scss';
 
