@@ -40,14 +40,14 @@ export default function AdjacentPosts({
                         >
                             <ChevronsLeft />
                         </LinkButton>
-                        <span>{posts.prev.title}</span>
+                        <Truncate length={14}>{posts.prev.title}</Truncate>
                     </>
                 )}
             </div>
             <div className={cx(styles['post-link'], styles['next'])}>
                 {posts.next && (
                     <>
-                        <span>{posts.next.title}</span>
+                        <Truncate length={14}>{posts.next.title}</Truncate>
                         <LinkButton
                             className={styles['button-back']}
                             href={`/blog/${posts.next.slug}`}
