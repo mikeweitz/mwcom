@@ -30,23 +30,23 @@ export default function Document() {
                     property="og:image"
                     content="https://weitzly.com/share.png"
                 />
-                <link rel="icon" type="image/png" href="/logo.png" />
+                <link rel="icon" type="image/png" href="/logo.webp" />
                 <link
                     rel="apple-touch-icon-precomposed"
                     sizes="144x144"
-                    href="/logo.png"
+                    href="/logo.webp"
                 />
                 <link
                     rel="apple-touch-icon-precomposed"
                     sizes="114x114"
-                    href="/logo.png"
+                    href="/logo.webp"
                 />
                 <link
                     rel="apple-touch-icon-precomposed"
                     sizes="72x72"
-                    href="/logo.png"
+                    href="/logo.webp"
                 />
-                <link rel="apple-touch-icon-precomposed" href="/logo.png" />
+                <link rel="apple-touch-icon-precomposed" href="/logo.webp" />
                 <link rel="preload" as="image" href="/images/bg.jpg" />
             </Head>
             <body>

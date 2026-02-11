@@ -122,7 +122,7 @@ const Header = () => {
                             [styles.scrolled]: scroll.isScrolled,
                         })}
                     >
-                        <img className={styles.img} src="/logo.png" />
+                        <img className={styles.img} src="/logo.webp" />
                     </div>
                 </Link>
             </div>
