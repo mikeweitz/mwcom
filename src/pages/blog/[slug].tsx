@@ -43,20 +43,20 @@ const BlogPost = ({ title, content, date, excerpt, slug }) => {
             </Head>
             <Layout>
                 <BlogHeader title={title} date={date}></BlogHeader>
-                <div className={cx(styles.container, blogStyles.blog)}>
+                <div
+                    className={cx(
+                        styles.container,
+                        styles.blog,
+                        blogStyles.blog
+                    )}
+                >
                     <article
-                        className={cx(
-                            blogStyles.box,
-                            blogStyles['blog-content']
-                        )}
+                        className={cx(styles.box, styles['blog-content'])}
                         dangerouslySetInnerHTML={{ __html: content }}
                     />
                     <AdjacentPosts
                         date={date}
-                        className={cx(
-                            blogStyles['adjacent-posts'],
-                            blogStyles.box
-                        )}
+                        className={cx(styles['adjacent-posts'], styles.box)}
                     />
                 </div>
             </Layout>
