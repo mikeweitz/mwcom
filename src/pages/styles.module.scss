@@ -84,6 +84,64 @@
     }
 }
 
+.summary {
+    display: grid;
+    margin-block: 38px;
+
+    @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 24px;
+    }
+}
+
+.summary-copy {
+    font-size: 1.25em;
+    color: var(--black);
+    padding-block: 1em;
+
+    @media (min-width: 768px) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    @media (min-width: 1025px) {
+        // width: 66.667%;
+    }
+
+    @media print {
+        margin-top: 12px;
+        margin-bottom: 24px;
+        // width: 75%;
+    }
+}
+
+.blog-pull {
+    padding: 1em;
+    text-shadow: none;
+    // color: var(--white);
+    // outline: 1px solid var(--turquoise);
+    border-radius: 6px;
+    background-color: hwb(from var(--neon-green) h w b / 0.325);
+
+    .heading {
+        margin: 0 0 0.5em;
+        padding-bottom: 0.5em;
+        // border-bottom: 1px solid hwb(from var(--neon-green-dark) h w b / 0.3);
+        border-bottom: 1px solid hwb(from var(--black) h w b / 0.3);
+    }
+
+    &:hover,
+    &:active,
+    &:visited {
+        // color: white;
+        text-decoration: none;
+    }
+    &:hover {
+        color: var(--black);
+        text-decoration: none;
+    }
+}
+
 .experience {
     transform: translate(0, 0);
     transition: all 1s e.$in-out-quint;

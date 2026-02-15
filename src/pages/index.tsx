@@ -51,19 +51,24 @@ export default function Sticky() {
                 <Drawer handleClose={togglePanel} active={showDrawer}>
                     {activeRole && <Detail {...activeRole} ref={detailRef} />}
                 </Drawer>
-                <div className={styles.container}>
-                    <Summary />
+                <div className={cx(styles.container, styles['summary'])}>
+                    <Summary className={styles['summary-copy']} />
                     {post ? (
-                        <Link href={`/blog/${post.post.slug}`}>
+                        <Link
+                            className={styles['blog-pull']}
+                            href={`/blog/${post.post.slug}`}
+                        >
                             <div>
-                                {post.post.title}
-                                <br />
-                                <div
+                                <h3 className={styles.heading}>
+                                    From the Blog
+                                </h3>
+                                <header>{post.post.title}</header>
+                                <Date format="short">{post.post.date}</Date>
+                                {/* <article
                                     dangerouslySetInnerHTML={{
                                         __html: post.post.excerpt,
                                     }}
-                                ></div>
-                                <Date>{post.post.date}</Date>
+                                ></article> */}
                             </div>
                         </Link>
                     ) : (
