@@ -14,7 +14,6 @@ export default async function handler(
             error: 'Invalid input',
         });
     }
-    console.log('API fetch posts around date', date);
 
     try {
         const [after, before] = await Promise.all([
@@ -35,7 +34,6 @@ export default async function handler(
         const next = await after.json();
         const prev = await before.json();
 
-        console.log('wp api resp:', { next, prev });
         return res.status(200).json({
             next: next.posts[0] || null,
             prev: prev.posts[0] || null,
