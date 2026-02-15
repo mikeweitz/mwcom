@@ -72,7 +72,7 @@
     height: 100%;
 
     .box {
-        background-color: rgb(220 220 220 / 0.625);
+        background-color: rgb(220 220 220 / 0.8);
         border-radius: 0;
         margin-block: 0;
         font-size: 20px;
@@ -83,7 +83,7 @@
         @media (min-width: 640px) {
             border-radius: 24px;
             margin-block: 2em 4em;
-            font-size: 16px;
+            font-size: 18px;
             // padding: 2em;
         }
     }

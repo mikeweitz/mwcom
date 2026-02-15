@@ -8,6 +8,7 @@ $blog-padding-x: 1.5em;
 
 .button-back {
     aspect-ratio: 1;
+    display: flex;
     border-radius: 100%;
     padding: 0.5em;
     color: var(--turquoise);
@@ -317,10 +318,12 @@ $blog-padding-x: 1.5em;
     // gap: 1em;
 
     .post-link {
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        gap: 0.75em;
+        .link {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            gap: 0.75em;
+        }
 
         &.next {
             flex-direction: row-reverse;
