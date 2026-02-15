@@ -9,6 +9,20 @@ import {
 
 import styles from './styles.module.scss';
 
+interface NavItem {
+    text: string;
+    url: string;
+}
+
+interface NavigationProps {
+    blog?: NavItem;
+    email?: NavItem;
+    github: NavItem;
+    linkedin: NavItem;
+    playlists?: NavItem;
+    showMenu: boolean;
+}
+
 const Navigation = ({
     blog,
     email,
@@ -16,7 +30,7 @@ const Navigation = ({
     linkedin,
     playlists,
     showMenu = false,
-}) => {
+}: NavigationProps) => {
     const size = 18;
     const stroke = 1;
     return (
@@ -25,19 +39,15 @@ const Navigation = ({
                 [styles['show-menu']]: showMenu,
             })}
         >
-            <a className={styles.link} href="#">
-                <Mail size={size} strokeWidth={stroke} />
-                <span className={styles['link-span']}>
-                    {email.address + email.domain}
-                </span>
-            </a>
+            {linkedin && linkedin.url && (
+                <a className={styles.link} href={linkedin.url}>
+                    <Handshake size={size} strokeWidth={stroke} />
+                    <span className={styles['link-span']}>{linkedin.text}</span>
+                </a>
+            )}
             <a className={styles.link} href={github.url}>
                 <GitPullRequestArrow size={size} strokeWidth={stroke} />
                 <span className={styles['link-span']}>{github.text}</span>
-            </a>
-            <a className={styles.link} href={linkedin.url}>
-                <Handshake size={size} strokeWidth={stroke} />
-                <span className={styles['link-span']}>{linkedin.text}</span>
             </a>
             <a className={styles.link} href={playlists.url}>
                 <ListMusic size={size} strokeWidth={stroke} />
