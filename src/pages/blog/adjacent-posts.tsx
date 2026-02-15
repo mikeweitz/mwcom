@@ -30,7 +30,7 @@ export default function AdjacentPosts({
     }, [date]);
 
     return (
-        <section className={cx(className, styles['adjacent-posts'])}>
+        <section className={cx(className)}>
             <div className={cx(styles['post-link'], styles['prev'])}>
                 {posts.prev && (
                     <>

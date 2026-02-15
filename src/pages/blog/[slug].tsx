@@ -56,7 +56,7 @@ const BlogPost = ({ title, content, date, excerpt, slug }) => {
                     />
                     <AdjacentPosts
                         date={date}
-                        className={cx(styles['adjacent-posts'], styles.box)}
+                        className={cx(styles.box, styles['adjacent-posts'])}
                     />
                 </div>
             </Layout>
