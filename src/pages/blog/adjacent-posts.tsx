@@ -7,6 +7,7 @@ import LinkButton from '@mw/components/button/link';
 import styles from './styles.module.scss';
 import blogStyles from './gutenberg.module.scss';
 import { Truncate } from '@mw/components/truncate';
+import Link from 'next/link';
 
 const url = process.env.NEXT_PUBLIC_HOST;
 
@@ -33,27 +34,30 @@ export default function AdjacentPosts({
             <div className={cx(styles['post-link'], styles['prev'])}>
                 {posts.prev && (
                     <>
-                        <LinkButton
-                            className={styles['button-back']}
-                            onClick={console.log}
+                        <Link
+                            className={styles['link']}
                             href={`/blog/${posts.prev.slug}`}
                         >
-                            <ChevronsLeft />
-                        </LinkButton>
-                        <Truncate length={14}>{posts.prev.title}</Truncate>
+                            <span className={styles['button-back']}>
+                                <ChevronsLeft />
+                            </span>
+                            <Truncate length={14}>{posts.prev.title}</Truncate>
+                        </Link>
                     </>
                 )}
             </div>
             <div className={cx(styles['post-link'], styles['next'])}>
                 {posts.next && (
                     <>
-                        <Truncate length={14}>{posts.next.title}</Truncate>
-                        <LinkButton
-                            className={styles['button-back']}
+                        <Link
+                            className={styles['link']}
                             href={`/blog/${posts.next.slug}`}
                         >
-                            <ChevronsRight />
-                        </LinkButton>
+                            <Truncate length={14}>{posts.next.title}</Truncate>
+                            <span className={styles['button-back']}>
+                                <ChevronsRight />
+                            </span>
+                        </Link>
                     </>
                 )}
             </div>

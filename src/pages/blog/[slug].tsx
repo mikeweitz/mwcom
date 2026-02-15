@@ -45,7 +45,10 @@ const BlogPost = ({ title, content, date, excerpt, slug }) => {
                 <BlogHeader title={title} date={date}></BlogHeader>
                 <div className={cx(styles.container, blogStyles.blog)}>
                     <article
-                        className={blogStyles.box}
+                        className={cx(
+                            blogStyles.box,
+                            blogStyles['blog-content']
+                        )}
                         dangerouslySetInnerHTML={{ __html: content }}
                     />
                     <AdjacentPosts

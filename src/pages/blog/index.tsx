@@ -47,7 +47,7 @@ interface BlogProps {
 }
 
 export default function Blog({ posts, found }: BlogProps) {
-    const [feature, ...roll] = posts || [];
+    // const [feature, ...roll] = posts || [];
     return (
         <ScrollProvider>
             <Head>
@@ -59,7 +59,7 @@ export default function Blog({ posts, found }: BlogProps) {
             </Head>
             <Layout>
                 <h1 className={styles['page-title']}>Blog</h1>
-                <BlogHeader {...feature}>
+                <BlogHeader className={styles['header-index']} {...posts[0]}>
                     <em>Featured Post</em>
                 </BlogHeader>
 
@@ -69,14 +69,19 @@ export default function Blog({ posts, found }: BlogProps) {
                         styles['blog-index']
                     )}
                 >
-                    {roll &&
-                        roll.map((post) => (
+                    {posts.length &&
+                        posts.map((post) => (
                             <article
                                 key={post.ID}
                                 className={styles['blog-card']}
                             >
                                 <span className={styles['card-contents']}>
-                                    <Date format="short">{post.date}</Date>
+                                    <Date
+                                        className={styles.date}
+                                        format="short"
+                                    >
+                                        {post.date}
+                                    </Date>
                                     <h2 className={styles.title}>
                                         {post.title}
                                     </h2>
@@ -86,6 +91,28 @@ export default function Blog({ posts, found }: BlogProps) {
                                     >
                                         Read More
                                     </LinkButton>
+                                    <p className={styles.tags}>
+                                        {Object.values(post.tags).map(
+                                            (
+                                                {
+                                                    name,
+                                                    ID,
+                                                }: {
+                                                    ID: number;
+                                                    name: string;
+                                                    slug: string;
+                                                },
+                                                i
+                                            ) => (
+                                                <span
+                                                    className={styles.tag}
+                                                    key={ID + '_' + i}
+                                                >
+                                                    {name}
+                                                </span>
+                                            )
+                                        )}
+                                    </p>
                                 </span>
                             </article>
                         ))}
