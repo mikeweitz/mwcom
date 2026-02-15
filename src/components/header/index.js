@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
 import cx from 'classnames';
-
-import { copy } from '../../data';
+import React, { useState } from 'react';
 import Link from 'next/link';
+
+import { copy } from '@mw/data';
 import Title from './title';
 import Navigation from './navigation';
 import { useScrollContext } from '../scrollContext';
