@@ -29,22 +29,6 @@ const Footer = () => {
                     <div>
                         &copy; mw
                         <ul className={styles['nav-list']}>
-                            {linkedin && linkedin.url && (
-                                <li>
-                                    <a
-                                        className={styles.link}
-                                        href={linkedin.url}
-                                    >
-                                        {linkedin.text}
-                                    </a>
-                                </li>
-                            )}
-                            <li>
-                                <a className={styles.link} href={github.url}>
-                                    {github.text}
-                                </a>
-                            </li>
-
                             <li>
                                 <a className={styles.link} href={playlists.url}>
                                     {playlists.text}
@@ -53,6 +37,16 @@ const Footer = () => {
                             <li>
                                 <a className={styles.link} href={blog.url}>
                                     {blog.text}
+                                </a>
+                            </li>
+                            <li>
+                                <a className={styles.link} href={linkedin.url}>
+                                    {linkedin.text}
+                                </a>
+                            </li>
+                            <li>
+                                <a className={styles.link} href={github.url}>
+                                    {github.text}
                                 </a>
                             </li>
                         </ul>

@@ -157,6 +157,12 @@
         // margin-top: auto;
         // margin-bottom: 0;
         align-self: flex-start;
+        // font-size: 0.85em;
+        font-weight: 600;
+        @media (min-width: 768px) {
+            font-size: initial;
+            font-weight: 300;
+        }
     }
 
     &:hover .button {
