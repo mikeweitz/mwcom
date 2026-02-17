@@ -8,8 +8,8 @@ import classNames from 'classnames';
 
 interface BlogHeaderProps
     extends
-        Pick<Post, 'title' | 'excerpt' | 'date'>,
-        Partial<Pick<Post, 'slug'>> {
+        Pick<Post, 'title' | 'excerpt'>,
+        Partial<Pick<Post, 'slug' | 'date'>> {
     className?: string;
     children?: React.ReactNode;
 }
@@ -27,7 +27,7 @@ export default function BlogHeader({
             <div className={styles.container}>
                 <ConditionalLink slug={slug}>
                     {children}
-                    <Date className={styles.date}>{date}</Date>
+                    {date && <Date className={styles.date}>{date}</Date>}
                     <h2>{title}</h2>
                     {excerpt && (
                         <article
