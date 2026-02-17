@@ -18,6 +18,17 @@ export interface Post extends Record<string, any> {
     excerpt?: string;
     slug: string;
     content: string;
+    tags?: Tag[];
+}
+interface Tag extends Record<string, any> {
+    ID: number;
+    name: string;
+    slug: string;
+}
+
+interface BlogProps {
+    posts: Post[];
+    found: number;
 }
 
 export const getServerSideProps = async () => {
@@ -41,11 +52,6 @@ export const getServerSideProps = async () => {
     };
 };
 
-interface BlogProps {
-    posts: Post[];
-    found: number;
-}
-
 export default function Blog({ posts, found }: BlogProps) {
     // const [feature, ...roll] = posts || [];
     return (
@@ -59,8 +65,12 @@ export default function Blog({ posts, found }: BlogProps) {
             </Head>
             <Layout>
                 <h1 className={styles['page-title']}>Blog</h1>
-                <BlogHeader className={styles['header-index']} {...posts[0]}>
-                    <em>Featured Post</em>
+                <BlogHeader
+                    className={styles['header-index']}
+                    excerpt="Sometimes they‘re about non-things."
+                    title="Thoughts about things."
+                >
+                    <em>Waiting for AI comes for my thoughts.</em>
                 </BlogHeader>
 
                 <div
@@ -91,28 +101,20 @@ export default function Blog({ posts, found }: BlogProps) {
                                     >
                                         Read More
                                     </LinkButton>
-                                    <p className={styles.tags}>
-                                        {Object.values(post.tags).map(
-                                            (
-                                                {
-                                                    name,
-                                                    ID,
-                                                }: {
-                                                    ID: number;
-                                                    name: string;
-                                                    slug: string;
-                                                },
-                                                i
-                                            ) => (
-                                                <span
-                                                    className={styles.tag}
-                                                    key={ID + '_' + i}
-                                                >
-                                                    {name}
-                                                </span>
-                                            )
-                                        )}
-                                    </p>
+                                    {post.tags && (
+                                        <p className={styles.tags}>
+                                            {Object.values(post.tags).map(
+                                                ({ name, ID }, i) => (
+                                                    <span
+                                                        className={styles.tag}
+                                                        key={ID + '_' + i}
+                                                    >
+                                                        {name}
+                                                    </span>
+                                                )
+                                            )}
+                                        </p>
+                                    )}
                                 </span>
                             </article>
                         ))}
