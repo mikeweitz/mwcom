@@ -30,23 +30,23 @@ const Footer = () => {
                         &copy; mw
                         <ul className={styles['nav-list']}>
                             <li>
-                                <a className={styles.link} href={playlists.url}>
-                                    {playlists.text}
-                                </a>
-                            </li>
-                            <li>
                                 <a className={styles.link} href={blog.url}>
                                     {blog.text}
                                 </a>
                             </li>
                             <li>
-                                <a className={styles.link} href={linkedin.url}>
-                                    {linkedin.text}
+                                <a className={styles.link} href={playlists.url}>
+                                    {playlists.text}
                                 </a>
                             </li>
                             <li>
                                 <a className={styles.link} href={github.url}>
                                     {github.text}
+                                </a>
+                            </li>
+                            <li>
+                                <a className={styles.link} href={linkedin.url}>
+                                    {linkedin.text}
                                 </a>
                             </li>
                         </ul>

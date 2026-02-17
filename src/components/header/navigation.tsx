@@ -39,13 +39,17 @@ const Navigation = ({
                 [styles['show-menu']]: showMenu,
             })}
         >
+            <a className={styles.link} href={blog.url}>
+                <BookOpen size={size} strokeWidth={stroke} />
+                <span className={styles['link-span']}>{blog.text}</span>
+            </a>
             <a className={styles.link} href={playlists.url}>
                 <ListMusic size={size} strokeWidth={stroke} />
                 <span className={styles['link-span']}>{playlists.text}</span>
             </a>
-            <a className={styles.link} href={blog.url}>
-                <BookOpen size={size} strokeWidth={stroke} />
-                <span className={styles['link-span']}>{blog.text}</span>
+            <a className={styles.link} href={github.url}>
+                <GitPullRequestArrow size={size} strokeWidth={stroke} />
+                <span className={styles['link-span']}>{github.text}</span>
             </a>
             {linkedin && linkedin.url && (
                 <a className={styles.link} href={linkedin.url}>
@@ -53,10 +57,6 @@ const Navigation = ({
                     <span className={styles['link-span']}>{linkedin.text}</span>
                 </a>
             )}
-            <a className={styles.link} href={github.url}>
-                <GitPullRequestArrow size={size} strokeWidth={stroke} />
-                <span className={styles['link-span']}>{github.text}</span>
-            </a>
         </address>
     );
 };
