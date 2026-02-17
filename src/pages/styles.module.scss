@@ -89,12 +89,15 @@
     margin-block: 38px;
 
     @media (min-width: 768px) {
-        grid-template-columns: 1fr 1fr 1fr;
+        // grid-template-columns: 1fr 1fr 1fr;
         gap: 24px;
     }
 }
 
 .summary-copy {
+    max-width: 70ch;
+    // align-items: left;
+
     font-size: 1.25em;
     color: var(--black);
     padding-block: 1em;

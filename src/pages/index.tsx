@@ -4,15 +4,13 @@ import { useEffect, useRef, useState } from 'react';
 import Layout from '@mw/components/layout';
 import Summary from '@mw/components/summary';
 import Position, { Detail } from '@mw/components/position';
-import SkillGroup from '@mw/components/skillGroup';
 import Project from '@mw/components/project';
+import SkillGroup from '@mw/components/skillGroup';
 import { ScrollProvider } from '@mw/components/scrollContext';
-import { positions, skills, projects } from '@mw/data';
 import Drawer from '@mw/components/drawer';
+import { positions, skills, projects } from '@mw/data';
 
 import styles from './styles.module.scss';
-import Date from '@mw/components/date';
-import Link from 'next/link';
 
 export default function Sticky() {
     const [showDrawer, setShowDrawer] = useState(false);
@@ -53,27 +51,6 @@ export default function Sticky() {
                 </Drawer>
                 <div className={cx(styles.container, styles['summary'])}>
                     <Summary className={styles['summary-copy']} />
-                    {post ? (
-                        <Link
-                            className={styles['blog-pull']}
-                            href={`/blog/${post.post.slug}`}
-                        >
-                            <div>
-                                <h3 className={styles.heading}>
-                                    From the Blog
-                                </h3>
-                                <header>{post.post.title}</header>
-                                <Date format="short">{post.post.date}</Date>
-                                {/* <article
-                                    dangerouslySetInnerHTML={{
-                                        __html: post.post.excerpt,
-                                    }}
-                                ></article> */}
-                            </div>
-                        </Link>
-                    ) : (
-                        <div>Loading latest post...</div>
-                    )}
                 </div>
 
                 <div
