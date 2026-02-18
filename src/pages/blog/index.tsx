@@ -52,8 +52,20 @@ export const getServerSideProps = async () => {
     };
 };
 
+const eyebrow = ['Blog Posts'];
+const titles = ['Occastionl thoguhts about things'];
+const excerpts = [
+    'Frequent thoughts about non-things',
+    'Running a personal blog is the web equivalent of collecting vinyl',
+    // 'Occastionl thoguhts about things.',
+];
+
+const reandomEle = (arr) => {
+    const index = Math.round(Math.random() * (arr.length - 1));
+    return arr[index];
+};
+
 export default function Blog({ posts, found }: BlogProps) {
-    // const [feature, ...roll] = posts || [];
     return (
         <ScrollProvider>
             <Head>
@@ -67,10 +79,10 @@ export default function Blog({ posts, found }: BlogProps) {
                 <h1 className={styles['page-title']}>Blog</h1>
                 <BlogHeader
                     className={styles['header-index']}
-                    excerpt="Sometimes they‘re about non-things."
-                    title="Thoughts about things."
+                    excerpt={reandomEle(excerpts)}
+                    title={reandomEle(titles)}
                 >
-                    <em>Waiting for AI comes for my thoughts.</em>
+                    <em>{reandomEle(eyebrow)}</em>
                 </BlogHeader>
 
                 <div
@@ -83,7 +95,12 @@ export default function Blog({ posts, found }: BlogProps) {
                         posts.map((post) => (
                             <article
                                 key={post.ID}
-                                className={styles['blog-card']}
+                                className={cx(
+                                    styles['blog-card'],
+                                    !Object.keys(post.categories).includes(
+                                        'Work'
+                                    ) && styles['blog-non-work']
+                                )}
                             >
                                 <span className={styles['card-contents']}>
                                     <Date

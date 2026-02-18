@@ -69,6 +69,13 @@ $blog-padding-x: 1.5em;
     flex-direction: column;
     justify-content: center;
     transition: all 0.25s ease-in-out;
+    background-color: rgb(255 255 255 / 0.3);
+    background-image: linear-gradient(
+        160deg,
+        var(--turquoise),
+        var(--neon-green)
+    );
+    background-blend-mode: lighten;
 
     &:hover {
         background-image: linear-gradient(
@@ -78,13 +85,25 @@ $blog-padding-x: 1.5em;
         );
         text-decoration: none;
     }
-    background-color: rgb(255 255 255 / 0.3);
-    background-image: linear-gradient(
-        160deg,
-        var(--turquoise),
-        var(--neon-green)
-    );
-    background-blend-mode: lighten;
+
+    &.blog-non-work {
+        background-color: rgb(255 255 255 / 0.3);
+        background-image: linear-gradient(
+            160deg,
+            var(--steel-pink),
+            var(--steel-blue-light)
+        );
+
+        &:hover {
+            background-image: linear-gradient(
+                160deg,
+                var(--steel-pink),
+                var(--blue-violet)
+            );
+            text-decoration: none;
+        }
+    }
+
     transform: rotate(-5deg) skew(-5deg);
 
     .card-contents {
@@ -94,6 +113,7 @@ $blog-padding-x: 1.5em;
     .date {
         text-transform: uppercase;
     }
+
     .title {
         margin: 0 0 0.825em;
         line-height: 0.9;
@@ -207,6 +227,8 @@ $blog-padding-x: 1.5em;
     // featured post title
     h2 {
         font-family: 'Barlow Semi Condensed', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: -1.25px;
         color: var(--gray-2);
         font-size: 38px;
         line-height: 1em;
@@ -378,6 +400,10 @@ $blog-padding-x: 1.5em;
     &:before {
         content: 'tags: ';
         color: var(--gray-2);
+    }
+
+    .blog-non-work & {
+        border-top: 1px solid hwb(from var(--blue-violet) h w b / 0.2);
     }
 }
 

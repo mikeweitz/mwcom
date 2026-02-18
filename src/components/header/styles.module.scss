@@ -206,7 +206,7 @@
 }
 
 .title-link {
-    // display: inline-block;
+    display: none;
     color: colors.$heliotrope; // #EC5AFF;
     text-decoration: none;
     text-shadow: 1px 1px 0 #111;
@@ -224,6 +224,10 @@
     &:hover {
         text-shadow: 0 0 2px colors.$steelBlue;
         text-decoration: none;
+    }
+
+    @media (min-width: 768px) {
+        display: initial;
     }
 }
 
