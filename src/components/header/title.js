@@ -3,7 +3,7 @@ import cx from 'classnames';
 
 import styles from './styles.module.scss';
 
-const Title = ({ name = '', small = false }) => {
+const Title = ({ name = '', small = false, allowFocus = true }) => {
     // const initials = name
     //     .split(' ')
     //     .map((part) => part.charAt(0))
@@ -15,7 +15,11 @@ const Title = ({ name = '', small = false }) => {
                 [styles['title-small']]: small,
             })}
         >
-            <Link className={styles['title-link']} href="/">
+            <Link
+                className={styles['title-link']}
+                href="/"
+                tabIndex={allowFocus ? 0 : -1}
+            >
                 {small ? (
                     <span className={styles.initials}>
                         <svg

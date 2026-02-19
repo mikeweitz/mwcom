@@ -6,11 +6,13 @@ import { copy } from '@mw/data';
 import Title from '@mw/components/header/title';
 import Navigation from '@mw/components/header/navigation';
 import { useScrollContext } from '@mw/components/scrollContext';
+import useMatchMedia from '@mw/hooks/use-match-media';
 
 import styles from './styles.module.scss';
 
 const Header = () => {
-    const scroll = useScrollContext();
+    const { isScrolled } = useScrollContext();
+    const { isMobile } = useMatchMedia();
 
     const [showMenu, setShowMenu] = useState(false);
 
@@ -22,13 +24,13 @@ const Header = () => {
     return (
         <menu
             className={cx(styles.header, {
-                [styles.scrolled]: scroll.isScrolled,
+                [styles.scrolled]: isScrolled,
             })}
             id="header"
         >
             <div
                 className={cx(styles.overflow, {
-                    [styles.scrolled]: scroll.isScrolled,
+                    [styles.scrolled]: isScrolled,
                 })}
             >
                 <button
@@ -69,11 +71,15 @@ const Header = () => {
 
                 <div
                     className={cx(styles['page-top'], {
-                        [styles.scrolled]: scroll.isScrolled,
+                        [styles.scrolled]: isScrolled,
                     })}
                 >
-                    <Title name={header.title} />
+                    <Title
+                        name={header.title}
+                        allowFocus={!isScrolled && !isMobile}
+                    />
                     <Navigation
+                        allowFocus={!isScrolled && !isMobile}
                         {...{
                             email,
                             github,
@@ -87,11 +93,16 @@ const Header = () => {
 
                 <div
                     className={cx(styles['page-scrolled'], {
-                        [styles.scrolled]: scroll.isScrolled,
+                        [styles.scrolled]: isScrolled,
                     })}
                 >
-                    <Title name={title} small={true} />
+                    <Title
+                        name={title}
+                        small={true}
+                        allowFocus={isScrolled || isMobile}
+                    />
                     <Navigation
+                        allowFocus={isScrolled || isMobile}
                         {...{
                             email,
                             github,
@@ -103,10 +114,10 @@ const Header = () => {
                     />
                 </div>
 
-                <Link href="/" passHref>
+                <Link href="/" passHref tabIndex={-1}>
                     <div
                         className={cx(styles.logo, {
-                            [styles.scrolled]: scroll.isScrolled,
+                            [styles.scrolled]: isScrolled,
                         })}
                     >
                         <img className={styles.img} src="/logo.webp" />

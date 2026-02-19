@@ -203,6 +203,12 @@
             padding-top: 0.625em;
         }
     }
+
+    a:focus {
+        outline-offset: 3px;
+        border-radius: 2px;
+        outline: 2px solid var(--heliotrope);
+    }
 }
 
 .title-link {
@@ -288,40 +294,41 @@
     display: block;
     padding: 1.5em 0 1.5em 64px;
     border-bottom: 1px solid colors.$darkBlueHover;
+    border-radius: 1px;
+    outline-offset: 2px;
 
     &:link,
     &:active,
     &:focus,
     &:hover {
-        color: colors.$turquoise;
+        color: var(--turquoise);
     }
 
     &:hover,
     &:focus {
-        color: colors.$turquoise;
-        text-decoration: underline;
-        outline: none;
-    }
-
-    &:link {
-        // color: colors.$steelBlue;
+        .link-span:after {
+            visibility: visible;
+            transform: scaleX(1);
+            transition-duration: 0.4s;
+            transition-delay: 0;
+        }
     }
 
     &:hover {
-        color: colors.$turquoise;
         background-color: colors.$darkBlue;
         text-decoration: none;
         padding: 1.5em 0 1.5em 84px;
     }
 
     &:focus {
-        color: #2bf403;
         text-decoration: none;
+        outline: 2px solid var(--turquoise);
     }
 
     @media screen and (min-width: 768px) {
         font-size: 16px;
         display: inline;
+        padding: 1.5em 0 1.5em 0;
         padding: 0;
         border-bottom: none;
         text-index: 0;
@@ -332,7 +339,7 @@
             // color: colors.$turquoise;
             background-color: transparent;
             text-decoration: none;
-            padding: 1.5em 0 1.5em 0;
+            padding: 0;
         }
     }
 
@@ -370,12 +377,12 @@
         transition-timing-function: easing.$out-expo;
     }
 
-    &:hover:after {
-        visibility: visible;
-        transform: scaleX(1);
-        transition-duration: 0.4s;
-        transition-delay: 0;
-    }
+    // &:hover & &:after {
+    //     visibility: visible;
+    //     transform: scaleX(1);
+    //     transition-duration: 0.4s;
+    //     transition-delay: 0;
+    // }
 
     @media screen and (min-width: 768px) {
         margin-right: 25px;
