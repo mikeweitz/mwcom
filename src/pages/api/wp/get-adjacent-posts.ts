@@ -13,7 +13,7 @@ export default async function handler(
 
     if (!date) {
         console.log('ERROR no date sent!', req.body);
-        return res.status(200).json({
+        return res.status(500).json({
             invalid: 'Invalid input',
         });
     }
@@ -48,13 +48,8 @@ export default async function handler(
             ),
         ]);
 
-        const next = after.headers.get('content-type').includes('json')
-            ? await after.json()
-            : await after.text();
-
-        const prev = before.headers.get('content-type').includes('json')
-            ? await before.json()
-            : await before.text();
+        const next = await after.json();
+        const prev = await before.json();
 
         console.log('results:', { next, prev });
 

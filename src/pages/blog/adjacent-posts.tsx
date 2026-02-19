@@ -23,60 +23,25 @@ export default function AdjacentPosts({
 
     useEffect(() => {
         if (inViewport) {
-            const params = new URLSearchParams(window.location.search);
-            if (params.get('ssr')) {
-                console.log('query api route...');
-                fetch(new URL(url + '/api/wp/get-adjacent-posts'), {
-                    method: 'POST',
-                    body: JSON.stringify({ date }),
+            fetch(new URL(url + '/api/wp/get-adjacent-posts'), {
+                method: 'POST',
+                body: JSON.stringify({ date }),
+            })
+                .then((res) => {
+                    if (res.headers.get('content-type').includes('json')) {
+                        return res.json();
+                    } else {
+                        return res.text();
+                    }
                 })
-                    .then((res) => {
-                        console.log('server response', res);
-                        if (res.headers.get('content-type').includes('json')) {
-                            return res.json();
-                        } else {
-                            return res.text();
-                        }
-                    })
-                    .then((result) => {
-                        console.log('received from api:', result);
-                        if (result) {
-                            setPosts(result);
-                        }
-                    })
-                    .catch((e) => {
-                        console.log('error returned server side', e);
-                    });
-            } else {
-                const fields = 'ID,title,slug,date';
-                Promise.all([
-                    fetch(
-                        new URL(
-                            process.env.NEXT_PUBLIC_WP_API_HOST +
-                                `/posts?after=${date}&number=1&fields=${fields}&order=ASC`
-                        ),
-                        {
-                            mode: 'cors',
-                        }
-                    ),
-                    fetch(
-                        new URL(
-                            process.env.NEXT_PUBLIC_WP_API_HOST +
-                                `/posts?before=${date}&number=1&fields=${fields}`
-                        ),
-                        {
-                            mode: 'cors',
-                        }
-                    ),
-                ])
-                    .then(([after, before]) =>
-                        Promise.all([after.json(), before.json()])
-                    )
-                    .then(([next, prev]) =>
-                        setPosts({ next: next.posts[0], prev: prev.posts[0] })
-                    )
-                    .catch((e) => console.error(e));
-            }
+                .then((result) => {
+                    if (result) {
+                        setPosts(result);
+                    }
+                })
+                .catch((e) => {
+                    console.log('error returned server side', e);
+                });
         }
     }, [date, inViewport]);
 
