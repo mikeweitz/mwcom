@@ -42,19 +42,11 @@ const Navigation = ({
         >
             <a
                 className={styles.link}
-                href={blog.url}
+                href={linkedin.url}
                 tabIndex={allowFocus ? 0 : -1}
             >
-                <BookOpen size={size} strokeWidth={stroke} />
-                <span className={styles['link-span']}>{blog.text}</span>
-            </a>
-            <a
-                className={styles.link}
-                href={playlists.url}
-                tabIndex={allowFocus ? 0 : -1}
-            >
-                <ListMusic size={size} strokeWidth={stroke} />
-                <span className={styles['link-span']}>{playlists.text}</span>
+                <Handshake size={size} strokeWidth={stroke} />
+                <span className={styles['link-span']}>{linkedin.text}</span>
             </a>
             <a
                 className={styles.link}
@@ -66,11 +58,19 @@ const Navigation = ({
             </a>
             <a
                 className={styles.link}
-                href={linkedin.url}
+                href={playlists.url}
                 tabIndex={allowFocus ? 0 : -1}
             >
-                <Handshake size={size} strokeWidth={stroke} />
-                <span className={styles['link-span']}>{linkedin.text}</span>
+                <ListMusic size={size} strokeWidth={stroke} />
+                <span className={styles['link-span']}>{playlists.text}</span>
+            </a>
+            <a
+                className={styles.link}
+                href={blog.url}
+                tabIndex={allowFocus ? 0 : -1}
+            >
+                <BookOpen size={size} strokeWidth={stroke} />
+                <span className={styles['link-span']}>{blog.text}</span>
             </a>
         </nav>
     );

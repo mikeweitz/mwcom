@@ -28,19 +28,10 @@ const Footer = () => {
                             <li>
                                 <a
                                     className={styles.link}
-                                    href={blog.url}
+                                    href={linkedin.url}
                                     tabIndex={0}
                                 >
-                                    {blog.text}
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    className={styles.link}
-                                    href={playlists.url}
-                                    tabIndex={0}
-                                >
-                                    {playlists.text}
+                                    {linkedin.text}
                                 </a>
                             </li>
                             <li>
@@ -55,10 +46,19 @@ const Footer = () => {
                             <li>
                                 <a
                                     className={styles.link}
-                                    href={linkedin.url}
+                                    href={blog.url}
                                     tabIndex={0}
                                 >
-                                    {linkedin.text}
+                                    {blog.text}
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    className={styles.link}
+                                    href={playlists.url}
+                                    tabIndex={0}
+                                >
+                                    {playlists.text}
                                 </a>
                             </li>
                         </ul>
