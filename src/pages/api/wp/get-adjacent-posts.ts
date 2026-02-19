@@ -20,7 +20,7 @@ export default async function handler(
             fetch(
                 new URL(
                     process.env.WORDPRESS_API_HOST +
-                        `/posts?after=${date}&number=1&fields=${fields}`
+                        `/posts?after=${date}&number=1&fields=${fields}&order=ASC`
                 )
             ),
             fetch(

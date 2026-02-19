@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import cx from 'classnames';
 import { useRouter } from 'next/router';
 
@@ -9,6 +10,14 @@ import BlogHeader from './blog-header';
 
 import styles from './styles.module.scss';
 import blogStyles from './gutenberg.module.scss';
+
+const LazyAdjacent = dynamic(() => import('@mw/pages/blog/adjacent-posts'), {
+    loading: () => (
+        <p className={cx(styles.box, styles['adjacent-posts'])}>
+            Loading more...
+        </p>
+    ),
+});
 
 export const getServerSideProps = async ({ query: { slug } }) => {
     const response = await fetch(
@@ -54,7 +63,7 @@ const BlogPost = ({ title, content, date, excerpt, slug }) => {
                         className={cx(styles.box, styles['blog-content'])}
                         dangerouslySetInnerHTML={{ __html: content }}
                     />
-                    <AdjacentPosts
+                    <LazyAdjacent
                         date={date}
                         className={cx(styles.box, styles['adjacent-posts'])}
                     />
