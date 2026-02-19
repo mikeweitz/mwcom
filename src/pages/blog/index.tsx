@@ -53,7 +53,7 @@ export const getServerSideProps = async () => {
 };
 
 const eyebrow = ['Blog Posts'];
-const titles = ['Occastionl thoguhts about things'];
+const titles = ['Occasional thoguhts about things'];
 const excerpts = [
     'Frequent thoughts about non-things',
     'Running a personal blog is the web equivalent of collecting vinyl',
