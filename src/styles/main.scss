@@ -143,14 +143,11 @@ body {
     letter-spacing: 1px;
     font-size: 18px;
     line-height: 1.625em;
-
     position: relative;
     min-width: 320px;
     width: 100%;
     padding: 0;
     margin: 0;
-    // font-family: 'Open Sans', sans-serif;
-    // font-family: 'Metrophobic', sans-serif;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     text-rendering: optimizelegibility;
@@ -218,21 +215,6 @@ body.loading::before {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
-/* .ir {
-  background-color: transparent;
-  background-repeat: no-repeat;
-  border: 0;
-  direction: ltr;
-  display: block;
-  overflow: hidden;
-  text-align: left;
-  text-indent: -999em;
-}
-
-.ir br {
-  display: none;
-} */
 
 #__next {
     display: flex;

@@ -1,4 +1,4 @@
-export const formatDate = (time: string, format?: string) => {
+export const formatDate = (time: string | number | Date, format?: string) => {
     // generate a formatted date of string using non browser APIs
     const date = new Date(time);
 

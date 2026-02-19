@@ -2,13 +2,12 @@ import Link from 'next/link';
 import cx from 'classnames';
 
 import styles from './styles.module.scss';
-import Image from 'next/image';
 
 const Title = ({ name = '', small = false }) => {
-    const initials = name
-        .split(' ')
-        .map((part) => part.charAt(0))
-        .join('');
+    // const initials = name
+    //     .split(' ')
+    //     .map((part) => part.charAt(0))
+    //     .join('');
 
     return (
         <h2

@@ -73,13 +73,13 @@ export default function Sticky() {
                             style={{
                                 transition: 'all 1s ease',
                                 gridTemplateColumns: 'repeat(3, 1fr)',
-                                ...(showDetail
-                                    ? {
-                                          transform: 'translate(35%, 0)',
-                                      }
-                                    : {
-                                          transform: 'translate(0, 0)',
-                                      }),
+                                // ...(showDetail // this was from old left push-in drawer
+                                //     ? {
+                                //           transform: 'translate(35%, 0)',
+                                //       }
+                                //     : {
+                                //           transform: 'translate(0, 0)',
+                                //       }),
                             }}
                         >
                             <div

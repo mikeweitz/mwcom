@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 
 import { copy } from '@mw/data';
-import Title from './title';
-import Navigation from './navigation';
-import { useScrollContext } from '../scrollContext';
+import Title from '@mw/components/header/title';
+import Navigation from '@mw/components/header/navigation';
+import { useScrollContext } from '@mw/components/scrollContext';
 
 import styles from './styles.module.scss';
 
@@ -13,19 +13,6 @@ const Header = () => {
     const scroll = useScrollContext();
 
     const [showMenu, setShowMenu] = useState(false);
-
-    const timer = null;
-    const toggleMenu = () => {};
-    const handleMenu = () => {
-        if (['animateIn', 'animateOut'].includes(showMenu)) {
-            return false;
-        }
-
-        const newState = showMenu === 'in' ? 'animateOut' : 'animateIn';
-        const finalState = showMenu === 'in' ? 'out' : 'in';
-        setShowMenu(newState);
-        setTimeout(() => setShowMenu(finalState), 2000);
-    };
 
     const {
         header: { title, email, github, linkedin, playlists, blog },

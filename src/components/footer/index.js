@@ -1,18 +1,14 @@
 import { ArrowBigUp, FileText, Printer } from 'lucide-react';
 import { animateScroll } from 'react-scroll';
 
-import { Print, Arrow } from '../icons';
 import colors from '@mw/constants/colors';
 import { copy } from '@mw/data';
 
 import styles from './styles.module.scss';
-import Button from '../button';
 
 const Footer = () => {
-    // const [hoverPrint, setHoverPrint] = useState(false);
-    // const [hoverArrow, setHoverArrow] = useState(false);
     const {
-        header: { title, email, github, linkedin, playlists, blog },
+        header: { github, linkedin, playlists, blog },
     } = copy;
 
     const onPrint = () =>
