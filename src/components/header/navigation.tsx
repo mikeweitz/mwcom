@@ -12,11 +12,11 @@ import styles from './styles.module.scss';
 interface NavItem {
     text: string;
     url: string;
+    icon?: string;
 }
 
 interface NavigationProps {
     blog?: NavItem;
-    email?: NavItem;
     github: NavItem;
     linkedin: NavItem;
     playlists?: NavItem;
@@ -25,7 +25,6 @@ interface NavigationProps {
 
 const Navigation = ({
     blog,
-    email,
     github,
     linkedin,
     playlists,
@@ -51,12 +50,10 @@ const Navigation = ({
                 <GitPullRequestArrow size={size} strokeWidth={stroke} />
                 <span className={styles['link-span']}>{github.text}</span>
             </a>
-            {linkedin && linkedin.url && (
-                <a className={styles.link} href={linkedin.url}>
-                    <Handshake size={size} strokeWidth={stroke} />
-                    <span className={styles['link-span']}>{linkedin.text}</span>
-                </a>
-            )}
+            <a className={styles.link} href={linkedin.url}>
+                <Handshake size={size} strokeWidth={stroke} />
+                <span className={styles['link-span']}>{linkedin.text}</span>
+            </a>
         </address>
     );
 };

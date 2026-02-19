@@ -28,26 +28,26 @@ const Title = ({ name = '', small = false }) => {
                             <g
                                 id="w"
                                 transform="rotate(180, 27.9, 11.8)"
-                                stroke-linecap="round"
-                                fill-rule="evenodd"
+                                strokeLinecap="round"
+                                fillRule="evenodd"
                                 fill="currentColor"
                             >
                                 <path
                                     d="M15.834 10.134 11.667 0.167h1.667l3.534 8.601L20.4 0.167h1.667l-4.167 9.967 4.967 11.534L31.934 0h1.866L23.666 23.667h-1.566l-5.199 -12.167 -5.234 12.167h-1.566L0 0h1.833l9.099 21.667z"
-                                    vector-effect="non-scaling-stroke"
+                                    vectorEffect="non-scaling-stroke"
                                 />
                             </g>
 
                             <g
                                 id="M"
                                 transform="translate(0, 0.39)"
-                                stroke-linecap="round"
-                                fill-rule="evenodd"
+                                strokeLinecap="round"
+                                fillRule="evenodd"
                                 fill="currentColor"
                             >
                                 <path
                                     d="M15.834 10.134 11.667 0.167h1.667l3.534 8.601L20.4 0.167h1.667l-4.167 9.967 4.967 11.534L31.934 0h1.866L23.666 23.667h-1.566l-5.199 -12.167 -5.234 12.167h-1.566L0 0h1.833l9.099 21.667z"
-                                    vector-effect="non-scaling-stroke"
+                                    vectorEffect="non-scaling-stroke"
                                 />
                             </g>
                         </svg>
