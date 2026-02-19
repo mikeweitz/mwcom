@@ -1,4 +1,3 @@
-import { CoinsIcon } from 'lucide-react';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 const fields = 'ID,title,slug,date';
@@ -7,9 +6,11 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
+    console.log('API:get=adjacent-posts', req.body);
     const { date } = JSON.parse(req.body);
 
     if (!date) {
+        console.error('no date sent');
         return res.status(500).json({
             error: 'Invalid input',
         });
@@ -39,6 +40,7 @@ export default async function handler(
             prev: prev.posts[0] || null,
         });
     } catch (e) {
+        console.error('error fetching posts', e);
         return res.status(500).json({
             error: 'Failed to fetch posts',
         });
