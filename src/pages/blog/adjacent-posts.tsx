@@ -40,6 +40,9 @@ export default function AdjacentPosts({
                     if (result) {
                         setPosts(result);
                     }
+                })
+                .catch((e) => {
+                    console.log('error returned server side', e);
                 });
         }
     }, [date, inViewport]);
