@@ -75,9 +75,15 @@
     text-shadow: none;
 
     &:hover,
+    &:visited,
+    &:focus,
     &:active {
         color: var(--turquoise);
         text-decoration: none;
+    }
+
+    &:focus {
+        outline: 1px solid inherit;
     }
 }
 
