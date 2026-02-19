@@ -22,18 +22,37 @@ export default async function handler(
                 new URL(
                     process.env.WORDPRESS_API_HOST +
                         `/posts?after=${date}&number=1&fields=${fields}&order=ASC`
-                )
+                ),
+                {
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        'Content-Type': 'application/json',
+                    },
+                }
             ),
             fetch(
                 new URL(
                     process.env.WORDPRESS_API_HOST +
                         `/posts?before=${date}&number=1&fields=${fields}`
-                )
+                ),
+                {
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        'Content-Type': 'application/json',
+                    },
+                }
             ),
         ]);
 
-        const next = await after.json();
-        const prev = await before.json();
+        const next = after.headers.get('content-type').includes('json')
+            ? await after.json()
+            : await after.text();
+
+        const prev = before.headers.get('content-type').includes('json')
+            ? await before.json()
+            : await before.text();
+
+        console.log('results:', { next, prev });
 
         return res.status(200).json({
             next: next.posts[0] || null,

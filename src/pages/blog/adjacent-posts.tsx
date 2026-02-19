@@ -23,7 +23,6 @@ export default function AdjacentPosts({
 
     useEffect(() => {
         if (inViewport) {
-            console.log('adjacent in view', inViewport, date);
             fetch(new URL(url + '/api/wp/get-adjacent-posts'), {
                 method: 'POST',
                 body: JSON.stringify({ date }),
