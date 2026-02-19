@@ -66,15 +66,13 @@ export default function AdjacentPosts({
                     }
                 ),
             ])
-                .then(([after, before]) => {
-                    console.log('after before', after, before);
-                    return Promise.all([after.json(), before.json()]);
-                })
-                .then(([next, prev]) => {
-                    console.log('after json called results:', next, prev);
-                    setPosts({ next: next.posts[0], prev: prev.posts[0] });
-                })
-                .catch((e) => console.log('error clause', e));
+                .then(([after, before]) =>
+                    Promise.all([after.json(), before.json()])
+                )
+                .then(([next, prev]) =>
+                    setPosts({ next: next.posts[0], prev: prev.posts[0] })
+                )
+                .catch((e) => console.error(e));
         }
     }, [date, inViewport]);
 
