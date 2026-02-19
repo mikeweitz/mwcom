@@ -36,6 +36,7 @@ const Header = () => {
                 <button
                     className={styles['menu-button']}
                     onClick={() => setShowMenu(!showMenu)}
+                    tabIndex={isMobile ? 0 : -1}
                 >
                     <span
                         className={cx(

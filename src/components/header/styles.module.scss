@@ -413,6 +413,11 @@
     @media print {
         display: none;
     }
+
+    &:focus {
+        outline-offset: 0;
+        outline: 3px solid var(--turquoise);
+    }
 }
 
 .menu-dot {
