@@ -169,7 +169,7 @@ const positions = [
         ],
     },
     {
-        role: 'Senior Director, Development',
+        role: 'Director of Development',
         company: 'bpg',
         dates: {
             start: '10/01/2012',
@@ -197,7 +197,7 @@ const positions = [
         ],
     },
     {
-        role: 'Web Designer',
+        role: 'Web Developer',
         company: 'Silva Artist Management',
         dates: {
             start: '10/01/2007',

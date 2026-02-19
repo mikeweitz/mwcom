@@ -1,51 +1,42 @@
-import React, { useState } from 'react';
 import cx from 'classnames';
-
-import { copy } from '../../data';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import Title from './title';
-import Navigation from './navigation';
-import { useScrollContext } from '../scrollContext';
+
+import { copy } from '@mw/data';
+import Title from '@mw/components/header/title';
+import Navigation from '@mw/components/header/navigation';
+import { useScrollContext } from '@mw/components/scrollContext';
+import useMatchMedia from '@mw/hooks/use-match-media';
 
 import styles from './styles.module.scss';
 
 const Header = () => {
-    const scroll = useScrollContext();
+    const { isScrolled } = useScrollContext();
+    const { isMobile } = useMatchMedia();
 
     const [showMenu, setShowMenu] = useState(false);
 
-    const timer = null;
-    const toggleMenu = () => {};
-    const handleMenu = () => {
-        if (['animateIn', 'animateOut'].includes(showMenu)) {
-            return false;
-        }
-
-        const newState = showMenu === 'in' ? 'animateOut' : 'animateIn';
-        const finalState = showMenu === 'in' ? 'out' : 'in';
-        setShowMenu(newState);
-        setTimeout(() => setShowMenu(finalState), 2000);
-    };
-
     const {
-        header: { title, email, github, linkedin, playlists },
+        header: { title, email, github, linkedin, playlists, blog },
+        header,
     } = copy;
 
     return (
-        <header
+        <menu
             className={cx(styles.header, {
-                [styles.scrolled]: scroll.isScrolled,
+                [styles.scrolled]: isScrolled,
             })}
             id="header"
         >
             <div
                 className={cx(styles.overflow, {
-                    [styles.scrolled]: scroll.isScrolled,
+                    [styles.scrolled]: isScrolled,
                 })}
             >
                 <button
                     className={styles['menu-button']}
                     onClick={() => setShowMenu(!showMenu)}
+                    tabIndex={isMobile ? 0 : -1}
                 >
                     <span
                         className={cx(
@@ -81,37 +72,60 @@ const Header = () => {
 
                 <div
                     className={cx(styles['page-top'], {
-                        [styles.scrolled]: scroll.isScrolled,
+                        [styles.scrolled]: isScrolled,
                     })}
                 >
-                    <Title name={title} />
+                    <Title
+                        name={header.title}
+                        allowFocus={!isScrolled && !isMobile}
+                    />
                     <Navigation
-                        {...{ email, github, linkedin, playlists, showMenu }}
+                        allowFocus={!isScrolled && !isMobile}
+                        {...{
+                            email,
+                            github,
+                            linkedin,
+                            playlists,
+                            blog,
+                            showMenu,
+                        }}
                     />
                 </div>
 
                 <div
                     className={cx(styles['page-scrolled'], {
-                        [styles.scrolled]: scroll.isScrolled,
+                        [styles.scrolled]: isScrolled,
                     })}
                 >
-                    <Title name={title} small={true} />
+                    <Title
+                        name={title}
+                        small={true}
+                        allowFocus={isScrolled || isMobile}
+                    />
                     <Navigation
-                        {...{ email, github, linkedin, playlists, showMenu }}
+                        allowFocus={isScrolled || isMobile}
+                        {...{
+                            email,
+                            github,
+                            linkedin,
+                            playlists,
+                            blog,
+                            showMenu,
+                        }}
                     />
                 </div>
 
-                <Link href="/" passHref>
+                <Link href="/" passHref tabIndex={-1}>
                     <div
                         className={cx(styles.logo, {
-                            [styles.scrolled]: scroll.isScrolled,
+                            [styles.scrolled]: isScrolled,
                         })}
                     >
-                        <img className={styles.img} src="/logo.png" />
+                        <img className={styles.img} src="/logo.webp" />
                     </div>
                 </Link>
             </div>
-        </header>
+        </menu>
     );
 };
 export default Header;

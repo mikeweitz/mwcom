@@ -54,8 +54,6 @@ const Layout = ({ children }) => {
             <div
                 className={styles.bg}
                 style={{
-                    // width: '100%',
-                    // height: '100%',
                     transition: `filter ${delay}ms linear`,
                     filter: `hue-rotate(${hueRotation}deg) brightness(${
                         100 +

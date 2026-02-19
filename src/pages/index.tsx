@@ -4,11 +4,11 @@ import { useEffect, useRef, useState } from 'react';
 import Layout from '@mw/components/layout';
 import Summary from '@mw/components/summary';
 import Position, { Detail } from '@mw/components/position';
-import SkillGroup from '@mw/components/skillGroup';
 import Project from '@mw/components/project';
+import SkillGroup from '@mw/components/skillGroup';
 import { ScrollProvider } from '@mw/components/scrollContext';
-import { positions, skills, projects } from '@mw/data';
 import Drawer from '@mw/components/drawer';
+import { positions, skills, projects } from '@mw/data';
 
 import styles from './styles.module.scss';
 
@@ -16,6 +16,7 @@ export default function Sticky() {
     const [showDrawer, setShowDrawer] = useState(false);
     const [showDetail, setShowDetail] = useState(false);
     const [activeRole, setActiveRole] = useState(null);
+    const [post, setPost] = useState<Record<string, any>>(null);
 
     const scrollRef = useRef(null);
     const detailRef = useRef(null);
@@ -31,14 +32,25 @@ export default function Sticky() {
             timeoutRef.current = setTimeout(setActiveRole, 250, null);
         }
     };
+
+    useEffect(() => {
+        fetch(process.env.NEXT_PUBLIC_HOST + '/api/wp/get-posts')
+            .then((res) => {
+                res.json().then(setPost);
+            })
+            .catch((err) => {
+                console.error('error fetching posts:', err);
+            });
+    }, []);
+
     return (
         <ScrollProvider>
             <Layout>
                 <Drawer handleClose={togglePanel} active={showDrawer}>
                     {activeRole && <Detail {...activeRole} ref={detailRef} />}
                 </Drawer>
-                <div className={styles.container}>
-                    <Summary />
+                <div className={cx(styles.container, styles['summary'])}>
+                    <Summary className={styles['summary-copy']} />
                 </div>
 
                 <div
@@ -61,13 +73,6 @@ export default function Sticky() {
                             style={{
                                 transition: 'all 1s ease',
                                 gridTemplateColumns: 'repeat(3, 1fr)',
-                                ...(showDetail
-                                    ? {
-                                          transform: 'translate(35%, 0)',
-                                      }
-                                    : {
-                                          transform: 'translate(0, 0)',
-                                      }),
                             }}
                         >
                             <div

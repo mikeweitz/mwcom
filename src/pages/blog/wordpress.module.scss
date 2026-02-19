@@ -1,0 +1,639 @@
+/* WordPress Gutenberg Kitchen Sink CSS */
+/* This file contains selectors for all main CSS classes output by the WordPress Gutenberg block editor */
+
+/* Core Block Classes */
+.wp-block-paragraph {
+}
+
+.wp-block-heading {
+}
+
+.wp-block-h1 {
+}
+
+.wp-block-h2 {
+}
+
+.wp-block-h3 {
+}
+
+.wp-block-h4 {
+}
+
+.wp-block-h5 {
+}
+
+.wp-block-h6 {
+}
+
+.wp-block-list {
+}
+
+.wp-block-list-item {
+}
+
+.wp-block-quote {
+}
+
+.wp-block-quote cite {
+}
+
+.wp-block-pullquote {
+}
+
+.wp-block-pullquote cite {
+}
+
+.wp-block-image {
+}
+
+.wp-block-image figcaption {
+}
+
+.wp-block-gallery {
+}
+
+.wp-block-gallery-item {
+}
+
+.wp-block-gallery-item figcaption {
+}
+
+.wp-block-columns {
+}
+
+.wp-block-column {
+}
+
+.wp-block-group {
+}
+
+.wp-block-cover {
+}
+
+.wp-block-cover-text {
+}
+
+.wp-block-media-text {
+}
+
+.wp-block-media-text__media {
+}
+
+.wp-block-media-text__content {
+}
+
+.wp-block-button {
+}
+
+.wp-block-button__link {
+}
+
+.wp-block-buttons {
+}
+
+.wp-block-separator {
+}
+
+.wp-block-spacer {
+}
+
+.wp-block-embed {
+}
+
+.wp-block-embed__wrapper {
+}
+
+.wp-block-table {
+}
+
+.wp-block-table thead {
+}
+
+.wp-block-table tbody {
+}
+
+.wp-block-table tfoot {
+}
+
+.wp-block-table th {
+}
+
+.wp-block-table td {
+}
+
+.wp-block-code {
+}
+
+.wp-block-preformatted {
+}
+
+.wp-block-verse {
+}
+
+.wp-block-html {
+}
+
+/* Alignment Classes */
+.alignleft {
+}
+
+.aligncenter {
+}
+
+.alignright {
+}
+
+.alignwide {
+}
+
+.alignfull {
+}
+
+/* Text Alignment Classes */
+.has-text-align-left {
+}
+
+.has-text-align-center {
+}
+
+.has-text-align-right {
+}
+
+.has-text-align-justify {
+}
+
+/* Color Classes */
+.has-background {
+}
+
+.has-text-color {
+}
+
+/* Common Color Background Classes */
+.has-black-background-color {
+}
+
+.has-white-background-color {
+}
+
+.has-red-background-color {
+}
+
+.has-blue-background-color {
+}
+
+.has-green-background-color {
+}
+
+.has-yellow-background-color {
+}
+
+.has-orange-background-color {
+}
+
+.has-purple-background-color {
+}
+
+.has-gray-background-color {
+}
+
+.has-dark-gray-background-color {
+}
+
+.has-light-gray-background-color {
+}
+
+/* Common Text Color Classes */
+.has-black-color {
+}
+
+.has-white-color {
+}
+
+.has-red-color {
+}
+
+.has-blue-color {
+}
+
+.has-green-color {
+}
+
+.has-yellow-color {
+}
+
+.has-orange-color {
+}
+
+.has-purple-color {
+}
+
+.has-gray-color {
+}
+
+.has-dark-gray-color {
+}
+
+.has-light-gray-color {
+}
+
+/* Font Size Classes */
+.has-small-font-size {
+}
+
+.has-normal-font-size {
+}
+
+.has-medium-font-size {
+}
+
+.has-large-font-size {
+}
+
+.has-huge-font-size {
+}
+
+/* Block Style Variants */
+.is-style-default {
+}
+
+.is-style-outline {
+}
+
+.is-style-squared {
+}
+
+.is-style-rounded {
+}
+
+.is-style-circle {
+}
+
+/* Additional Utility Classes */
+.wp-block {
+}
+
+.wp-block[data-align="left"] {
+}
+
+.wp-block[data-align="center"] {
+}
+
+.wp-block[data-align="right"] {
+}
+
+.wp-block[data-align="wide"] {
+}
+
+.wp-block[data-align="full"] {
+}
+
+/* Responsive Classes */
+.wp-block-columns:not(.is-not-stacked-on-mobile) > .wp-block-column {
+}
+
+/* Custom Classes for Common Blocks */
+.wp-block-latest-posts {
+}
+
+.wp-block-latest-posts__post {
+}
+
+.wp-block-latest-posts__post-title {
+}
+
+.wp-block-latest-posts__post-excerpt {
+}
+
+.wp-block-latest-posts__post-date {
+}
+
+.wp-block-categories {
+}
+
+.wp-block-categories__list {
+}
+
+.wp-block-categories__list-item {
+}
+
+.wp-block-archives {
+}
+
+.wp-block-archives__list {
+}
+
+.wp-block-archives__list-item {
+}
+
+.wp-block-search {
+}
+
+.wp-block-search__input {
+}
+
+.wp-block-search__button {
+}
+
+.wp-block-tag-cloud {
+}
+
+.wp-block-tag-cloud__tag {
+}
+
+.wp-block-rss {
+}
+
+.wp-block-rss__item {
+}
+
+.wp-block-rss__item-title {
+}
+
+.wp-block-rss__item-excerpt {
+}
+
+.wp-block-rss__item-date {
+}
+
+/* Social Links Block */
+.wp-block-social-links {
+}
+
+.wp-block-social-links__link {
+}
+
+.wp-block-social-links__link[href*="facebook"] {
+}
+
+.wp-block-social-links__link[href*="twitter"] {
+}
+
+.wp-block-social-links__link[href*="instagram"] {
+}
+
+.wp-block-social-links__link[href*="linkedin"] {
+}
+
+.wp-block-social-links__link[href*="youtube"] {
+}
+
+/* Navigation Block */
+.wp-block-navigation {
+}
+
+.wp-block-navigation__container {
+}
+
+.wp-block-navigation__item {
+}
+
+.wp-block-navigation__submenu {
+}
+
+/* Page List Block */
+.wp-block-page-list {
+}
+
+.wp-block-page-list__item {
+}
+
+/* File Block */
+.wp-block-file {
+}
+
+.wp-block-file__button {
+}
+
+/* Audio Block */
+.wp-block-audio {
+}
+
+.wp-block-audio audio {
+}
+
+/* Video Block */
+.wp-block-video {
+}
+
+.wp-block-video video {
+}
+
+/* Reusable Block */
+.wp-block-block {
+}
+
+/* More Block */
+.wp-block-more {
+}
+
+/* Next Page Block */
+.wp-block-nextpage {
+}
+
+/* Classic Block */
+.wp-block-freeform {
+}
+
+/* Block Library Styles */
+.blocks-gallery-grid {
+}
+
+.blocks-gallery-item {
+}
+
+.blocks-gallery-item img {
+}
+
+.blocks-gallery-caption {
+}
+
+/* Additional Gutenberg Utilities */
+.has-drop-cap {
+}
+
+.has-drop-cap:first-letter {
+}
+
+.has-custom-font-size {
+}
+
+.has-vivid-red-background-color {
+}
+
+.has-vivid-red-color {
+}
+
+.has-luminous-vivid-orange-background-color {
+}
+
+.has-luminous-vivid-orange-color {
+}
+
+.has-luminous-vivid-amber-background-color {
+}
+
+.has-luminous-vivid-amber-color {
+}
+
+.has-light-green-cyan-background-color {
+}
+
+.has-light-green-cyan-color {
+}
+
+.has-vivid-green-cyan-background-color {
+}
+
+.has-vivid-green-cyan-color {
+}
+
+.has-pale-cyan-blue-background-color {
+}
+
+.has-pale-cyan-blue-color {
+}
+
+.has-vivid-cyan-blue-background-color {
+}
+
+.has-vivid-cyan-blue-color {
+}
+
+.has-vivid-purple-background-color {
+}
+
+.has-vivid-purple-color {
+}
+
+.has-very-light-gray-background-color {
+}
+
+.has-cyan-bluish-gray-background-color {
+}
+
+.has-very-dark-gray-background-color {
+}
+
+.has-very-light-gray-color {
+}
+
+.has-cyan-bluish-gray-color {
+}
+
+.has-very-dark-gray-color {
+}
+
+/* Font Size Utilities */
+.has-extra-small-font-size {
+}
+
+.has-extra-large-font-size {
+}
+
+/* Border Classes */
+.has-border {
+}
+
+.has-border-radius {
+}
+
+.has-border-radius-none {
+}
+
+.has-border-radius-small {
+}
+
+.has-border-radius-medium {
+}
+
+.has-border-radius-large {
+}
+
+.has-border-radius-max {
+}
+
+/* Shadow Classes */
+.has-shadow {
+}
+
+.has-shadow-none {
+}
+
+.has-shadow-small {
+}
+
+.has-shadow-medium {
+}
+
+.has-shadow-large {
+}
+
+/* Spacing Classes */
+.has-margin {
+}
+
+.has-padding {
+}
+
+.has-margin-top {
+}
+
+.has-margin-bottom {
+}
+
+.has-margin-left {
+}
+
+.has-margin-right {
+}
+
+.has-padding-top {
+}
+
+.has-padding-bottom {
+}
+
+.has-padding-left {
+}
+
+.has-padding-right {
+}
+
+/* Layout Classes */
+.is-layout-flow {
+}
+
+.is-layout-constrained {
+}
+
+.is-layout-flex {
+}
+
+.is-layout-grid {
+}
+
+/* Inner Container Classes */
+.wp-block-group__inner-container {
+}
+
+.wp-block-columns__inner-container {
+}
+
+/* Block Variations */
+.is-style-logged-out-only {
+}
+
+.is-style-logged-in-only {
+}
+
+/* Editor Specific Classes (for completeness) */
+.editor-styles-wrapper {
+}
+
+.block-editor-block-list__layout {
+}
+
+.block-editor-block-list__block {
+}

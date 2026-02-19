@@ -84,6 +84,60 @@
     }
 }
 
+.summary {
+    display: grid;
+    margin-block: 38px;
+
+    @media (min-width: 768px) {
+        gap: 24px;
+    }
+}
+
+.summary-copy {
+    max-width: 70ch;
+    font-size: 1.25em;
+    color: var(--black);
+    padding-block: 1em;
+
+    @media (min-width: 768px) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    @media (min-width: 1025px) {
+        // width: 66.667%;
+    }
+
+    @media print {
+        margin-top: 12px;
+        margin-bottom: 24px;
+    }
+}
+
+.blog-pull {
+    padding: 1em;
+    text-shadow: none;
+    border-radius: 6px;
+    background-color: hwb(from var(--neon-green) h w b / 0.325);
+
+    .heading {
+        margin: 0 0 0.5em;
+        padding-bottom: 0.5em;
+        border-bottom: 1px solid hwb(from var(--black) h w b / 0.3);
+    }
+
+    &:hover,
+    &:active,
+    &:visited {
+        text-decoration: none;
+    }
+
+    &:hover {
+        color: var(--black);
+        text-decoration: none;
+    }
+}
+
 .experience {
     transform: translate(0, 0);
     transition: all 1s e.$in-out-quint;
@@ -99,20 +153,14 @@
     .open & {
         z-index: -1;
         pointer-events: none;
-
         transform: translate(88%, 0);
-        // max-width: 86%;
 
         @media screen and (min-width: 769px) {
             transform: translate(92%, 0);
-            // width: 90%;
-            // max-width: 1440px;
         }
 
         @media screen and (min-width: 1440px) {
             transform: translate(84%, 0);
-            // width: 82%;
-            // max-width: 1800px;
         }
     }
 }
@@ -121,15 +169,6 @@
     width: 100%;
     position: relative;
     overflow: hidden;
-    // display: grid;
-    // grid-template-columns: 100% 100%;
-    // grid-template-columns: 0 100%;
-    // transition: all 1s ease-in-out;
-    // justify-items: end;
-
-    // &.open {
-    //     justify-items: start;
-    // }
 }
 
 .aside,
@@ -139,15 +178,17 @@
     position: absolute;
     outline: 1px solid teal;
     transition: all 1s ease-in-out;
-    // position: relative;
     transform: translate(-100%, 0);
+
     .open & {
         transform: translate(0, 0);
     }
 }
+
 .exp {
     position: relative;
     transform: translate(0, 0);
+
     .open & {
         transform: translate(100%, 0);
     }

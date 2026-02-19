@@ -16,6 +16,7 @@ const Project = ({
         <></>
     ) : (
         <a
+            tabIndex={-1}
             className={cx(styles.article, {
                 [styles['has-link']]: !!link.url,
             })}

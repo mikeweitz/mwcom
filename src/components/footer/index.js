@@ -1,12 +1,15 @@
+import { ArrowBigUp, FileText, Printer } from 'lucide-react';
 import { animateScroll } from 'react-scroll';
-import { Print, Arrow } from '../icons';
+
 import colors from '@mw/constants/colors';
+import { copy } from '@mw/data';
 
 import styles from './styles.module.scss';
 
 const Footer = () => {
-    // const [hoverPrint, setHoverPrint] = useState(false);
-    // const [hoverArrow, setHoverArrow] = useState(false);
+    const {
+        header: { github, linkedin, playlists, blog },
+    } = copy;
 
     const onPrint = () =>
         window.open('/pdf/michael-weitzman-resume.pdf', 'download');
@@ -16,25 +19,88 @@ const Footer = () => {
     };
 
     return (
-        <footer id={styles.footer}>
-            <div className={styles.row}>
-                <button className={styles['button-print']} onClick={onPrint}>
-                    <span className={styles['print-icon']}>
-                        <Print fill={colors.turquoise} />
-                    </span>
-                    Print this
-                </button>
+        <>
+            <footer id={styles.footer}>
+                <div className={styles.row}>
+                    <div>
+                        &copy; mw
+                        <ul className={styles['nav-list']}>
+                            <li>
+                                <a
+                                    className={styles.link}
+                                    href={linkedin.url}
+                                    tabIndex={0}
+                                >
+                                    {linkedin.text}
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    className={styles.link}
+                                    href={github.url}
+                                    tabIndex={0}
+                                >
+                                    {github.text}
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    className={styles.link}
+                                    href={blog.url}
+                                    tabIndex={0}
+                                >
+                                    {blog.text}
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    className={styles.link}
+                                    href={playlists.url}
+                                    tabIndex={0}
+                                >
+                                    {playlists.text}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
 
-                <button className={styles['button-top']} onClick={handleToTop}>
-                    <div className={styles.out}>
-                        <Arrow fill={colors.steelBlue} alt="Back to top" />
-                    </div>
-                    <div className={styles.over}>
-                        <Arrow fill={colors.turquoise} alt="Back to top" />
-                    </div>
-                </button>
-            </div>
-        </footer>
+                    <aside>
+                        <button
+                            className={styles['button-print']}
+                            tabIndex={0}
+                            onClick={onPrint}
+                        >
+                            <span className={styles['print-icon']}>
+                                <Printer strroke={colors.turquoise} />
+                            </span>
+                            Print Resume
+                        </button>
+                        <button
+                            tabIndex={0}
+                            className={styles['button-top']}
+                            onClick={handleToTop}
+                        >
+                            <div className={styles.out}>
+                                <ArrowBigUp
+                                    fill={'currentColor'}
+                                    strokeWidth={0}
+                                    alt="Back to top"
+                                />
+                            </div>
+                            <div className={styles.over}>
+                                <ArrowBigUp
+                                    stroke={'currentColor'}
+                                    fill={'currentColor'}
+                                    strokeWidth={0}
+                                    alt="Back to top"
+                                />
+                            </div>
+                        </button>
+                        {/* </div> */}
+                    </aside>
+                </div>
+            </footer>
+        </>
     );
 };
 

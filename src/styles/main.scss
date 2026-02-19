@@ -1,9 +1,19 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400,700'); */
-@import url('https://fonts.googleapis.com/css2?family=Metrophobic');
+// @import url('https://fonts.googleapis.com/css2?family=Metrophobic');
 /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300,400,700,900,700italic,400italic,300italic&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+// barlow, roboto, lato
+// @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+// barlow, roboto, lato, raleway, Nunito
+// @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+// barlow, roboto, Nunito
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* ==========================================================================
    Author's custom styles
@@ -14,6 +24,34 @@ input,
 select,
 textarea {
     color: #222;
+}
+:root {
+    --main-bg-color: #33fff6;
+    --main-text-color: #111;
+    --link: #555;
+    --link-color: #555;
+    --link-hover-color: #555;
+    --gray-1: #dcdcdc;
+    --gray-2: #404040;
+
+    --black: #111;
+    --white: #eee;
+    --lime: #c6ff00;
+    --orange-peel: #ff9d00;
+    --raspberry: #ee2677;
+    --dark-raspberry: #50384b;
+    --neon-green: #2bf403;
+    --neon-green-dark: #337600;
+    --turquoise: #51e8cf;
+    --turquoise-dark: #1daf97;
+    --dark-blue: #103037;
+    --dark-blue-hover: #17515e;
+    --blue-violet: #402081;
+    --heliotrope: #ec5aff;
+    --steel-pink: #ff84e0;
+    --orange-peel-dark: #015a5d;
+    --steel-blue: #4984a8;
+    --steel-blue-light: #9ec7e0;
 }
 
 html {
@@ -103,21 +141,22 @@ body {
     color: #111;
     font-weight: 300;
     letter-spacing: 1px;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.625em;
-
     position: relative;
     min-width: 320px;
     width: 100%;
     padding: 0;
     margin: 0;
-    font-family: 'Open Sans', sans-serif;
-    font-family: 'Metrophobic', sans-serif;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     text-rendering: optimizelegibility;
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
+
+    @media (min-width: 640px) {
+        font-size: 16px;
+    }
 }
 
 h1,
@@ -176,21 +215,6 @@ body.loading::before {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
-/* .ir {
-  background-color: transparent;
-  background-repeat: no-repeat;
-  border: 0;
-  direction: ltr;
-  display: block;
-  overflow: hidden;
-  text-align: left;
-  text-indent: -999em;
-}
-
-.ir br {
-  display: none;
-} */
 
 #__next {
     display: flex;
