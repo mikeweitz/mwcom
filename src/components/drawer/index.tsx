@@ -46,7 +46,7 @@ export default function Drawer({ active, children, handleClose }: DrawerProps) {
                     </div>
                 </section>
                 <button
-                    tabIndex={0}
+                    tabIndex={active ? 0 : -1}
                     className={cx(styles.close, {
                         [styles.active]: active,
                     })}
