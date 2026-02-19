@@ -26,22 +26,38 @@ const Footer = () => {
                         &copy; mw
                         <ul className={styles['nav-list']}>
                             <li>
-                                <a className={styles.link} href={blog.url}>
+                                <a
+                                    className={styles.link}
+                                    href={blog.url}
+                                    tabIndex={0}
+                                >
                                     {blog.text}
                                 </a>
                             </li>
                             <li>
-                                <a className={styles.link} href={playlists.url}>
+                                <a
+                                    className={styles.link}
+                                    href={playlists.url}
+                                    tabIndex={0}
+                                >
                                     {playlists.text}
                                 </a>
                             </li>
                             <li>
-                                <a className={styles.link} href={github.url}>
+                                <a
+                                    className={styles.link}
+                                    href={github.url}
+                                    tabIndex={0}
+                                >
                                     {github.text}
                                 </a>
                             </li>
                             <li>
-                                <a className={styles.link} href={linkedin.url}>
+                                <a
+                                    className={styles.link}
+                                    href={linkedin.url}
+                                    tabIndex={0}
+                                >
                                     {linkedin.text}
                                 </a>
                             </li>
@@ -51,6 +67,7 @@ const Footer = () => {
                     <aside>
                         <button
                             className={styles['button-print']}
+                            tabIndex={0}
                             onClick={onPrint}
                         >
                             <span className={styles['print-icon']}>
@@ -59,6 +76,7 @@ const Footer = () => {
                             Print Resume
                         </button>
                         <button
+                            tabIndex={0}
                             className={styles['button-top']}
                             onClick={handleToTop}
                         >

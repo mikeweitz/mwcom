@@ -83,6 +83,7 @@ const Position = ({
                 <h4 className={styles.organization}>{company}</h4>
 
                 <Button
+                    tabIndex={0}
                     className={styles.button}
                     onClick={() => {
                         // setShowDeatils(!showDetails);

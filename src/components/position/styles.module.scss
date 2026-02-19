@@ -159,15 +159,23 @@
         align-self: flex-start;
         // font-size: 0.85em;
         font-weight: 600;
+
+        &:focus {
+            outline: 2px solid var(--turquoise-dark);
+            outline-offset: 4px;
+        }
+
         @media (min-width: 768px) {
             font-size: initial;
             font-weight: 300;
         }
     }
 
-    &:hover .button {
-        background-color: colors.$turquoiseDark;
-        border-color: colors.$turquoiseDark;
+    &:hover .button,
+    .button:focus {
+        background-color: var(--turquoise-dark);
+        border-color: var(--turquoise-dark);
+
         &:after {
             // width: 500%;
             opacity: 0.625;

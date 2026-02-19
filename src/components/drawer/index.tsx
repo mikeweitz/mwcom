@@ -46,12 +46,11 @@ export default function Drawer({ active, children, handleClose }: DrawerProps) {
                     </div>
                 </section>
                 <button
+                    tabIndex={0}
                     className={cx(styles.close, {
                         [styles.active]: active,
                     })}
                     onClick={onClick}
-                    // onMouseEnter={() => setHoverClose(true)}
-                    // onMouseLeave={() => setHoverClose(false)}
                 >
                     <div className={styles.icon}>
                         <Close
