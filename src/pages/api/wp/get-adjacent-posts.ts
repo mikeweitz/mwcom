@@ -2,6 +2,8 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 const fields = 'ID,title,slug,date';
 
+export const dynamic = 'force-dynamic';
+
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
@@ -10,9 +12,9 @@ export default async function handler(
     const { date } = JSON.parse(req.body);
 
     if (!date) {
-        console.error('no date sent');
-        return res.status(500).json({
-            error: 'Invalid input',
+        console.log('ERROR no date sent!', req.body);
+        return res.status(200).json({
+            invalid: 'Invalid input',
         });
     }
 
