@@ -44,6 +44,37 @@ export default function AdjacentPosts({
                 .catch((e) => {
                     console.log('error returned server side', e);
                 });
+
+            // const fields = 'ID,title,slug,date';
+            // Promise.all([
+            //     fetch(
+            //         new URL(
+            //             process.env.NEXT_PUBLIC_WP_API_HOST +
+            //                 `/posts?after=${date}&number=1&fields=${fields}&order=ASC`
+            //         ),
+            //         {
+            //             mode: 'cors',
+            //         }
+            //     ),
+            //     fetch(
+            //         new URL(
+            //             process.env.NEXT_PUBLIC_WP_API_HOST +
+            //                 `/posts?before=${date}&number=1&fields=${fields}`
+            //         ),
+            //         {
+            //             mode: 'cors',
+            //         }
+            //     ),
+            // ])
+            //     .then(([after, before]) => {
+            //         console.log('after before', after, before);
+            //         return Promise.all([after.json(), before.json()]);
+            //     })
+            //     .then(([next, prev]) => {
+            //         console.log('after json called results:', next, prev);
+            //         setPosts({ next: next.posts[0], prev: prev.posts[0] });
+            //     })
+            //     .catch((e) => console.log('error clause', e));
         }
     }, [date, inViewport]);
 

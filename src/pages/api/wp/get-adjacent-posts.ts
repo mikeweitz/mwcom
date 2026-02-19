@@ -24,6 +24,7 @@ export default async function handler(
                         `/posts?after=${date}&number=1&fields=${fields}&order=ASC`
                 ),
                 {
+                    mode: 'cors',
                     headers: {
                         'Access-Control-Allow-Origin': '*',
                         'Content-Type': 'application/json',
@@ -36,6 +37,7 @@ export default async function handler(
                         `/posts?before=${date}&number=1&fields=${fields}`
                 ),
                 {
+                    mode: 'cors',
                     headers: {
                         'Access-Control-Allow-Origin': '*',
                         'Content-Type': 'application/json',
