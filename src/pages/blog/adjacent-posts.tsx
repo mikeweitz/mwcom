@@ -23,12 +23,24 @@ export default function AdjacentPosts({
 
     useEffect(() => {
         if (inViewport) {
+            console.log('get posts...', url + '/api/wp/get-adjacent-posts');
             fetch(new URL(url + '/api/wp/get-adjacent-posts'), {
                 method: 'POST',
                 body: JSON.stringify({ date }),
             })
-                .then((res) => res.json())
-                .then(setPosts);
+                .then((res) => {
+                    if (res.headers.get('content-type').includes('json')) {
+                        return res.json();
+                    } else {
+                        return res.text();
+                    }
+                })
+                .then((result) => {
+                    console.log('received from api:', result);
+                    if (result) {
+                        setPosts(result);
+                    }
+                });
         }
     }, [date, inViewport]);
 

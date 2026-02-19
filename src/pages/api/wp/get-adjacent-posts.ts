@@ -6,7 +6,7 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
-    console.log('API:get=adjacent-posts', req.body);
+    console.log('API:get-adjacent-posts', req.body);
     const { date } = JSON.parse(req.body);
 
     if (!date) {
