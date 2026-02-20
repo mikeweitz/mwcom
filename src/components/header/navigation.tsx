@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 
 import styles from './styles.module.scss';
+import Link from 'next/link';
 
 interface NavItem {
     text: string;
@@ -56,22 +57,22 @@ const Navigation = ({
                 <GitPullRequestArrow size={size} strokeWidth={stroke} />
                 <span className={styles['link-span']}>{github.text}</span>
             </a>
-            <a
+            <Link
                 className={styles.link}
                 href={playlists.url}
                 tabIndex={allowFocus ? 0 : -1}
             >
                 <ListMusic size={size} strokeWidth={stroke} />
                 <span className={styles['link-span']}>{playlists.text}</span>
-            </a>
-            <a
+            </Link>
+            <Link
                 className={styles.link}
                 href={blog.url}
                 tabIndex={allowFocus ? 0 : -1}
             >
                 <BookOpen size={size} strokeWidth={stroke} />
                 <span className={styles['link-span']}>{blog.text}</span>
-            </a>
+            </Link>
         </nav>
     );
 };

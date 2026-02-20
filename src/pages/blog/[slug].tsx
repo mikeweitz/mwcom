@@ -7,6 +7,7 @@ import Layout from '@mw/components/layout';
 import { ScrollProvider } from '@mw/components/scrollContext';
 import AdjacentPosts from './adjacent-posts';
 import BlogHeader from './blog-header';
+import { TPost } from '@mw/types';
 
 import styles from './styles.module.scss';
 import blogStyles from './gutenberg.module.scss';
@@ -24,7 +25,7 @@ export const getServerSideProps = async ({ query: { slug } }) => {
         new URL(process.env.WORDPRESS_API_HOST + `/posts/slug:${slug}`)
     );
     if (response.ok) {
-        const post = await response.json();
+        const post: TPost = await response.json();
         return {
             props: { ...post },
         };
@@ -39,8 +40,9 @@ export const getServerSideProps = async ({ query: { slug } }) => {
     };
 };
 
-const BlogPost = ({ title, content, date, excerpt, slug }) => {
+const BlogPost = ({ title, content, date, excerpt, tags, slug }: TPost) => {
     const router = useRouter();
+    console.log('TYPE THIS:', tags);
     return (
         <ScrollProvider>
             <Head>
@@ -51,7 +53,7 @@ const BlogPost = ({ title, content, date, excerpt, slug }) => {
                 />
             </Head>
             <Layout>
-                <BlogHeader title={title} date={date}></BlogHeader>
+                <BlogHeader tags={tags} title={title} date={date}></BlogHeader>
                 <div
                     className={cx(
                         styles.container,

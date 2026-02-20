@@ -38,3 +38,21 @@ export type PlaylistSheetsData = {
     date?: Date;
     image?: string | null;
 };
+
+export interface TTag {
+    ID: string | number;
+    description: string;
+    meta: Record<string, any>;
+    name: string;
+    post_count: number;
+    slug: string;
+}
+
+export interface TPost {
+    title: string;
+    date: string;
+    excerpt: string;
+    content: string;
+    tags: Record<string, Tag>;
+    slug: string;
+}

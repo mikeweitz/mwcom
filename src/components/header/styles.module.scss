@@ -204,9 +204,10 @@
         }
     }
 
-    a:focus {
+    a:focus-visible {
         outline-offset: 3px;
         border-radius: 2px;
+        text-decoration: none;
         outline: 2px solid var(--heliotrope);
     }
 }
@@ -284,16 +285,14 @@
 }
 
 .link {
-    // color: colors.$link;
     text-decoration: none;
     cursor: pointer;
-    color: colors.$turquoise;
+    color: var(--turquoise);
     text-decoration: none;
-    // fontSize: fontSize.mobile.display,
     transition: all 0.5s ease;
     display: block;
     padding: 1.5em 0 1.5em 64px;
-    border-bottom: 1px solid colors.$darkBlueHover;
+    border-bottom: 1px solid var(--dark-blue-hover);
     border-radius: 1px;
     outline-offset: 2px;
 
@@ -302,10 +301,12 @@
     &:focus,
     &:hover {
         color: var(--turquoise);
+        outline: none;
+        text-decoration: none;
     }
 
     &:hover,
-    &:focus {
+    &:focus-visible {
         .link-span:after {
             visibility: visible;
             transform: scaleX(1);
@@ -315,13 +316,11 @@
     }
 
     &:hover {
-        background-color: colors.$darkBlue;
-        text-decoration: none;
+        background-color: var(--dark-blue);
         padding: 1.5em 0 1.5em 84px;
     }
 
-    &:focus {
-        text-decoration: none;
+    &:focus-visible {
         outline: 2px solid var(--turquoise);
     }
 
@@ -333,7 +332,7 @@
         border-bottom: none;
         text-index: 0;
         transform: translateX(0);
-        text-shadow: -1px 1px 0px colors.$black;
+        text-shadow: -1px 1px 0px var(--black);
 
         &:hover {
             // color: colors.$turquoise;

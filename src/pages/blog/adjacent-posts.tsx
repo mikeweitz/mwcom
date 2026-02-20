@@ -17,37 +17,39 @@ export default function AdjacentPosts({
     className?: string;
     date: string;
 }) {
-    const [posts, setPosts] = useState({ next: null, prev: null });
+    const [posts, setPosts] = useState(null);
     const targetRef = useRef<HTMLElement>(null);
     const inViewport = useInViewport(targetRef, { threshold: 1 });
 
     useEffect(() => {
         if (inViewport) {
-            fetch(new URL(url + '/api/wp/get-adjacent-posts'), {
-                method: 'POST',
-                body: JSON.stringify({ date }),
-            })
-                .then((res) => {
-                    if (res.headers.get('content-type').includes('json')) {
-                        return res.json();
-                    } else {
-                        return res.text();
-                    }
+            setTimeout(() => {
+                fetch(new URL(url + '/api/wp/get-adjacent-posts'), {
+                    method: 'POST',
+                    body: JSON.stringify({ date }),
                 })
-                .then((result) => {
-                    if (result) {
-                        setPosts(result);
-                    }
-                })
-                .catch((e) => {
-                    console.log('error returned server side', e);
-                });
+                    .then((res) => {
+                        if (res.headers.get('content-type').includes('json')) {
+                            return res.json();
+                        } else {
+                            return res.text();
+                        }
+                    })
+                    .then((result) => {
+                        if (result) {
+                            setPosts(result);
+                        }
+                    })
+                    .catch((e) => {
+                        console.log('error returned server side', e);
+                    });
+            }, 500);
         }
     }, [date, inViewport]);
 
     return (
         <section ref={targetRef} className={cx(className)}>
-            {inViewport && date ? (
+            {posts ? (
                 <>
                     <div className={cx(styles['post-link'], styles['prev'])}>
                         {posts.prev && (
@@ -85,7 +87,7 @@ export default function AdjacentPosts({
                     </div>
                 </>
             ) : (
-                <>Loading...</>
+                <small>Loading most posts...</small>
             )}
         </section>
     );
