@@ -149,21 +149,28 @@
         }
         .wp-block-syntaxhighlighter-code,
         .wp-block-code {
-            background-color: var(--white);
-            border: 1px solid var(--gray-1);
+            ---background: #1a1b26;
+            --foreground: #9aa5ce;
+
+            background-color: var(---background);
+            color: var(--foreground);
+            text-shadow: none;
+            border: none;
+            box-shadow: none;
+            // text-shadow: -1px 1px 0 rgb(255 255 255);
+            // border: 1px solid var(--gray-1);
+
             border-radius: 1em;
             padding: 1rem;
             font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
             font-size: 0.875em;
             line-height: 1.5;
-            color: #333;
             overflow-x: auto;
             // white-space: pre;
             word-wrap: normal;
             tab-size: 4;
             -moz-tab-size: 4;
             -webkit-tab-size: 4;
-            text-shadow: -1px 1px 0 rgb(255 255 255);
             // background-color: #2d3748;
             // background-color: #11201c;
             // border-color: #4a5568;
@@ -172,13 +179,16 @@
             // Dark theme variant
 
             .tok-keyword {
-                color: #708;
+                // color: #708;
+                color: #7dcfff;
             }
             .tok-typeName {
                 color: #085;
+                color: #bb9af7;
             }
             .tok-string {
                 color: #a11;
+                color: #9ece6a;
             }
 
             // .tok-operator {
