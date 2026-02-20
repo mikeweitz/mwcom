@@ -42,7 +42,7 @@ export const getServerSideProps = async ({ query: { slug } }) => {
 
 const BlogPost = ({ title, content, date, excerpt, tags, slug }: TPost) => {
     const router = useRouter();
-    console.log('TYPE THIS:', tags);
+
     return (
         <ScrollProvider>
             <Head>
