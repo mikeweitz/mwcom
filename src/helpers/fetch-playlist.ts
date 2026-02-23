@@ -82,7 +82,7 @@ export const fetchPlaylist = async (id: string): Promise<PlaylistData> => {
 
 export const playlistSort = (playlists: PlaylistSheetsData[]) => {
     playlists.forEach((list, index) => {
-        let date = parseDateFrom(list.name);
+        const date = parseDateFrom(list.name);
         playlists[index].date = new Date(`${date.month} ${date.year} 12:00`);
     });
 

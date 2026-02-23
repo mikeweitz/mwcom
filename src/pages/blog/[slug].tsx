@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 import Layout from '@mw/components/layout';
 import { ScrollProvider } from '@mw/components/scrollContext';
-import AdjacentPosts from './adjacent-posts';
+
 import BlogHeader from './blog-header';
 import { TPost } from '@mw/types';
 

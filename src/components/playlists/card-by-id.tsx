@@ -32,38 +32,17 @@ const CardById = ({ id, name, image, active, ...rest }: CartProps) => {
         }
     }, [id, image]);
 
-    const touchStart = (e) => {
+    const handleTouchStart = (e) => {
         setHover(true);
         e.stopPropagation();
     };
-    const touchEnd = (e) => {
+    const handleTouchEnd = (e) => {
         setHover(false);
         e.stopPropagation();
     };
-    const touchMove = (e) => {
+    const handleTouchMove = (e) => {
         e.stopPropagation();
     };
-
-    useEffect(() => {
-        if (ref && ref.current && typeof ref.current !== null) {
-            ref.current.addEventListener('touchstart', touchStart);
-            ref.current.addEventListener('touchmove', touchMove);
-            ref.current.addEventListener('touchend', touchEnd);
-            // ref.current.addEventListener('click', onClick);
-            // return () => {
-            //   ref.current.removeEventListener('touchstart', touchStart);
-            //   ref.current.removeEventListener('touchmove', touchMove);
-            //   ref.current.removeEventListener('touchend', touchEnd);
-            //   ref.current.removeEventListener('click', onClick);
-            // };
-        }
-        return () => {
-            ref.current?.removeEventListener('touchstart', touchStart);
-            ref.current?.removeEventListener('touchmove', touchMove);
-            ref.current?.removeEventListener('touchend', touchEnd);
-            // ref.current?.removeEventListener('click', onClick);
-        };
-    }, [id, ref.current]);
 
     // useEffect(() => {
     //     if (images[0]) {
@@ -78,6 +57,9 @@ const CardById = ({ id, name, image, active, ...rest }: CartProps) => {
         <div
             className={cx(styles['p-list'])}
             ref={ref}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
             {...rest}

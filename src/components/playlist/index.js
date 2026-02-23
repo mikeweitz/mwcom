@@ -17,10 +17,6 @@ const fetcher = async (url) => {
 };
 
 export default function Playlist({ pid, active, handler }) {
-    if (!pid) {
-        return null;
-    }
-
     const [hover, setHover] = useState(active);
     const ref = useRef(null);
 
@@ -41,26 +37,26 @@ export default function Playlist({ pid, active, handler }) {
 
     const { data, error } = useSWR(() => `/api/spotify/${pid}`, fetcher);
 
-    useEffect(() => {
-        if (ref && ref.current && typeof ref.current !== null) {
-            ref.current.addEventListener('touchstart', touchStart);
-            ref.current.addEventListener('touchmove', touchMove);
-            ref.current.addEventListener('touchend', touchEnd);
-            ref.current.addEventListener('click', onClick);
-            // return () => {
-            //   ref.current.removeEventListener('touchstart', touchStart);
-            //   ref.current.removeEventListener('touchmove', touchMove);
-            //   ref.current.removeEventListener('touchend', touchEnd);
-            //   ref.current.removeEventListener('click', onClick);
-            // };
-        }
-        return () => {
-            ref.current?.removeEventListener('touchstart', touchStart);
-            ref.current?.removeEventListener('touchmove', touchMove);
-            ref.current?.removeEventListener('touchend', touchEnd);
-            ref.current?.removeEventListener('click', onClick);
-        };
-    }, [data, pid, ref.current]);
+    // useEffect(() => {
+    //     if (ref && ref.current && typeof ref.current !== null) {
+    //         ref.current.addEventListener('touchstart', touchStart);
+    //         ref.current.addEventListener('touchmove', touchMove);
+    //         ref.current.addEventListener('touchend', touchEnd);
+    //         ref.current.addEventListener('click', onClick);
+    //         // return () => {
+    //         //   ref.current.removeEventListener('touchstart', touchStart);
+    //         //   ref.current.removeEventListener('touchmove', touchMove);
+    //         //   ref.current.removeEventListener('touchend', touchEnd);
+    //         //   ref.current.removeEventListener('click', onClick);
+    //         // };
+    //     }
+    //     return () => {
+    //         ref.current?.removeEventListener('touchstart', touchStart);
+    //         ref.current?.removeEventListener('touchmove', touchMove);
+    //         ref.current?.removeEventListener('touchend', touchEnd);
+    //         ref.current?.removeEventListener('click', onClick);
+    //     };
+    // }, [data, pid, ref]);
 
     if (error) return <div>{error.message}</div>;
 
@@ -68,6 +64,10 @@ export default function Playlist({ pid, active, handler }) {
         <article
             className={styles['p-list']}
             ref={ref}
+            onTouchStart={touchStart}
+            onTouchMove={touchMove}
+            onTouchEnd={touchEnd}
+            onClick={onClick}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
         >

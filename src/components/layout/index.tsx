@@ -8,7 +8,7 @@ import SvgBackground from '@mw/components/layout/svg-background';
 
 import styles from './styles.module.scss';
 
-const Layout = ({ children }) => {
+const Layout = ({ children }: React.PropsWithChildren<{}>) => {
     const useIsomorphicEffect =
         typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 

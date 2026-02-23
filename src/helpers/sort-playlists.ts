@@ -45,7 +45,7 @@ const parseDateFrom = (name) => {
 
 const sortPlaylists = (playlists: PlaylistSheetsData[]) => {
     playlists.forEach((list, index) => {
-        let date = parseDateFrom(list.name);
+        const date = parseDateFrom(list.name);
         playlists[index].date = new Date(`${date.month} ${date.year} 12:00`);
     });
 

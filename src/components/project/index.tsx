@@ -3,13 +3,21 @@ import cx from 'classnames';
 
 import styles from './styles.module.scss';
 
+interface ProjectProps {
+    title: string;
+    subtitle?: string;
+    link?: { url: string; title?: string };
+    summary?: string[];
+    stack?: string[];
+}
+
 const Project = ({
     title = '',
     subtitle = '',
-    link = { url: undefined },
+    link = { url: undefined, title: undefined },
     summary = [],
     stack = [],
-}) => {
+}: ProjectProps) => {
     const slug = title.replace(/\s/g, '');
 
     return !title ? (

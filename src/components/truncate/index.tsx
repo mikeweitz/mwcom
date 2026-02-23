@@ -23,7 +23,7 @@ export function Truncate({ children, ...props }: TurncateProps) {
     let val = children;
 
     if ('words' in props) {
-        let arr = val.split(' ');
+        const arr = val.split(' ');
         if (props.words < arr.length) {
             arr.splice(props.words, arr.length);
             val = arr.join(' ') + '...';

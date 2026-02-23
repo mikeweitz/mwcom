@@ -97,8 +97,10 @@
     background-color: rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: all 0.5s easing.$out-circ;
+    text-shadow: 1px 1px 0 hwb(from var(--white) h w b / 0.5);
     font-size: fonts.$mobile-body;
-    color: colors.$white;
+    color: var(--steel-blue);
+    font-weight: 700;
     padding: 0.5em 1em;
 
     &:hover {
@@ -108,7 +110,7 @@
     &.active {
         color: colors.$white;
         background-color: colors.$orangePeel;
-
+        text-shadow: -1px -1px 0 hwb(from var(--black) h w b / 0.15);
         &:hover {
             background-color: colors.$orangePeel;
         }

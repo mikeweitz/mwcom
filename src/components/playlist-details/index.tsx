@@ -23,7 +23,7 @@ const PlaylistDetails = ({ pid, close }: PlaylistDetailsProps) => {
 
     useEffect(() => {
         if (pid) {
-            fetchPlaylist(id).then(setData);
+            fetchPlaylist(pid).then(setData);
         }
 
         if (scrollRef && scrollRef.current) {
