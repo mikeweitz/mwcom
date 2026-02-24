@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import { useEffect, useRef, useState } from 'react';
 
+import { HOST } from '@mw/helpers/host';
 import Layout from '@mw/components/layout';
 import Summary from '@mw/components/summary';
 import Position, { Detail } from '@mw/components/position';
@@ -34,7 +35,7 @@ export default function Sticky() {
     };
 
     useEffect(() => {
-        fetch(process.env.NEXT_PUBLIC_HOST + '/api/wp/get-posts')
+        fetch(HOST + '/api/wp/get-posts')
             .then((res) => {
                 res.json().then(setPost);
             })

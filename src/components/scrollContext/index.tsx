@@ -10,6 +10,10 @@ const getScroll = () => ({
     isScrolled: false,
 });
 
+type ScrollProviderProps = React.PropsWithChildren<{
+    scrollThreshold?: number;
+}>;
+
 interface TScrollContext {
     x: number;
     y: number;
@@ -28,7 +32,10 @@ function useScrollContext() {
     return context;
 }
 
-const ScrollProvider = ({ children, scrollThreshold = 50 }) => {
+const ScrollProvider = ({
+    children,
+    scrollThreshold = 50,
+}: ScrollProviderProps) => {
     const [scroll, setScroll] = useState({
         x: 0,
         y: 0,

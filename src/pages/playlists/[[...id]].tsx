@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import Head from 'next/head';
 import cx from 'classnames';
 import { useRouter } from 'next/router';
 
 import Layout from '@mw/components/layout';
 import PlaylistDetails from '@mw/components/playlist-details-v3';
-// import PlaylistDetailsV2 from '@mw/components/playlist-details-v2';
 import { CardById } from '@mw/components/playlists';
 import { ScrollProvider } from '@mw/components/scrollContext';
 import { Close } from '@mw/components/icons';
 import { getPlaylistFromApi } from '@mw/helpers/sheets';
 import colors from '@mw/constants/colors';
 import Drawer from '@mw/components/drawer';
+import { fetchPlaylist } from '@mw/helpers/fetch-playlist';
 
 import styles from './styles.module.scss';
 
@@ -33,12 +33,18 @@ const Playlists = ({ playlists, years }) => {
     const router = useRouter();
     // sort years descending
     years.sort((a: number, b: number) => b - a);
+    const [yearFilter, setYearFilter] = useState([]);
+
     const [active, setActive] = useState<string | null>(
         router.query.id ? String(router.query.id) : null
     );
-    const [yearFilter, setYearFilter] = useState([]);
 
     const handleChange = (pid) => {
+        if (pid === null || pid === active) {
+            setActive(null);
+        } else {
+            setActive(pid);
+        }
         router.push(
             { pathname: router.pathname, query: { id: pid } },
             undefined,
@@ -46,7 +52,6 @@ const Playlists = ({ playlists, years }) => {
                 shallow: true,
             }
         );
-        setActive(pid === null || active === pid ? null : pid);
     };
 
     const filterYear = (year) => {
@@ -67,6 +72,8 @@ const Playlists = ({ playlists, years }) => {
             : playlists
         : null;
 
+    const activePlaylistProomie = active ? fetchPlaylist(active) : null;
+
     return (
         <ScrollProvider>
             <Head>
@@ -78,12 +85,15 @@ const Playlists = ({ playlists, years }) => {
             </Head>
             <Layout>
                 <Drawer handleClose={handleChange} active={!!active}>
-                    {active && <PlaylistDetails pid={active || null} />}
+                    {active && activePlaylistProomie && (
+                        <Suspense fallback={<div>Loading...</div>} key={active}>
+                            <PlaylistDetails
+                                dataPromise={activePlaylistProomie}
+                                pid={active}
+                            />
+                        </Suspense>
+                    )}
                 </Drawer>
-                {/* <PlaylistDetailsV2
-                    close={() => setActive(null)}
-                    pid={active || null}
-                /> */}
                 <div className={styles.container}>
                     <small className={styles['filter-label']}>
                         Filter by year
@@ -93,10 +103,7 @@ const Playlists = ({ playlists, years }) => {
                         {yearFilter.length < 1 ? null : (
                             <button
                                 className={styles['clear-button']}
-                                // // $active={pid}
                                 onClick={() => setYearFilter([])}
-                                // // onMouseEnter={() => setHoverClose(true)}
-                                // // onMouseLeave={() => setHoverClose(false)}
                             >
                                 <div className={styles['svg-wrap']}>
                                     <Close

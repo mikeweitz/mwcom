@@ -1,3 +1,4 @@
+import { HOST } from '@mw/helpers/host';
 import { PlaylistData, PlaylistImage, PlaylistSheetsData } from '@mw/types';
 
 const months = [
@@ -33,7 +34,7 @@ const monthDictionary = [
 export const fetchPlaylistImage = async (
     id: string
 ): Promise<PlaylistImage[]> => {
-    const response = await fetch(`/api/playlist/${id}/images`);
+    const response = await fetch(HOST + `/api/playlist/${id}/images`);
     if (response.ok) {
         const images = await response.json();
         return images;
@@ -62,7 +63,7 @@ const emptyList = {
 };
 
 export const fetchPlaylist = async (id: string): Promise<PlaylistData> => {
-    const response = await fetch(`/api/playlist/${id}`);
+    const response = await fetch(HOST + `/api/playlist/${id}`);
     if (response.ok) {
         const list = await response.json();
         if (list.error) {
@@ -82,7 +83,7 @@ export const fetchPlaylist = async (id: string): Promise<PlaylistData> => {
 
 export const playlistSort = (playlists: PlaylistSheetsData[]) => {
     playlists.forEach((list, index) => {
-        let date = parseDateFrom(list.name);
+        const date = parseDateFrom(list.name);
         playlists[index].date = new Date(`${date.month} ${date.year} 12:00`);
     });
 

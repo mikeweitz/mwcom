@@ -1,48 +1,27 @@
-import React, { useEffect, useRef, useState } from 'react';
-import cx from 'classnames';
-import useSWR from 'swr';
+'use client';
 
-import colors from '@mw/constants/colors';
-import { Close, Play } from '@mw/components/icons';
-import { useScrollContext } from '@mw/components/scrollContext';
-import { fetchPlaylist } from '@mw/helpers/fetch-playlist';
+import React, { use, useState } from 'react';
+
 import { PlaylistData } from '@mw/types';
 
 import { TrackList } from './tracklist';
+import { CoverImage } from './cover-image';
 
 import styles from './styles.module.scss';
-import { CoverImage } from './cover-image';
 
 type PlaylistDetailsProps = {
     pid: string;
+    dataPromise?: Promise<PlaylistData>;
 };
 
-const PlaylistDetails = ({ pid }: PlaylistDetailsProps) => {
-    const scroll = useScrollContext();
-    const scrollRef = useRef(null);
-    const [data, setData] = useState<PlaylistData>();
-    const [loading, setLoading] = useState(false);
+const PlaylistDetails = ({ pid, dataPromise }: PlaylistDetailsProps) => {
+    // const scroll = useScrollContext();
+    // const scrollRef = useRef(null);
+    // const [data, setData] = useState<PlaylistData>();
+    const data = use(dataPromise);
+    // const [loading, setLoading] = useState(data && data.id ? false : true);
 
     const [hoverPlay, setHoverPlay] = useState(false);
-
-    useEffect(() => {
-        if (pid) {
-            setLoading(true);
-            fetchPlaylist(pid).then(setData);
-        } else {
-            setLoading(false);
-        }
-
-        if (scrollRef && scrollRef.current) {
-            scrollRef.current.scrollTop = 0;
-        }
-    }, [pid]);
-
-    useEffect(() => {
-        if (data && data.id) {
-            setLoading(false);
-        }
-    }, [data]);
 
     const { id, images, title, tracks, external_urls } = data || {};
     const link: string =
@@ -50,8 +29,8 @@ const PlaylistDetails = ({ pid }: PlaylistDetailsProps) => {
         (id && `https://open.spotify.com/playlist/${id}`);
 
     return (
-        <div className={styles.section}>
-            {!data || loading ? (
+        <div key={pid} className={styles.section}>
+            {!data ? (
                 <h2 className={styles.loading}>Loading...</h2>
             ) : (
                 <>

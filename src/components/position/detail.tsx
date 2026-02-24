@@ -85,4 +85,6 @@ const Detail = forwardRef<HTMLElement, DetailProps>(
     }
 );
 
+Detail.displayName = 'Detail';
+
 export default Detail;

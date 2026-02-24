@@ -1,2 +1,16 @@
 package.json
 package-lock.json
+.next
+node_modules
+public
+_ignore
+__tests__/___snapshots___
+
+build
+dist
+
+# Don't format these files
+package-lock.json
+yarn.lock
+.env
+.evn.**
