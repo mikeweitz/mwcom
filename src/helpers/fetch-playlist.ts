@@ -62,7 +62,9 @@ const emptyList = {
 };
 
 export const fetchPlaylist = async (id: string): Promise<PlaylistData> => {
-    const response = await fetch(`/api/playlist/${id}`);
+    const response = await fetch(
+        process.env.NEXT_PUBLIC_HOST + `/api/playlist/${id}`
+    );
     if (response.ok) {
         const list = await response.json();
         if (list.error) {
