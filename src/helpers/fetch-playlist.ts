@@ -34,7 +34,7 @@ const monthDictionary = [
 export const fetchPlaylistImage = async (
     id: string
 ): Promise<PlaylistImage[]> => {
-    const response = await fetch(`/api/playlist/${id}/images`);
+    const response = await fetch(HOST + `/api/playlist/${id}/images`);
     if (response.ok) {
         const images = await response.json();
         return images;
