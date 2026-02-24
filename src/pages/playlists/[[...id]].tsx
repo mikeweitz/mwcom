@@ -5,7 +5,6 @@ import { useRouter } from 'next/router';
 
 import Layout from '@mw/components/layout';
 import PlaylistDetails from '@mw/components/playlist-details-v3';
-// import PlaylistDetailsV2 from '@mw/components/playlist-details-v2';
 import { CardById } from '@mw/components/playlists';
 import { ScrollProvider } from '@mw/components/scrollContext';
 import { Close } from '@mw/components/icons';
@@ -42,7 +41,6 @@ const Playlists = ({ playlists, years }) => {
 
     const handleChange = (pid) => {
         if (pid === null || pid === active) {
-            console.log('pid to NULL');
             setActive(null);
         } else {
             setActive(pid);
@@ -96,10 +94,6 @@ const Playlists = ({ playlists, years }) => {
                         </Suspense>
                     )}
                 </Drawer>
-                {/* <PlaylistDetailsV2
-                    close={() => setActive(null)}
-                    pid={active || null}
-                /> */}
                 <div className={styles.container}>
                     <small className={styles['filter-label']}>
                         Filter by year

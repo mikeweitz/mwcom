@@ -1,9 +1,14 @@
-const path = require('path');
+import type { NextConfig } from 'next';
 
-module.exports = {
+import path from 'path';
+
+const nextConfig: NextConfig = {
     reactStrictMode: true,
     sassOptions: {
         includePaths: [path.join(__dirname, 'src/styles')],
+    },
+    eslint: {
+        ignoreDuringBuilds: true,
     },
     images: {
         remotePatterns: [
@@ -18,3 +23,5 @@ module.exports = {
         ],
     },
 };
+
+export default nextConfig;

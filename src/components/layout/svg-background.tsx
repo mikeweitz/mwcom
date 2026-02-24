@@ -7,7 +7,7 @@ export default function SvgBackground({
     duration?: number;
     hasFocus?: boolean;
 }) {
-    const svgRef: React.RefObject<SVGSVGElement> = useRef();
+    const svgRef: React.RefObject<SVGSVGElement> = useRef(null);
 
     useEffect(() => {
         if (svgRef.current) {

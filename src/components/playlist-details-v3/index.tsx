@@ -1,19 +1,13 @@
 'use client';
 
-import React, { useEffect, use, useState } from 'react';
-import cx from 'classnames';
-import useSWR from 'swr';
+import React, { use, useState } from 'react';
 
-import colors from '@mw/constants/colors';
-import { Close, Play } from '@mw/components/icons';
-import { useScrollContext } from '@mw/components/scrollContext';
-import { fetchPlaylist } from '@mw/helpers/fetch-playlist';
 import { PlaylistData } from '@mw/types';
 
 import { TrackList } from './tracklist';
+import { CoverImage } from './cover-image';
 
 import styles from './styles.module.scss';
-import { CoverImage } from './cover-image';
 
 type PlaylistDetailsProps = {
     pid: string;

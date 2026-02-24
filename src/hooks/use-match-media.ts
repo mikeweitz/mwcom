@@ -1,3 +1,4 @@
+'use client';
 import { useState, useLayoutEffect } from 'react';
 
 // Define an object for different device types, each associated with a media
@@ -12,7 +13,11 @@ const devices = {
 // to generate a `MediaQueryList` object for each media query string.
 // These objects are used to check if the document matches the media query
 const mediaQueryLists = Object.values(devices).map((query) => {
-    return typeof window !== 'undefined' && window.matchMedia(query);
+    return (
+        typeof window !== 'undefined' &&
+        'matchMedia' in window &&
+        window.matchMedia(query)
+    );
 });
 
 // Function to get an array of boolean values by mapping over `mediaQueryLists`,
