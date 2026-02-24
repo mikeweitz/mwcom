@@ -103,10 +103,7 @@ const Playlists = ({ playlists, years }) => {
                         {yearFilter.length < 1 ? null : (
                             <button
                                 className={styles['clear-button']}
-                                // // $active={pid}
                                 onClick={() => setYearFilter([])}
-                                // // onMouseEnter={() => setHoverClose(true)}
-                                // // onMouseLeave={() => setHoverClose(false)}
                             >
                                 <div className={styles['svg-wrap']}>
                                     <Close
