@@ -20,7 +20,7 @@ const Footer = () => {
 
     return (
         <>
-            <footer id={styles.footer}>
+            <footer id={styles.footer} data-testid="global-footer">
                 <div className={styles.row}>
                     <div>
                         &copy; mw

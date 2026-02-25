@@ -1,4 +1,5 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
+import Head from 'next/head';
 
 import { useInterval } from '@mw/hooks/useInterval';
 import { initGA, logPageView } from '@mw/util/analytics';
@@ -8,7 +9,11 @@ import SvgBackground from '@mw/components/layout/svg-background';
 
 import styles from './styles.module.scss';
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+interface LayoutProps extends React.ComponentPropsWithoutRef<'main'> {
+    title?: string;
+}
+
+const Layout = ({ children, title, ...rest }: LayoutProps) => {
     const useIsomorphicEffect =
         typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
@@ -45,7 +50,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     }, []);
 
     return (
-        <main className={styles.main}>
+        <main className={styles.main} {...rest}>
+            <Head>
+                <title>
+                    {title ? `${title} | Michael Weitzman` : 'Michael Weitzman'}
+                </title>
+            </Head>
             <div className={styles['content-wrap']}>
                 <Header />
                 {children}

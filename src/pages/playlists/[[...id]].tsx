@@ -83,7 +83,7 @@ const Playlists = ({ playlists, years }) => {
                     content="A collection of personal playlists on Spotify. Back when I ran band websites for a living and DJ'd local bars, I made monthly playlists of the music I found on Blogs, KXLU, KCRW, Pirate Radio, and more. A lot of that stuff is still sitting in an old iTunes library, but I flipped to streaming and haven't really looked back.  It's the closest thing I have to a journal, so here it is."
                 />
             </Head>
-            <Layout>
+            <Layout data-testid={`playlists${active ? '-' + active : ''}`}>
                 <Drawer handleClose={handleChange} active={!!active}>
                     {active && activePlaylistProomie && (
                         <Suspense fallback={<div>Loading...</div>} key={active}>
@@ -143,6 +143,7 @@ const Playlists = ({ playlists, years }) => {
                                 >
                                     {active === p.id && 'active'}
                                     <CardById
+                                        data-testid={`playlist-card-${p.id}`}
                                         active={p.id === active}
                                         id={p.id}
                                         name={p.name}

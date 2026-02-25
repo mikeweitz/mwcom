@@ -102,6 +102,10 @@ nohup.out
 project/settings/hosts/localhost.py
 
 coverage
+playwright-report
+test-results
+blob-report
+playwright/.cache/
 
 # Keep credentials out of the repo
 settings.json
