@@ -14,7 +14,7 @@ import styles from './styles.module.scss';
 
 export default function Sticky() {
     const [showDrawer, setShowDrawer] = useState(false);
-    const [showDetail, setShowDetail] = useState(false);
+    const [showDetail] = useState(false);
     const [activeRole, setActiveRole] = useState(null);
 
     const scrollRef = useRef(null);

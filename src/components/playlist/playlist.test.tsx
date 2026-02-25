@@ -3,8 +3,6 @@ import { render, screen, waitFor } from '@testing-library/react';
 
 import Playlist from './index';
 
-const navItem = { url: 'http://www.google.com', text: 'test' };
-
 const props = {
     pid: '2HbClpxGTPtLiRfYJV5Xg8',
     handler: () => {},

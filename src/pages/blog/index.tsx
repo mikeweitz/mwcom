@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
 import cx from 'classnames';
 
 import Layout from '@mw/components/layout';

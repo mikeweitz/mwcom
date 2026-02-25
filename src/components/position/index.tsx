@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import cx from 'classnames';
 
 import Button from '@mw/components/button';
@@ -30,7 +30,7 @@ const Position = ({
     setRole,
 }: PositionProps) => {
     const [hover, setHover] = useState(false);
-    const [showDetails, setShowDeatils] = useState(false);
+    const [showDetails] = useState(false);
 
     const handleMouseEnter = () => setHover(true);
     const handleMouseLeave = () => setHover(false);

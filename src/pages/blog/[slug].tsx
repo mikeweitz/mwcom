@@ -6,8 +6,9 @@ import { useRouter } from 'next/router';
 import Layout from '@mw/components/layout';
 import { ScrollProvider } from '@mw/components/scrollContext';
 
-import BlogHeader from './blog-header';
 import { TPost } from '@mw/types';
+
+import BlogHeader from './blog-header';
 
 import styles from './styles.module.scss';
 import blogStyles from './gutenberg.module.scss';
@@ -40,9 +41,7 @@ export const getServerSideProps = async ({ query: { slug } }) => {
     };
 };
 
-const BlogPost = ({ title, content, date, excerpt, tags, slug }: TPost) => {
-    const router = useRouter();
-
+const BlogPost = ({ title, content, date, excerpt, tags }: TPost) => {
     return (
         <ScrollProvider>
             <Head>

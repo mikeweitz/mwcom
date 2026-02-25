@@ -1,7 +1,7 @@
 import cx from 'classnames';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
-import { HOST } from '@mw/helpers/host';
+// import { HOST } from '@mw/helpers/host';
 import Layout from '@mw/components/layout';
 import Summary from '@mw/components/summary';
 import Position, { Detail } from '@mw/components/position';
@@ -15,9 +15,8 @@ import styles from './styles.module.scss';
 
 export default function Sticky() {
     const [showDrawer, setShowDrawer] = useState(false);
-    const [showDetail, setShowDetail] = useState(false);
     const [activeRole, setActiveRole] = useState(null);
-    const [post, setPost] = useState<Record<string, any>>(null);
+    // const [post, setPost] = useState<Record<string, any>>(null);
 
     const scrollRef = useRef(null);
     const detailRef = useRef(null);
@@ -34,15 +33,15 @@ export default function Sticky() {
         }
     };
 
-    useEffect(() => {
-        fetch(HOST + '/api/wp/get-posts')
-            .then((res) => {
-                res.json().then(setPost);
-            })
-            .catch((err) => {
-                console.error('error fetching posts:', err);
-            });
-    }, []);
+    // useEffect(() => {
+    //     fetch(HOST + '/api/wp/get-posts')
+    //         .then((res) => {
+    //             res.json().then(setPost);
+    //         })
+    //         .catch((err) => {
+    //             console.error('error fetching posts:', err);
+    //         });
+    // }, []);
 
     return (
         <ScrollProvider>

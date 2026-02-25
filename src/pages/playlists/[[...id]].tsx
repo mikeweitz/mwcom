@@ -1,4 +1,4 @@
-import { useEffect, useState, Suspense } from 'react';
+import { useState, Suspense } from 'react';
 import Head from 'next/head';
 import cx from 'classnames';
 import { useRouter } from 'next/router';
