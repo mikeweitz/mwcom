@@ -4,6 +4,7 @@ exports[`renders page header unchanged 1`] = `
 <div>
   <menu
     class="header"
+    data-testid="global-header"
     id="header"
   >
     <div
@@ -201,6 +202,7 @@ exports[`renders page header unchanged 1`] = `
       </div>
       <div
         class="page-scrolled"
+        data-testid="header-nav-scrolled"
       >
         <h2
           class="title title-small"
