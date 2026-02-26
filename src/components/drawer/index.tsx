@@ -29,6 +29,7 @@ export default function Drawer({ active, children, handleClose }: DrawerProps) {
     return (
         <>
             <div
+                data-testid="drawer"
                 className={cx(styles.drawer, {
                     [styles.scrolled]: scroll.isScrolled,
                     [styles.scrolling]: scroll.scrolling,

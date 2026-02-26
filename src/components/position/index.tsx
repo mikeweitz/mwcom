@@ -39,6 +39,7 @@ const Position = ({
         <></>
     ) : (
         <article
+            data-testid={`position-${index}`}
             className={cx(styles.position, showDetails && styles.open)}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -83,10 +84,10 @@ const Position = ({
                 <h4 className={styles.organization}>{company}</h4>
 
                 <Button
+                    data-testid={`position-info-${index}`}
                     tabIndex={0}
                     className={styles.button}
                     onClick={() => {
-                        // setShowDeatils(!showDetails);
                         setRole({
                             role,
                             company,

@@ -73,7 +73,7 @@ export default function Blog({ posts, found }: BlogProps) {
                     content="Some thoughts, optionons, observations about web development, music, or other things I claim to know something about."
                 />
             </Head>
-            <Layout>
+            <Layout data-testid="blog-index">
                 <h1 className={styles['page-title']}>Blog</h1>
                 <BlogHeader
                     className={styles['header-index']}

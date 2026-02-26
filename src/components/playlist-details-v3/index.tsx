@@ -34,7 +34,7 @@ const PlaylistDetails = ({ pid, dataPromise }: PlaylistDetailsProps) => {
                 <h2 className={styles.loading}>Loading...</h2>
             ) : (
                 <>
-                    <div className={styles.meta}>
+                    <div className={styles.meta} data-testid="playlist-meta">
                         <a href={link} target="spotify">
                             <h3 className={styles['p-list-name']}>{title}</h3>
                         </a>
@@ -48,7 +48,7 @@ const PlaylistDetails = ({ pid, dataPromise }: PlaylistDetailsProps) => {
                         images={images}
                     />
 
-                    <div className={styles.songs}>
+                    <div className={styles.songs} data-testid="playlist-tracks">
                         <TrackList tracks={tracks} />
                     </div>
 

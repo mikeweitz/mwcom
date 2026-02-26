@@ -26,6 +26,7 @@ const Header = () => {
             className={cx(styles.header, {
                 [styles.scrolled]: isScrolled,
             })}
+            data-testid="global-header"
             id="header"
         >
             <div
@@ -80,6 +81,7 @@ const Header = () => {
                         allowFocus={!isScrolled && !isMobile}
                     />
                     <Navigation
+                        data-testid="header-nav"
                         allowFocus={!isScrolled && !isMobile}
                         {...{
                             email,
@@ -93,6 +95,7 @@ const Header = () => {
                 </div>
 
                 <div
+                    data-testid="header-nav-scrolled"
                     className={cx(styles['page-scrolled'], {
                         [styles.scrolled]: isScrolled,
                     })}
