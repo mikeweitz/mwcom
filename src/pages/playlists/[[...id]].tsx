@@ -20,10 +20,13 @@ export const getStaticPaths = async () => {
         playlists: [],
     };
 
-    const paths = playlists.map(({ id }: { id: string }) => ({
-        params: { id },
+    const paths = playlists.map(({ id }: { id?: string }) => ({
+        // `id` param is array for because this is catch-all route
+        params: { id: [String(id)] },
     }));
 
+    // handle root playlist path
+    paths.push({ params: { id: [] } });
     return { paths, fallback: 'blocking' };
 };
 
@@ -44,6 +47,7 @@ export const getStaticProps = async () => {
 
 const Playlists = ({ playlists, years }) => {
     const router = useRouter();
+
     // sort years descending
     years.sort((a: number, b: number) => b - a);
     const [yearFilter, setYearFilter] = useState([]);
