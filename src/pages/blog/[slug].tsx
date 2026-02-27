@@ -1,3 +1,4 @@
+import type { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import cx from 'classnames';
@@ -21,23 +22,42 @@ const LazyAdjacent = dynamic(() => import('@mw/pages/blog/adjacent-posts'), {
     ),
 });
 
-export const getServerSideProps = async ({ query: { slug } }) => {
+// TODO: migrate to API and iterate for all posts once we're past 100
+export const getStaticPaths: GetStaticPaths = async () => {
     const response = await fetch(
-        new URL(process.env.WORDPRESS_API_HOST + `/posts/slug:${slug}`)
+        new URL(
+            process.env.WORDPRESS_API_HOST + `/posts?number=100&fields=slug`
+        )
+    );
+
+    if (response.ok) {
+        const { posts } = await response.json();
+        const paths = posts.map((post: TPost) => ({
+            params: { slug: String(post.slug) },
+        }));
+
+        return { paths, fallback: 'blocking' };
+    }
+    return { paths: [], fallback: 'blocking' };
+};
+
+export const getStaticProps: GetStaticProps<TPost> = async ({
+    params,
+}: {
+    params: { slug: string };
+}) => {
+    const response = await fetch(
+        new URL(process.env.WORDPRESS_API_HOST + `/posts/slug:${params.slug}`)
     );
     if (response.ok) {
         const post: TPost = await response.json();
         return {
             props: { ...post },
+            revalidate: 60,
         };
     }
-
     return {
-        props: {
-            props: {
-                notFound: true,
-            },
-        },
+        notFound: true,
     };
 };
 
