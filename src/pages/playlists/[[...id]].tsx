@@ -15,7 +15,19 @@ import { fetchPlaylist } from '@mw/helpers/fetch-playlist';
 
 import styles from './styles.module.scss';
 
-export const getServerSideProps = async () => {
+export const getStaticPaths = async () => {
+    const { playlists } = (await getPlaylistFromApi()) || {
+        playlists: [],
+    };
+
+    const paths = playlists.map(({ id }: { id: string }) => ({
+        params: { id },
+    }));
+
+    return { paths, fallback: 'blocking' };
+};
+
+export const getStaticProps = async () => {
     const { playlists, years } = (await getPlaylistFromApi()) || {
         playlists: null,
         years: null,
@@ -25,7 +37,8 @@ export const getServerSideProps = async () => {
             playlists,
             years,
         },
-        // revalidate: 1 * 60 * 60 * 24, // value in seconds for 24 hours
+        // revalidate in 12 hours (in seconds)
+        revalidate: 1 * 60 * 60 * 12,
     };
 };
 
