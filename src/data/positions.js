@@ -4,6 +4,7 @@ const positions = [
         company: 'Taco Bell (contract)',
         dates: {
             start: '01/01/2024',
+            end: '10/01/2026',
         },
         responsibilities: [
             'Domain expert on Dockerized Next.js application deployed to Amazon ECS serving 1.5 million daily users, driving millions in monthly revenue.',
