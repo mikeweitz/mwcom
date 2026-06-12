@@ -1,5 +1,23 @@
 const positions = [
     {
+        role: 'Senior Software Engineer',
+        company: 'United Talent Agency',
+        dates: {
+            start: '05/11/2026',
+            // end: '10/01/2026',
+        },
+        responsibilities: [],
+        summary: 'Fullstack developer working on internal financial tools.',
+        skills: [
+            'React',
+            'TypeScript',
+            'Next.js',
+            'Drizzle',
+            'Postgres',
+            'CI/CD',
+        ],
+    },
+    {
         role: 'Technology Lead',
         company: 'Taco Bell (contract)',
         dates: {
