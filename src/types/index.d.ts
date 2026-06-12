@@ -39,6 +39,7 @@ export type PlaylistSheetsData = {
     image?: string | null;
 };
 
+// @dewprecated - use Term instead
 export interface TTag {
     ID: string | number;
     description: string;
@@ -48,6 +49,7 @@ export interface TTag {
     slug: string;
 }
 
+// @dewprecated - use Post instead
 export interface TPost {
     title: string;
     date: string;
@@ -55,4 +57,45 @@ export interface TPost {
     content: string;
     tags: Record<string, Tag>;
     slug: string;
+}
+
+export interface RenderedField {
+    rendered: string;
+}
+
+export interface Term {
+    id: number;
+    name: string;
+    slug: string;
+}
+
+export interface Embedded {
+    'wp:term'?: Term[][];
+    'wp:featuredmedia'?: FeaturedMedia[];
+}
+
+export interface FeaturedMedia {
+    id: number;
+    source_url: string;
+    alt_text: string;
+    media_details: {
+        width: number;
+        height: number;
+        sizes: {
+            full: { source_url: string; width: number; height: number };
+            large?: { source_url: string; width: number; height: number };
+            medium?: { source_url: string; width: number; height: number };
+            thumbnail?: { source_url: string; width: number; height: number };
+        };
+    };
+}
+
+export interface Post {
+    id: number;
+    date: string;
+    slug: string;
+    title: RenderedField;
+    excerpt: RenderedField;
+    content: RenderedField;
+    _embedded?: Embedded;
 }

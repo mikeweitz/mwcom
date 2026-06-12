@@ -30,7 +30,7 @@ export default function BlogHeader({
                     <ConditionalLink slug={slug}>
                         {children}
                         {date && <Date className={styles.date}>{date}</Date>}
-                        <h2 dangerouslySetInnerHTML={{ __html: title }} />
+                        <h2>{title}</h2>
                         {excerpt && (
                             <article
                                 className={styles.blurb}
@@ -41,21 +41,21 @@ export default function BlogHeader({
                         )}
                     </ConditionalLink>
                 </div>
-                {tags && (
-                    <div
-                        className={classNames(
-                            styles.container,
-                            styles['blog-tags']
-                        )}
-                    >
-                        {Object.values(tags).map(({ name, ID }, i) => (
-                            <span className={styles.tag} key={ID + '_' + i}>
-                                {name}
-                            </span>
-                        ))}
-                    </div>
-                )}
             </header>
+            {tags && (
+                <div
+                    className={classNames(
+                        styles.container,
+                        styles['blog-tags']
+                    )}
+                >
+                    {Object.values(tags).map(({ name, ID }, i) => (
+                        <span className={styles.tag} key={ID + '_' + i}>
+                            {name}
+                        </span>
+                    ))}
+                </div>
+            )}
         </>
     );
 }

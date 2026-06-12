@@ -61,9 +61,11 @@ export default function AdjacentPosts({
                                     <span className={styles['button-back']}>
                                         <ChevronsLeft />
                                     </span>
-                                    <Truncate length={14}>
-                                        {posts.prev.title}
-                                    </Truncate>
+                                    <span
+                                        dangerouslySetInnerHTML={{
+                                            __html: posts.prev.title.rendered,
+                                        }}
+                                    ></span>
                                 </Link>
                             </>
                         )}
@@ -75,9 +77,14 @@ export default function AdjacentPosts({
                                     className={styles['link']}
                                     href={`/blog/${posts.next.slug}`}
                                 >
-                                    <Truncate length={14}>
+                                    <span
+                                        dangerouslySetInnerHTML={{
+                                            __html: posts.next.title.rendered,
+                                        }}
+                                    ></span>
+                                    {/* <Truncate length={14}>
                                         {posts.next.title}
-                                    </Truncate>
+                                    </Truncate> */}
                                     <span className={styles['button-back']}>
                                         <ChevronsRight />
                                     </span>

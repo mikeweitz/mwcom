@@ -63,51 +63,36 @@ $blog-padding-x: 1.5em;
     }
 }
 
-.blog-card {
+.card {
+    border-radius: 8px;
     padding: 3em $blog-padding-x;
     display: flex;
     flex-direction: column;
     justify-content: center;
     transition: all 0.25s ease-in-out;
-    background-color: rgb(255 255 255 / 0.3);
-    background-image: linear-gradient(
-        160deg,
-        var(--turquoise),
-        var(--neon-green)
-    );
     background-blend-mode: lighten;
 
     &:hover {
-        background-image: linear-gradient(
-            160deg,
-            var(--turquoise-dark),
-            var(--neon-green)
-        );
         text-decoration: none;
     }
 
-    &.blog-non-work {
+    &.non-work {
         background-color: rgb(255 255 255 / 0.3);
-        background-image: linear-gradient(
-            160deg,
-            var(--steel-pink),
-            var(--steel-blue-light)
-        );
 
         &:hover {
-            background-image: linear-gradient(
-                160deg,
-                var(--steel-pink),
-                var(--blue-violet)
-            );
+            // background-image: linear-gradient(
+            //     160deg,
+            //     var(--steel-pink),
+            //     var(--blue-violet)
+            // );
             text-decoration: none;
         }
     }
 
-    transform: rotate(-5deg) skew(-5deg);
+    // transform: rotate(-5deg) skew(-5deg);
 
     .card-contents {
-        transform: rotate(5deg) skew(5deg);
+        // transform: rotate(5deg) skew(5deg);
     }
 
     .date {
@@ -163,7 +148,7 @@ $blog-padding-x: 1.5em;
     &:not(.header-index) {
         @media (max-width: 640px) {
             background-color: rgb(220 220 220 / 0.75);
-            .container:not(.blog-tags) {
+            .container {
                 margin: 0.25em 1em 2em;
                 max-width: 100%;
                 padding-top: 4em;
@@ -191,7 +176,7 @@ $blog-padding-x: 1.5em;
         background: linear-gradient(0.55turn, transparent, #3f87a6, #c80c0c);
     }
 
-    .container:not(.blog-tags) {
+    .container {
         position: relative;
         z-index: 1;
         padding-block: 6em 1.5em;

@@ -1,3 +1,4 @@
+import { COFFEE_CATEGORY_ID } from '@mw/pages/blog';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 const fields = 'ID,title,slug,date';
@@ -23,7 +24,7 @@ export default async function handler(
             fetch(
                 new URL(
                     process.env.WORDPRESS_API_HOST +
-                        `/posts?after=${date}&number=1&fields=${fields}&order=ASC`
+                        `/posts?after=${date}&per_page=1&categories_exclude=${COFFEE_CATEGORY_ID}&_fields=${fields}&order=asc`
                 ),
                 {
                     mode: 'cors',
@@ -36,7 +37,7 @@ export default async function handler(
             fetch(
                 new URL(
                     process.env.WORDPRESS_API_HOST +
-                        `/posts?before=${date}&number=1&fields=${fields}`
+                        `/posts?before=${date}&per_page=1&categories_exclude=${COFFEE_CATEGORY_ID}&_fields=${fields}&order=asc`
                 ),
                 {
                     mode: 'cors',
@@ -54,8 +55,8 @@ export default async function handler(
         console.log('results:', { next, prev });
 
         return res.status(200).json({
-            next: next.posts[0] || null,
-            prev: prev.posts[0] || null,
+            next: next[0] || null,
+            prev: prev[0] || null,
         });
     } catch (e) {
         console.error('error fetching posts', e);

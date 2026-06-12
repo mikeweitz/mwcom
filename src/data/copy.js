@@ -22,6 +22,10 @@ const copy = {
             text: 'blog',
             url: '/blog',
         },
+        coffee: {
+            text: 'coffee',
+            url: '/coffee',
+        },
     },
     summary: `Full stack engineer and frontend leader with 10+ years building complex, scalable enterprise web applications. Proven record working in cross-functional teams, modernizing frontend architecture, and mentoring developers. Deep expertise in React, Next.js, Node, and cloud deployments.`,
 };

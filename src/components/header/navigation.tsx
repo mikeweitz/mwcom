@@ -1,9 +1,11 @@
 import cx from 'classnames';
+
 import {
     Handshake,
     GitPullRequestArrow,
     ListMusic,
-    Mail,
+    Coffee,
+    CoffeeIcon,
     BookOpen,
 } from 'lucide-react';
 
@@ -18,6 +20,7 @@ interface NavItem {
 
 interface NavigationProps {
     blog?: NavItem;
+    coffee?: NavItem;
     github: NavItem;
     linkedin: NavItem;
     playlists?: NavItem;
@@ -30,6 +33,7 @@ const Navigation = ({
     github,
     linkedin,
     playlists,
+    coffee,
     allowFocus = true,
     showMenu = false,
 }: NavigationProps) => {
@@ -73,6 +77,20 @@ const Navigation = ({
                 <BookOpen size={size} strokeWidth={stroke} />
                 <span className={styles['link-span']}>{blog.text}</span>
             </Link>
+            {coffee && (
+                <Link
+                    className={styles.link}
+                    href={coffee.url}
+                    tabIndex={allowFocus ? 0 : -1}
+                >
+                    <CoffeeIcon
+                        size={size + 2}
+                        strokeWidth={stroke}
+                        style={{ marginTop: '-5px' }}
+                    />
+                    <span className={styles['link-span']}>{coffee.text}</span>
+                </Link>
+            )}
         </nav>
     );
 };

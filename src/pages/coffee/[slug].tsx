@@ -14,8 +14,6 @@ import BlogHeader from './blog-header';
 import styles from './styles.module.scss';
 import blogStyles from './gutenberg.module.scss';
 
-import type { Post } from '@mw/types';
-
 const LazyAdjacent = dynamic(() => import('@mw/pages/blog/adjacent-posts'), {
     loading: () => (
         <p className={cx(styles.box, styles['adjacent-posts'])}>
@@ -28,14 +26,14 @@ const LazyAdjacent = dynamic(() => import('@mw/pages/blog/adjacent-posts'), {
 export const getStaticPaths: GetStaticPaths = async () => {
     const response = await fetch(
         new URL(
-            process.env.WORDPRESS_API_HOST + `/posts?per_page=100&fields=slug`
+            process.env.WORDPRESS_API_HOST + `/posts?number=100&fields=slug`
         )
     );
 
     if (response.ok) {
-        const posts = await response.json();
-        const paths = posts.map((post: Post) => ({
-            params: { slug: post.slug },
+        const { posts } = await response.json();
+        const paths = posts.map((post: TPost) => ({
+            params: { slug: String(post.slug) },
         }));
 
         return { paths, fallback: 'blocking' };
@@ -43,20 +41,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
     return { paths: [], fallback: 'blocking' };
 };
 
-export const getStaticProps: GetStaticProps<Post> = async ({
+export const getStaticProps: GetStaticProps<TPost> = async ({
     params,
 }: {
     params: { slug: string };
 }) => {
     const response = await fetch(
-        new URL(
-            process.env.WORDPRESS_API_HOST + `/posts?slug=${params.slug}&_embed`
-        )
+        new URL(process.env.WORDPRESS_API_HOST + `/posts/slug:${params.slug}`)
     );
     if (response.ok) {
-        const [post]: Post[] = await response.json();
+        const post: TPost = await response.json();
         return {
-            props: post,
+            props: { ...post },
             revalidate: 60,
         };
     }
@@ -65,23 +61,18 @@ export const getStaticProps: GetStaticProps<Post> = async ({
     };
 };
 
-const BlogPost = ({ title, content, date, excerpt, _embedded }: Post) => {
-    const tags = _embedded?.['wp:term']?.[1] ?? [];
+const BlogPost = ({ title, content, date, excerpt, tags }: TPost) => {
     return (
         <ScrollProvider>
             <Head>
-                <title>Michael Weitzman | {title.rendered}</title>
+                <title>Michael Weitzman | {title}</title>
                 <meta
                     name="description"
-                    content={excerpt.rendered || 'Full blog post.'}
+                    content={excerpt || 'Full blog post.'}
                 />
             </Head>
             <Layout>
-                <BlogHeader
-                    tags={tags}
-                    title={title.rendered}
-                    date={date}
-                ></BlogHeader>
+                <BlogHeader tags={tags} title={title} date={date}></BlogHeader>
                 <div
                     className={cx(
                         styles.container,
@@ -91,7 +82,7 @@ const BlogPost = ({ title, content, date, excerpt, _embedded }: Post) => {
                 >
                     <article
                         className={cx(styles.box, styles['blog-content'])}
-                        dangerouslySetInnerHTML={{ __html: content.rendered }}
+                        dangerouslySetInnerHTML={{ __html: content }}
                     />
                     <LazyAdjacent
                         date={date}

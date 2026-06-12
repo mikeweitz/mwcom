@@ -17,7 +17,7 @@ const Header = () => {
     const [showMenu, setShowMenu] = useState(false);
 
     const {
-        header: { title, email, github, linkedin, playlists, blog },
+        header: { title, email, github, linkedin, playlists, blog, coffee },
         header,
     } = copy;
 
@@ -89,6 +89,7 @@ const Header = () => {
                             linkedin,
                             playlists,
                             blog,
+                            coffee,
                             showMenu,
                         }}
                     />
@@ -113,6 +114,7 @@ const Header = () => {
                             linkedin,
                             playlists,
                             blog,
+                            coffee,
                             showMenu,
                         }}
                     />

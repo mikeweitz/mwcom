@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
                 protocol: 'https',
                 hostname: 'mosaic.scdn.co',
             },
+
+            {
+                protocol: 'https',
+                hostname: 'weitzly9.wordpress.com',
+            },
             {
                 protocol: 'https',
                 hostname: 'i.scdn.co',
