@@ -7,12 +7,12 @@ import { useRouter } from 'next/router';
 import Layout from '@mw/components/layout';
 import { ScrollProvider } from '@mw/components/scrollContext';
 
-import { TPost } from '@mw/types';
+import { Post, TPost } from '@mw/types';
 
 import BlogHeader from './blog-header';
 
 import styles from './styles.module.scss';
-import blogStyles from './gutenberg.module.scss';
+import blogStyles from '../blog/gutenberg.module.scss';
 
 const LazyAdjacent = dynamic(() => import('@mw/pages/blog/adjacent-posts'), {
     loading: () => (
@@ -31,8 +31,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
     );
 
     if (response.ok) {
-        const { posts } = await response.json();
-        const paths = posts.map((post: TPost) => ({
+        const posts: Post[] = await response.json();
+
+        const paths = posts.map((post: Post) => ({
             params: { slug: String(post.slug) },
         }));
 
