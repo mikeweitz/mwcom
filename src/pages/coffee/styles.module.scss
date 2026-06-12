@@ -140,26 +140,32 @@ $blog-padding-x: 1.5em;
     }
 }
 
+.header-index.header-index {
+    @media (max-width: 640px) {
+        background-color: transparent; // rgb(220 220 220 / 0.75);
+    }
+}
+
 // Page lead post
 .feature {
     position: relative;
     display: block;
 
-    &:not(.header-index) {
-        @media (max-width: 640px) {
-            background-color: rgb(220 220 220 / 0.75);
-            .container {
-                margin: 0.25em 1em 2em;
-                max-width: 100%;
-                padding-top: 4em;
-                width: auto;
-            }
+    // &.header-index {
+    //     @media (max-width: 640px) {
+    //         background-color: rgb(220 220 220 / 0.75);
+    //         .container {
+    //             margin: 0.25em 1em 2em;
+    //             max-width: 100%;
+    //             padding-top: 4em;
+    //             width: auto;
+    //         }
 
-            &:before {
-                content: none;
-            }
-        }
-    }
+    //         &:before {
+    //             content: none;
+    //         }
+    //     }
+    // }
 
     &:before {
         content: '';

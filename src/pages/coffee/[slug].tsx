@@ -6,10 +6,9 @@ import { useRouter } from 'next/router';
 
 import Layout from '@mw/components/layout';
 import { ScrollProvider } from '@mw/components/scrollContext';
+import BlogHeader from '@mw/pages/blog/blog-header';
 
 import { Post, TPost } from '@mw/types';
-
-import BlogHeader from './blog-header';
 
 import styles from './styles.module.scss';
 import blogStyles from '../blog/gutenberg.module.scss';

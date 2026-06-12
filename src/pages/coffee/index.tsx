@@ -52,7 +52,7 @@ const excerpts = [
     // 'Occastionl thoguhts about things.',
 ];
 
-export default function Coffee({ posts, found }: CoffeeProps) {
+export default function Coffee({ posts }: CoffeeProps) {
     return (
         <ScrollProvider>
             <Head>
