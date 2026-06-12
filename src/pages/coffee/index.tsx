@@ -4,8 +4,6 @@ import cx from 'classnames';
 
 import Layout from '@mw/components/layout';
 import { ScrollProvider } from '@mw/components/scrollContext';
-import Date from '@mw/components/date';
-import LinkButton from '@mw/components/button/link';
 import BlogHeader from '@mw/pages/blog/blog-header';
 
 import { COFFEE_CATEGORY_ID, reandomEle } from '../blog';
@@ -71,8 +69,13 @@ export default function Coffee({ posts }: CoffeeProps) {
                 >
                     <em>{reandomEle(eyebrow)}</em>
                 </BlogHeader>
-
-                <div className={cx(styles.container, styles['blog-index'])}>
+                <div className={styles.container}>
+                    <p>
+                        Grind sizes for a Eureka Mignon Zero with the Aro dial
+                        customization, with an 18g IMS basket.
+                    </p>
+                </div>
+                <div className={cx(styles.container, styles['coffee-index'])}>
                     {posts.length &&
                         posts.map((post) => {
                             const categories =
@@ -105,17 +108,21 @@ export default function Coffee({ posts }: CoffeeProps) {
                                 <article
                                     key={post.id}
                                     className={cx(
-                                        styles['blog-card'],
-                                        !isWork && styles['blog-non-work']
+                                        styles['card'],
+                                        !isWork && styles['non-work']
                                     )}
                                 >
                                     <span className={styles['card-contents']}>
-                                        {/* <Date
-                                            className={styles.date}
-                                            format="short"
-                                        >
-                                            {post.date}
-                                        </Date> */}
+                                        {image && (
+                                            <figure className={styles.image}>
+                                                <Image
+                                                    width={image.width}
+                                                    height={image.height}
+                                                    src={image.source_url}
+                                                    alt={image.alt_text || ''}
+                                                />
+                                            </figure>
+                                        )}
                                         <h2
                                             className={styles.title}
                                             dangerouslySetInnerHTML={{
@@ -128,17 +135,6 @@ export default function Coffee({ posts }: CoffeeProps) {
                                                 __html: post.content.rendered,
                                             }}
                                         />
-
-                                        {image && (
-                                            <>
-                                                <Image
-                                                    width={image.width}
-                                                    height={image.height}
-                                                    src={image.source_url}
-                                                    alt={image.alt_text || ''}
-                                                />
-                                            </>
-                                        )}
                                     </span>
                                 </article>
                             );

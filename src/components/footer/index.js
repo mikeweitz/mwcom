@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 
 const Footer = () => {
     const {
-        header: { github, linkedin, playlists, blog },
+        header: { github, linkedin, playlists, blog, coffee },
     } = copy;
 
     const onPrint = () =>
@@ -46,6 +46,15 @@ const Footer = () => {
                             <li>
                                 <a
                                     className={styles.link}
+                                    href={playlists.url}
+                                    tabIndex={0}
+                                >
+                                    {playlists.text}
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    className={styles.link}
                                     href={blog.url}
                                     tabIndex={0}
                                 >
@@ -55,10 +64,10 @@ const Footer = () => {
                             <li>
                                 <a
                                     className={styles.link}
-                                    href={playlists.url}
+                                    href={coffee.url}
                                     tabIndex={0}
                                 >
-                                    {playlists.text}
+                                    {coffee.text}
                                 </a>
                             </li>
                         </ul>

@@ -35,38 +35,55 @@ $blog-padding-x: 1.5em;
 .container {
     @extend %container;
 
-    &.blog-index {
+    &.coffee-index {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 18px;
         justify-content: center;
         margin-bottom: 2em;
         // padding to offset skewed cards
-        padding-block: clamp(42px, 10%, 120px); // 42px;
+        padding-bottom: clamp(42px, 10%, 120px); // 42px;
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 920px) {
             grid-gap: 32px;
             grid-template-columns: repeat(2, 1fr);
         }
 
-        @media screen and (min-width: 1025px) {
-            max-width: 1440px;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 24px;
-        }
+        // @media screen and (min-width: 1025px) {
+        //     max-width: 1440px;
+        //     grid-template-columns: repeat(3, 1fr);
+        //     grid-gap: 24px;
+        // }
 
-        @media screen and (min-width: 1440px) {
-            max-width: 1800px;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 24px;
-        }
+        // @media screen and (min-width: 1440px) {
+        //     max-width: 1800px;
+        //     grid-template-columns: repeat(4, 1fr);
+        //     grid-gap: 24px;
+        // }
+    }
+}
+
+.image {
+    display: block;
+    max-width: fit-content;
+    max-width: 260px;
+    margin: 0;
+    padding: 0;
+
+    img {
+        display: block;
+        border-radius: 8px;
+        width: 100%;
+        height: auto;
     }
 }
 
 .card {
     border-radius: 8px;
+    padding: 0;
     padding: 3em $blog-padding-x;
     display: flex;
+    width: auto;
     flex-direction: column;
     justify-content: center;
     transition: all 0.25s ease-in-out;
@@ -93,6 +110,41 @@ $blog-padding-x: 1.5em;
 
     .card-contents {
         // transform: rotate(5deg) skew(5deg);
+        // display: grid;
+        // gap: 1em;
+        // grid-template-columns: 4fr 8fr;
+        // grid-template-rows: 1fr 1fr;
+
+        .image {
+            margin-right: 0;
+            margin-bottom: 1.5em;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        h3 {
+            font-size: 1.625em;
+            font-weight: 700;
+            color: var(--dark-blue-hover);
+        }
+
+        @media (min-width: 520px) {
+            .image {
+                // grid-row: 1 / span 2;
+                // grid-column: 1 / 2;
+                float: left;
+                width: 100%;
+                max-width: 180px;
+
+                margin-right: 1.5em;
+                margin-bottom: 0;
+            }
+        }
+        @media (min-width: 6400px) {
+            .image {
+                max-width: 220px;
+            }
+        }
     }
 
     .date {
@@ -150,22 +202,6 @@ $blog-padding-x: 1.5em;
 .feature {
     position: relative;
     display: block;
-
-    // &.header-index {
-    //     @media (max-width: 640px) {
-    //         background-color: rgb(220 220 220 / 0.75);
-    //         .container {
-    //             margin: 0.25em 1em 2em;
-    //             max-width: 100%;
-    //             padding-top: 4em;
-    //             width: auto;
-    //         }
-
-    //         &:before {
-    //             content: none;
-    //         }
-    //     }
-    // }
 
     &:before {
         content: '';
