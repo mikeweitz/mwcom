@@ -108,14 +108,13 @@ export default function Coffee({ posts }: CoffeeProps) {
                                 >
                                     <span className={styles['card-contents']}>
                                         {image && (
-                                            <figure className={styles.image}>
-                                                <Image
-                                                    width={image.width}
-                                                    height={image.height}
-                                                    src={image.source_url}
-                                                    alt={image.alt_text || ''}
-                                                />
-                                            </figure>
+                                            <Image
+                                                className={styles.image}
+                                                width={image.width}
+                                                height={image.height}
+                                                src={image.source_url}
+                                                alt={image.alt_text || ''}
+                                            />
                                         )}
                                         <aside className={styles['copy']}>
                                             <h2

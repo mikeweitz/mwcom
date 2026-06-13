@@ -68,17 +68,11 @@ $blog-padding-x: 1.5em;
 }
 .image {
     display: block;
-    max-width: fit-content;
-    max-width: 260px;
     margin: 0;
     padding: 0;
-
-    img {
-        display: block;
-        border-radius: 8px;
-        width: 100%;
-        height: auto;
-    }
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
 }
 
 .card {
@@ -115,10 +109,17 @@ $blog-padding-x: 1.5em;
         // transform: rotate(5deg) skew(5deg);
         display: grid;
         gap: 1em;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr;
 
         .image {
+            grid-row-start: 2;
             width: 100%;
+        }
+        @media screen and (min-width: 480px) {
+            grid-template-columns: 1fr 2fr;
+            .image {
+                grid-row-start: 1;
+            }
         }
 
         h3 {
