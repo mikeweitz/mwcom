@@ -42,7 +42,7 @@ $blog-padding-x: 1.5em;
         justify-content: center;
         margin-bottom: 2em;
         // padding to offset skewed cards
-        padding-bottom: clamp(42px, 10%, 120px); // 42px;
+        // padding-bottom: clamp(42px, 10%, 120px); // 42px;
 
         @media screen and (min-width: 920px) {
             grid-gap: 32px;
@@ -62,7 +62,10 @@ $blog-padding-x: 1.5em;
         // }
     }
 }
-
+.footnote {
+    margin-block: 1em 3em;
+    padding-inline: 2em;
+}
 .image {
     display: block;
     max-width: fit-content;
@@ -110,16 +113,12 @@ $blog-padding-x: 1.5em;
 
     .card-contents {
         // transform: rotate(5deg) skew(5deg);
-        // display: grid;
-        // gap: 1em;
-        // grid-template-columns: 4fr 8fr;
-        // grid-template-rows: 1fr 1fr;
+        display: grid;
+        gap: 1em;
+        grid-template-columns: 1fr 2fr;
 
         .image {
-            margin-right: 0;
-            margin-bottom: 1.5em;
             width: 100%;
-            max-width: 100%;
         }
 
         h3 {
@@ -130,13 +129,7 @@ $blog-padding-x: 1.5em;
 
         @media (min-width: 520px) {
             .image {
-                // grid-row: 1 / span 2;
-                // grid-column: 1 / 2;
-                float: left;
                 width: 100%;
-                max-width: 180px;
-
-                margin-right: 1.5em;
                 margin-bottom: 0;
             }
         }

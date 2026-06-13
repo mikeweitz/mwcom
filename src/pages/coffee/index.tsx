@@ -20,7 +20,7 @@ interface CoffeeProps {
 export const CURRENT_TAG_ID = 3893;
 
 export const getServerSideProps = async () => {
-    const endpoint = `/posts?categories=${COFFEE_CATEGORY_ID}&tags=${CURRENT_TAG_ID}&_embed`;
+    const endpoint = `/posts?categories=${COFFEE_CATEGORY_ID}&tags=${CURRENT_TAG_ID}&_embed&orderby=date&order=desc`;
     const response = await fetch(
         new URL(process.env.WORDPRESS_API_HOST + endpoint)
     );
@@ -69,12 +69,6 @@ export default function Coffee({ posts }: CoffeeProps) {
                 >
                     <em>{reandomEle(eyebrow)}</em>
                 </BlogHeader>
-                <div className={styles.container}>
-                    <p>
-                        Grind sizes for a Eureka Mignon Zero with the Aro dial
-                        customization, with an 18g IMS basket.
-                    </p>
-                </div>
                 <div className={cx(styles.container, styles['coffee-index'])}>
                     {posts.length &&
                         posts.map((post) => {
@@ -123,22 +117,31 @@ export default function Coffee({ posts }: CoffeeProps) {
                                                 />
                                             </figure>
                                         )}
-                                        <h2
-                                            className={styles.title}
-                                            dangerouslySetInnerHTML={{
-                                                __html: post.title.rendered,
-                                            }}
-                                        />
-                                        <div
-                                            className={styles.content}
-                                            dangerouslySetInnerHTML={{
-                                                __html: post.content.rendered,
-                                            }}
-                                        />
+                                        <aside className={styles['copy']}>
+                                            <h2
+                                                className={styles.title}
+                                                dangerouslySetInnerHTML={{
+                                                    __html: post.title.rendered,
+                                                }}
+                                            />
+                                            <div
+                                                className={styles.content}
+                                                dangerouslySetInnerHTML={{
+                                                    __html: post.content
+                                                        .rendered,
+                                                }}
+                                            />
+                                        </aside>
                                     </span>
                                 </article>
                             );
                         })}
+                </div>
+                <div className={cx(styles.container, styles['footnote'])}>
+                    <p>
+                        Grind sizes for a Eureka Mignon Zero with the Aro dial
+                        customization, using an 18g IMS basket.
+                    </p>
                 </div>
             </Layout>
         </ScrollProvider>
