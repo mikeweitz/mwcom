@@ -158,7 +158,6 @@ const Playlists = ({ playlists, years }) => {
                                     className={styles['playlist-wrap']}
                                     key={p.id}
                                 >
-                                    {active === p.id && 'active'}
                                     <CardById
                                         data-testid={`playlist-card-${p.id}`}
                                         active={p.id === active}
