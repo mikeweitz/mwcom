@@ -1,23 +1,7 @@
 // callback URL for spotify app auth
 
-export async function getServerSideProps({ req, res }) {
-    const code = req.query.code;
-    // const response = await fetch('https://accounts.spotify.com/api/token', {
-    //     method: 'POST',
-    //     headers: {
-    //         Authorization: `Basic ${Buffer.from(
-    //             `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`
-    //         ).toString('base64')}`,
-    //         'Content-Type': 'application/x-www-form-urlencoded',
-    //     },
-    //     body: new URLSearchParams({
-    //         grant_type: 'refresh_token',
-    //         refresh_token,
-    //     }),
-    // });
-    // const data = await response.json();
-    // console.log('Spotify access token', data);
-    // return data;
+export async function getServerSideProps(context) {
+    const { query } = context;
 
     const tokenRes = await fetch('https://accounts.spotify.com/api/token', {
         method: 'POST',
@@ -28,15 +12,14 @@ export async function getServerSideProps({ req, res }) {
             ).toString('base64')}`,
         },
         body: new URLSearchParams({
-            code,
+            code: query.code,
             redirect_uri: process.env.SPOTIFY_REDIRECT_URI,
             grant_type: 'authorization_code',
         }),
     });
     const tokenData = await tokenRes.json();
-
     const { access_token, refresh_token } = tokenData;
-    // console.log('Spotify access token', tokenData);
+
     return {
         props: { access_token, refresh_token },
     };

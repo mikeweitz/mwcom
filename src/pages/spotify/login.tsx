@@ -1,26 +1,9 @@
-const client_id = process.env.SPOTIFY_CLIENT_ID;
-const redirect_uri = process.env.SPOTIFY_REDIRECT_URI; // 'http://127.0.0.1:8888/callback';
-
-// var app = express();
-
-// app.get('/login', function(req, res) {
-
-//   var state = generateRandomString(16);
-//   var scope = 'user-read-private user-read-email';
-
-//   res.redirect('https://accounts.spotify.com/authorize?' +
-//     querystring.stringify({
-//       response_type: 'code',
-//       client_id: client_id,
-//       scope: scope,
-//       redirect_uri: redirect_uri,
-//       state: state
-//     }));
-// });
-
 import { useEffect, useState } from 'react';
 
 import { topTracks } from '@mw/helpers/spotify';
+
+const client_id = process.env.SPOTIFY_CLIENT_ID;
+const redirect_uri = process.env.SPOTIFY_REDIRECT_URI; // 'http://127.0.0.1:8888/callback';
 
 type Track = {
     title: string;
@@ -86,7 +69,9 @@ const Login = () => {
     const [tracks, setTracks] = useState<Tracks>();
 
     useEffect(() => {
-        // window.location.href = spotifyLoginUrl;
+        // setTimeout(() => {
+        //     window.location.href = spotifyLoginUrl;
+        // }, 500);
         // fetcher()
         //     .then(({ props }) => setTracks(props.tracks))
         //     .catch((e) => console.error('could not fetch', e));
