@@ -189,16 +189,21 @@ $blog-padding-x: 1.5em;
 .back-link {
     border-radius: 3em 3em;
     padding: 0 1em;
-    margin: 0 0 1em auto;
+    margin: 0 0 1.5em auto;
     font-weight: normal;
     text-transform: none;
     text-decoration: none;
     font-size: 0.75em;
+    background-color: rgb(255 255 255 / 0.5);
     &:hover,
     &:visited,
     &:active,
     &:focus {
         text-decoration: none;
+    }
+    &:hover {
+        color: var(--white);
+        background-color: rgb(125 50 195 / 0.5);
     }
 }
 
