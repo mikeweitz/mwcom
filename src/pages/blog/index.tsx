@@ -91,7 +91,7 @@ const excerpts = [
     // 'Occastionl thoguhts about things.',
 ];
 
-export const reandomEle = (arr) => {
+export const randomEle = (arr) => {
     const index = Math.round(Math.random() * (arr.length - 1));
     return arr[index];
 };
@@ -110,10 +110,10 @@ export default function Blog({ posts, found }: BlogProps) {
                 <h1 className={styles['page-title']}>Blog</h1>
                 <BlogHeader
                     className={styles['header-index']}
-                    excerpt={reandomEle(excerpts)}
-                    title={reandomEle(titles)}
+                    excerpt={randomEle(excerpts)}
+                    title={randomEle(titles)}
                 >
-                    <em>{reandomEle(eyebrow)}</em>
+                    <em>{randomEle(eyebrow)}</em>
                 </BlogHeader>
 
                 <div

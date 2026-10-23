@@ -6,21 +6,25 @@ import Layout from '@mw/components/layout';
 import { ScrollProvider } from '@mw/components/scrollContext';
 import BlogHeader from '@mw/pages/blog/blog-header';
 
-import { COFFEE_CATEGORY_ID, reandomEle } from '../blog';
+import { COFFEE_CATEGORY_ID, randomEle } from '../blog';
 
 import { Post, FeaturedMedia } from '@mw/types';
 
 import styles from './styles.module.scss';
+import Link from '@mw/components/button/link';
 
 interface CoffeeProps {
     posts: Post[];
     found: number;
+    isArchive?: boolean;
 }
 
 export const CURRENT_TAG_ID = 3893;
 
-export const getServerSideProps = async () => {
-    const endpoint = `/posts?categories=${COFFEE_CATEGORY_ID}&tags=${CURRENT_TAG_ID}&_embed&orderby=date&order=desc`;
+export const getServerSideProps = async (context) => {
+    const isArchive = false;
+    const tags = 'tags';
+    const endpoint = `/posts?categories=${COFFEE_CATEGORY_ID}&${tags}=${CURRENT_TAG_ID}&_embed&orderby=date&order=desc`;
     const response = await fetch(
         new URL(process.env.WORDPRESS_API_HOST + endpoint)
     );
@@ -29,7 +33,7 @@ export const getServerSideProps = async () => {
     if (response.ok) {
         const posts = await response.json();
         return {
-            props: { posts, found },
+            props: { posts, found, isArchive },
         };
     }
 
@@ -42,15 +46,17 @@ export const getServerSideProps = async () => {
     };
 };
 
-const eyebrow = ['Espresso Recipes'];
-const titles = ['Currently Brewing These Beans'];
-const excerpts = [
-    // 'Frequent thoughts about non-things',
-    // 'Running a personal blog is the web equivalent of collecting vinyl',
-    // 'Occastionl thoguhts about things.',
-];
+export default function Coffee({ posts, isArchive = false }: CoffeeProps) {
+    const eyebrow = ['Espresso Recipes'];
+    const titles = isArchive
+        ? ['Coffee Bean Archive']
+        : ['Currently Brewing These Beans'];
+    const excerpts = [
+        // 'Frequent thoughts about non-things',
+        // 'Running a personal blog is the web equivalent of collecting vinyl',
+        // 'Occastionl thoguhts about things.',
+    ];
 
-export default function Coffee({ posts }: CoffeeProps) {
     return (
         <ScrollProvider>
             <Head>
@@ -61,14 +67,30 @@ export default function Coffee({ posts }: CoffeeProps) {
                 />
             </Head>
             <Layout data-testid="blog-index">
-                <h1 className={styles['page-title']}>Coffee</h1>
+                <h1 className={styles['page-title']}>
+                    Coffee {isArchive && ' Archive'}
+                </h1>
                 <BlogHeader
                     className={styles['header-index']}
-                    excerpt={reandomEle(excerpts)}
-                    title={reandomEle(titles)}
+                    excerpt={randomEle(excerpts)}
+                    title={randomEle(titles)}
                 >
-                    <em>{reandomEle(eyebrow)}</em>
+                    <em>{randomEle(eyebrow)}</em>
                 </BlogHeader>
+                <div className={cx(styles.container)}>
+                    {isArchive ? (
+                        <Link className={styles['back-link']} href="/coffee">
+                            View Current
+                        </Link>
+                    ) : (
+                        <Link
+                            className={styles['back-link']}
+                            href="/coffee/archive"
+                        >
+                            View Archive
+                        </Link>
+                    )}
+                </div>
                 <div className={cx(styles.container, styles['coffee-index'])}>
                     {posts.length &&
                         posts.map((post) => {
